@@ -16,6 +16,8 @@ package body Hostarm_Server is
    package Tools  renames Hostarm_Tools;
 
    Server : AWS.Server.HTTP;
+   Tipue_Path : constant String := "/assets/tipuesearch";
+   URI_Search : constant String := "/search";
 
    -------------
    -- Service --
@@ -37,6 +39,20 @@ Ada.Text_IO.Put_Line (Name);
                AWS.Response.Build (Content_Type    => "text/html",
                                    UString_Message => Payload);
          end;
+
+      elsif Ada.Strings.Fixed.Head (URI, URI_Search'Length) = URI_Search then
+         declare
+            Name    : constant String := Config.WWW_Base & "/search.thtml";
+            Payload : Tools.UString;
+         begin
+            Ada.Text_IO.Put_Line ("Search:" & Name);
+            Tools.Load_File (Name, Payload);
+
+            return
+               AWS.Response.Build (Content_Type    => "text/html",
+                                   UString_Message => Payload);
+         end;
+
       elsif URI = "/about" then
          declare
             Name    : constant String := Config.WWW_Base & "/about.thtml";
@@ -94,6 +110,20 @@ Ada.Text_IO.Put_Line ("REDIRECT:" & URI & " to " & New_URI);
             end;
          end if;
       end Redirect_From_HTML;
+
+      if Ada.Strings.Fixed.Head (URI, Tipue_Path'Length) = Tipue_Path then
+         declare
+            Name    : constant String := Config.Tipue_Base & URI;
+            Payload : Tools.UString;
+         begin
+            Ada.Text_IO.Put_Line ("Tipue: " & Name);
+            Tools.Load_File (Name, Payload);
+
+            return
+               AWS.Response.Build (Content_Type    => "text/html",
+                                   UString_Message => Payload);
+         end;
+      end if;
 
       declare
          Name    : constant String := Config.ARM_Base & URI & ".html";
