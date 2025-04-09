@@ -61,21 +61,42 @@ Ada.Text_IO.Put_Line (Name);
                                    UString_Message => Payload);
          end;
 
+      elsif
+        Ada.Strings.Fixed.Tail (URI, String'(".gif")'Length) in ".gif" | ".ico"
+      then
+         declare
+            Name    : constant String := Config.ARM_Base & URI;
+            Payload : Tools.UString;
+         begin
+Ada.Text_IO.Put_Line ("GIF:" & URI & " Name:" & Name);
+            Tools.Load_File (Name, Payload);
+
+            return
+               AWS.Response.Build (Content_Type    => "text/html",
+                                   UString_Message => Payload);
+         end;
+
       end if;
 
-      Redirect_To_HTML :
+      Redirect_From_HTML :
       declare
          use Ada.Strings.Fixed;
 
          Match : constant String := ".html";
       begin
-         if Tail (URI, Match'Length) /= Match then
-            return AWS.Response.URL (Location => URI & Match);
+         if Tail (URI, Match'Length) = Match then
+            declare
+               New_URI : constant String
+                 := Head (URI, URI'Length - Match'Length);
+            begin
+Ada.Text_IO.Put_Line ("REDIRECT:" & URI & " to " & New_URI);
+               return AWS.Response.URL (Location => New_URI);
+            end;
          end if;
-      end Redirect_To_HTML;
+      end Redirect_From_HTML;
 
       declare
-         Name : constant String := Config.ARM_Base & URI;
+         Name    : constant String := Config.ARM_Base & URI & ".html";
          Payload : Tools.UString;
       begin
 Ada.Text_IO.Put_Line (Name);

@@ -7,7 +7,7 @@ with Hostarm_Server;
 -- Hostarm --
 -------------
 
-procedure Hostarm is	
+procedure Hostarm is
    package Config renames Hostarm_Config;
 begin
 
