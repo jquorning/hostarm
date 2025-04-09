@@ -133,6 +133,33 @@ package body Stripping is
               Through => Bot_Pos + Bot_Match'Length);
    end Strip_Sponsor;
 
+   --------------
+   -- Strip_HR --
+   --------------
+
+   procedure Strip_HR (Item  : in out Tools.UString;
+                       First : in     Boolean)
+   is
+      HR_Match : constant String := "<HR>";
+      HR_Pos   : Natural;
+   begin
+      HR_Pos := Index (Item, HR_Match, From => 1);
+      if HR_Pos = 0 then
+         return;
+      end if;
+
+      if not First then
+         HR_Pos := Index (Item, HR_Match, From => HR_Pos + HR_Match'Length);
+      end if;
+      if HR_Pos = 0 then
+         return;
+      end if;
+
+      Delete (Item,
+              From    => HR_Pos,
+              Through => HR_Pos + HR_Match'Length);
+   end Strip_HR;
+
    -----------
    -- Strip --
    -----------
@@ -154,6 +181,15 @@ package body Stripping is
       if Config.Strip_Sponsor then
          Strip_Sponsor (Item);
       end if;
+
+      if Config.Strip_Sponsor and Config.Strip_Legend_Bottom then
+         Strip_HR (Item, First => False);
+      end if;
+
+      if Config.Strip_Title and Config.Strip_Legend_Top then
+         Strip_HR (Item, First => True);
+      end if;
+
    end Strip;
 
 end Stripping;
