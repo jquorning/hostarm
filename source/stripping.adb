@@ -36,6 +36,35 @@ package body Stripping is
               Through => Bot_Pos + Bot_Match'Length);
    end Strip_Top;
 
+   -----------------
+   -- Strip_Title --
+   -----------------
+
+   procedure Strip_Title (Item : in out Tools.UString)
+   is
+      Body_Match : constant String := "<BODY TEXT=";
+      Top_Match  : constant String := "<DIV><SPAN ";
+      Bot_Match  : constant String := "</DIV>";
+      Body_Pos : Natural;
+      Top_Pos  : Natural;
+      Bot_Pos  : Natural;
+   begin
+      Body_Pos := Index (Item, Body_Match, From => 1);
+      if Body_Pos = 0 then
+         return;
+      end if;
+
+      Top_Pos := Index (Item, Top_Match, From => Body_Pos);
+      Bot_Pos := Index (Item, Bot_Match, From => Top_Pos);
+      if Top_Pos = 0 or Bot_Pos = 0 then
+         return;
+      end if;
+
+      Delete (Item,
+              From    => Top_Pos,
+              Through => Bot_Pos + Bot_Match'Length);
+   end Strip_Title;
+
    ------------------
    -- Strip_Bottom --
    ------------------
@@ -70,6 +99,40 @@ package body Stripping is
               Through => Bot_Pos + Bot_Match'Length);
    end Strip_Bottom;
 
+   -------------------
+   -- Strip_Sponsor --
+   -------------------
+
+   procedure Strip_Sponsor (Item : in out Tools.UString)
+   is
+      HR_Match   : constant String := "<HR>";
+      Top_Match  : constant String := "<DIV Style=";
+      Bot_Match  : constant String := "</DIV>";
+      HR_Pos   : Natural;
+      Top_Pos  : Natural;
+      Bot_Pos  : Natural;
+   begin
+      HR_Pos := Index (Item, HR_Match, From => 1);
+      if HR_Pos = 0 then
+         return;
+      end if;
+
+      HR_Pos := Index (Item, HR_Match, From => HR_Pos + HR_Match'Length);
+      if HR_Pos = 0 then
+         return;
+      end if;
+
+      Top_Pos := Index (Item, Top_Match, From => HR_Pos);
+      Bot_Pos := Index (Item, Bot_Match, From => Top_Pos);
+      if Top_Pos = 0 or Bot_Pos = 0 then
+         return;
+      end if;
+
+      Delete (Item,
+              From    => Top_Pos,
+              Through => Bot_Pos + Bot_Match'Length);
+   end Strip_Sponsor;
+
    -----------
    -- Strip --
    -----------
@@ -82,6 +145,14 @@ package body Stripping is
 
       if Config.Strip_Legend_Top then
          Strip_Bottom (Item);
+      end if;
+
+      if Config.Strip_Title then
+         Strip_Title (Item);
+      end if;
+
+      if Config.Strip_Sponsor then
+         Strip_Sponsor (Item);
       end if;
    end Strip;
 

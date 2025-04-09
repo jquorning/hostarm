@@ -17,5 +17,7 @@ package Config is
 
    Strip_Legend_Top    : Boolean := True;
    Strip_Legend_Bottom : Boolean := True;
+   Strip_Title         : Boolean := True;
+   Strip_Sponsor       : Boolean := True;
 
 end Config;
