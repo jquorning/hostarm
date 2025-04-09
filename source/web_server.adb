@@ -25,8 +25,7 @@ package body Web_Server is
       end if;
 
       declare
-         Base : constant String := "share/hostarm/ARM/Ada_2022";
-         Name : constant String := Base & URI;
+         Name : constant String := Config.ARM_Base & URI;
          Payload : Tools.UString;
       begin
          Tools.Load_File (Name, Payload);
