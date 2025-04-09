@@ -34,6 +34,30 @@ Ada.Text_IO.Put_Line (Name);
                AWS.Response.Build (Content_Type    => "text/html",
                                    UString_Message => Payload);
          end;
+      elsif URI = "/about" then
+         declare
+            Name    : constant String := Config.WWW_Base & "/about.thtml";
+            Payload : Tools.UString;
+         begin
+            Tools.Load_File (Name, Payload);
+
+            return
+               AWS.Response.Build (Content_Type    => "text/html",
+                                   UString_Message => Payload);
+         end;
+
+      elsif URI = "/" or URI = "" then
+         declare
+            Name    : constant String := Config.WWW_Base & "/index.thtml";
+            Payload : Tools.UString;
+         begin
+            Tools.Load_File (Name, Payload);
+
+            return
+               AWS.Response.Build (Content_Type    => "text/html",
+                                   UString_Message => Payload);
+         end;
+
       end if;
 
       Redirect_To_HTML :

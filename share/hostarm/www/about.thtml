@@ -1,0 +1,18 @@
+<head>
+<title>About</title>
+</head>
+
+<body>
+<h1>About</h1>
+
+localhost:2778/about<br>
+localhost:2778/config<br>
+localhost:2778/search<br>
+
+<h2>Invocation</h2>
+
+<code>
+hostarm [--port &lt;Port&lt;]</code><br>
+<ht>Port - Default is 2778 which is decimal for 16#Ada#.<br>
+
+</body>
