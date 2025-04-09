@@ -1,4 +1,6 @@
 
+with Ada.Text_IO;
+
 with AWS.Response;
 with AWS.Server;
 with AWS.Status;
@@ -18,16 +20,25 @@ package body Web_Server is
    is
       URI : constant String := AWS.Status.URI (Request);
    begin
-      if URI = "/index" then
-         return
-            AWS.Response.Build (Content_Type => "text/html",
-                                Message_Body => "<p>Just a test");
+      if URI = "/config" then
+         declare
+            Name    : constant String := Config.WWW_Base & URI & ".thtml";
+            Payload : Tools.UString;
+         begin
+Ada.Text_IO.Put_Line (Name);
+            Tools.Load_File (Name, Payload);
+
+            return
+               AWS.Response.Build (Content_Type    => "text/html",
+                                   UString_Message => Payload);
+         end;
       end if;
 
       declare
          Name : constant String := Config.ARM_Base & URI;
          Payload : Tools.UString;
       begin
+Ada.Text_IO.Put_Line (Name);
          Tools.Load_File (Name, Payload);
 
          return
@@ -64,7 +75,7 @@ package body Web_Server is
 
    procedure Wait is
    begin
-      AWS.Server.Wait (AWS.Server.No_Server);
+      AWS.Server.Wait (AWS.Server.Q_Key_Pressed);
    end Wait;
 
 end Web_Server;
