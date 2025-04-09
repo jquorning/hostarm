@@ -15,4 +15,7 @@ package Config is
        when ARM_2022 =>   Web_Base & "/ARM/Ada_2022",
        when AARM_202Y =>  Web_Base & "/ARM/Ada_202Y");
 
+   Strip_Legend_Top    : Boolean := True;
+   Strip_Legend_Bottom : Boolean := True;
+
 end Config;

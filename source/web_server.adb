@@ -6,6 +6,7 @@ with AWS.Server;
 with AWS.Status;
 
 with Config;
+with Stripping;
 with Tools;
 
 package body Web_Server is
@@ -40,6 +41,7 @@ Ada.Text_IO.Put_Line (Name);
       begin
 Ada.Text_IO.Put_Line (Name);
          Tools.Load_File (Name, Payload);
+         Stripping.Strip (Payload);
 
          return
             AWS.Response.Build (Content_Type    => "text/html",
