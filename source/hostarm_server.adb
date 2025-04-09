@@ -6,11 +6,14 @@ with AWS.Response;
 with AWS.Server;
 with AWS.Status;
 
-with Config;
-with Stripping;
-with Tools;
+with Hostarm_Config;
+with Hostarm_Stripping;
+with Hostarm_Tools;
 
-package body Web_Server is
+package body Hostarm_Server is
+
+   package Config renames Hostarm_Config;
+   package Tools  renames Hostarm_Tools;
 
    Server : AWS.Server.HTTP;
 
@@ -77,7 +80,7 @@ Ada.Text_IO.Put_Line (Name);
       begin
 Ada.Text_IO.Put_Line (Name);
          Tools.Load_File (Name, Payload);
-         Stripping.Strip (Payload);
+         Hostarm_Stripping.Strip (Payload);
 
          return
             AWS.Response.Build (Content_Type    => "text/html",
@@ -116,4 +119,4 @@ Ada.Text_IO.Put_Line (Name);
       AWS.Server.Wait (AWS.Server.Q_Key_Pressed);
    end Wait;
 
-end Web_Server;
+end Hostarm_Server;

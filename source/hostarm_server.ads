@@ -1,7 +1,7 @@
-package Web_Server is
+package Hostarm_Server is
 
    procedure Start;
    procedure Stop;
    procedure Wait;
 
-end Web_Server;
+end Hostarm_Server;

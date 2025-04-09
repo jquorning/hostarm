@@ -1,11 +1,12 @@
 
 with Ada.Strings.Unbounded;
 
-with Config;
+with Hostarm_Config;
 
-package body Stripping is
+package body Hostarm_Stripping is
 
    use Ada.Strings.Unbounded;
+   package Config renames Hostarm_Config;
 
    ---------------
    -- Strip_Top --
@@ -192,4 +193,4 @@ package body Stripping is
 
    end Strip;
 
-end Stripping;
+end Hostarm_Stripping;

@@ -1,4 +1,4 @@
-package Config is
+package Hostarm_Config is
 
    Default_Port : Positive := 16#ADA#;  --  Decimal: 2778
 
@@ -20,4 +20,4 @@ package Config is
    Strip_Title         : Boolean := True;
    Strip_Sponsor       : Boolean := True;
 
-end Config;
+end Hostarm_Config;
