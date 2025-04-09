@@ -1,4 +1,5 @@
 
+with Ada.Strings.Fixed;
 with Ada.Text_IO;
 
 with AWS.Response;
@@ -34,6 +35,17 @@ Ada.Text_IO.Put_Line (Name);
                                    UString_Message => Payload);
          end;
       end if;
+
+      Redirect_To_HTML :
+      declare
+         use Ada.Strings.Fixed;
+
+         Match : constant String := ".html";
+      begin
+         if Tail (URI, Match'Length) /= Match then
+            return AWS.Response.URL (Location => URI & Match);
+         end if;
+      end Redirect_To_HTML;
 
       declare
          Name : constant String := Config.ARM_Base & URI;
