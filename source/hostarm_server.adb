@@ -8,6 +8,7 @@ with AWS.Status;
 
 with Hostarm_Config;
 with Hostarm_Stripping;
+with HostARM_Tipue;
 with Hostarm_Tools;
 
 package body Hostarm_Server is
@@ -112,17 +113,22 @@ Ada.Text_IO.Put_Line ("REDIRECT:" & URI & " to " & New_URI);
       end Redirect_From_HTML;
 
       if Ada.Strings.Fixed.Head (URI, Tipue_Path'Length) = Tipue_Path then
-         declare
-            Name    : constant String := Config.Tipue_Base & URI;
-            Payload : Tools.UString;
-         begin
-            Ada.Text_IO.Put_Line ("Tipue: " & Name);
-            Tools.Load_File (Name, Payload);
+         if URI = Tipue_Path & "/tipuesearch_content.js" then
+               return
+                  AWS.Response.Build (Content_Type    => "text/html",
+                                      UString_Message => HostARM_Tipue.Get_Content);
+         else
+            declare
+               Name    : constant String := Config.Tipue_Base & URI;
+               Payload : Tools.UString;
+            begin
+               Tools.Load_File (Name, Payload);
 
-            return
-               AWS.Response.Build (Content_Type    => "text/html",
-                                   UString_Message => Payload);
-         end;
+               return
+                  AWS.Response.Build (Content_Type    => "text/html",
+                                      UString_Message => Payload);
+            end;
+         end if;
       end if;
 
       declare

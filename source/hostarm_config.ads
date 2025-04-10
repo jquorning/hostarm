@@ -21,4 +21,7 @@ package Hostarm_Config is
    Strip_Title         : Boolean := True;
    Strip_Sponsor       : Boolean := True;
 
+   URL_Without_HTML : Boolean := True;
+   --  Strip .html from URL in Tipuesearch
+
 end Hostarm_Config;
