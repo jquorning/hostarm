@@ -1,5 +1,6 @@
 
 with Ada.Strings.Unbounded;
+with Ada.Characters.Latin_1;
 
 with HostARM_Config;
 
@@ -192,5 +193,29 @@ package body HostARM_Stripping is
       end if;
 
    end Strip;
+
+   ---------------------
+   -- Replace_Doctype --
+   ---------------------
+
+   procedure Replace_Doctype (Item : in out Tools.UString)
+   is
+      use HostARM_Tools, Ada.Characters;
+
+      Match_Doctype : constant String :=
+        "<!DOCTYPE HTML PUBLIC ""-//W3C//DTD HTML 4.01 Transitional//EN"""
+        & Latin_1.CR & Latin_1.LF
+        & """http://www.w3.org/TR/html4/loose.dtd"">";
+
+      Match_2       : constant String :=
+        "<!DOCTYPE html PUBLIC ""-//W3C//DTD HTML 4.01 Transitional//EN"">";
+
+      By_Doctype    : constant String := "<!DOCTYPE html>";
+   begin
+      Replace (Item, Match_Doctype, By_Doctype);
+      Replace (Item, Match_2,       By_Doctype);
+      --  Match_2 only applies to two pages: Reference and Search.
+
+   end Replace_Doctype;
 
 end HostARM_Stripping;

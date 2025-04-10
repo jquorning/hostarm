@@ -60,7 +60,9 @@ package body HostARM_Server is
    begin
       Ada.Text_IO.Put_Line ("HTML: " & URI);
       Tools.Load_File (Name, Payload);
+
       HostARM_Stripping.Strip (Payload);
+      HostARM_Stripping.Replace_Doctype (Payload);
 
       return
          AWS.Response.Build (Content_Type    => "text/html",
