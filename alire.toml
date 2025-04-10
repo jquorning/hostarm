@@ -16,3 +16,6 @@ runner = "alire"
 
 [[depends-on]]
 aws = "=23.0.0"
+
+[environment]
+LIBRARY_TYPE.set = "relocatable"  # for AWS to work
