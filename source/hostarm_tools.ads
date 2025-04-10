@@ -12,4 +12,12 @@ package HostARM_Tools is
                       By      : in     String);
    --  Replace first occurence of Pattern in Item with By.
 
+   function Strip_Slash (URL : in String)
+                         return String;
+   --  Strip last slash, if any.
+
+   function Tail_Is (Item  : in String;
+                     Match : in String)
+                     return Boolean;
+
 end HostARM_Tools;
