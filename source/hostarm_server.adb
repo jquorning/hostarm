@@ -1,9 +1,12 @@
 
 with Ada.Strings.Fixed;
+with Ada.Strings.Unbounded;
 with Ada.Text_IO;
 
+with AWS.Client;
 with AWS.Config.Set;
-with AWS.Response;
+with AWS.Parameters;
+with AWS.Response.Set;
 with AWS.Server;
 with AWS.Services.Dispatchers.URI;
 with AWS.Status;
@@ -63,6 +66,11 @@ package body HostARM_Server is
 
       HostARM_Stripping.Strip (Payload);
       HostARM_Stripping.Replace_Doctype (Payload);
+
+      if Config.Tunnel_Ada_Auth_Search then
+         HostARM_Stripping.Replace_Ada_Auth (Payload);
+         --  Only RM-SRCH affected
+      end if;
 
       return
          AWS.Response.Build (Content_Type    => "text/html",
@@ -188,6 +196,47 @@ package body HostARM_Server is
 
    end Service_Odd;
 
+   ------------------
+   -- Service_Auth --
+   ------------------
+
+   function Service_Auth (Request : in AWS.Status.Data)
+                          return AWS.Response.Data
+   is
+      use AWS.Parameters, Ada.Strings.Unbounded;
+
+      URI     : constant String := AWS.Status.URI (Request);
+      Params  : constant List   := AWS.Status.Parameters (Request);
+   begin
+      Ada.Text_IO.Put_Line ("Ada-Auth search");
+      Ada.Text_IO.Put_Line ("  URI: " & URI);
+      Ada.Text_IO.Put_Line ("    SearchA: " & Get (Params, "SearchA"));
+      Ada.Text_IO.Put_Line ("    SearchO: " & Get (Params, "SearchO"));
+      Ada.Text_IO.Put_Line ("    SearchN: " & Get (Params, "SearchN"));
+
+      declare
+         URL : constant String :=
+           Config.Ada_Auth_URL & "/" & AWS.Parameters.URI_Format (Params);
+
+         Response : AWS.Response.Data;
+         Payload  : Tools.UString;
+      begin
+         Ada.Text_IO.Put_Line ("  URL: " & URL);
+         Response := AWS.Client.Get (URL => Config.Ada_Auth_URL);
+         Payload  := AWS.Response.Message_Body (Response);
+
+         Ada.Text_IO.Put_Line ("  Payload:");
+         Ada.Text_IO.Put_Line (To_String (Payload));
+         Ada.Text_IO.New_Line (2);
+
+         --  Add pyning here
+
+         AWS.Response.Set.Message_Body (Response, Payload);
+         return Response;
+      end;
+
+   end Service_Auth;
+
    -------------------------
    -- Register_Dispatcher --
    -------------------------
@@ -201,6 +250,7 @@ package body HostARM_Server is
       Register (Dispatcher, "/search", Service_Page'Access, Prefix => True);
       Register (Dispatcher, "/about",  Service_Page'Access);
       Register (Dispatcher, "/index",  Service_Page'Access);
+      Register (Dispatcher, "/auth",   Service_Auth'Access, Prefix => True);
       Register (Dispatcher, "/",       Service_Odd'Access);
       Register (Dispatcher, "",        Service_Odd'Access);
 

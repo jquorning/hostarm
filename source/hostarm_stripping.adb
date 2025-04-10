@@ -218,4 +218,17 @@ package body HostARM_Stripping is
 
    end Replace_Doctype;
 
+   ----------------------
+   -- Replace_Ada_Auth --
+   ----------------------
+
+   procedure Replace_Ada_Auth (Item : in out Tools.UString)
+   is
+      use HostARM_Tools;
+
+      By : constant String := "/auth";
+   begin
+      Replace (Item, Pattern => Config.Ada_Auth_URL, By => By);
+   end Replace_Ada_Auth;
+
 end HostARM_Stripping;
