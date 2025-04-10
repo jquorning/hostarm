@@ -1,4 +1,5 @@
 
+with Ada.Characters.Latin_1;
 with Ada.Text_IO.Unbounded_IO;
 
 with HostARM_Config;
@@ -89,22 +90,23 @@ package body HostARM_Tipue is
                              Tags  : in UString;
                              URL   : in UString)
    is
+      use Ada.Characters.Latin_1;
    begin
-      Append (Content, "{" & ASCII.LF);
+      Append (Content, "{" & LF);
 
       Append (Content, "  ""title"": """);  Append (Content, Title);
-      Append (Content, """,");              Append (Content, ASCII.LF);
+      Append (Content, """,");              Append (Content, LF);
 
       Append (Content, "  ""text"":  """);  Append (Content, Text);
-      Append (Content, """,");              Append (Content, ASCII.LF);
+      Append (Content, """,");              Append (Content, LF);
 
       Append (Content, "  ""tags"":  """);  Append (Content, Tags);
-      Append (Content, """,");              Append (Content, ASCII.LF);
+      Append (Content, """,");              Append (Content, LF);
 
       Append (Content, "  ""url"":   """);  Append (Content, URL);
-      Append (Content, """");               Append (Content, ASCII.LF);
+      Append (Content, """");               Append (Content, LF);
 
-      Append (Content, "}," & ASCII.LF);
+      Append (Content, "}," & LF);
 
    end Append_Content;
 
