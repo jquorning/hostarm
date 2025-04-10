@@ -156,8 +156,8 @@ package body HostARM_Tipue is
    -- Parse_Index_Div_And_Append --
    --------------------------------
 
-   procedure Parse_Index_Div_And_Append	
-      (Block : in Ustring)
+   procedure Parse_Index_Div_And_Append
+      (Block : in UString)
    is
       Match_BR   : constant String := "<BR>";
       Match_NBSP : constant String := "&nbsp;";

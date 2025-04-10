@@ -6,15 +6,15 @@ with AWS.Response;
 with AWS.Server;
 with AWS.Status;
 
-with Hostarm_Config;
-with Hostarm_Stripping;
+with HostARM_Config;
+with HostARM_Stripping;
 with HostARM_Tipue;
-with Hostarm_Tools;
+with HostARM_Tools;
 
-package body Hostarm_Server is
+package body HostARM_Server is
 
-   package Config renames Hostarm_Config;
-   package Tools  renames Hostarm_Tools;
+   package Config renames HostARM_Config;
+   package Tools  renames HostARM_Tools;
 
    Server : AWS.Server.HTTP;
    Tipue_Path : constant String := "/assets/tipuesearch";
@@ -33,7 +33,7 @@ package body Hostarm_Server is
             Name    : constant String := Config.WWW_Base & URI & ".thtml";
             Payload : Tools.UString;
          begin
-Ada.Text_IO.Put_Line (Name);
+            Ada.Text_IO.Put_Line (Name);
             Tools.Load_File (Name, Payload);
 
             return
@@ -85,7 +85,7 @@ Ada.Text_IO.Put_Line (Name);
             Name    : constant String := Config.ARM_Base & URI;
             Payload : Tools.UString;
          begin
-Ada.Text_IO.Put_Line ("GIF:" & URI & " Name:" & Name);
+            Ada.Text_IO.Put_Line ("GIF:" & URI & " Name:" & Name);
             Tools.Load_File (Name, Payload);
 
             return
@@ -106,7 +106,7 @@ Ada.Text_IO.Put_Line ("GIF:" & URI & " Name:" & Name);
                New_URI : constant String
                  := Head (URI, URI'Length - Match'Length);
             begin
-Ada.Text_IO.Put_Line ("REDIRECT:" & URI & " to " & New_URI);
+               Ada.Text_IO.Put_Line ("REDIRECT:" & URI & " to " & New_URI);
                return AWS.Response.URL (Location => New_URI);
             end;
          end if;
@@ -135,9 +135,9 @@ Ada.Text_IO.Put_Line ("REDIRECT:" & URI & " to " & New_URI);
          Name    : constant String := Config.ARM_Base & URI & ".html";
          Payload : Tools.UString;
       begin
-Ada.Text_IO.Put_Line (Name);
+         Ada.Text_IO.Put_Line (Name);
          Tools.Load_File (Name, Payload);
-         Hostarm_Stripping.Strip (Payload);
+         HostARM_Stripping.Strip (Payload);
 
          return
             AWS.Response.Build (Content_Type    => "text/html",
@@ -176,4 +176,4 @@ Ada.Text_IO.Put_Line (Name);
       AWS.Server.Wait (AWS.Server.Q_Key_Pressed);
    end Wait;
 
-end Hostarm_Server;
+end HostARM_Server;

@@ -2,7 +2,7 @@
 with Ada.Text_IO;
 with Ada.Characters.Latin_1;
 
-package body Hostarm_Tools is
+package body HostARM_Tools is
 
    procedure Load_File (Name    : in     String;
                         Payload :    out UString)
@@ -19,4 +19,4 @@ package body Hostarm_Tools is
       Close (File);
    end Load_File;
 
-end Hostarm_Tools;
+end HostARM_Tools;

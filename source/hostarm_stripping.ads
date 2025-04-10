@@ -1,9 +1,9 @@
-with Hostarm_Tools;
+with HostARM_Tools;
 
-package Hostarm_Stripping is
+package HostARM_Stripping is
 
-   package Tools renames Hostarm_Tools;
+   package Tools renames HostARM_Tools;
 
    procedure Strip (Item : in out Tools.UString);
 
-end Hostarm_Stripping;
+end HostARM_Stripping;

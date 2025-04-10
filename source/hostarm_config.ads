@@ -1,4 +1,4 @@
-package Hostarm_Config is
+package HostARM_Config is
 
    Default_Port : Positive := 16#ADA#;  --  Decimal: 2778
 
@@ -24,4 +24,4 @@ package Hostarm_Config is
    URL_Without_HTML : Boolean := True;
    --  Strip .html from URL in Tipuesearch
 
-end Hostarm_Config;
+end HostARM_Config;
