@@ -90,7 +90,7 @@ package body HostARM_Stripping is
       end if;
 
       Top_Pos := Index (Item, Top_Match, From => HR_Pos);
-      Bot_Pos := Index (Item, Bot_Match, From => Top_Pos);
+      Bot_Pos := Index (Item, Bot_Match, From => Positive'Max (Top_Pos, 1));
       if Top_Pos = 0 or Bot_Pos = 0 then
          return;
       end if;
