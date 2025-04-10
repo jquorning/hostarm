@@ -171,7 +171,7 @@ package body HostARM_Stripping is
          Strip_Top (Item);
       end if;
 
-      if Config.Strip_Legend_Top then
+      if Config.Strip_Legend_Bottom then
          Strip_Bottom (Item);
       end if;
 
