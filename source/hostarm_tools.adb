@@ -1,8 +1,12 @@
 
-with Ada.Text_IO;
 with Ada.Characters.Latin_1;
+with Ada.Text_IO;
 
 package body HostARM_Tools is
+
+   ---------------
+   -- Load_File --
+   ---------------
 
    procedure Load_File (Name    : in     String;
                         Payload :    out UString)
@@ -18,5 +22,28 @@ package body HostARM_Tools is
       end loop;
       Close (File);
    end Load_File;
+
+   -------------
+   -- Replace --
+   -------------
+
+   procedure Replace (Item    : in out UString;
+                      Pattern : in String;
+                      By      : in String)
+   is
+      use Ada.Strings.Unbounded;
+
+      Pos_Pattern : Natural;
+   begin
+      Pos_Pattern := Index (Item, Pattern, 1);
+      if Pos_Pattern = 0 then
+         return;
+      end if;
+
+      Replace_Slice (Item,
+                     Low  => Pos_Pattern,
+                     High => Pos_Pattern + Pattern'Length - 1,
+                     By   => By);
+   end Replace;
 
 end HostARM_Tools;

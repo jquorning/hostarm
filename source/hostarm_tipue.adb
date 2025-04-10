@@ -108,33 +108,13 @@ package body HostARM_Tipue is
 
    end Append_Content;
 
-   -------------
-   -- Replace --
-   -------------
-
-   procedure Replace (Item    : in out UString;
-                      Pattern : in String;
-                      By      : in String)
-   is
-      Pos_Pattern : Natural;
-   begin
-      Pos_Pattern := Index (Item, Pattern, 1);
-      if Pos_Pattern = 0 then
-         return;
-      end if;
-
-      Replace_Slice (Item,
-                     Low  => Pos_Pattern,
-                     High => Pos_Pattern + Pattern'Length - 1,
-                     By   => By);
-   end Replace;
-
    --------------------
    -- Translate_HTML --
    --------------------
 
    procedure Translate_HTML (Item : in out UString)
    is
+      use Tools;
    begin
       Replace (Item, "&amp;", "&");
       Replace (Item, "&lt;",  "<");
@@ -147,6 +127,7 @@ package body HostARM_Tipue is
 
    procedure Remove_I_Clause (Item : in out UString)
    is
+      use Tools;
    begin
       Replace (Item, "<I>",  "");
       Replace (Item, "</I>", "");
@@ -198,7 +179,7 @@ package body HostARM_Tipue is
             exit when Last = 0;
 
             if HostARM_Config.URL_Without_HTML then
-               Replace (Href, ".html", "");
+               Tools.Replace (Href, ".html", "");
             end if;
             Translate_HTML (Tags);
             Remove_I_Clause (Tags);
