@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset="utf-8">
+  <title>Search</title>
+  <!-- Stylesheets goes here -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+
+  <!-- Tipue search -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="/assets/tipuesearch/tipuesearch_content.js"></script>
+  <link rel="stylesheet" href="/assets/tipuesearch/css/tipuesearch.css">
+  <script src="/assets/tipuesearch/tipuesearch_set.js"></script>
+  <script src="/assets/tipuesearch/tipuesearch.min.js"></script>
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+<h1>Search</h1>
+
+    <form action="/search/">
+  <div class="tipue_search_left"><img src="/assets/tipuesearch/search.png" class="tipue_search_icon"></div>
+  <div class="tipue_search_right"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required autofocus></div>
+  <div style="clear: both;"></div>
+</form>
+
+<div id="tipue_search_content"></div>
+
+<p>Powered by Tipuesearch.</p>
+
+<script>
+$(document).ready(function() {
+  $('#tipue_search_input').tipuesearch();
+});
+</script>
+
+</body>

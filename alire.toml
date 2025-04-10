@@ -1,0 +1,21 @@
+name = "hostarm"
+description = "Local hosting of Ada Reference Manual (ARM)"
+version = "0.1.0-dev"
+
+authors = ["Jesper Quorning"]
+maintainers = ["Jesper Quorning <jesper.quorning@gmail.com>"]
+maintainers-logins = ["jquorning"]
+licenses = "MIT"
+website = "https://github.com:jquorning/hostarm"
+tags = ["arm", "local", "reference", "manual"]
+
+executables = ["hostarm"]
+
+[test]
+runner = "alire"
+
+[[depends-on]]
+aws = "=23.0.0"
+
+[environment]
+LIBRARY_TYPE.set = "relocatable"  # for AWS to work
