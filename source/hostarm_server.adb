@@ -115,17 +115,22 @@ package body HostARM_Server is
       if Ada.Strings.Fixed.Head (URI, Tipue_Path'Length) = Tipue_Path then
          if URI = Tipue_Path & "/tipuesearch_content.js" then
                return
-                  AWS.Response.Build (Content_Type    => "text/html",
-                                      UString_Message => HostARM_Tipue.Get_Content);
+                  AWS.Response.Build
+                     (Content_Type    => "text/javascript",
+                      UString_Message => HostARM_Tipue.Get_Content);
          else
             declare
                Name    : constant String := Config.Tipue_Base & URI;
                Payload : Tools.UString;
+               MIME    : constant String :=
+                 (if Ada.Strings.Fixed.Tail (URI, String'(".js")'Length) = ".js"
+                  then "text/javascript"
+                  else "text/css");
             begin
                Tools.Load_File (Name, Payload);
 
                return
-                  AWS.Response.Build (Content_Type    => "text/html",
+                  AWS.Response.Build (Content_Type    => MIME,
                                       UString_Message => Payload);
             end;
          end if;
@@ -152,10 +157,11 @@ package body HostARM_Server is
    procedure Start is
    begin
       AWS.Server.Start
-        (Web_Server  => Server,
-         Name        => "Ada Reference Manual (hostarm)",
-         Callback    => Service'Access,
-         Port        => Config.Default_Port);
+        (Web_Server     => Server,
+         Name           => "HostARM: Ada Reference Manual",
+         Callback       => Service'Access,
+         Max_Connection => 8,
+         Port           => Config.Default_Port);
    end Start;
 
    ----------
