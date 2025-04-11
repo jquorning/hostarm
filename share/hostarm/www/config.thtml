@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Config - HostARM</title>
+</head>
+
+<body>
+<h1>Config</h1>
+<h2>Manual</h2>
+
+<form action="/config" method="get">
+  <input type="radio" id="arm2012" name="manual_name" value="ARM_2012">
+  <label for="arm2012">ARM 2012</label><br>
+  <input type="radio" id="arm2022" name="manual_name" value="ARM_2022">
+  <label for="arm2022">ARM 2022</label><br>
+  <input type="radio" id="aarm202Y" name="manual_name" value="AARM_202Y">
+  <label for="aarm202Y">AARM 202Y</label>
+</form>
+
+</body>
+</html>
