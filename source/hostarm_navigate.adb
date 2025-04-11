@@ -157,12 +157,13 @@ package body HostARM_Navigate is
                              From    : in     Positive;
                              Last    :    out Natural)
    is
+      Href_2  : constant String := "/" & To_String (Href); -- Fix search navig
       Text_1  : constant String := "    if (e.keyCode==";
       Text_2  : constant String := ")  document.location.href='";
       Text_3  : constant String := "';     // Key code for ";
       Img_Key : constant String := Natural'(Character'Pos (Key))'Image;
       Line    : constant String :=
-        Text_1 & Img_Key & Text_2 & To_String (Href) &
+        Text_1 & Img_Key & Text_2 & Href_2 &
         Text_3 & Key & CRLF;
    begin
       if Href = "" then
