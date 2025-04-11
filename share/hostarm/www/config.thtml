@@ -10,11 +10,13 @@
 
 <form action="/config" method="post">
 <h2>Manual</h2>
-  <input type="radio" id="arm2012" name="manual_name" value="ARM_2012">
+  <input type="radio" id="arm2012" name="manual" value="ARM_2012" @_MAN_ARM_2012_@>
   <label for="arm2012">ARM 2012</label><br>
-  <input type="radio" id="arm2022" name="manual_name" value="ARM_2022">
+
+  <input type="radio" id="arm2022" name="manual" value="ARM_2022" @_MAN_ARM_2022_@>
   <label for="arm2022">ARM 2022</label><br>
-  <input type="radio" id="aarm202Y" name="manual_name" value="AARM_202Y">
+
+  <input type="radio" id="aarm202Y" name="manual" value="AARM_202Y" @_MAN_AARM_202Y_@>
   <label for="aarm202Y">AARM 202Y</label>
 
 <h2>Pyning</h2>

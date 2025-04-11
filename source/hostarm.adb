@@ -16,7 +16,7 @@ procedure HostARM is
    package Config renames HostARM_Configuration;
    use Ada.Text_IO, Ada.Strings;
 begin
-   HostARM_Tipue.Build_Content (Config.ARM_Base & "/RM-0-4.html");
+   HostARM_Tipue.Build_Content;
 
    HostARM_Server.Start;
    Put_Line ("HostARM: Accessible on URL: https://localhost:"

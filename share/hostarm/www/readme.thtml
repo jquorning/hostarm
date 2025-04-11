@@ -18,9 +18,9 @@
 
 <h2>HostARM pages</h2>
 <table>
-  <tr><td>http://localhost:2778/readme</td><td>This page</td></tr>
-  <tr><td>http://localhost:2778/search</td><td>Local search</td></tr>
-  <tr><td>http://localhost:2778/config</td><td>Config page</td></tr>
+  <tr><td><a href="http://localhost:2778/readme">/readme</a></td><td>This page</td></tr>
+  <tr><td><a href="http://localhost:2778/search">/search</a></td><td>Local search</td></tr>
+  <tr><td><a href="http://localhost:2778/config">/config</a></td><td>Config page</td></tr>
 </table>
 
 <h2>Key Navigation</h2>

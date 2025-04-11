@@ -5,7 +5,7 @@ package HostARM_Tipue is
 
    subtype UString is Ada.Strings.Unbounded.Unbounded_String;
 
-   procedure Build_Content (Index_File : in String);
+   procedure Build_Content;
    --  Build database of search results to 'tipuesearch_contents.js'.
 
    function Get_Content return UString;
