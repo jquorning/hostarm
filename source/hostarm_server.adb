@@ -4,11 +4,15 @@ with Ada.Text_IO;
 
 with AWS.Config.Set;
 with AWS.Response;
+with AWS.Parameters;
 with AWS.Server;
 with AWS.Services.Dispatchers.URI;
 with AWS.Status;
 
-with HostARM_Config;
+with Templates_Parser;
+
+with HostARM_Configuration;
+with HostARM_Cookie;
 with HostARM_Navigate;
 with HostARM_Stripping;
 with HostARM_Tipue;
@@ -16,7 +20,7 @@ with HostARM_Tools;
 
 package body HostARM_Server is
 
-   package Config renames HostARM_Config;
+   package Config renames HostARM_Configuration;
    package Tools  renames HostARM_Tools;
 
    Server_Name : constant String := "HostARM: Ada Reference Manual";
@@ -39,8 +43,8 @@ package body HostARM_Server is
         := Tools.Strip_Slash (AWS.Status.URI (Request));
       Name    : constant String := Config.WWW_Base & URI & ".thtml";
       Payload : Tools.UString;
-      Info    : constant Legend_Info := Default_Info (Next => "/search",
-                                                      Prev => "/search");
+      Info    : constant Nav_Info := Default_Info (Next => "/search",
+                                                   Prev => "/search");
    begin
       Tools.Load_File (Name, Payload);
 
@@ -50,6 +54,83 @@ package body HostARM_Server is
          AWS.Response.Build (Content_Type    => "text/html",
                              UString_Message => Payload);
    end Service_THTML;
+
+   --------------------
+   -- Service_Config --
+   --------------------
+
+   function Service_Config (Request : in AWS.Status.Data)
+                            return AWS.Response.Data
+   is
+      use HostARM_Navigate;
+      use AWS.Parameters;
+      use Templates_Parser;
+      use Config;
+
+      function Checked_If (Condition : in Boolean) return String is
+      begin
+         return (if Condition then "checked" else "");
+      end Checked_If;
+
+      function Get_Boolean (Params : in List;
+                            Key    : in String)
+                            return Boolean
+      is
+      begin
+         return Boolean'Value (Get (Params, Key));
+      exception
+         when Constraint_Error =>
+            return False;
+      end Get_Boolean;
+
+      URI     : constant String
+        := Tools.Strip_Slash (AWS.Status.URI (Request));
+      Name    : constant String := Config.WWW_Base & URI & ".thtml";
+      Payload : Tools.UString;
+      Info    : constant Nav_Info := Default_Info (Next => "/search",
+                                                   Prev => "/search");
+      Params  : constant List := AWS.Status.Parameters (Request);
+
+      function Trans return Translate_Table is
+      begin
+         return
+            (Assoc ("STRIP_TITLE",      Checked_If (Strip_Title)),
+             Assoc ("STRIP_NAV_TOP",    Checked_If (Strip_Nav_Top)),
+             Assoc ("STRIP_NAV_BOTTOM", Checked_If (Strip_Nav_Bottom)),
+             Assoc ("STRIP_SPONSOR",    Checked_If (Strip_Sponsor)),
+             Assoc ("MAN_ARM_2012",     Checked_If (Default_ARM = ARM_2012)),
+             Assoc ("MAN_ARM_2022",     Checked_If (Default_ARM = ARM_2022)),
+             Assoc ("MAN_AARM_202Y",    Checked_If (Default_ARM = AARM_202Y))
+            );
+      end Trans;
+
+   begin
+
+      case AWS.Status.Method (Request) is
+         when AWS.Status.GET  => null;
+            Payload := Templates_Parser.Parse (Filename     => Name,
+                                               Translations => Trans);
+            Insert_JS_Script (Payload, Info);
+
+         when AWS.Status.POST =>
+            Strip_Title      := Get_Boolean (Params, "strip_title");
+            Strip_Nav_Top    := Get_Boolean (Params, "strip_nav_top");
+            Strip_Nav_Bottom := Get_Boolean (Params, "strip_nav_bottom");
+            Strip_Sponsor    := Get_Boolean (Params, "strip_sponsor");
+            Default_ARM      := ARM_Version'Value (Get (Params, "manual"));
+            HostARM_Tipue.Build_Content;  -- Rebuild Tipuesearch database
+
+            Payload := Templates_Parser.Parse (Filename     => Name,
+                                               Translations => Trans);
+            Insert_JS_Script (Payload, Info);
+
+         when others => null;
+      end case;
+
+      return
+         AWS.Response.Build (Content_Type    => "text/html",
+                             UString_Message => Payload);
+   end Service_Config;
 
    -----------------
    -- Service_ARM --
@@ -62,13 +143,13 @@ package body HostARM_Server is
 
       URI     : constant String := Strip_Slash (AWS.Status.URI (Request));
       Name    : constant String := Config.ARM_Base & URI & ".html";
-      Payload     : Tools.UString;
-      Legend_Info : HostARM_Navigate.Legend_Info;
+      Payload  : Tools.UString;
+      Nav_Info : HostARM_Navigate.Nav_Info;
    begin
       Tools.Load_File (Name, Payload);
 
-      HostARM_Navigate.Read_Navigation_Legend (Payload, Legend_Info);
-      HostARM_Navigate.Insert_JS_Script       (Payload, Legend_Info);
+      HostARM_Navigate.Read_Navigation  (Payload, Nav_Info);
+      HostARM_Navigate.Insert_JS_Script (Payload, Nav_Info);
 
       HostARM_Stripping.Strip (Payload);
       HostARM_Stripping.Replace_Doctype (Payload);
@@ -205,7 +286,7 @@ package body HostARM_Server is
       use AWS.Services.Dispatchers.URI;
    begin
 
-      Register (Dispatcher, "/config", Service_THTML'Access);
+      Register (Dispatcher, "/config", Service_Config'Access);
       Register (Dispatcher, "/search", Service_THTML'Access, Prefix => True);
       Register (Dispatcher, "/readme", Service_THTML'Access);
       Register (Dispatcher, "/",       Service_Odd'Access);

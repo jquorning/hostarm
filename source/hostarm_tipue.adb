@@ -2,12 +2,13 @@
 with Ada.Characters.Latin_1;
 with Ada.Text_IO.Unbounded_IO;
 
-with HostARM_Config;
+with HostARM_Configuration;
 with HostARM_Tools;
 
 package body HostARM_Tipue is
 
-   package Tools renames HostARM_Tools;
+   package Config renames HostARM_Configuration;
+   package Tools  renames HostARM_Tools;
    use Ada.Strings.Unbounded;
 
    Content     : UString;
@@ -180,7 +181,7 @@ package body HostARM_Tipue is
                           Href => Href, Load => Load);
             exit when Last = 0;
 
-            if HostARM_Config.URL_Without_HTML then
+            if Config.URL_Without_HTML then
                Tools.Replace (Href, ".html", "");
             end if;
             Translate_HTML (Tags);
@@ -198,21 +199,18 @@ package body HostARM_Tipue is
 
    end Parse_Index_Div_And_Append;
 
-   -------------------
-   -- Build_Content --
-   -------------------
+   --------------------
+   -- Append_Content --
+   --------------------
 
-   procedure Build_Content (Index_File : in String)
+   procedure Append_Content (Index_File : in String)
    is
       Payload : Tools.UString;
       Block   : Tools.UString;  --  Contents of Index div.
       Pos     : Natural := 1;
       Last    : Natural;
    begin
-      Content := To_Unbounded_String ("");
       Tools.Load_File (Index_File, Payload);
-
-      Append (Content, "var tipuesearch = {""pages"": [" & ASCII.LF);
 
       while Pos /= 0 loop
 
@@ -223,6 +221,31 @@ package body HostARM_Tipue is
 
          Pos := Last + 1;
       end loop;
+
+   end Append_Content;
+
+   -------------------
+   -- Build_Content --
+   -------------------
+
+   procedure Build_Content
+   is
+   begin
+      Content := To_Unbounded_String ("");
+
+      Append (Content, "var tipuesearch = {""pages"": [" & ASCII.LF);
+
+      case Config.Default_ARM is
+         when Config.ARM_2012 =>
+            Append_Content (Config.ARM_Base & "/RM-0-4.html");
+
+         when Config.ARM_2022 =>
+            Append_Content (Config.ARM_Base & "/RM-0-4.html");
+
+         when Config.AARM_202Y =>
+            Append_Content (Config.ARM_Base & "/AA-0-4.html");
+
+      end case;
 
       Delete (Content,
               From    => Length (Content) - 1,

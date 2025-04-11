@@ -2,12 +2,12 @@
 with Ada.Strings.Unbounded;
 with Ada.Characters.Latin_1;
 
-with HostARM_Config;
+with HostARM_Configuration;
 
 package body HostARM_Stripping is
 
    use Ada.Strings.Unbounded;
-   package Config renames HostARM_Config;
+   package Config renames HostARM_Configuration;
 
    ---------------
    -- Strip_Top --
@@ -169,11 +169,11 @@ package body HostARM_Stripping is
 
    procedure Strip (Item : in out Tools.UString) is
    begin
-      if Config.Strip_Legend_Top then
+      if Config.Strip_Nav_Top then
          Strip_Top (Item);
       end if;
 
-      if Config.Strip_Legend_Bottom then
+      if Config.Strip_Nav_Bottom then
          Strip_Bottom (Item);
       end if;
 
@@ -185,11 +185,11 @@ package body HostARM_Stripping is
          Strip_Sponsor (Item);
       end if;
 
-      if Config.Strip_Sponsor and Config.Strip_Legend_Bottom then
+      if Config.Strip_Sponsor and Config.Strip_Nav_Bottom then
          Strip_HR (Item, First => False);
       end if;
 
-      if Config.Strip_Title and Config.Strip_Legend_Top then
+      if Config.Strip_Title and Config.Strip_Nav_Top then
          Strip_HR (Item, First => True);
       end if;
 

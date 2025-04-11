@@ -7,17 +7,43 @@
 
 <body>
 <h1>Config</h1>
-<h2>Manual</h2>
 
-<form action="/config" method="get">
-  <input type="radio" id="arm2012" name="manual_name" value="ARM_2012">
+<form action="/config" method="post">
+<h2>Manual</h2>
+  <input type="radio" id="arm2012" name="manual" value="ARM_2012" @_MAN_ARM_2012_@>
   <label for="arm2012">ARM 2012</label><br>
-  <input type="radio" id="arm2022" name="manual_name" value="ARM_2022">
+
+  <input type="radio" id="arm2022" name="manual" value="ARM_2022" @_MAN_ARM_2022_@>
   <label for="arm2022">ARM 2022</label><br>
-  <input type="radio" id="aarm202Y" name="manual_name" value="AARM_202Y">
+
+  <input type="radio" id="aarm202Y" name="manual" value="AARM_202Y" @_MAN_AARM_202Y_@>
   <label for="aarm202Y">AARM 202Y</label>
+
+<h2>Pyning</h2>
+
+    <input type="checkbox" id="strip_title" name="strip_title" value ="true" @_STRIP_TITLE_@>
+    <label for="strip_title" id="strip_title">Strip title</label>
+    <br>
+
+    <input type="checkbox" id="strip_nav_top" name="strip_nav_top" value ="true" @_STRIP_NAV_TOP_@>
+    <label for="strip_nav_top" id="strip_nav_top">Strip top navigation</label>
+    <br>
+
+    <input type="checkbox" id="strip_nav_bottom" name="strip_nav_bottom" value ="true" @_STRIP_NAV_BOTTOM_@>
+    <label for="strip_nav_bottom" id="strip_nav_bottom">Strip bottom navigation</label>
+    <br>
+
+    <input type="checkbox" id="strip_sponsor" name="strip_sponsor" value ="true" @_STRIP_SPONSOR_@>
+    <label for="strip_sponsor" id="strip_sponsor">Strip sponsor</label>
+    <br>
+
+<h2>Submit</h2>
+   <input type="submit" id="submit" id="submit" value="Submit">
+   <label for="submit" id="submit">By pressing submit you accept a cookie</label>
+   <br>
+
 </form>
+
 
 </body>
 </html>
-
