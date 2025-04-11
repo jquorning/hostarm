@@ -2,12 +2,12 @@
 with Ada.Strings.Unbounded;
 with Ada.Characters.Latin_1;
 
-with HostARM_Config;
+with HostARM_Configuration;
 
 package body HostARM_Stripping is
 
    use Ada.Strings.Unbounded;
-   package Config renames HostARM_Config;
+   package Config renames HostARM_Configuration;
 
    ---------------
    -- Strip_Top --

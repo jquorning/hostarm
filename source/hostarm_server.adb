@@ -8,7 +8,7 @@ with AWS.Server;
 with AWS.Services.Dispatchers.URI;
 with AWS.Status;
 
-with HostARM_Config;
+with HostARM_Configuration;
 with HostARM_Navigate;
 with HostARM_Stripping;
 with HostARM_Tipue;
@@ -16,7 +16,7 @@ with HostARM_Tools;
 
 package body HostARM_Server is
 
-   package Config renames HostARM_Config;
+   package Config renames HostARM_Configuration;
    package Tools  renames HostARM_Tools;
 
    Server_Name : constant String := "HostARM: Ada Reference Manual";

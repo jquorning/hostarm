@@ -1,4 +1,4 @@
-package body HostARM_Config is
+package body HostARM_Configuration is
 
    --------------
    -- ARM_Base --
@@ -70,4 +70,4 @@ package body HostARM_Config is
       end case;
    end URI_Reference;
 
-end HostARM_Config;
+end HostARM_Configuration;

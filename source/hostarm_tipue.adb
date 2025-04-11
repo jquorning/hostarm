@@ -2,7 +2,7 @@
 with Ada.Characters.Latin_1;
 with Ada.Text_IO.Unbounded_IO;
 
-with HostARM_Config;
+with HostARM_Configuration;
 with HostARM_Tools;
 
 package body HostARM_Tipue is
@@ -180,7 +180,7 @@ package body HostARM_Tipue is
                           Href => Href, Load => Load);
             exit when Last = 0;
 
-            if HostARM_Config.URL_Without_HTML then
+            if HostARM_Configuration.URL_Without_HTML then
                Tools.Replace (Href, ".html", "");
             end if;
             Translate_HTML (Tags);

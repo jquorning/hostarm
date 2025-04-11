@@ -2,7 +2,7 @@
 with Ada.Characters.Latin_1;
 with Ada.Strings.Maps;
 
-with HostARM_Config;
+with HostARM_Configuration;
 
 package body HostARM_Navigate is
 
@@ -233,7 +233,7 @@ package body HostARM_Navigate is
                           Prev : in String)
                           return Legend_Info
    is
-      package Config renames HostARM_Config;
+      package Config renames HostARM_Configuration;
 
       Info : Legend_Info;
    begin

@@ -1,4 +1,4 @@
-package HostARM_Config is
+package HostARM_Configuration is
 
    Default_Port : Positive := 16#ADA#;  --  Decimal: 2778
 
@@ -27,4 +27,4 @@ package HostARM_Config is
    function URI_Reference return String;
    --  Selected manual page URI
 
-end HostARM_Config;
+end HostARM_Configuration;
