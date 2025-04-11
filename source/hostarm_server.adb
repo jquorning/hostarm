@@ -9,6 +9,7 @@ with AWS.Services.Dispatchers.URI;
 with AWS.Status;
 
 with HostARM_Config;
+with HostARM_Navigate;
 with HostARM_Stripping;
 with HostARM_Tipue;
 with HostARM_Tools;
@@ -25,25 +26,30 @@ package body HostARM_Server is
    Server_Conf : AWS.Config.Object;
    Dispatcher  : AWS.Services.Dispatchers.URI.Handler;
 
-   ------------------
-   -- Service_Page --
-   ------------------
+   -------------------
+   -- Service_THTML --
+   -------------------
 
-   function Service_Page (Request : in AWS.Status.Data)
-                          return AWS.Response.Data
+   function Service_THTML (Request : in AWS.Status.Data)
+                           return AWS.Response.Data
    is
+      use HostARM_Navigate;
+
       URI     : constant String
         := Tools.Strip_Slash (AWS.Status.URI (Request));
       Name    : constant String := Config.WWW_Base & URI & ".thtml";
       Payload : Tools.UString;
+      Info    : constant Legend_Info := Default_Info (Next => "/search",
+                                                      Prev => "/search");
    begin
-      Ada.Text_IO.Put_Line ("URI: " & URI);
       Tools.Load_File (Name, Payload);
+
+      Insert_JS_Script (Payload, Info);
 
       return
          AWS.Response.Build (Content_Type    => "text/html",
                              UString_Message => Payload);
-   end Service_Page;
+   end Service_THTML;
 
    -----------------
    -- Service_ARM --
@@ -56,10 +62,13 @@ package body HostARM_Server is
 
       URI     : constant String := Strip_Slash (AWS.Status.URI (Request));
       Name    : constant String := Config.ARM_Base & URI & ".html";
-      Payload : Tools.UString;
+      Payload     : Tools.UString;
+      Legend_Info : HostARM_Navigate.Legend_Info;
    begin
-      Ada.Text_IO.Put_Line ("HTML: " & URI);
       Tools.Load_File (Name, Payload);
+
+      HostARM_Navigate.Read_Navigation_Legend (Payload, Legend_Info);
+      HostARM_Navigate.Insert_JS_Script       (Payload, Legend_Info);
 
       HostARM_Stripping.Strip (Payload);
       HostARM_Stripping.Replace_Doctype (Payload);
@@ -125,7 +134,6 @@ package body HostARM_Server is
       Name    : constant String := Config.ARM_Base & URI;
       Payload : Tools.UString;
    begin
-      Ada.Text_IO.Put_Line ("GIF: " & URI);
       Tools.Load_File (Name, Payload);
 
       return
@@ -180,7 +188,7 @@ package body HostARM_Server is
                          return AWS.Response.Data
    is
       URI     : constant String := AWS.Status.URI (Request);
-      New_URI : constant String := "/index";
+      New_URI : constant String := "/readme";
    begin
       Ada.Text_IO.Put_Line ("REDIRECT:" & URI & " to " & New_URI);
 
@@ -197,10 +205,9 @@ package body HostARM_Server is
       use AWS.Services.Dispatchers.URI;
    begin
 
-      Register (Dispatcher, "/config", Service_Page'Access);
-      Register (Dispatcher, "/search", Service_Page'Access, Prefix => True);
-      Register (Dispatcher, "/about",  Service_Page'Access);
-      Register (Dispatcher, "/index",  Service_Page'Access);
+      Register (Dispatcher, "/config", Service_THTML'Access);
+      Register (Dispatcher, "/search", Service_THTML'Access, Prefix => True);
+      Register (Dispatcher, "/readme", Service_THTML'Access);
       Register (Dispatcher, "/",       Service_Odd'Access);
       Register (Dispatcher, "",        Service_Odd'Access);
 

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>readme - HostARM</title>
+</head>
+
+<body>
+<h1>Welcome</h1>
+
+<table>
+<tr><td><a href="RM-TOC">Contents</a></td></tr>
+<tr><td><a href="RM-0-4">Index</a></td></tr>
+<tr><td><a href="search">Search</a></td></tr>
+<tr><td><a href="RM-SRCH">Ada Auth search</a></td></tr>
+<tr><td><a href="RM-STDS">Reference</a></td></tr>
+</table>
+
+<h2>HostARM pages</h2>
+<table>
+  <tr><td>http://localhost:2778/readme</td><td>This page</td></tr>
+  <tr><td>http://localhost:2778/search</td><td>Local search</td></tr>
+  <tr><td>http://localhost:2778/config</td><td>Config page</td></tr>
+</table>
+
+<h2>Key Navigation</h2>
+<table>
+  <tr><td>B, P</td><td>Before, Previous page</td></tr>
+  <tr><td>F, N</td><td>Forward, Next page</td></tr>
+  <tr><td>C, T</td><td>Contents, Table of contents</td></tr>
+  <tr><td>I</td><td>Index page</td></tr>
+  <tr><td>R</td><td>Reference page</td></tr>
+  <tr><td>A</td><td>Ada-Auth search page</td></tr>
+  <tr><td>S</td><td>Search with Tipuesearch</td></tr>
+</table>
+
+<h2>Invocation</h2>
+
+<code>
+hostarm [--port &lt;Port&gt;]</code><br>
+<ht>Port - Default is 2778 which is decimal for 16#Ada#.<br>
+
+</body>
+</html>

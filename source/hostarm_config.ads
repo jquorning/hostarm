@@ -10,18 +10,21 @@ package HostARM_Config is
 
    Default_ARM : ARM_Version := ARM_2022;
 
-   function ARM_Base return String
-   is (case Default_ARM is
-       when ARM_2012 =>   Web_Base & "/ARM/Ada_2012",
-       when ARM_2022 =>   Web_Base & "/ARM/Ada_2022",
-       when AARM_202Y =>  Web_Base & "/ARM/Ada_202Y");
+   function ARM_Base return String;
+   --  Web base for selected manual
 
-   Strip_Legend_Top    : Boolean := True;
+   Strip_Legend_Top    : Boolean := False;
    Strip_Legend_Bottom : Boolean := True;
    Strip_Title         : Boolean := True;
    Strip_Sponsor       : Boolean := True;
 
    URL_Without_HTML : Boolean := True;
    --  Strip .html from URL in Tipuesearch
+
+   function URI_Contents  return String;
+   function URI_Index     return String;
+   function URI_Search    return String;
+   function URI_Reference return String;
+   --  Selected manual page URI
 
 end HostARM_Config;

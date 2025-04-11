@@ -28,7 +28,8 @@ package body HostARM_Stripping is
       end if;
 
       Top_Pos := Index (Item, Top_Match, From => Body_Pos);
-      Bot_Pos := Index (Item, Bot_Match, From => Top_Pos);
+      Bot_Pos := Index (Item, Bot_Match, From => Natural'Max (Top_Pos,
+                                                              Body_Pos));
       if Top_Pos = 0 or Bot_Pos = 0 then
          return;
       end if;
