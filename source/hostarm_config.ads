@@ -16,7 +16,7 @@ package HostARM_Config is
        when ARM_2022 =>   Web_Base & "/ARM/Ada_2022",
        when AARM_202Y =>  Web_Base & "/ARM/Ada_202Y");
 
-   Strip_Legend_Top    : Boolean := True;
+   Strip_Legend_Top    : Boolean := False;
    Strip_Legend_Bottom : Boolean := True;
    Strip_Title         : Boolean := True;
    Strip_Sponsor       : Boolean := True;

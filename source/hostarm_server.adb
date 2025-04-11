@@ -9,6 +9,7 @@ with AWS.Services.Dispatchers.URI;
 with AWS.Status;
 
 with HostARM_Config;
+with HostARM_Navigate;
 with HostARM_Stripping;
 with HostARM_Tipue;
 with HostARM_Tools;
@@ -56,10 +57,14 @@ package body HostARM_Server is
 
       URI     : constant String := Strip_Slash (AWS.Status.URI (Request));
       Name    : constant String := Config.ARM_Base & URI & ".html";
-      Payload : Tools.UString;
+      Payload     : Tools.UString;
+      Legend_Info : HostARM_Navigate.Legend_Info;
    begin
       Ada.Text_IO.Put_Line ("HTML: " & URI);
       Tools.Load_File (Name, Payload);
+
+      HostARM_Navigate.Read_Navigation_Legend (Payload, Legend_Info);
+      HostARM_Navigate.Insert_JS_Script       (Payload, Legend_Info);
 
       HostARM_Stripping.Strip (Payload);
       HostARM_Stripping.Replace_Doctype (Payload);
@@ -125,7 +130,6 @@ package body HostARM_Server is
       Name    : constant String := Config.ARM_Base & URI;
       Payload : Tools.UString;
    begin
-      Ada.Text_IO.Put_Line ("GIF: " & URI);
       Tools.Load_File (Name, Payload);
 
       return

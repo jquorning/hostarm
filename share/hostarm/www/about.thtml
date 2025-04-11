@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang=en>
+<html lang="en">
+<head>
   <meta charset="utf-8">
-  <title>About</title>
+  <title>About - HostARM</title>
 </head>
 
 <body>
@@ -14,7 +15,8 @@ localhost:2778/search<br>
 <h2>Invocation</h2>
 
 <code>
-hostarm [--port &lt;Port&lt;]</code><br>
+hostarm [--port &lt;Port&gt;]</code><br>
 <ht>Port - Default is 2778 which is decimal for 16#Ada#.<br>
 
 </body>
+</html>

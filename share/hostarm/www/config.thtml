@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang=en>
+<html lang="en">
+<head>
   <meta charset="utf-8">
-  <title>Config</title>
+  <title>Config - HostARM</title>
 </head>
 
 <body>
@@ -18,3 +19,5 @@
 </form>
 
 </body>
+</html>
+

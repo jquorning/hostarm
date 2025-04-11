@@ -2,7 +2,8 @@
 <html lang=en>
 <head>
   <meta charset="utf-8">
-  <title>Search</title>
+  <title>Search - HostARM</title>
+
   <!-- Stylesheets goes here -->
   <link rel="stylesheet" href="/assets/css/main.css" />
 
@@ -22,9 +23,9 @@
 <body>
 <h1>Search</h1>
 
-    <form action="/search/">
+<form action="/search/">
   <div class="tipue_search_left"><img src="/assets/tipuesearch/search.png" class="tipue_search_icon"></div>
-  <div class="tipue_search_right"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required autofocus></div>
+  <div class="tipue_search_right"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required></div>
   <div style="clear: both;"></div>
 </form>
 
@@ -39,3 +40,4 @@ $(document).ready(function() {
 </script>
 
 </body>
+</html>

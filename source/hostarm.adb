@@ -9,7 +9,7 @@ with HostARM_Server;
 with HostARM_Tipue;
 
 -------------
--- Hostarm --
+-- HostARM --
 -------------
 
 procedure HostARM is
@@ -17,12 +17,11 @@ procedure HostARM is
    use Ada.Text_IO, Ada.Strings;
 begin
    HostARM_Tipue.Build_Content (Config.ARM_Base & "/RM-0-4.html");
---   HostARM_Tipue.Dump_Content;
 
    HostARM_Server.Start;
-   Put_Line ("HostARM: Accessible on URL: https://localhost#"
+   Put_Line ("HostARM: Accessible on URL: https://localhost:"
              & Fixed.Trim (Config.Default_Port'Image, Side => Left)
-             & "/");
+             & "/readme");
 
    HostARM_Server.Wait;
    Put_Line ("HostARM: Shutting down");
