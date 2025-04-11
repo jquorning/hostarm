@@ -185,7 +185,8 @@ package body HostARM_Navigate is
       Text_1 : constant String :=
         "<script mime='text/javascript'>" & CRLF;
       Text_2 : constant String :=
-        "document.addEventListener('keydown',function(e){" & CRLF;
+        "document.addEventListener('keydown',function(e){" & CRLF &
+        "   if (e.target=='[object HTMLInputElement]') return true;" & CRLF;
       Text_3 : constant String :=
         "})"        & CRLF &
         "</script>" & CRLF;
