@@ -2,6 +2,8 @@
 with Ada.Characters.Latin_1;
 with Ada.Strings.Maps;
 
+with HostARM_Config;
+
 package body HostARM_Navigate is
 
    use Ada.Characters;
@@ -221,5 +223,27 @@ package body HostARM_Navigate is
                        New_Item => Text_3);
 
    end Insert_JS_Script;
+
+   ------------------
+   -- Default_Info --
+   ------------------
+
+   function Default_Info (Next : in String;
+                          Prev : in String)
+                          return Legend_Info
+   is
+      package Config renames HostARM_Config;
+
+      Info : Legend_Info;
+   begin
+      Info.Contents  := To_Unbounded_String (Config.URI_Contents);
+      Info.Index     := To_Unbounded_String (Config.URI_Index);
+      Info.Reference := To_Unbounded_String (Config.URI_Reference);
+      Info.Search    := To_Unbounded_String (Config.URI_Search);
+      Info.Next      := To_Unbounded_String (Next);
+      Info.Prev      := To_Unbounded_String (Prev);
+
+      return Info;
+   end Default_Info;
 
 end HostARM_Navigate;
