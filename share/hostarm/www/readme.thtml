@@ -32,6 +32,7 @@
   <tr><td>R</td><td>Reference page</td></tr>
   <tr><td>A</td><td>Ada-Auth search page</td></tr>
   <tr><td>S</td><td>Search with Tipuesearch</td></tr>
+  <tr><td>K</td><td>Config page</td></tr>
 </table>
 
 <h2>Invocation</h2>
