@@ -5,6 +5,7 @@ with Ada.Text_IO;
 with AWS.Net;
 
 with HostARM_Configuration;
+with HostARM_Cookie;
 with HostARM_Server;
 with HostARM_Tipue;
 
@@ -16,6 +17,11 @@ procedure HostARM is
    package Config renames HostARM_Configuration;
    use Ada.Text_IO, Ada.Strings;
 begin
+
+--   if HostARM_Cookie.Exists then
+--      HostARM_Cookie.Load;
+--   end if;
+
    HostARM_Tipue.Build_Content;
 
    HostARM_Server.Start;

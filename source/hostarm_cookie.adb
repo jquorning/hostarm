@@ -1,7 +1,5 @@
 
 with AWS.Cookie;
-with AWS.Response;
-with AWS.Status;
 
 with HostARM_Configuration;
 
@@ -10,14 +8,12 @@ package body HostARM_Cookie is
    package Config renames HostARM_Configuration;
    use AWS.Cookie;
 
-   Request  : AWS.Status.Data;
-   Response : AWS.Response.Data;
-
    ------------
    -- Exists --
    ------------
 
-   function Exists return Boolean
+   function Exists (Request : in AWS.Status.Data)
+                    return Boolean
    is
    begin
       return Exists (Request, "Manual");
@@ -27,7 +23,7 @@ package body HostARM_Cookie is
    -- Load --
    ----------
 
-   procedure Load
+   procedure Load (Request : in out AWS.Status.Data)
    is
       use Config;
    begin
@@ -42,10 +38,12 @@ package body HostARM_Cookie is
    -- Save --
    ----------
 
-   procedure Save
+   procedure Save (Response : in out AWS.Response.Data)
    is
       use Config;
    begin
+      Response := AWS.Response.Build (Content_Type => "text/plain",
+                                      Message_Body => "");
       Set (Response, "Manual",           Default_ARM'Image);
       Set (Response, "Strip_Nav_Top",    Strip_Nav_Top);
       Set (Response, "Strip_Nav_Bottom", Strip_Nav_Bottom);

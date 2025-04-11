@@ -3,7 +3,7 @@ with Ada.Strings.Fixed;
 with Ada.Text_IO;
 
 with AWS.Config.Set;
-with AWS.Response;
+with AWS.Response.Set;
 with AWS.Parameters;
 with AWS.Server;
 with AWS.Services.Dispatchers.URI;
@@ -123,6 +123,16 @@ package body HostARM_Server is
             Payload := Templates_Parser.Parse (Filename     => Name,
                                                Translations => Trans);
             Insert_JS_Script (Payload, Info);
+
+            declare
+               Response : AWS.Response.Data;
+            begin
+               Response := AWS.Response.Build (Content_Type    => "text/html",
+                                               UString_Message => Payload);
+--               HostARM_Cookie.Save (Response);
+--               AWS.Response.Set.Message_Body (Response, Payload);
+               return Response;
+            end;
 
          when others => null;
       end case;
