@@ -15,12 +15,12 @@ package body HostARM_Navigate is
      To_Mapping (From => To_Sequence (To_Set ("ABCDEFGHIJKLMNOPQRSTUVWXYZ")),
                  To   => To_Sequence (To_Set ("abcdefghijklmnopqrstuvwxyz")));
 
-   ----------------------
-   -- Get_Legend_Block --
-   ----------------------
+   -------------------
+   -- Get_Nav_Block --
+   -------------------
 
-   procedure Get_Legend_Block (Payload : in     UString;
-                               Legend  :    out UString)
+   procedure Get_Nav_Block (Payload : in     UString;
+                            Legend  :    out UString)
    is
       Text_1 : constant String := "<BODY ";
       Text_2 : constant String := "<div style=";
@@ -50,7 +50,7 @@ package body HostARM_Navigate is
                                  Low  => Pos_2,
                                  High => Pos_3 - 1);
 
-   end Get_Legend_Block;
+   end Get_Nav_Block;
 
    -------------------
    -- Get_A_Element --
@@ -106,12 +106,12 @@ package body HostARM_Navigate is
       Last := Pos_7;
    end Get_A_Element;
 
-   ----------------------------
-   -- Read_Navigation_Legend --
-   ----------------------------
+   ---------------------
+   -- Read_Navigation --
+   ---------------------
 
-   procedure Read_Navigation_Legend (Payload : in     UString;
-                                     Info    :    out Legend_Info)
+   procedure Read_Navigation (Payload : in     UString;
+                              Info    :    out Nav_Info)
    is
       Legend : UString;
       Href   : UString;
@@ -120,7 +120,7 @@ package body HostARM_Navigate is
       Last   : Natural;
    begin
       Info := Empty_Info;
-      Get_Legend_Block (Payload, Legend);
+      Get_Nav_Block (Payload, Legend);
 
       Parse_A_Elements :
       loop
@@ -145,7 +145,7 @@ package body HostARM_Navigate is
          From := Last;
       end loop Parse_A_Elements;
 
-   end Read_Navigation_Legend;
+   end Read_Navigation;
 
    --------------------
    -- Insert_Key_Nav --
@@ -180,7 +180,7 @@ package body HostARM_Navigate is
    ----------------------
 
    procedure Insert_JS_Script (Payload : in out UString;
-                               Info    : in     Legend_Info)
+                               Info    : in     Nav_Info)
    is
       Text_1 : constant String :=
         "<script mime='text/javascript'>" & CRLF;
@@ -231,11 +231,11 @@ package body HostARM_Navigate is
 
    function Default_Info (Next : in String;
                           Prev : in String)
-                          return Legend_Info
+                          return Nav_Info
    is
       package Config renames HostARM_Configuration;
 
-      Info : Legend_Info;
+      Info : Nav_Info;
    begin
       Info.Contents  := To_Unbounded_String (Config.URI_Contents);
       Info.Index     := To_Unbounded_String (Config.URI_Index);

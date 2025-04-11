@@ -13,10 +13,10 @@ package HostARM_Configuration is
    function ARM_Base return String;
    --  Web base for selected manual
 
-   Strip_Legend_Top    : Boolean := False;
-   Strip_Legend_Bottom : Boolean := True;
-   Strip_Title         : Boolean := True;
-   Strip_Sponsor       : Boolean := True;
+   Strip_Title      : Boolean := True;
+   Strip_Nav_Top    : Boolean := False;
+   Strip_Nav_Bottom : Boolean := True;
+   Strip_Sponsor    : Boolean := True;
 
    URL_Without_HTML : Boolean := True;
    --  Strip .html from URL in Tipuesearch
