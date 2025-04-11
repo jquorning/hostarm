@@ -184,7 +184,7 @@ package body HostARM_Server is
                          return AWS.Response.Data
    is
       URI     : constant String := AWS.Status.URI (Request);
-      New_URI : constant String := "/index";
+      New_URI : constant String := "/readme";
    begin
       Ada.Text_IO.Put_Line ("REDIRECT:" & URI & " to " & New_URI);
 
@@ -203,8 +203,7 @@ package body HostARM_Server is
 
       Register (Dispatcher, "/config", Service_Page'Access);
       Register (Dispatcher, "/search", Service_Page'Access, Prefix => True);
-      Register (Dispatcher, "/about",  Service_Page'Access);
-      Register (Dispatcher, "/index",  Service_Page'Access);
+      Register (Dispatcher, "/readme", Service_Page'Access);
       Register (Dispatcher, "/",       Service_Odd'Access);
       Register (Dispatcher, "",        Service_Odd'Access);
 
