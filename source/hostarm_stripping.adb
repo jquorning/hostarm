@@ -219,4 +219,30 @@ package body HostARM_Stripping is
 
    end Replace_Doctype;
 
+   -----------------------
+   -- Replace_Style_CSS --
+   -----------------------
+
+   procedure Replace_Style_CSS (Item : in out Tools.UString)
+   is
+      Match_1 : constant String := "<STYLE type=";
+      Match_2 : constant String := "</STYLE>";
+      Match_3 : constant String := "</HEAD>";
+      Pos_1, Pos_2, Pos_3 : Natural;
+      Repl    : constant String :=
+        "<link rel='stylesheet' href='/assets/css/hostarm.css'>";
+   begin
+      Pos_1 := Index (Item, Match_1, 1);
+      Pos_2 := Index (Item, Match_2, Natural'Max (1, Pos_1));
+      Pos_3 := Index (Item, Match_3, Natural'Max (1, Pos_2));
+      if Pos_1 = 0 or Pos_2 = 0 or Pos_3 = 0 or Pos_2 < Pos_1 then
+         return;
+      end if;
+
+      Replace_Slice (Item,
+                     Low  => Pos_1,
+                     High => Pos_2 + Match_2'Length,
+                     By   => Repl);
+   end Replace_Style_CSS;
+
 end HostARM_Stripping;
