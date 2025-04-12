@@ -43,16 +43,16 @@ package body HostARM_Tipue is
       Last := Last + Match_Last'Length - 1;
    end Get_Index_Div;
 
-   ------------------
-   -- Get_A_Clause --
-   ------------------
+   -------------------
+   -- Get_A_Element --
+   -------------------
    --  <A HREF="Href">Load</A>
 
-   procedure Get_A_Clause (Block : in UString;
-                           Href  :    out UString;
-                           Load  :    out UString;
-                           From  : in     Natural;
-                           Last  :    out Natural)
+   procedure Get_A_Element (Block : in UString;
+                            Href  :    out UString;
+                            Load  :    out UString;
+                            From  : in     Natural;
+                            Last  :    out Natural)
    is
       Match_First : constant String := "<A HREF=""";
       Match_Mid   : constant String := """>";
@@ -80,7 +80,7 @@ package body HostARM_Tipue is
                                Low  => Pos_Mid + Match_Mid'Length,
                                High => Pos_Last - 1);
       Last := Pos_Last - 1;
-   end Get_A_Clause;
+   end Get_A_Element;
 
    --------------------
    -- Append_Content --
@@ -176,9 +176,9 @@ package body HostARM_Tipue is
          From := Natural'Max (Pos_BR, Pos_NBSP);
 
          while Last /= 0 loop
-            Get_A_Clause (Block,
-                          From => From, Last => Last,
-                          Href => Href, Load => Load);
+            Get_A_Element (Block,
+                           From => From, Last => Last,
+                           Href => Href, Load => Load);
             exit when Last = 0;
 
             if Config.URL_Without_HTML then
