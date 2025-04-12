@@ -136,6 +136,49 @@ package body HostARM_Tipue is
       Replace (Item, "</I>", "");
    end Remove_I_Clause;
 
+   ---------------------
+   -- Get_Sub_Heading --
+   ---------------------
+
+   procedure Get_Sub_Heading (Block : in     UString;
+                              From  : in     Positive;
+                              Last  :    out Natural;
+                              Sub   :    out UString)
+   is
+      CR      : constant String := "" & Ada.Characters.Latin_1.CR;
+      LF      : constant String := "" & Ada.Characters.Latin_1.LF;
+      Match_A : constant String := "<A HREF=";
+      Pos_A   : Natural;
+--      From    : constant Natural := Natural'Max (Pos_BR + Match_BR'Length,
+--                                                 Pos_NBSP);
+   begin
+      Pos_A := Index (Block, Match_A, From => From);
+      if Pos_A = 0 then
+         Last := 0;
+         return;
+      end if;
+--  Ada.Text_IO.New_Line;
+--  Ada.Text_IO.Put_Line (To_String (Block));
+--  Ada.Text_IO.New_Line;
+      Sub := Unbounded_Slice (Block,
+                              Low  => From,
+                              High => Natural'Max (Pos_A - 1, 1));
+      for A in 1 .. 5 loop
+         Tools.Replace (Sub, "&nbsp;", "");
+      end loop;
+
+      for A in 1 .. 2 loop
+         Tools.Replace (Sub, CR,     By => "");
+         Tools.Replace (Sub, LF,     By => "");
+         Tools.Replace (Sub, "<I>",  By => "");
+         Tools.Replace (Sub, "</I>", By => "");
+      end loop;
+
+      Trim (Sub, Side => Ada.Strings.Right);
+
+      Last := Pos_A - 1;
+   end Get_Sub_Heading;
+
    --------------------------------
    -- Parse_Index_Div_And_Append --
    --------------------------------
@@ -148,6 +191,8 @@ package body HostARM_Tipue is
       Pos_BR     : Natural;
       Pos_NBSP   : Natural;
       Tags       : UString;
+      Sub        : UString;  --  Additional text between BR and A element
+      Last       : Natural;
    begin
       Pos_BR   := Index (Block, Match_BR,   From => 1);
       Pos_NBSP := Index (Block, Match_NBSP, From => 1);
@@ -167,6 +212,15 @@ package body HostARM_Tipue is
          return;
       end if;
 
+      Get_Sub_Heading
+         (Block, Sub => Sub,
+          From => Natural'Max (Pos_BR + Match_BR'Length, Pos_NBSP),
+          Last => Last);
+      if Sub /= "" then
+         Sub := "; " & Sub;
+      end if;
+
+      --  Get Href and text from A element
       declare
          Href : UString;
          Load : UString;
@@ -175,7 +229,7 @@ package body HostARM_Tipue is
       begin
          From := Natural'Max (Pos_BR, Pos_NBSP);
 
-         while Last /= 0 loop
+         loop
             Get_A_Element (Block,
                            From => From, Last => Last,
                            Href => Href, Load => Load);
@@ -189,7 +243,7 @@ package body HostARM_Tipue is
 
             Append_Content
                (Title => Tags,  --  What else ??
-                Text  => Load,
+                Text  => Load & Sub,
                 Tags  => Tags,
                 URL   => "/" & Href);
 
@@ -207,19 +261,19 @@ package body HostARM_Tipue is
    is
       Payload : Tools.UString;
       Block   : Tools.UString;  --  Contents of Index div.
-      Pos     : Natural := 1;
+      From    : Natural := 1;
       Last    : Natural;
    begin
       Tools.Load_File (Index_File, Payload);
 
-      while Pos /= 0 loop
+      loop
 
-         Get_Index_Div (Payload, From => Pos, Last => Last, Block => Block);
+         Get_Index_Div (Payload, From => From, Last => Last, Block => Block);
          exit when Last = 0;
 
          Parse_Index_Div_And_Append (Block);
 
-         Pos := Last + 1;
+         From := Last + 1;
       end loop;
 
    end Append_Content;
