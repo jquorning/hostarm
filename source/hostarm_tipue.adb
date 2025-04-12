@@ -237,13 +237,28 @@ package body HostARM_Tipue is
 
       case Config.Default_ARM is
          when Config.ARM_2012 =>
-            Append_Content (Config.ARM_Base & "/RM-0-4.html");
+            Append_Content (Config.ARM_Base & "/RM-0-5.html");
+            Append_Content (Config.ARM_Base & "/RM-Q-1.html");
+            Append_Content (Config.ARM_Base & "/RM-Q-2.html");
+            Append_Content (Config.ARM_Base & "/RM-Q-3.html");
+            Append_Content (Config.ARM_Base & "/RM-Q-4.html");
+            Append_Content (Config.ARM_Base & "/RM-Q-5.html");
 
          when Config.ARM_2022 =>
             Append_Content (Config.ARM_Base & "/RM-0-4.html");
+            Append_Content (Config.ARM_Base & "/RM-Q-1.html");
+            Append_Content (Config.ARM_Base & "/RM-Q-2.html");
+            Append_Content (Config.ARM_Base & "/RM-Q-3.html");
+            Append_Content (Config.ARM_Base & "/RM-Q-4.html");
+            Append_Content (Config.ARM_Base & "/RM-Q-5.html");
 
          when Config.AARM_202Y =>
             Append_Content (Config.ARM_Base & "/AA-0-4.html");
+            Append_Content (Config.ARM_Base & "/AA-Q-1.html");
+            Append_Content (Config.ARM_Base & "/AA-Q-2.html");
+            Append_Content (Config.ARM_Base & "/AA-Q-3.html");
+            Append_Content (Config.ARM_Base & "/AA-Q-4.html");
+            Append_Content (Config.ARM_Base & "/AA-Q-5.html");
 
       end case;
 
