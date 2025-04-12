@@ -10,11 +10,11 @@
 <h1>Welcome</h1>
 
 <table>
-<tr><td><a href="RM-TOC">Contents</a></td></tr>
-<tr><td><a href="RM-0-4">Index</a></td></tr>
+<tr><td><a href="@_MANUAL_TOC_@">Contents</a></td></tr>
+<tr><td><a href="@_MANUAL_INDEX_@">Index</a></td></tr>
 <tr><td><a href="search">Search</a></td></tr>
-<tr><td><a href="RM-SRCH">Ada Auth search</a></td></tr>
-<tr><td><a href="RM-STDS">Reference</a></td></tr>
+<tr><td><a href="@_MANUAL_AUTH_SEARCH_@">Ada Auth search</a></td></tr>
+<tr><td><a href="@_MANUAL_REFERENCE_@">Reference</a></td></tr>
 </table>
 
 <h2>HostARM pages</h2>

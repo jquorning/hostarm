@@ -123,14 +123,22 @@ DIV.WideHanging-Term {
     margin-bottom: 0em
 }
 
+DIV.Annotations {
+    margin-left: 1.8em;
+    margin-bottom: 0.3em
+}
 
-
+DIV.Index {
+    margin-left: 2.7em;
+    margin-bottom: 0.3em
+}
 
 DIV.Examples {
     font-family: "Courier New", monospace;
     line-height: 122%;
     margin-left: 2.7em;
-    margin-bottom: 0.6em
+    margin-bottom: 0.6em;
+    background: #EFE;
 }
 
 DIV.Indented2 {
@@ -140,11 +148,39 @@ DIV.Indented2 {
     margin-bottom: 0.6em
 }
 
+DIV.SmallBulleted {
+    line-height: 122%;
+    margin-left: 3.0em;
+    margin-bottom: 0.2em;
+    display: list-item;
+    list-style-type: disc
+}
+
+DIV.SmallExamples {
+    font-family: "Courier New", monospace;
+    line-height: 122%;
+    margin-left: 3.0em;
+    margin-bottom: 0.6em;
+    background: #EFE;
+}
+
 DIV.Indented4Examples {
     font-family: "Courier New", monospace;
     line-height: 122%;
     margin-left: 3.0em;
     margin-bottom: 0.6em
+}
+
+DIV.Indented4Bulleted {
+    margin-left: 2.7em;
+    margin-bottom: 0.6em
+}
+
+DIV.Indented4SmallNestedBulleted {
+    margin-left: 3.4em;
+    margin-bottom: 0.6em
+    display: list-item;
+    list-style-type: disc
 }
 
 DIV.Indented2NestedBulleted {
@@ -153,4 +189,27 @@ DIV.Indented2NestedBulleted {
     margin-bottom: 0.6em;
     display: list-item;
     list-style-type: disc
+}
+
+DIV.Indented5NestedBulleted {
+    line-height: 122%;
+    margin-left: 3.7em;
+    margin-bottom: 0.6em;
+    display: list-item;
+    list-style-type: disc
+}
+
+DIV.NarrowHanging-Term {
+    margin-left: 1.8em;
+    margin-bottom: 0.0em;
+}
+
+DIV.NarrowHanging-Body {
+    margin-left: 2.2em;
+    margin-top: -1.0em;
+    margin-bottom: 0.6em;
+}
+
+DIV.WideAbove {
+    margin-left: 1.8em;
 }

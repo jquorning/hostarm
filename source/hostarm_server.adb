@@ -38,6 +38,17 @@ package body HostARM_Server is
                            return AWS.Response.Data
    is
       use HostARM_Navigate;
+      use Templates_Parser;
+
+      function Trans return Translate_Table is
+      begin
+         return
+            (Assoc ("MANUAL_TOC",         Config.URI_Contents),
+             Assoc ("MANUAL_INDEX",       Config.URI_Index),
+             Assoc ("MANUAL_AUTH_SEARCH", Config.URI_Search),
+             Assoc ("MANUAL_REFERENCE",   Config.URI_Reference)
+            );
+      end Trans;
 
       URI     : constant String
         := Tools.Strip_Slash (AWS.Status.URI (Request));
@@ -46,7 +57,8 @@ package body HostARM_Server is
       Info    : constant Nav_Info := Default_Info (Next => "/search",
                                                    Prev => "/search");
    begin
-      Tools.Load_File (Name, Payload);
+      Payload := Templates_Parser.Parse (Filename     => Name,
+                                         Translations => Trans);
 
       Insert_JS_Script (Payload, Info);
 
@@ -284,7 +296,6 @@ package body HostARM_Server is
    function Service_Odd (Request : in AWS.Status.Data)
                          return AWS.Response.Data
    is
-      URI     : constant String := AWS.Status.URI (Request);
       New_URI : constant String := "/readme";
    begin
       return AWS.Response.URL (Location => New_URI);

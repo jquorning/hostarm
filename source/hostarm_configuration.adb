@@ -36,7 +36,7 @@ package body HostARM_Configuration is
    is
    begin
       case Default_ARM is
-         when ARM_2012  =>  return "RM-0-4";
+         when ARM_2012  =>  return "RM-0-5";
          when ARM_2022  =>  return "RM-0-4";
          when AARM_202Y =>  return "AA-0-4";
       end case;
