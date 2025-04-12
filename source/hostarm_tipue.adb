@@ -43,16 +43,16 @@ package body HostARM_Tipue is
       Last := Last + Match_Last'Length - 1;
    end Get_Index_Div;
 
-   ------------------
-   -- Get_A_Clause --
-   ------------------
+   -------------------
+   -- Get_A_Element --
+   -------------------
    --  <A HREF="Href">Load</A>
 
-   procedure Get_A_Clause (Block : in UString;
-                           Href  :    out UString;
-                           Load  :    out UString;
-                           From  : in     Natural;
-                           Last  :    out Natural)
+   procedure Get_A_Element (Block : in UString;
+                            Href  :    out UString;
+                            Load  :    out UString;
+                            From  : in     Natural;
+                            Last  :    out Natural)
    is
       Match_First : constant String := "<A HREF=""";
       Match_Mid   : constant String := """>";
@@ -80,7 +80,7 @@ package body HostARM_Tipue is
                                Low  => Pos_Mid + Match_Mid'Length,
                                High => Pos_Last - 1);
       Last := Pos_Last - 1;
-   end Get_A_Clause;
+   end Get_A_Element;
 
    --------------------
    -- Append_Content --
@@ -136,6 +136,49 @@ package body HostARM_Tipue is
       Replace (Item, "</I>", "");
    end Remove_I_Clause;
 
+   ---------------------
+   -- Get_Sub_Heading --
+   ---------------------
+
+   procedure Get_Sub_Heading (Block : in     UString;
+                              From  : in     Positive;
+                              Last  :    out Natural;
+                              Sub   :    out UString)
+   is
+      CR      : constant String := "" & Ada.Characters.Latin_1.CR;
+      LF      : constant String := "" & Ada.Characters.Latin_1.LF;
+      Match_A : constant String := "<A HREF=";
+      Pos_A   : Natural;
+   begin
+      Pos_A := Index (Block, Match_A, From => From);
+      if Pos_A = 0 then
+         Last := 0;
+         return;
+      end if;
+
+      Sub := Unbounded_Slice (Block,
+                              Low  => From,
+                              High => Natural'Max (Pos_A - 1, 1));
+      for A in 1 .. 5 loop
+         Tools.Replace (Sub, "&nbsp;", "");
+      end loop;
+
+      for A in 1 .. 2 loop
+         Tools.Replace (Sub, CR,     By => "");
+         Tools.Replace (Sub, LF,     By => "");
+         Tools.Replace (Sub, "<I>",  By => "");
+         Tools.Replace (Sub, "</I>", By => "");
+      end loop;
+
+      --  Correct for malformed HTML in ARM index
+      Tools.Replace (Sub, "<BR>",  By => "");
+      Tools.Replace (Sub, "</A>",  By => "");
+
+      Trim (Sub, Side => Ada.Strings.Right);
+
+      Last := Pos_A - 1;
+   end Get_Sub_Heading;
+
    --------------------------------
    -- Parse_Index_Div_And_Append --
    --------------------------------
@@ -167,29 +210,47 @@ package body HostARM_Tipue is
          return;
       end if;
 
+      --  Get Href and text from A element
       declare
-         Href : UString;
-         Load : UString;
-         From : Natural;
-         Last : Natural := 1;
+         Href     : UString;
+         Load     : UString;
+         From     : Natural;
+         Last     : Natural := 1;
+         Sub      : UString;  --  Additional text between BR and A element
+         Sub_Last : UString;
       begin
-         From := Natural'Max (Pos_BR, Pos_NBSP);
+         From := Natural'Max (Pos_BR + Match_BR'Length, Pos_NBSP);
 
-         while Last /= 0 loop
-            Get_A_Clause (Block,
-                          From => From, Last => Last,
-                          Href => Href, Load => Load);
+         loop
+            Sub_Last := Sub;
+
+            Get_Sub_Heading
+               (Block, Sub => Sub,
+                From => From,
+                Last => Last);
+
+            if
+                Last = 0 or
+                Sub  = ","    --  Separator between paragraps
+            then
+               Sub := Sub_Last;
+            end if;
+
+            Get_A_Element (Block,
+                           From => From, Last => Last,
+                           Href => Href, Load => Load);
             exit when Last = 0;
 
             if Config.URL_Without_HTML then
                Tools.Replace (Href, ".html", "");
             end if;
+
             Translate_HTML (Tags);
             Remove_I_Clause (Tags);
 
             Append_Content
                (Title => Tags,  --  What else ??
-                Text  => Load,
+                Text  => Load & (if Sub = "" then "" else "; ") & Sub,
                 Tags  => Tags,
                 URL   => "/" & Href);
 
@@ -207,19 +268,19 @@ package body HostARM_Tipue is
    is
       Payload : Tools.UString;
       Block   : Tools.UString;  --  Contents of Index div.
-      Pos     : Natural := 1;
+      From    : Natural := 1;
       Last    : Natural;
    begin
       Tools.Load_File (Index_File, Payload);
 
-      while Pos /= 0 loop
+      loop
 
-         Get_Index_Div (Payload, From => Pos, Last => Last, Block => Block);
+         Get_Index_Div (Payload, From => From, Last => Last, Block => Block);
          exit when Last = 0;
 
          Parse_Index_Div_And_Append (Block);
 
-         Pos := Last + 1;
+         From := Last + 1;
       end loop;
 
    end Append_Content;
@@ -237,13 +298,28 @@ package body HostARM_Tipue is
 
       case Config.Default_ARM is
          when Config.ARM_2012 =>
-            Append_Content (Config.ARM_Base & "/RM-0-4.html");
+            Append_Content (Config.ARM_Base & "/RM-0-5.html");
+            Append_Content (Config.ARM_Base & "/RM-Q-1.html");
+            Append_Content (Config.ARM_Base & "/RM-Q-2.html");
+            Append_Content (Config.ARM_Base & "/RM-Q-3.html");
+            Append_Content (Config.ARM_Base & "/RM-Q-4.html");
+            Append_Content (Config.ARM_Base & "/RM-Q-5.html");
 
          when Config.ARM_2022 =>
             Append_Content (Config.ARM_Base & "/RM-0-4.html");
+            Append_Content (Config.ARM_Base & "/RM-Q-1.html");
+            Append_Content (Config.ARM_Base & "/RM-Q-2.html");
+            Append_Content (Config.ARM_Base & "/RM-Q-3.html");
+            Append_Content (Config.ARM_Base & "/RM-Q-4.html");
+            Append_Content (Config.ARM_Base & "/RM-Q-5.html");
 
          when Config.AARM_202Y =>
             Append_Content (Config.ARM_Base & "/AA-0-4.html");
+            Append_Content (Config.ARM_Base & "/AA-Q-1.html");
+            Append_Content (Config.ARM_Base & "/AA-Q-2.html");
+            Append_Content (Config.ARM_Base & "/AA-Q-3.html");
+            Append_Content (Config.ARM_Base & "/AA-Q-4.html");
+            Append_Content (Config.ARM_Base & "/AA-Q-5.html");
 
       end case;
 

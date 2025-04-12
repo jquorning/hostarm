@@ -178,7 +178,7 @@ DIV.Indented4Bulleted {
 
 DIV.Indented4SmallNestedBulleted {
     margin-left: 3.4em;
-    margin-bottom: 0.6em
+    margin-bottom: 0.6em;
     display: list-item;
     list-style-type: disc
 }
