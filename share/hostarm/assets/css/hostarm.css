@@ -27,13 +27,13 @@ TT {
 }
 
 DT {
-    display: compact
+/*    display: compact */
 }
 
 A.Bar:link {
     font-family: Arial, Helvetica, sans-serif;
-    font-style: normal; text-dec;
-    oration: none;
+    font-style: normal; /*text-dec;*/
+/*    oration: none; */
     color: rgb(204,204,51)
 }
 
@@ -207,6 +207,17 @@ DIV.NarrowHanging-Term {
 DIV.NarrowHanging-Body {
     margin-left: 2.2em;
     margin-top: -1.0em;
+    margin-bottom: 0.6em;
+}
+
+DIV.Enumerated-Term {
+    margin-left: 1.8em;
+    margin-bottom: 0.0em;
+}
+
+DIV.Enumerated-Body {
+    margin-left: 3.3em;
+    margin-top: -1.4em;
     margin-bottom: 0.6em;
 }
 
