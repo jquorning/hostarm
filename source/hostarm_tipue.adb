@@ -149,17 +149,13 @@ package body HostARM_Tipue is
       LF      : constant String := "" & Ada.Characters.Latin_1.LF;
       Match_A : constant String := "<A HREF=";
       Pos_A   : Natural;
---      From    : constant Natural := Natural'Max (Pos_BR + Match_BR'Length,
---                                                 Pos_NBSP);
    begin
       Pos_A := Index (Block, Match_A, From => From);
       if Pos_A = 0 then
          Last := 0;
          return;
       end if;
---  Ada.Text_IO.New_Line;
---  Ada.Text_IO.Put_Line (To_String (Block));
---  Ada.Text_IO.New_Line;
+
       Sub := Unbounded_Slice (Block,
                               Low  => From,
                               High => Natural'Max (Pos_A - 1, 1));
@@ -173,6 +169,10 @@ package body HostARM_Tipue is
          Tools.Replace (Sub, "<I>",  By => "");
          Tools.Replace (Sub, "</I>", By => "");
       end loop;
+
+      --  Correct for malformed HTML in ARM index
+      Tools.Replace (Sub, "<BR>",  By => "");
+      Tools.Replace (Sub, "</A>",  By => "");
 
       Trim (Sub, Side => Ada.Strings.Right);
 
@@ -191,8 +191,6 @@ package body HostARM_Tipue is
       Pos_BR     : Natural;
       Pos_NBSP   : Natural;
       Tags       : UString;
-      Sub        : UString;  --  Additional text between BR and A element
-      Last       : Natural;
    begin
       Pos_BR   := Index (Block, Match_BR,   From => 1);
       Pos_NBSP := Index (Block, Match_NBSP, From => 1);
@@ -212,24 +210,32 @@ package body HostARM_Tipue is
          return;
       end if;
 
-      Get_Sub_Heading
-         (Block, Sub => Sub,
-          From => Natural'Max (Pos_BR + Match_BR'Length, Pos_NBSP),
-          Last => Last);
-      if Sub /= "" then
-         Sub := "; " & Sub;
-      end if;
-
       --  Get Href and text from A element
       declare
-         Href : UString;
-         Load : UString;
-         From : Natural;
-         Last : Natural := 1;
+         Href     : UString;
+         Load     : UString;
+         From     : Natural;
+         Last     : Natural := 1;
+         Sub      : UString;  --  Additional text between BR and A element
+         Sub_Last : UString;
       begin
-         From := Natural'Max (Pos_BR, Pos_NBSP);
+         From := Natural'Max (Pos_BR + Match_BR'Length, Pos_NBSP);
 
          loop
+            Sub_Last := Sub;
+
+            Get_Sub_Heading
+               (Block, Sub => Sub,
+                From => From,
+                Last => Last);
+
+            if
+                Last = 0 or
+                Sub  = ","    --  Separator between paragraps
+            then
+               Sub := Sub_Last;
+            end if;
+
             Get_A_Element (Block,
                            From => From, Last => Last,
                            Href => Href, Load => Load);
@@ -238,12 +244,13 @@ package body HostARM_Tipue is
             if Config.URL_Without_HTML then
                Tools.Replace (Href, ".html", "");
             end if;
+
             Translate_HTML (Tags);
             Remove_I_Clause (Tags);
 
             Append_Content
                (Title => Tags,  --  What else ??
-                Text  => Load & Sub,
+                Text  => Load & (if Sub = "" then "" else "; ") & Sub,
                 Tags  => Tags,
                 URL   => "/" & Href);
 
