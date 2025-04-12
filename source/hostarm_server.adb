@@ -230,10 +230,10 @@ package body HostARM_Server is
                          return AWS.Response.Data
    is
       URI     : constant String := AWS.Status.URI (Request);
-      Name    : constant String := Config.ARM_Base & URI;
+      Name    : constant String :=
+        Config.WWW_Base & "/../assets/favicon/" & URI;
       Payload : Tools.UString;
    begin
-      Ada.Text_IO.Put_Line ("ICO: " & URI);
       Tools.Load_File (Name, Payload);
 
       return
@@ -255,10 +255,7 @@ package body HostARM_Server is
       New_URI : constant String
        := Head (URI, URI'Length - Match'Length);
    begin
-      Ada.Text_IO.Put_Line ("REDIRECT:" & URI & " to " & New_URI);
-
       return AWS.Response.URL (Location => New_URI);
-
    end Service_Redirect;
 
    -----------------
@@ -271,10 +268,7 @@ package body HostARM_Server is
       URI     : constant String := AWS.Status.URI (Request);
       New_URI : constant String := "/readme";
    begin
-      Ada.Text_IO.Put_Line ("REDIRECT:" & URI & " to " & New_URI);
-
       return AWS.Response.URL (Location => New_URI);
-
    end Service_Odd;
 
    -------------------------
@@ -291,10 +285,9 @@ package body HostARM_Server is
       Register (Dispatcher, "/readme", Service_THTML'Access);
       Register (Dispatcher, "/",       Service_Odd'Access);
       Register (Dispatcher, "",        Service_Odd'Access);
+      Register (Dispatcher, "/favicon.ico", Service_ICO'Access);
 
       Register_Regexp (Dispatcher, ".*\.gif",  Service_GIF'Access);
-      Register_Regexp (Dispatcher, ".*\.ico",  Service_ICO'Access);
---      Register_Regexp (Dispatcher, ".*\.css",  Service'Access);
       Register_Regexp (Dispatcher, ".*\.html", Service_Redirect'Access);
 
       Register_Regexp (Dispatcher, "/assets/tipuesearch/.*",
