@@ -163,6 +163,10 @@ package body HostARM_Server is
       HostARM_Navigate.Read_Navigation  (Payload, Nav_Info);
       HostARM_Navigate.Insert_JS_Script (Payload, Nav_Info);
 
+      if URI = "/" & Config.Uri_Index then
+         HostARM_Stripping.Append_Navigation_Bar (Payload);
+      end if;
+
       HostARM_Stripping.Strip (Payload);
       HostARM_Stripping.Replace_Doctype (Payload);
       HostARM_Stripping.Replace_Style_CSS (Payload);

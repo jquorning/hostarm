@@ -245,4 +245,77 @@ package body HostARM_Stripping is
                      By   => Repl);
    end Replace_Style_CSS;
 
+   ---------------------------
+   -- Append_Navigation_Bar --
+   ---------------------------
+
+   procedure Append_Navigation_Bar (Item : in out Tools.UString)
+   is
+      CRLF    : constant String :=
+         Ada.Characters.Latin_1.CR & Ada.Characters.Latin_1.LF;
+      Match_1 : constant String := "<SPAN STYLE=""font-size: 156%""><B>";
+      Match_2 : constant String := "</B></SPAN><BR>";
+      New_11  : constant String := "<h2 id='Section_";
+      New_12  : constant String := "' class='IndexSection'>";
+      New_2   : constant String := "</h2>";
+      Section : Character;
+      Pos_1   : Natural;
+      Pos_2   : Natural;
+      First   : Natural := 1;
+      Navig   : Tools.UString;
+      Nav_0   : constant String := "<div class='IndexNavigation'>" & CRLF;
+      Nav_1   : constant String :=
+         "<a class='IndexNavigation' href='#Section_";
+      Nav_2   : constant String := "'>";
+      Nav_3   : constant String := "</a> " & CRLF;
+      Nav_4   : constant String := "</div>";
+   begin
+
+      Append (Navig, Nav_0);
+
+      loop
+         Pos_1 := Index (Item, Match_1, First);
+         exit when Pos_1 = 0;
+
+         Pos_2 := Index (Item, Match_2, First);
+         exit when Pos_2 = 0;
+
+         Section := Element (Item, Pos_1 + Match_1'Length);
+         --  Character after Match_1
+
+         --  Replace latter so Pos_1 stays valid
+         Replace_Slice (Item,
+                        Low  => Pos_2,
+                        High => Pos_2 + Match_2'Length - 1,
+                        By   => New_2);
+         Replace_Slice (Item,
+                        Low  => Pos_1,
+                        High => Pos_1 + Match_1'Length - 1,
+                        By   => New_11 & Section & New_12);
+
+         Append (Navig, Nav_1 & Section & Nav_2 & Section & Nav_3);
+
+         First := First + New_11'Length + New_12'Length; --  Approximate
+      end loop;
+
+      Append (Navig, Nav_4);
+
+      --  Insert navigation bar right under heading 1
+      declare
+         Match : constant String := "</H1>";
+         Pos   : Natural;
+      begin
+         Pos := Index (Item, Match, 1);
+         if Pos = 0 then
+            return;
+         end if;
+
+         Replace_Slice (Item,
+                        Low   => Pos + Match'Length,
+                        High  => Pos + Match'Length,
+                        By    => To_String (Navig));
+      end;
+
+   end Append_Navigation_Bar;
+
 end HostARM_Stripping;
