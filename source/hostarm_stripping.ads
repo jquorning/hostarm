@@ -8,4 +8,6 @@ package HostARM_Stripping is
 
    procedure Replace_Doctype (Item : in out Tools.UString);
 
+   procedure Replace_Style_CSS (Item : in out Tools.UString);
+
 end HostARM_Stripping;

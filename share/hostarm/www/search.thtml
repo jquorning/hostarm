@@ -4,13 +4,12 @@
   <meta charset="utf-8">
   <title>Search - HostARM</title>
 
-  <!-- Stylesheets goes here -->
-  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="stylesheet" href="/assets/css/hostarm.css" />
 
   <!-- Tipue search -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="/assets/tipuesearch/tipuesearch_content.js"></script>
-  <link rel="stylesheet" href="/assets/tipuesearch/css/tipuesearch.css">
+  <link rel="stylesheet" href="/assets/css/tipuesearch.css">
   <script src="/assets/tipuesearch/tipuesearch_set.js"></script>
   <script src="/assets/tipuesearch/tipuesearch.min.js"></script>
   <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->

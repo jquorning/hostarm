@@ -153,6 +153,7 @@ package body HostARM_Server is
 
       HostARM_Stripping.Strip (Payload);
       HostARM_Stripping.Replace_Doctype (Payload);
+      HostARM_Stripping.Replace_Style_CSS (Payload);
 
       return
          AWS.Response.Build (Content_Type    => "text/html",
@@ -203,6 +204,24 @@ package body HostARM_Server is
       raise Program_Error with "Correct this to a 404";
 
    end Service_Tipue;
+
+   -----------------
+   -- Service_CSS --
+   -----------------
+
+   function Service_CSS (Request : in AWS.Status.Data)
+                         return AWS.Response.Data
+   is
+      URI     : constant String := AWS.Status.URI (Request);
+      Name    : constant String := Config.WWW_Base & "/../" & URI;
+      Payload : Tools.UString;
+   begin
+      Tools.Load_File (Name, Payload);
+
+      return
+         AWS.Response.Build (Content_Type    => "text/css",
+                             UString_Message => Payload);
+   end Service_CSS;
 
    -----------------
    -- Service_GIF --
@@ -289,6 +308,7 @@ package body HostARM_Server is
 
       Register_Regexp (Dispatcher, ".*\.gif",  Service_GIF'Access);
       Register_Regexp (Dispatcher, ".*\.html", Service_Redirect'Access);
+      Register_Regexp (Dispatcher, "/assets/css/.*\.css", Service_CSS'Access);
 
       Register_Regexp (Dispatcher, "/assets/tipuesearch/.*",
                        Service_Tipue'Access);
