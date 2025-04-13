@@ -43,8 +43,11 @@ hostarm [--port &lt;Port&gt;]</code><br>
 <ht>Port - Default is 2778 which is decimal for 16#Ada#.<br>
 
   <h2>Feedback</h2>
-  <p>For questions, bug reports, feature request, and user stories,
-  please visit
+  <p>For <a href="https://github.com/jquorning/hostarm/discussions">questions</a>, <a href="https://github.com/jquorning/hostarm/issues">bug
+  reports</a>, <a href="https://github.com/jquorning/hostarm/issues">feature
+  requests</a>,
+  and <a href="https://github.com/jquorning/hostarm/discussions">user
+  stories</a>, please visit
   the <a href="https://github.com/jquorning/hostarm">project
   website</a>.</p>
 
