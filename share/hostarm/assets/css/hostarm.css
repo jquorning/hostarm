@@ -29,7 +29,6 @@
     box-shadow: 4px 4px 3px #CDC;
     margin: 15px;
     padding: 10px;
-    align: top;
 }
 
 /*
@@ -54,11 +53,18 @@
     list-style-type: none;
 }
 
-/* Navigation */
+/* Key navigation */
 .item23 {
     grid-row: 3;
     grid-column: 2 / span 3;
+    border: 1px solid;
+    border-width: 3px;
+    border-color: #Ada;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 3px;
 }
+
 
 /* Feedback */
 .item24 {
