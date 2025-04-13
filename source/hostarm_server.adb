@@ -14,7 +14,7 @@ with Templates_Parser;
 with HostARM_Configuration;
 with HostARM_Cookie;
 with HostARM_Navigate;
-with HostARM_Stripping;
+with HostARM_Pyning;
 with HostARM_Tipue;
 with HostARM_Tools;
 
@@ -162,12 +162,12 @@ package body HostARM_Server is
       HostARM_Navigate.Insert_JS_Key_Navigation (Payload, Nav_Info);
 
       if URI = "/" & Config.URI_Index then
-         HostARM_Stripping.Append_Navigation_Bar (Payload);
+         HostARM_Pyning.Append_Navigation_Bar (Payload);
       end if;
 
-      HostARM_Stripping.Strip (Payload);
-      HostARM_Stripping.Replace_Doctype (Payload);
-      HostARM_Stripping.Replace_Style_CSS (Payload);
+      HostARM_Pyning.Strip (Payload);
+      HostARM_Pyning.Replace_Doctype (Payload);
+      HostARM_Pyning.Replace_Style_CSS (Payload);
 
       return
          AWS.Response.Build (Content_Type    => "text/html",

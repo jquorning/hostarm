@@ -4,7 +4,7 @@ with Ada.Characters.Latin_1;
 
 with HostARM_Configuration;
 
-package body HostARM_Stripping is
+package body HostARM_Pyning is
 
    package Config renames HostARM_Configuration;
 
@@ -330,4 +330,4 @@ package body HostARM_Stripping is
 
    end Append_Navigation_Bar;
 
-end HostARM_Stripping;
+end HostARM_Pyning;

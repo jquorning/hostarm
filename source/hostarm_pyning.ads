@@ -1,6 +1,6 @@
 with HostARM_Tools;
 
-package HostARM_Stripping is
+package HostARM_Pyning is
 
    package Tools renames HostARM_Tools;
 
@@ -12,4 +12,4 @@ package HostARM_Stripping is
 
    procedure Append_Navigation_Bar (Item : in out Tools.UString);
 
-end HostARM_Stripping;
+end HostARM_Pyning;
