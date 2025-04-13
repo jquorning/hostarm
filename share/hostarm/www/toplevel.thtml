@@ -19,9 +19,8 @@
 
 <h2>HostARM pages</h2>
 <table>
-  <tr><td><a href="http://localhost:2778/readme">/readme</a></td><td>This page</td></tr>
+  <tr><td><a href="http://localhost:2778/">/</a></td><td>Toplevel</td></tr>
   <tr><td><a href="http://localhost:2778/search">/search</a></td><td>Local search</td></tr>
-  <tr><td><a href="http://localhost:2778/config">/config</a></td><td>Config page</td></tr>
 </table>
 
 <h2>Key Navigation</h2>
@@ -33,8 +32,48 @@
   <tr><td>R</td><td>Reference page</td></tr>
   <tr><td>A</td><td>Ada-Auth search page</td></tr>
   <tr><td>S</td><td>Search with Tipuesearch</td></tr>
-  <tr><td>K</td><td>Config page</td></tr>
+  <tr><td>K</td><td>Toplevel page (<b>H</b>ome)</td></tr>
 </table>
+
+<h1>Configuration</h1>
+
+<form action="/" method="post">
+<h2>Manual</h2>
+  <input type="radio" id="arm2012" name="manual" value="ARM_2012" @_MAN_ARM_2012_@>
+  <label for="arm2012">ARM 2012</label><br>
+
+  <input type="radio" id="arm2022" name="manual" value="ARM_2022" @_MAN_ARM_2022_@>
+  <label for="arm2022">ARM 2022</label><br>
+
+  <input type="radio" id="aarm202Y" name="manual" value="AARM_202Y" @_MAN_AARM_202Y_@>
+  <label for="aarm202Y">AARM 202Y</label>
+
+  <h2>Configuration</h2>
+
+  <h3>Pyning</h3>
+
+  <input type="checkbox" id="strip_title" name="strip_title" value ="true" @_STRIP_TITLE_@>
+  <label for="strip_title" id="strip_title">Strip title</label>
+  <br>
+
+  <input type="checkbox" id="strip_nav_top" name="strip_nav_top" value ="true" @_STRIP_NAV_TOP_@>
+  <label for="strip_nav_top" id="strip_nav_top">Strip top navigation</label>
+  <br>
+
+  <input type="checkbox" id="strip_nav_bottom" name="strip_nav_bottom" value ="true" @_STRIP_NAV_BOTTOM_@>
+  <label for="strip_nav_bottom" id="strip_nav_bottom">Strip bottom navigation</label>
+  <br>
+
+  <input type="checkbox" id="strip_sponsor" name="strip_sponsor" value ="true" @_STRIP_SPONSOR_@>
+  <label for="strip_sponsor" id="strip_sponsor">Strip sponsor</label>
+  <br>
+
+  <h3>Submit</h3>
+  <input type="submit" id="submit" id="submit" value="Submit">
+  <label for="submit" id="submit">By pressing submit you accept a cookie</label>
+  <br>
+
+</form>
 
 <h2>Invocation</h2>
 

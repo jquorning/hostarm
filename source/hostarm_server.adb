@@ -66,81 +66,6 @@ package body HostARM_Server is
                              UString_Message => Payload);
    end Service_Search;
 
-   --------------------
-   -- Service_Config --
-   --------------------
-
-   function Service_Config (Request : in AWS.Status.Data)
-                            return AWS.Response.Data
-   is
-      use HostARM_Navigate;
-      use AWS.Parameters;
-      use Templates_Parser;
-      use Config;
-
-      function Checked_If (Condition : in Boolean) return String is
-      begin
-         return (if Condition then "checked" else "");
-      end Checked_If;
-
-      function Get_Boolean (Params : in List;
-                            Key    : in String)
-                            return Boolean
-      is
-      begin
-         return Boolean'Value (Get (Params, Key));
-      exception
-         when Constraint_Error =>
-            return False;
-      end Get_Boolean;
-
-      URI     : constant String
-        := Tools.Strip_Slash (AWS.Status.URI (Request));
-      Name    : constant String := Config.WWW_Base & URI & ".thtml";
-      Payload : Tools.UString;
-      Params  : constant List := AWS.Status.Parameters (Request);
-
-      function Trans return Translate_Table is
-      begin
-         return
-            (Assoc ("STRIP_TITLE",      Checked_If (Strip_Title)),
-             Assoc ("STRIP_NAV_TOP",    Checked_If (Strip_Nav_Top)),
-             Assoc ("STRIP_NAV_BOTTOM", Checked_If (Strip_Nav_Bottom)),
-             Assoc ("STRIP_SPONSOR",    Checked_If (Strip_Sponsor)),
-             Assoc ("MAN_ARM_2012",     Checked_If (Default_ARM = ARM_2012)),
-             Assoc ("MAN_ARM_2022",     Checked_If (Default_ARM = ARM_2022)),
-             Assoc ("MAN_AARM_202Y",    Checked_If (Default_ARM = AARM_202Y))
-            );
-      end Trans;
-
-   begin
-
-      case AWS.Status.Method (Request) is
-         when AWS.Status.GET  =>
-            null;
-
-         when AWS.Status.POST =>
-            Strip_Title      := Get_Boolean (Params, "strip_title");
-            Strip_Nav_Top    := Get_Boolean (Params, "strip_nav_top");
-            Strip_Nav_Bottom := Get_Boolean (Params, "strip_nav_bottom");
-            Strip_Sponsor    := Get_Boolean (Params, "strip_sponsor");
-            Default_ARM      := ARM_Version'Value (Get (Params, "manual"));
-            HostARM_Tipue.Build_Content;  -- Rebuild Tipuesearch database
-
-         when others => null;
-      end case;
-
-      Payload := Templates_Parser.Parse (Filename     => Name,
-                                         Translations => Trans);
-      Insert_JS_Key_Navigation
-         (Payload,
-          Info => Default_Info (Next => "/search",
-                                Prev => "/search"));
-      return
-         AWS.Response.Build (Content_Type    => "text/html",
-                             UString_Message => Payload);
-   end Service_Config;
-
    -----------------
    -- Service_ARM --
    -----------------
@@ -297,10 +222,30 @@ package body HostARM_Server is
    function Service_Toplevel (Request : in AWS.Status.Data)
                               return AWS.Response.Data
    is
-      pragma Unreferenced (Request);
-
       use HostARM_Navigate;
+      use AWS.Parameters;
       use Templates_Parser;
+      use Config;
+
+      function Checked_If (Condition : in Boolean) return String is
+      begin
+         if Condition then
+            return "checked";
+         else
+            return "";
+         end if;
+      end Checked_If;
+
+      function Get_Boolean (Params : in List;
+                            Key    : in String)
+                            return Boolean
+      is
+      begin
+         return Boolean'Value (Get (Params, Key));
+      exception
+         when Constraint_Error =>
+            return False;
+      end Get_Boolean;
 
       function Trans return Translate_Table is
       begin
@@ -308,19 +253,43 @@ package body HostARM_Server is
             (Assoc ("MANUAL_TOC",         Config.URI_Contents),
              Assoc ("MANUAL_INDEX",       Config.URI_Index),
              Assoc ("MANUAL_AUTH_SEARCH", Config.URI_Search),
-             Assoc ("MANUAL_REFERENCE",   Config.URI_Reference)
+             Assoc ("MANUAL_REFERENCE",   Config.URI_Reference),
+             Assoc ("STRIP_TITLE",      Checked_If (Strip_Title)),
+             Assoc ("STRIP_NAV_TOP",    Checked_If (Strip_Nav_Top)),
+             Assoc ("STRIP_NAV_BOTTOM", Checked_If (Strip_Nav_Bottom)),
+             Assoc ("STRIP_SPONSOR",    Checked_If (Strip_Sponsor)),
+             Assoc ("MAN_ARM_2012",     Checked_If (Default_ARM = ARM_2012)),
+             Assoc ("MAN_ARM_2022",     Checked_If (Default_ARM = ARM_2022)),
+             Assoc ("MAN_AARM_202Y",    Checked_If (Default_ARM = AARM_202Y))
             );
       end Trans;
 
+      Params  : constant List := AWS.Status.Parameters (Request);
       Name    : constant String := Config.WWW_Base & "/toplevel.thtml";
       Payload : Tools.UString;
-      Info    : constant Nav_Info := Default_Info (Next => "/search",
-                                                   Prev => "/search");
    begin
+
+      case AWS.Status.Method (Request) is
+         when AWS.Status.GET  =>
+            null;
+
+         when AWS.Status.POST =>
+            Strip_Title      := Get_Boolean (Params, "strip_title");
+            Strip_Nav_Top    := Get_Boolean (Params, "strip_nav_top");
+            Strip_Nav_Bottom := Get_Boolean (Params, "strip_nav_bottom");
+            Strip_Sponsor    := Get_Boolean (Params, "strip_sponsor");
+            Default_ARM      := ARM_Version'Value (Get (Params, "manual"));
+            HostARM_Tipue.Build_Content;  -- Rebuild Tipuesearch database
+
+         when others => null;
+      end case;
+
       Payload := Templates_Parser.Parse (Filename     => Name,
                                          Translations => Trans);
-
-      Insert_JS_Key_Navigation (Payload, Info);
+      Insert_JS_Key_Navigation
+         (Payload,
+          Info => Default_Info (Next => "/search",
+                                Prev => "/search"));
 
       return
          AWS.Response.Build (Content_Type    => "text/html",
@@ -336,10 +305,11 @@ package body HostARM_Server is
       use AWS.Services.Dispatchers.URI;
    begin
 
-      Register (Dispatcher, "/config", Service_Config'Access);
-      Register (Dispatcher, "/search", Service_Search'Access, Prefix => True);
-      Register (Dispatcher, "/",       Service_Toplevel'Access);
-      Register (Dispatcher, "",        Service_Toplevel'Access);
+      Register (Dispatcher, "/search",      Service_Search'Access,
+                Prefix => True);
+      Register (Dispatcher, "/",            Service_Toplevel'Access);
+      Register (Dispatcher, "",             Service_Toplevel'Access);
+      Register (Dispatcher, "/toplevel",    Service_Toplevel'Access);
       Register (Dispatcher, "/favicon.ico", Service_ICO'Access);
 
       Register_Regexp (Dispatcher, ".*\.gif",  Service_GIF'Access);
