@@ -79,9 +79,10 @@ package body HostARM_Stripping is
 
    procedure Strip_Bottom_Navigation (Item : in out Tools.UString)
    is
-      HR_Match : constant String := "<HR>";
-      Top_Match  : constant String := "<div style=";
-      Bot_Match  : constant String := "</div>";
+      HR_Match  : constant String := "<HR>";
+      Top_Match : constant String :=
+        "<div style=""margin-top: 0.0em; margin-bottom";
+      Bot_Match : constant String := "</div>";
       HR_Pos   : Natural;
       Top_Pos  : Natural;
       Bot_Pos  : Natural;
@@ -91,13 +92,18 @@ package body HostARM_Stripping is
          return;
       end if;
 
+      --  Find second location of <HR>
       HR_Pos := Index (Item, HR_Match, From => HR_Pos + HR_Match'Length);
       if HR_Pos = 0 then
          return;
       end if;
 
-      Top_Pos := Index (Item, Top_Match, From => HR_Pos);
-      Bot_Pos := Index (Item, Bot_Match, From => Positive'Max (Top_Pos, 1));
+      Top_Pos := Index (Item, Top_Match,
+                        From    => HR_Pos,
+                        Mapping => Tools.To_Lower_Case);
+      Bot_Pos := Index (Item, Bot_Match,
+                        From    => Positive'Max (Top_Pos, 1),
+                        Mapping => Tools.To_Lower_Case);
       if Top_Pos = 0 or Bot_Pos = 0 then
          return;
       end if;
