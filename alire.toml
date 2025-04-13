@@ -22,7 +22,7 @@ authors = ["Jesper Quorning"]
 maintainers = ["Jesper Quorning <jesper.quorning@gmail.com>"]
 maintainers-logins = ["jquorning"]
 licenses = "MIT"
-website = "https://github.com:jquorning/hostarm"
+website = "https://github.com/jquorning/hostarm"
 tags = ["arm", "aarm", "local", "reference", "manual"]
 
 executables = ["hostarm"]

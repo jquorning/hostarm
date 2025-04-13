@@ -33,6 +33,6 @@ This will start HostARM as a deamon and the manuals are now accessable on
 
 ## Links
 
-[Project website](https://github.com:jquorning/hostarm).
+[Project website](https://github.com/jquorning/hostarm).
 
 Alire [crate](https://alire.ada.dev/crates/hostarm.html).
