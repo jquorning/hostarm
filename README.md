@@ -29,7 +29,7 @@ $ alr install hostarm
 $ hostarm &
 ```
 This will start HostARM as a deamon and the manuals are now accessable on
-[localhost](http://localhost:2778/readme).
+[localhost](http://localhost:2778/).
 
 ## Links
 

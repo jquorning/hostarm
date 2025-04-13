@@ -1,6 +1,5 @@
 
 with Ada.Strings.Fixed;
-with Ada.Text_IO;
 
 with AWS.Config.Set;
 with AWS.Response;
@@ -12,7 +11,7 @@ with AWS.Status;
 with Templates_Parser;
 
 with HostARM_Configuration;
-with HostARM_Cookie;
+--  with HostARM_Cookie;
 with HostARM_Navigate;
 with HostARM_Pyning;
 with HostARM_Tipue;
@@ -30,13 +29,15 @@ package body HostARM_Server is
    Server_Conf : AWS.Config.Object;
    Dispatcher  : AWS.Services.Dispatchers.URI.Handler;
 
-   -------------------
-   -- Service_THTML --
-   -------------------
+   --------------------
+   -- Service_Search --
+   --------------------
 
-   function Service_THTML (Request : in AWS.Status.Data)
-                           return AWS.Response.Data
+   function Service_Search (Request : in AWS.Status.Data)
+                            return AWS.Response.Data
    is
+      pragma Unreferenced (Request);
+
       use HostARM_Navigate;
       use Templates_Parser;
 
@@ -50,9 +51,7 @@ package body HostARM_Server is
             );
       end Trans;
 
-      URI     : constant String
-        := Tools.Strip_Slash (AWS.Status.URI (Request));
-      Name    : constant String := Config.WWW_Base & URI & ".thtml";
+      Name    : constant String := Config.WWW_Base & "/search.thtml";
       Payload : Tools.UString;
       Info    : constant Nav_Info := Default_Info (Next => "/search",
                                                    Prev => "/search");
@@ -65,7 +64,7 @@ package body HostARM_Server is
       return
          AWS.Response.Build (Content_Type    => "text/html",
                              UString_Message => Payload);
-   end Service_THTML;
+   end Service_Search;
 
    --------------------
    -- Service_Config --
@@ -291,18 +290,42 @@ package body HostARM_Server is
       return AWS.Response.URL (Location => New_URI);
    end Service_Redirect;
 
-   -----------------
-   -- Service_Odd --
-   -----------------
+   ----------------------
+   -- Service_Toplevel --
+   ----------------------
 
-   function Service_Odd (Request : in AWS.Status.Data)
-                         return AWS.Response.Data
+   function Service_Toplevel (Request : in AWS.Status.Data)
+                              return AWS.Response.Data
    is
       pragma Unreferenced (Request);
-      New_URI : constant String := "/readme";
+
+      use HostARM_Navigate;
+      use Templates_Parser;
+
+      function Trans return Translate_Table is
+      begin
+         return
+            (Assoc ("MANUAL_TOC",         Config.URI_Contents),
+             Assoc ("MANUAL_INDEX",       Config.URI_Index),
+             Assoc ("MANUAL_AUTH_SEARCH", Config.URI_Search),
+             Assoc ("MANUAL_REFERENCE",   Config.URI_Reference)
+            );
+      end Trans;
+
+      Name    : constant String := Config.WWW_Base & "/toplevel.thtml";
+      Payload : Tools.UString;
+      Info    : constant Nav_Info := Default_Info (Next => "/search",
+                                                   Prev => "/search");
    begin
-      return AWS.Response.URL (Location => New_URI);
-   end Service_Odd;
+      Payload := Templates_Parser.Parse (Filename     => Name,
+                                         Translations => Trans);
+
+      Insert_JS_Key_Navigation (Payload, Info);
+
+      return
+         AWS.Response.Build (Content_Type    => "text/html",
+                             UString_Message => Payload);
+   end Service_Toplevel;
 
    -------------------------
    -- Register_Dispatcher --
@@ -314,10 +337,9 @@ package body HostARM_Server is
    begin
 
       Register (Dispatcher, "/config", Service_Config'Access);
-      Register (Dispatcher, "/search", Service_THTML'Access, Prefix => True);
-      Register (Dispatcher, "/readme", Service_THTML'Access);
-      Register (Dispatcher, "/",       Service_Odd'Access);
-      Register (Dispatcher, "",        Service_Odd'Access);
+      Register (Dispatcher, "/search", Service_Search'Access, Prefix => True);
+      Register (Dispatcher, "/",       Service_Toplevel'Access);
+      Register (Dispatcher, "",        Service_Toplevel'Access);
       Register (Dispatcher, "/favicon.ico", Service_ICO'Access);
 
       Register_Regexp (Dispatcher, ".*\.gif",  Service_GIF'Access);

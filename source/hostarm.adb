@@ -21,7 +21,7 @@ begin
    HostARM_Server.Start;
    Put_Line ("HostARM: Accessible on URL: https://localhost:"
              & Fixed.Trim (Config.Default_Port'Image, Side => Left)
-             & "/readme");
+             & "/");
 
    HostARM_Server.Wait;
    Put_Line ("HostARM: Shutting down");
