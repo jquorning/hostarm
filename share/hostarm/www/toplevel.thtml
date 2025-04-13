@@ -54,14 +54,14 @@
 </form>
 </div>
 
-<div class="item22">
-<h2>Shortcut</h2>
-  <a href="@_MANUAL_TOC_@">Contents</a><br>
-<a href="@_MANUAL_INDEX_@">Index</a><br>
-<a href="@_MANUAL_REFERENCE_@">Reference</a><br>
-<a href="@_MANUAL_AUTH_SEARCH_@">Ada Auth search</a><br>
-<a href="search">Search</a><br>
-</div>
+  <div class="item22">
+    <h2>Shortcuts</h2>
+    <li class="item22"><a href="@_MANUAL_TOC_@">Contents</a></li>
+    <li class="item22"><a href="@_MANUAL_INDEX_@">Index</a></li>
+    <li class="item22"><a href="@_MANUAL_REFERENCE_@">Reference</a></li>
+    <li><a href="@_MANUAL_AUTH_SEARCH_@">Ada Auth search</a></li>
+    <li><a href="search">Search</a></li>
+  </div>
 
      <div class="item23">
       <h2>Key Navigation</h2>
