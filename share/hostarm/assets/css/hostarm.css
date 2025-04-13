@@ -237,3 +237,10 @@ a.IndexNavigation {
     font-size: 150%;
     padding-right: 0.5em;
 }
+
+div.prettybox {
+    border-style: solid;
+    background: #EFE;
+    border-color: #Ada;
+    border-radius: 10px;
+}

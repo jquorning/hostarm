@@ -9,6 +9,7 @@
 <body>
 <h1>Welcome</h1>
 
+<div class="prettybox">
 <table>
 <tr><td><a href="@_MANUAL_TOC_@">Contents</a></td></tr>
 <tr><td><a href="@_MANUAL_INDEX_@">Index</a></td></tr>
@@ -16,14 +17,18 @@
 <tr><td><a href="@_MANUAL_AUTH_SEARCH_@">Ada Auth search</a></td></tr>
 <tr><td><a href="@_MANUAL_REFERENCE_@">Reference</a></td></tr>
 </table>
+</div>
 
 <h2>HostARM pages</h2>
+<div class="prettybox">
 <table>
   <tr><td><a href="http://localhost:2778/">/</a></td><td>Toplevel</td></tr>
   <tr><td><a href="http://localhost:2778/search">/search</a></td><td>Local search</td></tr>
 </table>
+</div>
 
 <h2>Key Navigation</h2>
+<div class="prettybox">
 <table>
   <tr><td>B, P</td><td><b>B</b>efore, <b>P</b>revious page</td></tr>
   <tr><td>F, N</td><td><b>F</b>orward, <b>N</b>ext page</td></tr>
@@ -34,11 +39,15 @@
   <tr><td>S</td><td><b>S</b>earch with Tipuesearch</td></tr>
   <tr><td>H</td><td>Toplevel page (<b>H</b>ome)</td></tr>
 </table>
+</div>
 
-<h1>Configuration</h1>
+<h2>Configuration</h2>
 
+<div class="prettybox">
 <form action="/" method="post">
-<h2>Manual</h2>
+
+  <h3>Manual</h3>
+
   <input type="radio" id="arm2012" name="manual" value="ARM_2012" @_MAN_ARM_2012_@>
   <label for="arm2012">ARM 2012</label><br>
 
@@ -47,8 +56,6 @@
 
   <input type="radio" id="aarm202Y" name="manual" value="AARM_202Y" @_MAN_AARM_202Y_@>
   <label for="aarm202Y">AARM 202Y</label>
-
-  <h2>Configuration</h2>
 
   <h3>Pyning</h3>
 
@@ -74,14 +81,18 @@
   <br>
 
 </form>
+</div>
 
 <h2>Invocation</h2>
 
-<code>
-hostarm [--port &lt;Port&gt;]</code><br>
-<ht>Port - Default is 2778 which is decimal for 16#Ada#.<br>
+<div class="prettybox">
+  <code>
+    hostarm [--port &lt;Port&gt;]</code><br>
+  <ht>Port - Default is 2778 which is decimal for 16#Ada#.<br>
+</div>
 
-  <h2>Feedback</h2>
+<h2>Feedback</h2>
+<div class="prettybox">
   <p>For <a href="https://github.com/jquorning/hostarm/discussions">questions</a>, <a href="https://github.com/jquorning/hostarm/issues">bug
   reports</a>, <a href="https://github.com/jquorning/hostarm/issues">feature
   requests</a>,
@@ -89,6 +100,7 @@ hostarm [--port &lt;Port&gt;]</code><br>
   stories</a>, please visit
   the <a href="https://github.com/jquorning/hostarm">project
   website</a>.</p>
+</div>
 
 </body>
 </html>
