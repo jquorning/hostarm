@@ -99,8 +99,6 @@ package body HostARM_Server is
         := Tools.Strip_Slash (AWS.Status.URI (Request));
       Name    : constant String := Config.WWW_Base & URI & ".thtml";
       Payload : Tools.UString;
-      Info    : constant Nav_Info := Default_Info (Next => "/search",
-                                                   Prev => "/search");
       Params  : constant List := AWS.Status.Parameters (Request);
 
       function Trans return Translate_Table is
@@ -119,10 +117,8 @@ package body HostARM_Server is
    begin
 
       case AWS.Status.Method (Request) is
-         when AWS.Status.GET  => null;
-            Payload := Templates_Parser.Parse (Filename     => Name,
-                                               Translations => Trans);
-            Insert_JS_Key_Navigation (Payload, Info);
+         when AWS.Status.GET  =>
+            null;
 
          when AWS.Status.POST =>
             Strip_Title      := Get_Boolean (Params, "strip_title");
@@ -132,13 +128,15 @@ package body HostARM_Server is
             Default_ARM      := ARM_Version'Value (Get (Params, "manual"));
             HostARM_Tipue.Build_Content;  -- Rebuild Tipuesearch database
 
-            Payload := Templates_Parser.Parse (Filename     => Name,
-                                               Translations => Trans);
-            Insert_JS_Key_Navigation (Payload, Info);
-
          when others => null;
       end case;
 
+      Payload := Templates_Parser.Parse (Filename     => Name,
+                                         Translations => Trans);
+      Insert_JS_Key_Navigation
+         (Payload,
+          Info => Default_Info (Next => "/search",
+                                Prev => "/search"));
       return
          AWS.Response.Build (Content_Type    => "text/html",
                              UString_Message => Payload);
@@ -300,6 +298,7 @@ package body HostARM_Server is
    function Service_Odd (Request : in AWS.Status.Data)
                          return AWS.Response.Data
    is
+      pragma Unreferenced (Request);
       New_URI : constant String := "/readme";
    begin
       return AWS.Response.URL (Location => New_URI);
