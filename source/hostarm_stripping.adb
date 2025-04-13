@@ -9,11 +9,11 @@ package body HostARM_Stripping is
    use Ada.Strings.Unbounded;
    package Config renames HostARM_Configuration;
 
-   ---------------
-   -- Strip_Top --
-   ---------------
+   --------------------------
+   -- Strip_Top_Navigation --
+   --------------------------
 
-   procedure Strip_Top (Item : in out Tools.UString)
+   procedure Strip_Top_Navigation (Item : in out Tools.UString)
    is
       Body_Match : constant String := "<BODY TEXT=";
       Top_Match  : constant String := "<div style=";
@@ -37,7 +37,7 @@ package body HostARM_Stripping is
       Delete (Item,
               From    => Top_Pos,
               Through => Bot_Pos + Bot_Match'Length);
-   end Strip_Top;
+   end Strip_Top_Navigation;
 
    -----------------
    -- Strip_Title --
@@ -68,11 +68,11 @@ package body HostARM_Stripping is
               Through => Bot_Pos + Bot_Match'Length);
    end Strip_Title;
 
-   ------------------
-   -- Strip_Bottom --
-   ------------------
+   -----------------------------
+   -- Strip_Bottom_Navigation --
+   -----------------------------
 
-   procedure Strip_Bottom (Item : in out Tools.UString)
+   procedure Strip_Bottom_Navigation (Item : in out Tools.UString)
    is
       HR_Match : constant String := "<HR>";
       Top_Match  : constant String := "<div style=";
@@ -100,7 +100,7 @@ package body HostARM_Stripping is
       Delete (Item,
               From    => Top_Pos,
               Through => Bot_Pos + Bot_Match'Length);
-   end Strip_Bottom;
+   end Strip_Bottom_Navigation;
 
    -------------------
    -- Strip_Sponsor --
@@ -171,11 +171,11 @@ package body HostARM_Stripping is
    procedure Strip (Item : in out Tools.UString) is
    begin
       if Config.Strip_Nav_Top then
-         Strip_Top (Item);
+         Strip_Top_Navigation (Item);
       end if;
 
       if Config.Strip_Nav_Bottom then
-         Strip_Bottom (Item);
+         Strip_Bottom_Navigation (Item);
       end if;
 
       if Config.Strip_Title then
