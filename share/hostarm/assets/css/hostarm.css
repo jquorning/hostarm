@@ -228,7 +228,6 @@ DIV.WideAbove {
 DIV.IndexNavigation {
     margin-left: 1.8em;
     margin-bottom: 0.6em;
-    /* background: #ada; */
 }
 
 a.IndexNavigation {
@@ -238,9 +237,74 @@ a.IndexNavigation {
     padding-right: 0.5em;
 }
 
-div.prettybox {
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto;
     border-style: solid;
+    border-width: 5px;
     background: #EFE;
     border-color: #Ada;
     border-radius: 10px;
+    box-shadow: 4px 4px 3px #CDC;
+    margin: 15px;
+    padding: 10px;
+}
+
+.grid-container > div {
+    border-style: solid;
+    border-width: 5px;
+    background: #EFE;
+    border-color: #Ada;
+    border-radius: 10px;
+    box-shadow: 4px 4px 3px #CDC;
+    margin: 15px;
+    padding: 10px;
+    align: top;
+}
+
+/*
+ * Toplevel page
+ */
+
+/* Heading */
+.item20 {
+    grid-column: 1 / span 2;
+}
+
+/* Configuraion */
+.item21 {
+    grid-row: 2 / span 3;
+    grid-column: 1;
+}
+
+/* Shorcuts */
+.item22 {
+    grid-row: 2;
+    grid-column: 2 / span 3;
+}
+
+/* Navigation */
+.item23 {
+    grid-row: 3;
+    grid-column: 2 / span 3;
+}
+
+/* Feedback */
+.item24 {
+    grid-column: 1 / span 2;
+}
+
+/*
+ ** Search page
+ */
+
+/* Search input */
+.item11 {
+    grid-column: 1 / span 2;
+}
+
+/* Search results */
+.item12 {
+    grid-column: 1 / span 2;
 }

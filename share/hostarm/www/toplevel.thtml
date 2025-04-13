@@ -7,44 +7,15 @@
 </head>
 
 <body>
-<h1>Welcome</h1>
 
-<div class="prettybox">
-<table>
-<tr><td><a href="@_MANUAL_TOC_@">Contents</a></td></tr>
-<tr><td><a href="@_MANUAL_INDEX_@">Index</a></td></tr>
-<tr><td><a href="search">Search</a></td></tr>
-<tr><td><a href="@_MANUAL_AUTH_SEARCH_@">Ada Auth search</a></td></tr>
-<tr><td><a href="@_MANUAL_REFERENCE_@">Reference</a></td></tr>
-</table>
-</div>
+<div class="grid-container">
 
-<h2>HostARM pages</h2>
-<div class="prettybox">
-<table>
-  <tr><td><a href="http://localhost:2778/">/</a></td><td>Toplevel</td></tr>
-  <tr><td><a href="http://localhost:2778/search">/search</a></td><td>Local search</td></tr>
-</table>
-</div>
+  <h1>Welcome</h1>
 
-<h2>Key Navigation</h2>
-<div class="prettybox">
-<table>
-  <tr><td>B, P</td><td><b>B</b>efore, <b>P</b>revious page</td></tr>
-  <tr><td>F, N</td><td><b>F</b>orward, <b>N</b>ext page</td></tr>
-  <tr><td>C, T</td><td><b>C</b>ontents, <b>T</b>able of contents</td></tr>
-  <tr><td>I</td><td><b>I</b>ndex page</td></tr>
-  <tr><td>R</td><td><b>R</b>eference page</td></tr>
-  <tr><td>A</td><td><b>A</b>da-Auth search page</td></tr>
-  <tr><td>S</td><td><b>S</b>earch with Tipuesearch</td></tr>
-  <tr><td>H</td><td>Toplevel page (<b>H</b>ome)</td></tr>
-</table>
-</div>
 
-<h2>Configuration</h2>
-
-<div class="prettybox">
-<form action="/" method="post">
+  <div class="item21">
+    <h2>Configuration</h2>
+    <form action="/" method="post">
 
   <h3>Manual</h3>
 
@@ -77,29 +48,48 @@
 
   <h3>Submit</h3>
   <input type="submit" id="submit" id="submit" value="Submit">
-  <label for="submit" id="submit">By pressing submit you accept a cookie</label>
+  <label for="submit" id="submit">By pressing submit you accept cookies</label>
   <br>
 
 </form>
 </div>
 
-<h2>Invocation</h2>
-
-<div class="prettybox">
-  <code>
-    hostarm [--port &lt;Port&gt;]</code><br>
-  <ht>Port - Default is 2778 which is decimal for 16#Ada#.<br>
+<div class="item22">
+<h2>Shortcut</h2>
+  <a href="@_MANUAL_TOC_@">Contents</a><br>
+<a href="@_MANUAL_INDEX_@">Index</a><br>
+<a href="@_MANUAL_REFERENCE_@">Reference</a><br>
+<a href="@_MANUAL_AUTH_SEARCH_@">Ada Auth search</a><br>
+<a href="search">Search</a><br>
 </div>
 
+     <div class="item23">
+      <h2>Key Navigation</h2>
+	<table>
+	  <tr><td>B, P</td><td><b>B</b>efore, <b>P</b>revious page</td></tr>
+	  <tr><td>F, N</td><td><b>F</b>orward, <b>N</b>ext page</td></tr>
+	  <tr><td>C, T</td><td><b>C</b>ontents, <b>T</b>able of contents</td></tr>
+	  <tr><td>I</td><td><b>I</b>ndex page</td></tr>
+	  <tr><td>R</td><td><b>R</b>eference page</td></tr>
+	  <tr><td>A</td><td><b>A</b>da-Auth search page</td></tr>
+	  <tr><td>S</td><td><b>S</b>earch with Tipuesearch</td></tr>
+	  <tr><td>H</td><td>Toplevel page (<b>H</b>ome)</td></tr>
+	</table>
+      </div>
+    </td>
+  </tr>
+
+<div class="item24">
 <h2>Feedback</h2>
-<div class="prettybox">
-  <p>For <a href="https://github.com/jquorning/hostarm/discussions">questions</a>, <a href="https://github.com/jquorning/hostarm/issues">bug
+<p>For <a href="https://github.com/jquorning/hostarm/discussions">questions</a>,
+  <a href="https://github.com/jquorning/hostarm/issues">bug
   reports</a>, <a href="https://github.com/jquorning/hostarm/issues">feature
   requests</a>,
   and <a href="https://github.com/jquorning/hostarm/discussions">user
   stories</a>, please visit
   the <a href="https://github.com/jquorning/hostarm">project
   website</a>.</p>
+</div>
 </div>
 
 </body>
