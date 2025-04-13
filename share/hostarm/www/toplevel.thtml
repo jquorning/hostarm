@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>readme - HostARM</title>
+  <title>HostARM</title>
   <link rel="stylesheet" href="/assets/css/hostarm.css" />
 </head>
 
@@ -10,7 +10,7 @@
 
 <div class="grid-container">
 
-  <h1>Welcome</h1>
+  <h1 class="item20">HostARM - Your ARM docs</h1>
 
 
   <div class="item21">
@@ -19,36 +19,46 @@
 
   <h3>Manual</h3>
 
-  <input type="radio" id="arm2012" name="manual" value="ARM_2012" @_MAN_ARM_2012_@>
-  <label for="arm2012">ARM 2012</label><br>
+  <li class="item21">
+    <input type="radio" id="arm2012" name="manual" value="ARM_2012" @_MAN_ARM_2012_@>
+    <label for="arm2012">ARM 2012</label><br>
+  </li>
 
-  <input type="radio" id="arm2022" name="manual" value="ARM_2022" @_MAN_ARM_2022_@>
-  <label for="arm2022">ARM 2022</label><br>
+  <li class="item21">
+    <input type="radio" id="arm2022" name="manual" value="ARM_2022" @_MAN_ARM_2022_@>
+    <label for="arm2022">ARM 2022</label><br>
+  </li>
 
-  <input type="radio" id="aarm202Y" name="manual" value="AARM_202Y" @_MAN_AARM_202Y_@>
-  <label for="aarm202Y">AARM 202Y</label>
+  <li class="item21">
+    <input type="radio" id="aarm202Y" name="manual" value="AARM_202Y" @_MAN_AARM_202Y_@>
+    <label for="aarm202Y">AARM 202Y</label>
+  </li>
 
   <h3>Pyning</h3>
 
-  <input type="checkbox" id="strip_title" name="strip_title" value ="true" @_STRIP_TITLE_@>
-  <label for="strip_title" id="strip_title">Strip title</label>
-  <br>
+  <li class="item21">
+    <input type="checkbox" id="strip_title" name="strip_title" value ="true" @_STRIP_TITLE_@>
+    <label for="strip_title" id="strip_title">Strip title</label>
+  </li>
 
-  <input type="checkbox" id="strip_nav_top" name="strip_nav_top" value ="true" @_STRIP_NAV_TOP_@>
-  <label for="strip_nav_top" id="strip_nav_top">Strip top navigation</label>
-  <br>
+  <li class="item21">
+    <input type="checkbox" id="strip_nav_top" name="strip_nav_top" value ="true" @_STRIP_NAV_TOP_@>
+    <label for="strip_nav_top" id="strip_nav_top">Strip top navigation</label>
+  </li>
 
-  <input type="checkbox" id="strip_nav_bottom" name="strip_nav_bottom" value ="true" @_STRIP_NAV_BOTTOM_@>
-  <label for="strip_nav_bottom" id="strip_nav_bottom">Strip bottom navigation</label>
-  <br>
+  <li class="item21">
+    <input type="checkbox" id="strip_nav_bottom" name="strip_nav_bottom" value ="true" @_STRIP_NAV_BOTTOM_@>
+    <label for="strip_nav_bottom" id="strip_nav_bottom">Strip bottom navigation</label>
+  </li>
 
-  <input type="checkbox" id="strip_sponsor" name="strip_sponsor" value ="true" @_STRIP_SPONSOR_@>
-  <label for="strip_sponsor" id="strip_sponsor">Strip sponsor</label>
-  <br>
+  <li class="item21">
+    <input type="checkbox" id="strip_sponsor" name="strip_sponsor" value ="true" @_STRIP_SPONSOR_@>
+    <label for="strip_sponsor" id="strip_sponsor">Strip sponsor</label>
+  </li>
 
   <h3>Submit</h3>
   <input type="submit" id="submit" id="submit" value="Submit">
-  <label for="submit" id="submit">By pressing submit you accept cookies</label>
+  <label for="submit" id="submit">By submitting you accept cookies</label>
   <br>
 
 </form>
