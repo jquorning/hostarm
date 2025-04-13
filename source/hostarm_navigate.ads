@@ -26,7 +26,7 @@ package HostARM_Navigate is
    procedure Read_Navigation (Payload : in UString;
                               Info    : out Nav_Info);
 
-   procedure Insert_JS_Script (Payload : in out UString;
-                               Info    : in     Nav_Info);
+   procedure Insert_JS_Key_Navigation (Payload : in out UString;
+                                       Info    : in     Nav_Info);
 
 end HostARM_Navigate;

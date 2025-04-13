@@ -60,7 +60,7 @@ package body HostARM_Server is
       Payload := Templates_Parser.Parse (Filename     => Name,
                                          Translations => Trans);
 
-      Insert_JS_Script (Payload, Info);
+      Insert_JS_Key_Navigation (Payload, Info);
 
       return
          AWS.Response.Build (Content_Type    => "text/html",
@@ -122,7 +122,7 @@ package body HostARM_Server is
          when AWS.Status.GET  => null;
             Payload := Templates_Parser.Parse (Filename     => Name,
                                                Translations => Trans);
-            Insert_JS_Script (Payload, Info);
+            Insert_JS_Key_Navigation (Payload, Info);
 
          when AWS.Status.POST =>
             Strip_Title      := Get_Boolean (Params, "strip_title");
@@ -134,7 +134,7 @@ package body HostARM_Server is
 
             Payload := Templates_Parser.Parse (Filename     => Name,
                                                Translations => Trans);
-            Insert_JS_Script (Payload, Info);
+            Insert_JS_Key_Navigation (Payload, Info);
 
          when others => null;
       end case;
@@ -160,10 +160,10 @@ package body HostARM_Server is
    begin
       Tools.Load_File (Name, Payload);
 
-      HostARM_Navigate.Read_Navigation  (Payload, Nav_Info);
-      HostARM_Navigate.Insert_JS_Script (Payload, Nav_Info);
+      HostARM_Navigate.Read_Navigation          (Payload, Nav_Info);
+      HostARM_Navigate.Insert_JS_Key_Navigation (Payload, Nav_Info);
 
-      if URI = "/" & Config.Uri_Index then
+      if URI = "/" & Config.URI_Index then
          HostARM_Stripping.Append_Navigation_Bar (Payload);
       end if;
 

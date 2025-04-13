@@ -176,12 +176,12 @@ package body HostARM_Navigate is
       Last := From + Line'Length - 1;
    end Insert_Key_Nav;
 
-   ----------------------
-   -- Insert_JS_Script --
-   ----------------------
+   ------------------------------
+   -- Insert_JS_Key_Navigation --
+   ------------------------------
 
-   procedure Insert_JS_Script (Payload : in out UString;
-                               Info    : in     Nav_Info)
+   procedure Insert_JS_Key_Navigation (Payload : in out UString;
+                                       Info    : in     Nav_Info)
    is
       Text_1 : constant String :=
         "<script mime='text/javascript'>" & CRLF;
@@ -226,7 +226,7 @@ package body HostARM_Navigate is
       Insert (Payload, Before => Last + 1,
                        New_Item => Text_3);
 
-   end Insert_JS_Script;
+   end Insert_JS_Key_Navigation;
 
    ------------------
    -- Default_Info --
