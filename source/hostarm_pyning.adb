@@ -50,21 +50,30 @@ package body HostARM_Pyning is
 
    procedure Strip_Title (Item : in out Tools.UString)
    is
-      Body_Match : constant String := "<BODY TEXT=";
-      Top_Match  : constant String := "<DIV><SPAN ";
-      Bot_Match  : constant String := "</DIV>";
-      Body_Pos : Natural;
-      Top_Pos  : Natural;
-      Bot_Pos  : Natural;
+      Body_Match   : constant String := "<BODY TEXT=";
+      Top_RM_Match : constant String := "<DIV><SPAN ";
+      Top_AA_Match : constant String := "<DIV><B><SPAN ";  --  AA is special
+      Bot_Match    : constant String := "</DIV>";
+      Body_Pos   : Natural;
+      Top_RM_Pos : Natural;
+      Top_AA_Pos : Natural;
+      Top_Pos    : Natural;
+      Bot_Pos    : Natural;
    begin
       Body_Pos := Index (Item, Body_Match, From => 1);
       if Body_Pos = 0 then
          return;
       end if;
 
-      Top_Pos := Index (Item, Top_Match, From => Body_Pos);
+      Top_RM_Pos := Index (Item, Top_RM_Match, Body_Pos);
+      Top_AA_Pos := Index (Item, Top_AA_Match, Body_Pos);
+      if Top_RM_Pos = 0 and Top_AA_Pos = 0 then
+         return;
+      end if;
+
+      Top_Pos := Natural'Max (Top_RM_Pos, Top_AA_Pos);
       Bot_Pos := Index (Item, Bot_Match, From => Top_Pos);
-      if Top_Pos = 0 or Bot_Pos = 0 then
+      if Bot_Pos = 0 then
          return;
       end if;
 
