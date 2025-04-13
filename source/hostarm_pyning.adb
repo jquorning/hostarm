@@ -251,7 +251,7 @@ package body HostARM_Pyning is
       Match_3 : constant String := "</HEAD>";
       Pos_1, Pos_2, Pos_3 : Natural;
       Repl    : constant String :=
-        "<link rel='stylesheet' href='/assets/css/hostarm.css'>";
+        "<link rel='stylesheet' href='/assets/css/arm.css'>";
    begin
       Pos_1 := Index (Item, Match_1, 1);
       Pos_2 := Index (Item, Match_2, Natural'Max (1, Pos_1));
