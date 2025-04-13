@@ -233,6 +233,18 @@ package body HostARM_Server is
       return AWS.Response.URL (Location => New_URI);
    end Service_Redirect;
 
+   ---------------------
+   -- Service_Default --
+   ---------------------
+
+   function Service_Default (Request : in AWS.Status.Data)
+                             return AWS.Response.Data
+   is
+      pragma Unreferenced (Request);
+   begin
+      return AWS.Response.URL (Location => "/");
+   end Service_Default;
+
    ----------------------
    -- Service_Toplevel --
    ----------------------
@@ -339,6 +351,8 @@ package body HostARM_Server is
                        Service_Tipue'Access);
       Register_Regexp (Dispatcher, "/RM-.*", Service_ARM'Access);
       Register_Regexp (Dispatcher, "/AA-.*", Service_ARM'Access);
+
+      Register_Regexp (Dispatcher, ".*",  Service_Default'Access);
 
    end Register_Dispatcher;
 
