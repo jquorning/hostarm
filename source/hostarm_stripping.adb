@@ -109,7 +109,8 @@ package body HostARM_Stripping is
    procedure Strip_Sponsor (Item : in out Tools.UString)
    is
       HR_Match   : constant String := "<HR>";
-      Top_Match  : constant String := "<DIV Style=";
+      Top_Match  : constant String :=
+         "<DIV Style=""margin-top:0.0em""><IMG SRC=""AE_logo.gif""";
       Bot_Match  : constant String := "</DIV>";
       HR_Pos   : Natural;
       Top_Pos  : Natural;
