@@ -6,8 +6,9 @@ with HostARM_Configuration;
 
 package body HostARM_Stripping is
 
-   use Ada.Strings.Unbounded;
    package Config renames HostARM_Configuration;
+
+   use Ada.Strings.Unbounded;
 
    --------------------------
    -- Strip_Top_Navigation --
@@ -27,9 +28,13 @@ package body HostARM_Stripping is
          return;
       end if;
 
-      Top_Pos := Index (Item, Top_Match, From => Body_Pos);
-      Bot_Pos := Index (Item, Bot_Match, From => Natural'Max (Top_Pos,
-                                                              Body_Pos));
+      Top_Pos := Index (Item, Top_Match,
+                        From    => Body_Pos,
+                        Mapping => Tools.To_Lower_Case);
+      Bot_Pos := Index (Item, Bot_Match,
+                        From    => Natural'Max (Top_Pos,
+                                                Body_Pos),
+                        Mapping => Tools.To_Lower_Case);
       if Top_Pos = 0 or Bot_Pos = 0 then
          return;
       end if;

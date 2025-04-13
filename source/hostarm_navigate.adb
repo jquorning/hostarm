@@ -1,19 +1,16 @@
 
 with Ada.Characters.Latin_1;
-with Ada.Strings.Maps;
 
 with HostARM_Configuration;
+with HostARM_Tools;
 
 package body HostARM_Navigate is
 
+   package Tools renames HostARM_Tools;
+
    use Ada.Characters;
-   use Ada.Strings.Maps;
 
    CRLF : constant String := Latin_1.CR & Latin_1.LF;
-
-   To_Lower_Case : constant Character_Mapping :=
-     To_Mapping (From => To_Sequence (To_Set ("ABCDEFGHIJKLMNOPQRSTUVWXYZ")),
-                 To   => To_Sequence (To_Set ("abcdefghijklmnopqrstuvwxyz")));
 
    -------------------
    -- Get_Nav_Block --
@@ -34,7 +31,8 @@ package body HostARM_Navigate is
       end if;
 
       --  Match <div style=
-      Pos_2 := Index (Payload, Text_2, Pos_1, Mapping => To_Lower_Case);
+      Pos_2 := Index (Payload, Text_2, Pos_1,
+                      Mapping => Tools.To_Lower_Case);
       if Pos_2 = 0 then
          return;
       end if;
@@ -195,7 +193,8 @@ package body HostARM_Navigate is
       From : Natural;
       Last : Natural;
    begin
-      From := Index (Payload, "</head>", 1, Mapping => To_Lower_Case);
+      From := Index (Payload, "</head>", 1,
+                     Mapping => Tools.To_Lower_Case);
       --  Mapping needed because of the two adverseries.
       if From = 0 then
          return;
