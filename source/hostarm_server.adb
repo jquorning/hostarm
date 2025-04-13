@@ -161,6 +161,24 @@ package body HostARM_Server is
                              UString_Message => Payload);
    end Service_CSS;
 
+   ------------------
+   -- Service_JPEG --
+   ------------------
+
+   function Service_JPEG (Request : in AWS.Status.Data)
+                         return AWS.Response.Data
+   is
+      URI     : constant String := AWS.Status.URI (Request);
+      Name    : constant String := Config.WWW_Base & "/.." & URI;
+      Payload : Tools.UString;
+   begin
+      Tools.Load_File (Name, Payload);
+
+      return
+         AWS.Response.Build (Content_Type    => "image/jpeg",
+                             UString_Message => Payload);
+   end Service_JPEG;
+
    -----------------
    -- Service_GIF --
    -----------------
@@ -312,6 +330,7 @@ package body HostARM_Server is
       Register (Dispatcher, "/toplevel",    Service_Toplevel'Access);
       Register (Dispatcher, "/favicon.ico", Service_ICO'Access);
 
+      Register_Regexp (Dispatcher, "/.*\.jpg", Service_JPEG'Access);
       Register_Regexp (Dispatcher, ".*\.gif",  Service_GIF'Access);
       Register_Regexp (Dispatcher, ".*\.html", Service_Redirect'Access);
       Register_Regexp (Dispatcher, "/assets/css/.*\.css", Service_CSS'Access);

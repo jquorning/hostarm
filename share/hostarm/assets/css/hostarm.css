@@ -11,6 +11,13 @@
     box-shadow: 4px 4px 3px #CDC;
     margin: 15px;
     padding: 10px;
+    /*
+    * background-image: url('/assets/images/ada180.jpg');
+    * background-repeat: no-repeat;
+    * background-position: top right;
+    * background-size: 360px 400px;
+    * filter: blur(0.5px);
+    */
 }
 
 .grid-container > div {
