@@ -4,7 +4,7 @@ package HostARM_Pyning is
 
    package Tools renames HostARM_Tools;
 
-   procedure Strip (Item : in out Tools.UString);
+   procedure Pyne (Item : in out Tools.UString);
 
    procedure Replace_Doctype (Item : in out Tools.UString);
 

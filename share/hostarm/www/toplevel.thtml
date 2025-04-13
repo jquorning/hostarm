@@ -38,22 +38,22 @@
 
   <li class="item21">
     <input type="checkbox" id="strip_title" name="strip_title" value ="true" @_STRIP_TITLE_@>
-    <label for="strip_title" id="strip_title">Strip title</label>
+    <label for="strip_title" id="strip_title">Pyne title</label>
   </li>
 
   <li class="item21">
     <input type="checkbox" id="strip_nav_top" name="strip_nav_top" value ="true" @_STRIP_NAV_TOP_@>
-    <label for="strip_nav_top" id="strip_nav_top">Strip top navigation</label>
+    <label for="strip_nav_top" id="strip_nav_top">Pyne top navigation</label>
   </li>
 
   <li class="item21">
     <input type="checkbox" id="strip_nav_bottom" name="strip_nav_bottom" value ="true" @_STRIP_NAV_BOTTOM_@>
-    <label for="strip_nav_bottom" id="strip_nav_bottom">Strip bottom navigation</label>
+    <label for="strip_nav_bottom" id="strip_nav_bottom">Pyne bottom navigation</label>
   </li>
 
   <li class="item21">
     <input type="checkbox" id="strip_sponsor" name="strip_sponsor" value ="true" @_STRIP_SPONSOR_@>
-    <label for="strip_sponsor" id="strip_sponsor">Strip sponsor</label>
+    <label for="strip_sponsor" id="strip_sponsor">Pyne sponsor</label>
   </li>
 
   <h3>Submit</h3>

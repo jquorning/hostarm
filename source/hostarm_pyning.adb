@@ -10,11 +10,11 @@ package body HostARM_Pyning is
 
    use Ada.Strings.Unbounded;
 
-   --------------------------
-   -- Strip_Top_Navigation --
-   --------------------------
+   -------------------------
+   -- Pyne_Top_Navigation --
+   -------------------------
 
-   procedure Strip_Top_Navigation (Item : in out Tools.UString)
+   procedure Pyne_Top_Navigation (Item : in out Tools.UString)
    is
       Body_Match : constant String := "<BODY TEXT=";
       Top_Match  : constant String := "<div style=";
@@ -42,13 +42,13 @@ package body HostARM_Pyning is
       Delete (Item,
               From    => Top_Pos,
               Through => Bot_Pos + Bot_Match'Length);
-   end Strip_Top_Navigation;
+   end Pyne_Top_Navigation;
 
-   -----------------
-   -- Strip_Title --
-   -----------------
+   ----------------
+   -- Pyne_Title --
+   ----------------
 
-   procedure Strip_Title (Item : in out Tools.UString)
+   procedure Pyne_Title (Item : in out Tools.UString)
    is
       Body_Match   : constant String := "<BODY TEXT=";
       Top_RM_Match : constant String := "<DIV><SPAN ";
@@ -80,13 +80,13 @@ package body HostARM_Pyning is
       Delete (Item,
               From    => Top_Pos,
               Through => Bot_Pos + Bot_Match'Length);
-   end Strip_Title;
+   end Pyne_Title;
 
-   -----------------------------
-   -- Strip_Bottom_Navigation --
-   -----------------------------
+   ----------------------------
+   -- Pyne_Bottom_Navigation --
+   ----------------------------
 
-   procedure Strip_Bottom_Navigation (Item : in out Tools.UString)
+   procedure Pyne_Bottom_Navigation (Item : in out Tools.UString)
    is
       HR_Match  : constant String := "<HR>";
       Top_Match : constant String :=
@@ -120,13 +120,13 @@ package body HostARM_Pyning is
       Delete (Item,
               From    => Top_Pos,
               Through => Bot_Pos + Bot_Match'Length);
-   end Strip_Bottom_Navigation;
+   end Pyne_Bottom_Navigation;
 
-   -------------------
-   -- Strip_Sponsor --
-   -------------------
+   ------------------
+   -- Pyne_Sponsor --
+   ------------------
 
-   procedure Strip_Sponsor (Item : in out Tools.UString)
+   procedure Pyne_Sponsor (Item : in out Tools.UString)
    is
       HR_Match   : constant String := "<HR>";
       Top_Match  : constant String :=
@@ -155,14 +155,14 @@ package body HostARM_Pyning is
       Delete (Item,
               From    => Top_Pos,
               Through => Bot_Pos + Bot_Match'Length);
-   end Strip_Sponsor;
+   end Pyne_Sponsor;
 
-   --------------
-   -- Strip_HR --
-   --------------
+   -------------
+   -- Pyne_HR --
+   -------------
 
-   procedure Strip_HR (Item  : in out Tools.UString;
-                       First : in     Boolean)
+   procedure Pyne_HR (Item  : in out Tools.UString;
+                      First : in     Boolean)
    is
       HR_Match : constant String := "<HR>";
       HR_Pos   : Natural;
@@ -182,39 +182,39 @@ package body HostARM_Pyning is
       Delete (Item,
               From    => HR_Pos,
               Through => HR_Pos + HR_Match'Length);
-   end Strip_HR;
+   end Pyne_HR;
 
-   -----------
-   -- Strip --
-   -----------
+   ----------
+   -- Pyne --
+   ----------
 
-   procedure Strip (Item : in out Tools.UString) is
+   procedure Pyne (Item : in out Tools.UString) is
    begin
       if Config.Strip_Nav_Top then
-         Strip_Top_Navigation (Item);
+         Pyne_Top_Navigation (Item);
       end if;
 
       if Config.Strip_Nav_Bottom then
-         Strip_Bottom_Navigation (Item);
+         Pyne_Bottom_Navigation (Item);
       end if;
 
       if Config.Strip_Title then
-         Strip_Title (Item);
+         Pyne_Title (Item);
       end if;
 
       if Config.Strip_Sponsor then
-         Strip_Sponsor (Item);
+         Pyne_Sponsor (Item);
       end if;
 
       if Config.Strip_Sponsor and Config.Strip_Nav_Bottom then
-         Strip_HR (Item, First => False);
+         Pyne_HR (Item, First => False);
       end if;
 
       if Config.Strip_Title and Config.Strip_Nav_Top then
-         Strip_HR (Item, First => True);
+         Pyne_HR (Item, First => True);
       end if;
 
-   end Strip;
+   end Pyne;
 
    ---------------------
    -- Replace_Doctype --
