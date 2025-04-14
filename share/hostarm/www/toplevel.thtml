@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>HostARM</title>
-  <link rel="stylesheet" href="/assets/css/hostarm.css" />
+  <head>
+    <meta charset="utf-8">
+    <title>HostARM</title>
+    <link rel="stylesheet" href="/assets/css/hostarm.css" />
 </head>
 
 <body>
@@ -18,66 +18,77 @@
     <form action="/" method="post">
 
   <h3>Manual</h3>
+  <ul>
+    <li class="item21">
+      <input type="radio" id="arm2012" name="manual" value="ARM_2012" @_MAN_ARM_2012_@>
+      <label for="arm2012">ARM 2012</label><br>
+    </li>
 
-  <li class="item21">
-    <input type="radio" id="arm2012" name="manual" value="ARM_2012" @_MAN_ARM_2012_@>
-    <label for="arm2012">ARM 2012</label><br>
-  </li>
+    <li class="item21">
+      <input type="radio" id="arm2022" name="manual" value="ARM_2022" @_MAN_ARM_2022_@>
+      <label for="arm2022">ARM 2022</label><br>
+    </li>
 
-  <li class="item21">
-    <input type="radio" id="arm2022" name="manual" value="ARM_2022" @_MAN_ARM_2022_@>
-    <label for="arm2022">ARM 2022</label><br>
-  </li>
-
-  <li class="item21">
-    <input type="radio" id="aarm202Y" name="manual" value="AARM_202Y" @_MAN_AARM_202Y_@>
-    <label for="aarm202Y">AARM 202Y</label>
-  </li>
+    <li class="item21">
+      <input type="radio" id="aarm202Y" name="manual" value="AARM_202Y" @_MAN_AARM_202Y_@>
+      <label for="aarm202Y">AARM 202Y</label>
+    </li>
+  </ul>
 
   <h3>Pyning</h3>
 
-  <li class="item21">
-    <input type="checkbox" id="pyne_banner" name="pyne_banner" value ="true" @_PYNE_BANNER_@>
-    <label for="pyne_banner" id="pyne_banner">Pyne banner</label>
-  </li>
+  <ul>
+    <li class="item21">
+      <input type="checkbox" id="pyne_banner" name="pyne_banner" value ="true" @_PYNE_BANNER_@>
+      <label for="pyne_banner">Pyne banner</label>
+    </li>
 
-  <li class="item21">
-    <input type="checkbox" id="pyne_nav_top" name="pyne_nav_top" value ="true" @_PYNE_NAV_TOP_@>
-    <label for="pyne_nav_top" id="pyne_nav_top">Pyne top navigation</label>
-  </li>
+    <li class="item21">
+      <input type="checkbox" id="pyne_nav_top" name="pyne_nav_top" value ="true" @_PYNE_NAV_TOP_@>
+      <label for="pyne_nav_top">Pyne top navigation</label>
+    </li>
 
-  <li class="item21">
-    <input type="checkbox" id="pyne_nav_bottom" name="pyne_nav_bottom" value ="true" @_PYNE_NAV_BOTTOM_@>
-    <label for="pyne_nav_bottom" id="pyne_nav_bottom">Pyne bottom navigation</label>
-  </li>
+    <li class="item21">
+      <input type="checkbox" id="pyne_nav_bottom" name="pyne_nav_bottom" value ="true" @_PYNE_NAV_BOTTOM_@>
+      <label for="pyne_nav_bottom">Pyne bottom navigation</label>
+    </li>
 
-  <li class="item21">
-    <input type="checkbox" id="pyne_sponsor" name="pyne_sponsor" value ="true" @_PYNE_SPONSOR_@>
-    <label for="pyne_sponsor" id="pyne_sponsor">Pyne sponsor</label>
-  </li>
+    <li class="item21">
+      <input type="checkbox" id="pyne_sponsor" name="pyne_sponsor" value ="true" @_PYNE_SPONSOR_@>
+      <label for="pyne_sponsor">Pyne sponsor</label>
+    </li>
+  </ul>
 
   <h3>Modernize</h3>
 
-  <li class="item31">
-    <input type="checkbox" id="modernize" name="modernize" value ="true" @_MODERNIZE_@>
-    <label for="modernize" id="modernize">Modernize navigation</label>
-  </li>
+  <ul>
+    <li class="item31">
+      <input type="checkbox" id="modernize" name="modernize" value ="true" @_MODERNIZE_@>
+      <label for="modernize">Modernize navigation</label>
+    </li>
+  </ul>
 
   <h3>Submit</h3>
-  <input type="submit" id="submit" id="submit" value="Submit">
-  <label for="submit" id="submit">By submitting you accept cookies</label>
-  <br>
+  <ul>
+    <li class="item41">
+      <input type="submit" id="submit" id="submit" value="Submit">
+      <label for="submit">By submitting you accept cookies</label>
+    </li>
+  </ul>
 
 </form>
+
 </div>
 
   <div class="item22">
     <h2>Shortcuts</h2>
-    <li class="item22"><a href="@_MANUAL_TOC_@">Contents</a></li>
-    <li class="item22"><a href="@_MANUAL_INDEX_@">Index</a></li>
-    <li class="item22"><a href="@_MANUAL_REFERENCE_@">Reference</a></li>
-    <li class="item22"><a href="@_MANUAL_AUTH_SEARCH_@">Ada Auth search</a></li>
-    <li class="item22"><a href="search">Search</a></li>
+    <ul>
+      <li class="item22"><a href="@_MANUAL_TOC_@">Contents</a></li>
+      <li class="item22"><a href="@_MANUAL_INDEX_@">Index</a></li>
+      <li class="item22"><a href="@_MANUAL_REFERENCE_@">Reference</a></li>
+      <li class="item22"><a href="@_MANUAL_AUTH_SEARCH_@">Ada Auth search</a></li>
+      <li class="item22"><a href="search">Search</a></li>
+    </ul>
   </div>
 
   <div class="item23">
