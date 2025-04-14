@@ -2,11 +2,7 @@
 with Ada.Strings.Unbounded;
 with Ada.Characters.Latin_1;
 
-with HostARM_Configuration;
-
 package body HostARM_Pyning is
-
-   package Config renames HostARM_Configuration;
 
    use Ada.Strings.Unbounded;
 
@@ -188,34 +184,36 @@ package body HostARM_Pyning is
    -- Pyne --
    ----------
 
-   procedure Pyne (Item : in out Tools.UString) is
+   procedure Pyne (Item  : in out Tools.UString;
+                   State : in     Config.State_Type)
+   is
    begin
-      if Config.Settings.Pyne_Nav_Top then
+      if State.Pyne_Nav_Top then
          Pyne_Top_Navigation (Item);
       end if;
 
-      if Config.Settings.Pyne_Nav_Bottom then
+      if State.Pyne_Nav_Bottom then
          Pyne_Bottom_Navigation (Item);
       end if;
 
-      if Config.Settings.Pyne_Banner then
+      if State.Pyne_Banner then
          Pyne_Banner (Item);
       end if;
 
-      if Config.Settings.Pyne_Sponsor then
+      if State.Pyne_Sponsor then
          Pyne_Sponsor (Item);
       end if;
 
       if
-        Config.Settings.Pyne_Sponsor and
-        Config.Settings.Pyne_Nav_Bottom
+        State.Pyne_Sponsor and
+        State.Pyne_Nav_Bottom
       then
          Pyne_HR (Item, First => False);
       end if;
 
       if
-        Config.Settings.Pyne_Banner and
-        Config.Settings.Pyne_Nav_Top
+        State.Pyne_Banner and
+        State.Pyne_Nav_Top
       then
          Pyne_HR (Item, First => True);
       end if;

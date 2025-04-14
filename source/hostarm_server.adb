@@ -118,7 +118,7 @@ package body HostARM_Server is
          HostARM_Pyning.Append_Navigation_Bar (Payload);
       end if;
 
-      HostARM_Pyning.Pyne (Payload);
+      HostARM_Pyning.Pyne (Payload, State => Config.Settings);
       HostARM_Pyning.Replace_Doctype (Payload);
       HostARM_Pyning.Replace_Style_CSS (Payload);
 
