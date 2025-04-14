@@ -3,7 +3,7 @@ package HostARM_Configuration is
    Default_Port : Positive := 16#ADA#;  --  Decimal: 2778
 
    Web_Base   : constant String := "share/hostarm";
-   WWW_Base   : constant String := Web_Base & "/www";
+   Page_Base  : constant String := Web_Base & "/www";
    Tipue_Base : constant String := Web_Base;
 
    type ARM_Version is (ARM_2012, ARM_2022, AARM_202Y);

@@ -76,7 +76,7 @@ package body HostARM_Server is
 
       use HostARM_Navigate;
 
-      Name    : constant String := Config.WWW_Base & "/search.thtml";
+      Name    : constant String := Config.Page_Base & "/search.thtml";
       Payload : Tools.UString;
       Info    : constant Nav_Info :=
          Default_Info (Version => Config.Settings.Manual,
@@ -181,7 +181,7 @@ package body HostARM_Server is
                          return AWS.Response.Data
    is
       URI     : constant String := AWS.Status.URI (Request);
-      Name    : constant String := Config.WWW_Base & "/../" & URI;
+      Name    : constant String := Config.Web_Base & URI;
       Payload : Tools.UString;
    begin
       Tools.Load_File (Name, Payload);
@@ -199,7 +199,7 @@ package body HostARM_Server is
                          return AWS.Response.Data
    is
       URI     : constant String := AWS.Status.URI (Request);
-      Name    : constant String := Config.WWW_Base & "/.." & URI;
+      Name    : constant String := Config.Page_Base & URI;
       Payload : Tools.UString;
    begin
       Tools.Load_File (Name, Payload);
@@ -237,7 +237,7 @@ package body HostARM_Server is
    is
       URI     : constant String := AWS.Status.URI (Request);
       Name    : constant String :=
-        Config.WWW_Base & "/../assets/favicon/" & URI;
+        Config.Web_Base & "/assets/favicon/" & URI;
       Payload : Tools.UString;
    begin
       Tools.Load_File (Name, Payload);
@@ -299,7 +299,7 @@ package body HostARM_Server is
       end Get_Boolean;
 
       Params  : constant List := AWS.Status.Parameters (Request);
-      Name    : constant String := Config.WWW_Base & "/toplevel.thtml";
+      Name    : constant String := Config.Page_Base & "/toplevel.thtml";
       Payload : Tools.UString;
    begin
 
