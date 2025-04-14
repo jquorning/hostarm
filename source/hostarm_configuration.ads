@@ -29,8 +29,6 @@ package HostARM_Configuration is
           Pyne_Nav_Bottom => True,
           Pyne_Sponsor    => False);
 
-   Settings : State_Type := Default_State;
-
    URL_Without_HTML : Boolean := True;
    --  Strip .html from URL in Tipuesearch
 

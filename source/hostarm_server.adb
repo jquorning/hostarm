@@ -11,7 +11,7 @@ with AWS.Status;
 with Templates_Parser;
 
 with HostARM_Configuration;
-with HostARM_Cookie;        pragma Unreferenced (HostARM_Cookie);
+with HostARM_Cookie;
 with HostARM_Navigate;
 with HostARM_Pyning;
 with HostARM_Tipue;
@@ -20,6 +20,7 @@ with HostARM_Tools;
 package body HostARM_Server is
 
    package Config renames HostARM_Configuration;
+   package Cookie renames HostARM_Cookie;
    package Tools  renames HostARM_Tools;
 
    Server_Name : constant String := "HostARM: Ada Reference Manual";
@@ -33,7 +34,7 @@ package body HostARM_Server is
    -- Trans --
    -----------
 
-   function Trans (Version : in Config.ARM_Version)
+   function Trans (State : in Config.State_Type)
                    return Templates_Parser.Translate_Table
    is
       use Config, Templates_Parser;
@@ -47,6 +48,7 @@ package body HostARM_Server is
          end if;
       end Checked_If;
 
+      Version : ARM_Version renames State.Manual;
    begin
       return
          (Assoc ("MANUAL_TOC",         Config.URI_Contents  (Version)),
@@ -54,14 +56,14 @@ package body HostARM_Server is
           Assoc ("MANUAL_AUTH_SEARCH", Config.URI_Search    (Version)),
           Assoc ("MANUAL_REFERENCE",   Config.URI_Reference (Version)),
 
-          Assoc ("PYNE_BANNER",      Checked_If (Settings.Pyne_Banner)),
-          Assoc ("PYNE_NAV_TOP",     Checked_If (Settings.Pyne_Nav_Top)),
-          Assoc ("PYNE_NAV_BOTTOM",  Checked_If (Settings.Pyne_Nav_Bottom)),
-          Assoc ("PYNE_SPONSOR",     Checked_If (Settings.Pyne_Sponsor)),
+          Assoc ("PYNE_BANNER",      Checked_If (State.Pyne_Banner)),
+          Assoc ("PYNE_NAV_TOP",     Checked_If (State.Pyne_Nav_Top)),
+          Assoc ("PYNE_NAV_BOTTOM",  Checked_If (State.Pyne_Nav_Bottom)),
+          Assoc ("PYNE_SPONSOR",     Checked_If (State.Pyne_Sponsor)),
 
-          Assoc ("MAN_ARM_2012",  Checked_If (Settings.Manual = ARM_2012)),
-          Assoc ("MAN_ARM_2022",  Checked_If (Settings.Manual = ARM_2022)),
-          Assoc ("MAN_AARM_202Y", Checked_If (Settings.Manual = AARM_202Y))
+          Assoc ("MAN_ARM_2012",  Checked_If (State.Manual = ARM_2012)),
+          Assoc ("MAN_ARM_2022",  Checked_If (State.Manual = ARM_2022)),
+          Assoc ("MAN_AARM_202Y", Checked_If (State.Manual = AARM_202Y))
         );
    end Trans;
 
@@ -72,23 +74,23 @@ package body HostARM_Server is
    function Service_Search (Request : in AWS.Status.Data)
                             return AWS.Response.Data
    is
-      pragma Unreferenced (Request);
-
       use HostARM_Navigate;
 
       Name    : constant String := Config.Page_Base & "/search.thtml";
+      State   : Config.State_Type;
       Payload : Tools.UString;
-      Info    : constant Nav_Info :=
-         Default_Info (Version => Config.Settings.Manual,
-                       Next    => "/search",
-                       Prev    => "/search");
    begin
+      Cookie.Get_Or_Default (Request, State);
+
       Payload := Templates_Parser.Parse
          (Filename     => Name,
-          Translations => Trans (Config.Settings.Manual));
+          Translations => Trans (State));
 
-      Insert_JS_Key_Navigation (Payload, Info);
-
+      Insert_JS_Key_Navigation
+        (Payload,
+         Info => Default_Info (Version => State.Manual,
+                               Next    => "search",
+                               Prev    => "search"));
       return
          AWS.Response.Build (Content_Type    => "text/html",
                              UString_Message => Payload);
@@ -103,22 +105,25 @@ package body HostARM_Server is
    is
       use Tools;
 
-      URI     : constant String := Strip_Slash (AWS.Status.URI (Request));
-      Name    : constant String :=
-         Config.ARM_Base (Config.Settings.Manual) & URI & ".html";
+      URI      : constant String := Strip_Slash (AWS.Status.URI (Request));
       Payload  : Tools.UString;
       Nav_Info : HostARM_Navigate.Nav_Info;
+      State    : Config.State_Type;
    begin
-      Tools.Load_File (Name, Payload);
+      Cookie.Get_Or_Default (Request, State);
+
+      Tools.Load_File
+         (Name    => Config.ARM_Base (State.Manual) & URI & ".html",
+          Payload => Payload);
 
       HostARM_Navigate.Read_Navigation          (Payload, Nav_Info);
       HostARM_Navigate.Insert_JS_Key_Navigation (Payload, Nav_Info);
 
-      if URI = "/" & Config.URI_Index (Config.Settings.Manual) then
+      if URI = "/" & Config.URI_Index (State.Manual) then
          HostARM_Pyning.Append_Navigation_Bar (Payload);
       end if;
 
-      HostARM_Pyning.Pyne (Payload, State => Config.Settings);
+      HostARM_Pyning.Pyne (Payload, State => State);
       HostARM_Pyning.Replace_Doctype (Payload);
       HostARM_Pyning.Replace_Style_CSS (Payload);
 
@@ -138,15 +143,17 @@ package body HostARM_Server is
 
       URI     : constant String := AWS.Status.URI (Request);
       Name    : constant String := Config.Tipue_Base & URI;
+      State   : Config.State_Type;
       Payload : Tools.UString;
    begin
+      Cookie.Get_Or_Default (Request, State);
 
       if URI = Tipue_Path & "/tipuesearch_content.js" then
          return
             AWS.Response.Build
                 (Content_Type    => "text/javascript",
                  UString_Message =>
-                    HostARM_Tipue.Get_Content (Config.Settings.Manual));
+                    HostARM_Tipue.Get_Content (State.Manual));
 
       elsif Tail_Is (URI, ".js") then
          Tools.Load_File (Name, Payload);
@@ -199,7 +206,7 @@ package body HostARM_Server is
                          return AWS.Response.Data
    is
       URI     : constant String := AWS.Status.URI (Request);
-      Name    : constant String := Config.Page_Base & URI;
+      Name    : constant String := Config.Web_Base & URI;
       Payload : Tools.UString;
    begin
       Tools.Load_File (Name, Payload);
@@ -217,11 +224,13 @@ package body HostARM_Server is
                          return AWS.Response.Data
    is
       URI     : constant String := AWS.Status.URI (Request);
-      Name    : constant String :=
-         Config.ARM_Base (Config.Settings.Manual) & URI;
+      State   : Config.State_Type;
       Payload : Tools.UString;
    begin
-      Tools.Load_File (Name, Payload);
+      Cookie.Get_Or_Default (Request, State);
+
+      Tools.Load_File (Name    => Config.ARM_Base (State.Manual) & URI,
+                       Payload => Payload);
 
       return
          AWS.Response.Build (Content_Type    => "image/gif",
@@ -287,6 +296,8 @@ package body HostARM_Server is
       use AWS.Parameters;
       use Config;
 
+      use type AWS.Status.Request_Method;
+
       function Get_Boolean (Params : in List;
                             Key    : in String)
                             return Boolean
@@ -298,17 +309,19 @@ package body HostARM_Server is
             return False;
       end Get_Boolean;
 
-      Params  : constant List := AWS.Status.Parameters (Request);
-      Name    : constant String := Config.Page_Base & "/toplevel.thtml";
-      Payload : Tools.UString;
+      Params   : constant List := AWS.Status.Parameters (Request);
+      Name     : constant String := Config.Page_Base & "/toplevel.thtml";
+      State    : Config.State_Type;
+      Payload  : Tools.UString;
+      Response : AWS.Response.Data;
    begin
 
       case AWS.Status.Method (Request) is
          when AWS.Status.GET  =>
-            null;
+            Cookie.Get_Or_Default (Request, State);
 
          when AWS.Status.POST =>
-            Config.Settings :=
+            State :=
                (Manual          => ARM_Version'Value (Get (Params, "manual")),
                 Pyne_Banner     => Get_Boolean (Params, "pyne_banner"),
                 Pyne_Nav_Top    => Get_Boolean (Params, "pyne_nav_top"),
@@ -321,17 +334,22 @@ package body HostARM_Server is
 
       Payload := Templates_Parser.Parse
          (Filename     => Name,
-          Translations => Trans (Config.Settings.Manual));
+          Translations => Trans (State));
 
       Insert_JS_Key_Navigation
          (Payload,
-          Info => Default_Info (Version => Config.Settings.Manual,
-                                Next    => "/search",
-                                Prev    => "/search"));
+          Info => Default_Info (Version => State.Manual,
+                                Next    => "search",
+                                Prev    => "search"));
 
-      return
-         AWS.Response.Build (Content_Type    => "text/html",
-                             UString_Message => Payload);
+      Response := AWS.Response.Build (Content_Type    => "text/html",
+                                      UString_Message => Payload);
+
+      if AWS.Status.Method (Request) = AWS.Status.POST then
+         Cookie.Set (Response, State);
+      end if;
+
+      return Response;
    end Service_Toplevel;
 
    -------------------------
