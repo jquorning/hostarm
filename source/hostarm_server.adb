@@ -76,7 +76,8 @@ package body HostARM_Server is
       use Tools;
 
       URI     : constant String := Strip_Slash (AWS.Status.URI (Request));
-      Name    : constant String := Config.ARM_Base & URI & ".html";
+      Name    : constant String :=
+         Config.ARM_Base (Config.Default_ARM) & URI & ".html";
       Payload  : Tools.UString;
       Nav_Info : HostARM_Navigate.Nav_Info;
    begin
@@ -116,7 +117,8 @@ package body HostARM_Server is
          return
             AWS.Response.Build
                 (Content_Type    => "text/javascript",
-                 UString_Message => HostARM_Tipue.Get_Content);
+                 UString_Message =>
+                    HostARM_Tipue.Get_Content (Config.Default_ARM));
 
       elsif Tail_Is (URI, ".js") then
          Tools.Load_File (Name, Payload);
@@ -187,7 +189,7 @@ package body HostARM_Server is
                          return AWS.Response.Data
    is
       URI     : constant String := AWS.Status.URI (Request);
-      Name    : constant String := Config.ARM_Base & URI;
+      Name    : constant String := Config.ARM_Base (Config.Default_ARM) & URI;
       Payload : Tools.UString;
    begin
       Tools.Load_File (Name, Payload);
@@ -309,7 +311,6 @@ package body HostARM_Server is
             Strip_Nav_Bottom := Get_Boolean (Params, "strip_nav_bottom");
             Strip_Sponsor    := Get_Boolean (Params, "strip_sponsor");
             Default_ARM      := ARM_Version'Value (Get (Params, "manual"));
-            HostARM_Tipue.Build_Content;  -- Rebuild Tipuesearch database
 
          when others => null;
       end case;

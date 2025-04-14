@@ -2,16 +2,14 @@
 with Ada.Characters.Latin_1;
 with Ada.Text_IO.Unbounded_IO;
 
-with HostARM_Configuration;
 with HostARM_Tools;
 
 package body HostARM_Tipue is
 
-   package Config renames HostARM_Configuration;
    package Tools  renames HostARM_Tools;
    use Ada.Strings.Unbounded;
 
-   Content     : UString;
+   Content     : array (Config.ARM_Version) of UString;
    Parse_Error : exception;
 
    -------------------
@@ -86,10 +84,11 @@ package body HostARM_Tipue is
    -- Append_Content --
    --------------------
 
-   procedure Append_Content (Title : in UString;
-                             Text  : in UString;
-                             Tags  : in UString;
-                             URL   : in UString)
+   procedure Append_Content (Content : in out UString;
+                             Title   : in     UString;
+                             Text    : in     UString;
+                             Tags    : in     UString;
+                             URL     : in     UString)
    is
       use Ada.Characters.Latin_1;
    begin
@@ -184,7 +183,8 @@ package body HostARM_Tipue is
    --------------------------------
 
    procedure Parse_Index_Div_And_Append
-      (Block : in UString)
+      (Content : in out UString;
+       Block   : in     UString)
    is
       Match_BR   : constant String := "<BR>";
       Match_NBSP : constant String := "&nbsp;";
@@ -249,7 +249,8 @@ package body HostARM_Tipue is
             Remove_I_Clause (Tags);
 
             Append_Content
-               (Title => Tags,  --  What else ??
+               (Content,
+                Title => Tags,  --  What else ??
                 Text  => Load & (if Sub = "" then "" else "; ") & Sub,
                 Tags  => Tags,
                 URL   => "/" & Href);
@@ -264,7 +265,8 @@ package body HostARM_Tipue is
    -- Append_Content --
    --------------------
 
-   procedure Append_Content (Index_File : in String)
+   procedure Append_Content (Content    : in out UString;
+                             Index_File : in     String)
    is
       Payload : Tools.UString;
       Block   : Tools.UString;  --  Contents of Index div.
@@ -278,7 +280,7 @@ package body HostARM_Tipue is
          Get_Index_Div (Payload, From => From, Last => Last, Block => Block);
          exit when Last = 0;
 
-         Parse_Index_Div_And_Append (Block);
+         Parse_Index_Div_And_Append (Content, Block);
 
          From := Last + 1;
       end loop;
@@ -289,37 +291,38 @@ package body HostARM_Tipue is
    -- Build_Content --
    -------------------
 
-   procedure Build_Content
+   procedure Build_Content (Version : in Config.ARM_Version)
    is
+      Content  : UString renames HostARM_Tipue.Content (Version);
+      ARM_Base : String  renames Config.ARM_Base (Version);
    begin
       Content := To_Unbounded_String ("");
-
       Append (Content, "var tipuesearch = {""pages"": [" & ASCII.LF);
 
-      case Config.Default_ARM is
+      case Version is
          when Config.ARM_2012 =>
-            Append_Content (Config.ARM_Base & "/RM-0-5.html");
-            Append_Content (Config.ARM_Base & "/RM-Q-1.html");
-            Append_Content (Config.ARM_Base & "/RM-Q-2.html");
-            Append_Content (Config.ARM_Base & "/RM-Q-3.html");
-            Append_Content (Config.ARM_Base & "/RM-Q-4.html");
-            Append_Content (Config.ARM_Base & "/RM-Q-5.html");
+            Append_Content (Content, ARM_Base & "/RM-0-5.html");
+            Append_Content (Content, ARM_Base & "/RM-Q-1.html");
+            Append_Content (Content, ARM_Base & "/RM-Q-2.html");
+            Append_Content (Content, ARM_Base & "/RM-Q-3.html");
+            Append_Content (Content, ARM_Base & "/RM-Q-4.html");
+            Append_Content (Content, ARM_Base & "/RM-Q-5.html");
 
          when Config.ARM_2022 =>
-            Append_Content (Config.ARM_Base & "/RM-0-4.html");
-            Append_Content (Config.ARM_Base & "/RM-Q-1.html");
-            Append_Content (Config.ARM_Base & "/RM-Q-2.html");
-            Append_Content (Config.ARM_Base & "/RM-Q-3.html");
-            Append_Content (Config.ARM_Base & "/RM-Q-4.html");
-            Append_Content (Config.ARM_Base & "/RM-Q-5.html");
+            Append_Content (Content, ARM_Base & "/RM-0-4.html");
+            Append_Content (Content, ARM_Base & "/RM-Q-1.html");
+            Append_Content (Content, ARM_Base & "/RM-Q-2.html");
+            Append_Content (Content, ARM_Base & "/RM-Q-3.html");
+            Append_Content (Content, ARM_Base & "/RM-Q-4.html");
+            Append_Content (Content, ARM_Base & "/RM-Q-5.html");
 
          when Config.AARM_202Y =>
-            Append_Content (Config.ARM_Base & "/AA-0-4.html");
-            Append_Content (Config.ARM_Base & "/AA-Q-1.html");
-            Append_Content (Config.ARM_Base & "/AA-Q-2.html");
-            Append_Content (Config.ARM_Base & "/AA-Q-3.html");
-            Append_Content (Config.ARM_Base & "/AA-Q-4.html");
-            Append_Content (Config.ARM_Base & "/AA-Q-5.html");
+            Append_Content (Content, ARM_Base & "/AA-0-4.html");
+            Append_Content (Content, ARM_Base & "/AA-Q-1.html");
+            Append_Content (Content, ARM_Base & "/AA-Q-2.html");
+            Append_Content (Content, ARM_Base & "/AA-Q-3.html");
+            Append_Content (Content, ARM_Base & "/AA-Q-4.html");
+            Append_Content (Content, ARM_Base & "/AA-Q-5.html");
 
       end case;
 
@@ -336,21 +339,22 @@ package body HostARM_Tipue is
    -- Dump_Content --
    ------------------
 
-   procedure Dump_Content
+   procedure Dump_Content (Version : in Config.ARM_Version)
    is
       use Ada.Text_IO;
    begin
-      Unbounded_IO.Put_Line (Content);
+      Unbounded_IO.Put_Line (Content (Version));
    end Dump_Content;
 
    -----------------
    -- Get_Content --
    -----------------
 
-   function Get_Content return UString
+   function Get_Content (Version : in Config.ARM_Version)
+                         return UString
    is
    begin
-      return Content;
+      return Content (Version);
    end Get_Content;
 
 end HostARM_Tipue;

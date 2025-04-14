@@ -8,9 +8,10 @@ package HostARM_Configuration is
 
    type ARM_Version is (ARM_2012, ARM_2022, AARM_202Y);
 
-   Default_ARM : ARM_Version := ARM_2022;
+   Default_ARM : ARM_Version := AARM_202Y;
 
-   function ARM_Base return String;
+   function ARM_Base (Version : in ARM_Version)
+                      return String;
    --  Web base for selected manual
 
    Strip_Title      : Boolean := True;

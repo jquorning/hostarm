@@ -4,10 +4,11 @@ package body HostARM_Configuration is
    -- ARM_Base --
    --------------
 
-   function ARM_Base return String
+   function ARM_Base (Version : in ARM_Version)
+                      return String
    is
    begin
-      case Default_ARM is
+      case Version is
          when ARM_2012  =>  return Web_Base & "/ARM/Ada_2012";
          when ARM_2022  =>  return Web_Base & "/ARM/Ada_2022";
          when AARM_202Y =>  return Web_Base & "/ARM/Ada_202Y";
