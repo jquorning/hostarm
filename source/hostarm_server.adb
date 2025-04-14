@@ -61,6 +61,8 @@ package body HostARM_Server is
           Assoc ("PYNE_NAV_BOTTOM",  Checked_If (State.Pyne_Nav_Bottom)),
           Assoc ("PYNE_SPONSOR",     Checked_If (State.Pyne_Sponsor)),
 
+          Assoc ("MODERNIZE",        Checked_If (State.Modernize)),
+
           Assoc ("MAN_ARM_2012",  Checked_If (State.Manual = ARM_2012)),
           Assoc ("MAN_ARM_2022",  Checked_If (State.Manual = ARM_2022)),
           Assoc ("MAN_AARM_202Y", Checked_If (State.Manual = AARM_202Y))
@@ -326,7 +328,8 @@ package body HostARM_Server is
                 Pyne_Banner     => Get_Boolean (Params, "pyne_banner"),
                 Pyne_Nav_Top    => Get_Boolean (Params, "pyne_nav_top"),
                 Pyne_Nav_Bottom => Get_Boolean (Params, "pyne_nav_bottom"),
-                Pyne_Sponsor    => Get_Boolean (Params, "pyne_sponsor")
+                Pyne_Sponsor    => Get_Boolean (Params, "pyne_sponsor"),
+                Modernize       => Get_Boolean (Params, "modernize")
                );
 
          when others => null;

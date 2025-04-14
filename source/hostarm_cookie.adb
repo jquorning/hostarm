@@ -10,6 +10,7 @@ package body HostARM_Cookie is
    Key_Pyne_Nav_Bottom : constant String := "Pyne_Nav_Bottom";
    Key_Pyne_Banner     : constant String := "Pyne_Banner";
    Key_Pyne_Sponsor    : constant String := "Pyne_Sponsor";
+   Key_Modernize       : constant String := "Modernize";
 
    --------------------
    -- Get_Or_Default --
@@ -31,7 +32,8 @@ package body HostARM_Cookie is
           Pyne_Nav_Top    => Get (Request, Key_Pyne_Nav_Top),
           Pyne_Nav_Bottom => Get (Request, Key_Pyne_Nav_Bottom),
           Pyne_Banner     => Get (Request, Key_Pyne_Banner),
-          Pyne_Sponsor    => Get (Request, Key_Pyne_Sponsor)
+          Pyne_Sponsor    => Get (Request, Key_Pyne_Sponsor),
+          Modernize       => Get (Request, Key_Modernize)
          );
    end Get_Or_Default;
 
@@ -49,6 +51,7 @@ package body HostARM_Cookie is
       Set (Response, Key_Pyne_Nav_Bottom, State.Pyne_Nav_Bottom);
       Set (Response, Key_Pyne_Banner,     State.Pyne_Banner);
       Set (Response, Key_Pyne_Sponsor,    State.Pyne_Sponsor);
+      Set (Response, Key_Modernize,       State.Modernize);
    end Set;
 
 end HostARM_Cookie;

@@ -56,6 +56,13 @@
     <label for="pyne_sponsor" id="pyne_sponsor">Pyne sponsor</label>
   </li>
 
+  <h3>Modernize</h3>
+
+  <li class="item31">
+    <input type="checkbox" id="modernize" name="modernize" value ="true" @_MODERNIZE_@>
+    <label for="modernize" id="modernize">Modernize navigation</label>
+  </li>
+
   <h3>Submit</h3>
   <input type="submit" id="submit" id="submit" value="Submit">
   <label for="submit" id="submit">By submitting you accept cookies</label>
