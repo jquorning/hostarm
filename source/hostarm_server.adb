@@ -11,7 +11,7 @@ with AWS.Status;
 with Templates_Parser;
 
 with HostARM_Configuration;
-with HostARM_Cookie;
+with HostARM_Cookie;        pragma Unreferenced (HostARM_Cookie);
 with HostARM_Navigate;
 with HostARM_Pyning;
 with HostARM_Tipue;
@@ -308,12 +308,13 @@ package body HostARM_Server is
             null;
 
          when AWS.Status.POST =>
-            Config.Settings.Pyne_Banner     := Get_Boolean (Params, "pyne_banner");
-            Config.Settings.Pyne_Nav_Top    := Get_Boolean (Params, "pyne_nav_top");
-            Config.Settings.Pyne_Nav_Bottom := Get_Boolean (Params, "pyne_nav_bottom");
-            Config.Settings.Pyne_Sponsor    := Get_Boolean (Params, "pyne_sponsor");
-            Config.Settings.Manual :=
-               ARM_Version'Value (Get (Params, "manual"));
+            Config.Settings :=
+               (Manual          => ARM_Version'Value (Get (Params, "manual")),
+                Pyne_Banner     => Get_Boolean (Params, "pyne_banner"),
+                Pyne_Nav_Top    => Get_Boolean (Params, "pyne_nav_top"),
+                Pyne_Nav_Bottom => Get_Boolean (Params, "pyne_nav_bottom"),
+                Pyne_Sponsor    => Get_Boolean (Params, "pyne_sponsor")
+               );
 
          when others => null;
       end case;

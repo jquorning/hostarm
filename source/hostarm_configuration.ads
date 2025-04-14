@@ -12,7 +12,7 @@ package HostARM_Configuration is
                       return String;
    --  Web base for selected manual
 
-   type Settings_Record is
+   type State_Type is
       record
          Manual : ARM_Version;
 
@@ -22,14 +22,14 @@ package HostARM_Configuration is
          Pyne_Sponsor    : Boolean;
       end record;
 
-   Default_Settings : constant Settings_Record :=
+   Default_State : constant State_Type :=
          (Manual          => ARM_2022,
           Pyne_Banner     => False,
           Pyne_Nav_Top    => False,
           Pyne_Nav_Bottom => True,
           Pyne_Sponsor    => False);
 
-   Settings : Settings_Record := Default_Settings;
+   Settings : State_Type := Default_State;
 
    URL_Without_HTML : Boolean := True;
    --  Strip .html from URL in Tipuesearch
