@@ -13,6 +13,12 @@ package body HostARM_Cookie is
    Request  : AWS.Status.Data;
    Response : AWS.Response.Data;
 
+   Key_Manual          : constant String := "Manual";
+   Key_Pyne_Nav_Top    : constant String := "Pyne_Nav_Top";
+   Key_Pyne_Nav_Bottom : constant String := "Pyne_Nav_Bottom";
+   Key_Pyne_Banner     : constant String := "Pyne_Banner";
+   Key_Pyne_Sponsor    : constant String := "Pyne_Sponsor";
+
    ------------
    -- Exists --
    ------------
@@ -20,7 +26,7 @@ package body HostARM_Cookie is
    function Exists return Boolean
    is
    begin
-      return Exists (Request, "Manual");
+      return Exists (Request, Key_Manual);
    end Exists;
 
    ----------
@@ -31,11 +37,12 @@ package body HostARM_Cookie is
    is
       use Config;
    begin
-      Default_ARM := ARM_Version'Value (String'(Get (Request, "Manual")));
-      Pyne_Nav_Top    := Get (Request, "Pyne_Nav_Top");
-      Pyne_Nav_Bottom := Get (Request, "Pyne_Nav_Bottom");
-      Pyne_Banner     := Get (Request, "Pyne_Banner");
-      Pyne_Sponsor    := Get (Request, "Pyne_Sponsor");
+      Settings.Manual :=
+         ARM_Version'Value (String'(Get (Request, Key_Manual)));
+      Settings.Pyne_Nav_Top    := Get (Request, Key_Pyne_Nav_Top);
+      Settings.Pyne_Nav_Bottom := Get (Request, Key_Pyne_Nav_Bottom);
+      Settings.Pyne_Banner     := Get (Request, Key_Pyne_Banner);
+      Settings.Pyne_Sponsor    := Get (Request, Key_Pyne_Sponsor);
    end Load;
 
    ----------
@@ -46,11 +53,11 @@ package body HostARM_Cookie is
    is
       use Config;
    begin
-      Set (Response, "Manual",          Default_ARM'Image);
-      Set (Response, "Pyne_Nav_Top",    Pyne_Nav_Top);
-      Set (Response, "Pyne_Nav_Bottom", Pyne_Nav_Bottom);
-      Set (Response, "Pyne_Banner",     Pyne_Banner);
-      Set (Response, "Pyne_Sponsor",    Pyne_Sponsor);
+      Set (Response, Key_Manual,          Settings.Manual'Image);
+      Set (Response, Key_Pyne_Nav_Top,    Settings.Pyne_Nav_Top);
+      Set (Response, Key_Pyne_Nav_Bottom, Settings.Pyne_Nav_Bottom);
+      Set (Response, Key_Pyne_Banner,     Settings.Pyne_Banner);
+      Set (Response, Key_Pyne_Sponsor,    Settings.Pyne_Sponsor);
    end Save;
 
 end HostARM_Cookie;

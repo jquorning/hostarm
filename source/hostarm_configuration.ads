@@ -12,11 +12,6 @@ package HostARM_Configuration is
                       return String;
    --  Web base for selected manual
 
-   Pyne_Banner     : Boolean := True;
-   Pyne_Nav_Top    : Boolean := False;
-   Pyne_Nav_Bottom : Boolean := True;
-   Pyne_Sponsor    : Boolean := True;
-
    type Settings_Record is
       record
          Manual : ARM_Version;
