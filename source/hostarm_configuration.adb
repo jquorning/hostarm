@@ -19,10 +19,10 @@ package body HostARM_Configuration is
    -- URI_Contents --
    ------------------
 
-   function URI_Contents return String
+   function URI_Contents (Version : in ARM_Version) return String
    is
    begin
-      case Default_ARM is
+      case Version is
          when ARM_2012  =>  return "RM-TOC";
          when ARM_2022  =>  return "RM-TOC";
          when AARM_202Y =>  return "AA-TOC";
@@ -33,10 +33,10 @@ package body HostARM_Configuration is
    -- URI_Index --
    ---------------
 
-   function URI_Index return String
+   function URI_Index (Version : in ARM_Version) return String
    is
    begin
-      case Default_ARM is
+      case Version is
          when ARM_2012  =>  return "RM-0-5";
          when ARM_2022  =>  return "RM-0-4";
          when AARM_202Y =>  return "AA-0-4";
@@ -47,10 +47,10 @@ package body HostARM_Configuration is
    -- URI_Search --
    ----------------
 
-   function URI_Search return String
+   function URI_Search (Version : in ARM_Version) return String
    is
    begin
-      case Default_ARM is
+      case Version is
          when ARM_2012  =>  return "RM-SRCH";
          when ARM_2022  =>  return "RM-SRCH";
          when AARM_202Y =>  return "AA-SRCH";
@@ -61,10 +61,10 @@ package body HostARM_Configuration is
    -- URI_Reference --
    -------------------
 
-   function URI_Reference return String
+   function URI_Reference (Version : in ARM_Version) return String
    is
    begin
-      case Default_ARM is
+      case Version is
          when ARM_2012  =>  return "RM-STDS";
          when ARM_2022  =>  return "RM-STDS";
          when AARM_202Y =>  return "AA-STDS";

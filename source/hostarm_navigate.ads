@@ -1,7 +1,11 @@
 
 with Ada.Strings.Unbounded;
 
+with HostARM_Configuration;
+
 package HostARM_Navigate is
+
+   package Config renames HostARM_Configuration;
 
    use Ada.Strings.Unbounded;
    subtype UString is Ada.Strings.Unbounded.Unbounded_String;
@@ -19,8 +23,9 @@ package HostARM_Navigate is
    Empty_Info : constant Nav_Info :=
       (others => Null_Unbounded_String);
 
-   function Default_Info (Next : in String;
-                          Prev : in String)
+   function Default_Info (Version : in Config.ARM_Version;
+                          Next    : in String;
+                          Prev    : in String)
                           return Nav_Info;
 
    procedure Read_Navigation (Payload : in UString;

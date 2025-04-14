@@ -1,7 +1,6 @@
 
 with Ada.Characters.Latin_1;
 
-with HostARM_Configuration;
 with HostARM_Tools;
 
 package body HostARM_Navigate is
@@ -231,18 +230,19 @@ package body HostARM_Navigate is
    -- Default_Info --
    ------------------
 
-   function Default_Info (Next : in String;
-                          Prev : in String)
+   function Default_Info (Version : in Config.ARM_Version;
+                          Next    : in String;
+                          Prev    : in String)
                           return Nav_Info
    is
       package Config renames HostARM_Configuration;
 
       Info : Nav_Info;
    begin
-      Info.Contents  := To_Unbounded_String (Config.URI_Contents);
-      Info.Index     := To_Unbounded_String (Config.URI_Index);
-      Info.Reference := To_Unbounded_String (Config.URI_Reference);
-      Info.Search    := To_Unbounded_String (Config.URI_Search);
+      Info.Contents  := To_Unbounded_String (Config.URI_Contents  (Version));
+      Info.Index     := To_Unbounded_String (Config.URI_Index     (Version));
+      Info.Reference := To_Unbounded_String (Config.URI_Reference (Version));
+      Info.Search    := To_Unbounded_String (Config.URI_Search    (Version));
       Info.Next      := To_Unbounded_String (Next);
       Info.Prev      := To_Unbounded_String (Prev);
 

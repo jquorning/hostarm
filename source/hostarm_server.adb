@@ -29,6 +29,42 @@ package body HostARM_Server is
    Server_Conf : AWS.Config.Object;
    Dispatcher  : AWS.Services.Dispatchers.URI.Handler;
 
+   -----------
+   -- Trans --
+   -----------
+
+   function Trans (Version : in Config.ARM_Version)
+                   return Templates_Parser.Translate_Table
+   is
+      use Config, Templates_Parser;
+
+      function Checked_If (Condition : in Boolean) return String is
+      begin
+         if Condition then
+            return "checked";
+         else
+            return "";
+         end if;
+      end Checked_If;
+
+   begin
+      return
+         (Assoc ("MANUAL_TOC",         Config.URI_Contents  (Version)),
+          Assoc ("MANUAL_INDEX",       Config.URI_Index     (Version)),
+          Assoc ("MANUAL_AUTH_SEARCH", Config.URI_Search    (Version)),
+          Assoc ("MANUAL_REFERENCE",   Config.URI_Reference (Version)),
+
+          Assoc ("PYNE_BANNER",      Checked_If (Settings.Pyne_Banner)),
+          Assoc ("PYNE_NAV_TOP",     Checked_If (Settings.Pyne_Nav_Top)),
+          Assoc ("PYNE_NAV_BOTTOM",  Checked_If (Settings.Pyne_Nav_Bottom)),
+          Assoc ("PYNE_SPONSOR",     Checked_If (Settings.Pyne_Sponsor)),
+
+          Assoc ("MAN_ARM_2012",  Checked_If (Settings.Manual = ARM_2012)),
+          Assoc ("MAN_ARM_2022",  Checked_If (Settings.Manual = ARM_2022)),
+          Assoc ("MAN_AARM_202Y", Checked_If (Settings.Manual = AARM_202Y))
+        );
+   end Trans;
+
    --------------------
    -- Service_Search --
    --------------------
@@ -39,25 +75,17 @@ package body HostARM_Server is
       pragma Unreferenced (Request);
 
       use HostARM_Navigate;
-      use Templates_Parser;
-
-      function Trans return Translate_Table is
-      begin
-         return
-            (Assoc ("MANUAL_TOC",         Config.URI_Contents),
-             Assoc ("MANUAL_INDEX",       Config.URI_Index),
-             Assoc ("MANUAL_AUTH_SEARCH", Config.URI_Search),
-             Assoc ("MANUAL_REFERENCE",   Config.URI_Reference)
-            );
-      end Trans;
 
       Name    : constant String := Config.WWW_Base & "/search.thtml";
       Payload : Tools.UString;
-      Info    : constant Nav_Info := Default_Info (Next => "/search",
-                                                   Prev => "/search");
+      Info    : constant Nav_Info :=
+         Default_Info (Version => Config.Settings.Manual,
+                       Next    => "/search",
+                       Prev    => "/search");
    begin
-      Payload := Templates_Parser.Parse (Filename     => Name,
-                                         Translations => Trans);
+      Payload := Templates_Parser.Parse
+         (Filename     => Name,
+          Translations => Trans (Config.Settings.Manual));
 
       Insert_JS_Key_Navigation (Payload, Info);
 
@@ -77,7 +105,7 @@ package body HostARM_Server is
 
       URI     : constant String := Strip_Slash (AWS.Status.URI (Request));
       Name    : constant String :=
-         Config.ARM_Base (Config.Default_ARM) & URI & ".html";
+         Config.ARM_Base (Config.Settings.Manual) & URI & ".html";
       Payload  : Tools.UString;
       Nav_Info : HostARM_Navigate.Nav_Info;
    begin
@@ -86,7 +114,7 @@ package body HostARM_Server is
       HostARM_Navigate.Read_Navigation          (Payload, Nav_Info);
       HostARM_Navigate.Insert_JS_Key_Navigation (Payload, Nav_Info);
 
-      if URI = "/" & Config.URI_Index then
+      if URI = "/" & Config.URI_Index (Config.Settings.Manual) then
          HostARM_Pyning.Append_Navigation_Bar (Payload);
       end if;
 
@@ -118,7 +146,7 @@ package body HostARM_Server is
             AWS.Response.Build
                 (Content_Type    => "text/javascript",
                  UString_Message =>
-                    HostARM_Tipue.Get_Content (Config.Default_ARM));
+                    HostARM_Tipue.Get_Content (Config.Settings.Manual));
 
       elsif Tail_Is (URI, ".js") then
          Tools.Load_File (Name, Payload);
@@ -189,7 +217,8 @@ package body HostARM_Server is
                          return AWS.Response.Data
    is
       URI     : constant String := AWS.Status.URI (Request);
-      Name    : constant String := Config.ARM_Base (Config.Default_ARM) & URI;
+      Name    : constant String :=
+         Config.ARM_Base (Config.Settings.Manual) & URI;
       Payload : Tools.UString;
    begin
       Tools.Load_File (Name, Payload);
@@ -256,17 +285,7 @@ package body HostARM_Server is
    is
       use HostARM_Navigate;
       use AWS.Parameters;
-      use Templates_Parser;
       use Config;
-
-      function Checked_If (Condition : in Boolean) return String is
-      begin
-         if Condition then
-            return "checked";
-         else
-            return "";
-         end if;
-      end Checked_If;
 
       function Get_Boolean (Params : in List;
                             Key    : in String)
@@ -278,23 +297,6 @@ package body HostARM_Server is
          when Constraint_Error =>
             return False;
       end Get_Boolean;
-
-      function Trans return Translate_Table is
-      begin
-         return
-            (Assoc ("MANUAL_TOC",         Config.URI_Contents),
-             Assoc ("MANUAL_INDEX",       Config.URI_Index),
-             Assoc ("MANUAL_AUTH_SEARCH", Config.URI_Search),
-             Assoc ("MANUAL_REFERENCE",   Config.URI_Reference),
-             Assoc ("PYNE_BANNER",      Checked_If (Pyne_Banner)),
-             Assoc ("PYNE_NAV_TOP",     Checked_If (Pyne_Nav_Top)),
-             Assoc ("PYNE_NAV_BOTTOM",  Checked_If (Pyne_Nav_Bottom)),
-             Assoc ("PYNE_SPONSOR",     Checked_If (Pyne_Sponsor)),
-             Assoc ("MAN_ARM_2012",     Checked_If (Default_ARM = ARM_2012)),
-             Assoc ("MAN_ARM_2022",     Checked_If (Default_ARM = ARM_2022)),
-             Assoc ("MAN_AARM_202Y",    Checked_If (Default_ARM = AARM_202Y))
-            );
-      end Trans;
 
       Params  : constant List := AWS.Status.Parameters (Request);
       Name    : constant String := Config.WWW_Base & "/toplevel.thtml";
@@ -310,17 +312,21 @@ package body HostARM_Server is
             Pyne_Nav_Top    := Get_Boolean (Params, "pyne_nav_top");
             Pyne_Nav_Bottom := Get_Boolean (Params, "pyne_nav_bottom");
             Pyne_Sponsor    := Get_Boolean (Params, "pyne_sponsor");
-            Default_ARM     := ARM_Version'Value (Get (Params, "manual"));
+            Config.Settings.Manual :=
+               ARM_Version'Value (Get (Params, "manual"));
 
          when others => null;
       end case;
 
-      Payload := Templates_Parser.Parse (Filename     => Name,
-                                         Translations => Trans);
+      Payload := Templates_Parser.Parse
+         (Filename     => Name,
+          Translations => Trans (Config.Settings.Manual));
+
       Insert_JS_Key_Navigation
          (Payload,
-          Info => Default_Info (Next => "/search",
-                                Prev => "/search"));
+          Info => Default_Info (Version => Config.Settings.Manual,
+                                Next    => "/search",
+                                Prev    => "/search"));
 
       return
          AWS.Response.Build (Content_Type    => "text/html",

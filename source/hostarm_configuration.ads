@@ -8,8 +8,6 @@ package HostARM_Configuration is
 
    type ARM_Version is (ARM_2012, ARM_2022, AARM_202Y);
 
-   Default_ARM : ARM_Version := AARM_202Y;
-
    function ARM_Base (Version : in ARM_Version)
                       return String;
    --  Web base for selected manual
@@ -19,13 +17,36 @@ package HostARM_Configuration is
    Pyne_Nav_Bottom : Boolean := True;
    Pyne_Sponsor    : Boolean := True;
 
+   type Settings_Record is
+      record
+         Manual : ARM_Version;
+
+         Pyne_Banner     : Boolean;
+         Pyne_Nav_Top    : Boolean;
+         Pyne_Nav_Bottom : Boolean;
+         Pyne_Sponsor    : Boolean;
+      end record;
+
+   Default_Settings : constant Settings_Record :=
+         (Manual          => ARM_2022,
+          Pyne_Banner     => False,
+          Pyne_Nav_Top    => False,
+          Pyne_Nav_Bottom => True,
+          Pyne_Sponsor    => False);
+
+   Settings : Settings_Record := Default_Settings;
+
    URL_Without_HTML : Boolean := True;
    --  Strip .html from URL in Tipuesearch
 
-   function URI_Contents  return String;
-   function URI_Index     return String;
-   function URI_Search    return String;
-   function URI_Reference return String;
+   function URI_Contents (Version : in ARM_Version)
+                          return String;
+   function URI_Index (Version : in ARM_Version)
+                       return String;
+   function URI_Search (Version : in ARM_Version)
+                        return String;
+   function URI_Reference (Version : in ARM_Version)
+                           return String;
    --  Selected manual page URI
 
 end HostARM_Configuration;
