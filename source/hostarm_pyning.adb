@@ -44,11 +44,11 @@ package body HostARM_Pyning is
               Through => Bot_Pos + Bot_Match'Length);
    end Pyne_Top_Navigation;
 
-   ----------------
-   -- Pyne_Title --
-   ----------------
+   -----------------
+   -- Pyne_Banner --
+   -----------------
 
-   procedure Pyne_Title (Item : in out Tools.UString)
+   procedure Pyne_Banner (Item : in out Tools.UString)
    is
       Body_Match   : constant String := "<BODY TEXT=";
       Top_RM_Match : constant String := "<DIV><SPAN ";
@@ -80,7 +80,7 @@ package body HostARM_Pyning is
       Delete (Item,
               From    => Top_Pos,
               Through => Bot_Pos + Bot_Match'Length);
-   end Pyne_Title;
+   end Pyne_Banner;
 
    ----------------------------
    -- Pyne_Bottom_Navigation --
@@ -198,8 +198,8 @@ package body HostARM_Pyning is
          Pyne_Bottom_Navigation (Item);
       end if;
 
-      if Config.Strip_Title then
-         Pyne_Title (Item);
+      if Config.Strip_Banner then
+         Pyne_Banner (Item);
       end if;
 
       if Config.Strip_Sponsor then
@@ -210,7 +210,7 @@ package body HostARM_Pyning is
          Pyne_HR (Item, First => False);
       end if;
 
-      if Config.Strip_Title and Config.Strip_Nav_Top then
+      if Config.Strip_Banner and Config.Strip_Nav_Top then
          Pyne_HR (Item, First => True);
       end if;
 

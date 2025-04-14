@@ -14,7 +14,7 @@ package HostARM_Configuration is
                       return String;
    --  Web base for selected manual
 
-   Strip_Title      : Boolean := True;
+   Strip_Banner     : Boolean := True;
    Strip_Nav_Top    : Boolean := False;
    Strip_Nav_Bottom : Boolean := True;
    Strip_Sponsor    : Boolean := True;

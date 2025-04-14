@@ -286,7 +286,7 @@ package body HostARM_Server is
              Assoc ("MANUAL_INDEX",       Config.URI_Index),
              Assoc ("MANUAL_AUTH_SEARCH", Config.URI_Search),
              Assoc ("MANUAL_REFERENCE",   Config.URI_Reference),
-             Assoc ("STRIP_TITLE",      Checked_If (Strip_Title)),
+             Assoc ("STRIP_BANNER",     Checked_If (Strip_Banner)),
              Assoc ("STRIP_NAV_TOP",    Checked_If (Strip_Nav_Top)),
              Assoc ("STRIP_NAV_BOTTOM", Checked_If (Strip_Nav_Bottom)),
              Assoc ("STRIP_SPONSOR",    Checked_If (Strip_Sponsor)),
@@ -306,7 +306,7 @@ package body HostARM_Server is
             null;
 
          when AWS.Status.POST =>
-            Strip_Title      := Get_Boolean (Params, "strip_title");
+            Strip_Banner     := Get_Boolean (Params, "strip_banner");
             Strip_Nav_Top    := Get_Boolean (Params, "strip_nav_top");
             Strip_Nav_Bottom := Get_Boolean (Params, "strip_nav_bottom");
             Strip_Sponsor    := Get_Boolean (Params, "strip_sponsor");

@@ -37,8 +37,8 @@
   <h3>Pyning</h3>
 
   <li class="item21">
-    <input type="checkbox" id="strip_title" name="strip_title" value ="true" @_STRIP_TITLE_@>
-    <label for="strip_title" id="strip_title">Pyne title</label>
+    <input type="checkbox" id="strip_banner" name="strip_banner" value ="true" @_STRIP_BANNER_@>
+    <label for="strip_banner" id="strip_banner">Pyne banner</label>
   </li>
 
   <li class="item21">
