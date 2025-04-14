@@ -20,7 +20,7 @@ package body HostARM_Cookie is
    is
       use Config;
    begin
-      if Exists (Request, Key_Manual) then
+      if not Exists (Request, Key_Manual) then
          State := Config.Default_State;
          return;
       end if;
