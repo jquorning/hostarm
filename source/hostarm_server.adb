@@ -286,10 +286,10 @@ package body HostARM_Server is
              Assoc ("MANUAL_INDEX",       Config.URI_Index),
              Assoc ("MANUAL_AUTH_SEARCH", Config.URI_Search),
              Assoc ("MANUAL_REFERENCE",   Config.URI_Reference),
-             Assoc ("STRIP_BANNER",     Checked_If (Strip_Banner)),
-             Assoc ("STRIP_NAV_TOP",    Checked_If (Strip_Nav_Top)),
-             Assoc ("STRIP_NAV_BOTTOM", Checked_If (Strip_Nav_Bottom)),
-             Assoc ("STRIP_SPONSOR",    Checked_If (Strip_Sponsor)),
+             Assoc ("PYNE_BANNER",      Checked_If (Pyne_Banner)),
+             Assoc ("PYNE_NAV_TOP",     Checked_If (Pyne_Nav_Top)),
+             Assoc ("PYNE_NAV_BOTTOM",  Checked_If (Pyne_Nav_Bottom)),
+             Assoc ("PYNE_SPONSOR",     Checked_If (Pyne_Sponsor)),
              Assoc ("MAN_ARM_2012",     Checked_If (Default_ARM = ARM_2012)),
              Assoc ("MAN_ARM_2022",     Checked_If (Default_ARM = ARM_2022)),
              Assoc ("MAN_AARM_202Y",    Checked_If (Default_ARM = AARM_202Y))
@@ -306,11 +306,11 @@ package body HostARM_Server is
             null;
 
          when AWS.Status.POST =>
-            Strip_Banner     := Get_Boolean (Params, "strip_banner");
-            Strip_Nav_Top    := Get_Boolean (Params, "strip_nav_top");
-            Strip_Nav_Bottom := Get_Boolean (Params, "strip_nav_bottom");
-            Strip_Sponsor    := Get_Boolean (Params, "strip_sponsor");
-            Default_ARM      := ARM_Version'Value (Get (Params, "manual"));
+            Pyne_Banner     := Get_Boolean (Params, "pyne_banner");
+            Pyne_Nav_Top    := Get_Boolean (Params, "pyne_nav_top");
+            Pyne_Nav_Bottom := Get_Boolean (Params, "pyne_nav_bottom");
+            Pyne_Sponsor    := Get_Boolean (Params, "pyne_sponsor");
+            Default_ARM     := ARM_Version'Value (Get (Params, "manual"));
 
          when others => null;
       end case;

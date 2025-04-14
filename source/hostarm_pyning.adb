@@ -190,27 +190,27 @@ package body HostARM_Pyning is
 
    procedure Pyne (Item : in out Tools.UString) is
    begin
-      if Config.Strip_Nav_Top then
+      if Config.Pyne_Nav_Top then
          Pyne_Top_Navigation (Item);
       end if;
 
-      if Config.Strip_Nav_Bottom then
+      if Config.Pyne_Nav_Bottom then
          Pyne_Bottom_Navigation (Item);
       end if;
 
-      if Config.Strip_Banner then
+      if Config.Pyne_Banner then
          Pyne_Banner (Item);
       end if;
 
-      if Config.Strip_Sponsor then
+      if Config.Pyne_Sponsor then
          Pyne_Sponsor (Item);
       end if;
 
-      if Config.Strip_Sponsor and Config.Strip_Nav_Bottom then
+      if Config.Pyne_Sponsor and Config.Pyne_Nav_Bottom then
          Pyne_HR (Item, First => False);
       end if;
 
-      if Config.Strip_Banner and Config.Strip_Nav_Top then
+      if Config.Pyne_Banner and Config.Pyne_Nav_Top then
          Pyne_HR (Item, First => True);
       end if;
 

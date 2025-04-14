@@ -32,10 +32,10 @@ package body HostARM_Cookie is
       use Config;
    begin
       Default_ARM := ARM_Version'Value (String'(Get (Request, "Manual")));
-      Strip_Nav_Top    := Get (Request, "Strip_Nav_Top");
-      Strip_Nav_Bottom := Get (Request, "Strip_Nav_Bottom");
-      Strip_Title      := Get (Request, "Strip_Title");
-      Strip_Sponsor    := Get (Request, "Strip_Sponsor");
+      Pyne_Nav_Top    := Get (Request, "Pyne_Nav_Top");
+      Pyne_Nav_Bottom := Get (Request, "Pyne_Nav_Bottom");
+      Pyne_Banner     := Get (Request, "Pyne_Banner");
+      Pyne_Sponsor    := Get (Request, "Pyne_Sponsor");
    end Load;
 
    ----------
@@ -46,11 +46,11 @@ package body HostARM_Cookie is
    is
       use Config;
    begin
-      Set (Response, "Manual",           Default_ARM'Image);
-      Set (Response, "Strip_Nav_Top",    Strip_Nav_Top);
-      Set (Response, "Strip_Nav_Bottom", Strip_Nav_Bottom);
-      Set (Response, "Strip_Title",      Strip_Title);
-      Set (Response, "Strip_Sponsor",    Strip_Sponsor);
+      Set (Response, "Manual",          Default_ARM'Image);
+      Set (Response, "Pyne_Nav_Top",    Pyne_Nav_Top);
+      Set (Response, "Pyne_Nav_Bottom", Pyne_Nav_Bottom);
+      Set (Response, "Pyne_Banner",     Pyne_Banner);
+      Set (Response, "Pyne_Sponsor",    Pyne_Sponsor);
    end Save;
 
 end HostARM_Cookie;

@@ -37,23 +37,23 @@
   <h3>Pyning</h3>
 
   <li class="item21">
-    <input type="checkbox" id="strip_banner" name="strip_banner" value ="true" @_STRIP_BANNER_@>
-    <label for="strip_banner" id="strip_banner">Pyne banner</label>
+    <input type="checkbox" id="pyne_banner" name="pyne_banner" value ="true" @_PYNE_BANNER_@>
+    <label for="pyne_banner" id="pyne_banner">Pyne banner</label>
   </li>
 
   <li class="item21">
-    <input type="checkbox" id="strip_nav_top" name="strip_nav_top" value ="true" @_STRIP_NAV_TOP_@>
-    <label for="strip_nav_top" id="strip_nav_top">Pyne top navigation</label>
+    <input type="checkbox" id="pyne_nav_top" name="pyne_nav_top" value ="true" @_PYNE_NAV_TOP_@>
+    <label for="pyne_nav_top" id="pyne_nav_top">Pyne top navigation</label>
   </li>
 
   <li class="item21">
-    <input type="checkbox" id="strip_nav_bottom" name="strip_nav_bottom" value ="true" @_STRIP_NAV_BOTTOM_@>
-    <label for="strip_nav_bottom" id="strip_nav_bottom">Pyne bottom navigation</label>
+    <input type="checkbox" id="pyne_nav_bottom" name="pyne_nav_bottom" value ="true" @_PYNE_NAV_BOTTOM_@>
+    <label for="pyne_nav_bottom" id="pyne_nav_bottom">Pyne bottom navigation</label>
   </li>
 
   <li class="item21">
-    <input type="checkbox" id="strip_sponsor" name="strip_sponsor" value ="true" @_STRIP_SPONSOR_@>
-    <label for="strip_sponsor" id="strip_sponsor">Pyne sponsor</label>
+    <input type="checkbox" id="pyne_sponsor" name="pyne_sponsor" value ="true" @_PYNE_SPONSOR_@>
+    <label for="pyne_sponsor" id="pyne_sponsor">Pyne sponsor</label>
   </li>
 
   <h3>Submit</h3>

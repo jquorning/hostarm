@@ -14,10 +14,10 @@ package HostARM_Configuration is
                       return String;
    --  Web base for selected manual
 
-   Strip_Banner     : Boolean := True;
-   Strip_Nav_Top    : Boolean := False;
-   Strip_Nav_Bottom : Boolean := True;
-   Strip_Sponsor    : Boolean := True;
+   Pyne_Banner     : Boolean := True;
+   Pyne_Nav_Top    : Boolean := False;
+   Pyne_Nav_Bottom : Boolean := True;
+   Pyne_Sponsor    : Boolean := True;
 
    URL_Without_HTML : Boolean := True;
    --  Strip .html from URL in Tipuesearch
