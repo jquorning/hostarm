@@ -1,17 +1,9 @@
 
 with AWS.Cookie;
-with AWS.Response;
-with AWS.Status;
-
-with HostARM_Configuration;
 
 package body HostARM_Cookie is
 
-   package Config renames HostARM_Configuration;
    use AWS.Cookie;
-
-   Request  : AWS.Status.Data;
-   Response : AWS.Response.Data;
 
    Key_Manual          : constant String := "Manual";
    Key_Pyne_Nav_Top    : constant String := "Pyne_Nav_Top";
@@ -19,45 +11,44 @@ package body HostARM_Cookie is
    Key_Pyne_Banner     : constant String := "Pyne_Banner";
    Key_Pyne_Sponsor    : constant String := "Pyne_Sponsor";
 
-   ------------
-   -- Exists --
-   ------------
+   --------------------
+   -- Get_Or_Default --
+   --------------------
 
-   function Exists return Boolean
-   is
-   begin
-      return Exists (Request, Key_Manual);
-   end Exists;
-
-   ----------
-   -- Load --
-   ----------
-
-   procedure Load
+   procedure Get_Or_Default (Request : in     AWS.Status.Data;
+                             State   :    out Config.State_Type)
    is
       use Config;
    begin
-      Settings.Manual :=
-         ARM_Version'Value (String'(Get (Request, Key_Manual)));
-      Settings.Pyne_Nav_Top    := Get (Request, Key_Pyne_Nav_Top);
-      Settings.Pyne_Nav_Bottom := Get (Request, Key_Pyne_Nav_Bottom);
-      Settings.Pyne_Banner     := Get (Request, Key_Pyne_Banner);
-      Settings.Pyne_Sponsor    := Get (Request, Key_Pyne_Sponsor);
-   end Load;
+      if Exists (Request, Key_Manual) then
+         State := Config.Default_State;
+         return;
+      end if;
 
-   ----------
-   -- Save --
-   ----------
+      State :=
+         (Manual =>
+            ARM_Version'Value (String'(Get (Request, Key_Manual))),
+          Pyne_Nav_Top    => Get (Request, Key_Pyne_Nav_Top),
+          Pyne_Nav_Bottom => Get (Request, Key_Pyne_Nav_Bottom),
+          Pyne_Banner     => Get (Request, Key_Pyne_Banner),
+          Pyne_Sponsor    => Get (Request, Key_Pyne_Sponsor)
+         );
+   end Get_Or_Default;
 
-   procedure Save
+   ---------
+   -- Set --
+   ---------
+
+   procedure Set (Response : in out AWS.Response.Data;
+                  State    : in     Config.State_Type)
    is
       use Config;
    begin
-      Set (Response, Key_Manual,          Settings.Manual'Image);
-      Set (Response, Key_Pyne_Nav_Top,    Settings.Pyne_Nav_Top);
-      Set (Response, Key_Pyne_Nav_Bottom, Settings.Pyne_Nav_Bottom);
-      Set (Response, Key_Pyne_Banner,     Settings.Pyne_Banner);
-      Set (Response, Key_Pyne_Sponsor,    Settings.Pyne_Sponsor);
-   end Save;
+      Set (Response, Key_Manual,          State.Manual'Image);
+      Set (Response, Key_Pyne_Nav_Top,    State.Pyne_Nav_Top);
+      Set (Response, Key_Pyne_Nav_Bottom, State.Pyne_Nav_Bottom);
+      Set (Response, Key_Pyne_Banner,     State.Pyne_Banner);
+      Set (Response, Key_Pyne_Sponsor,    State.Pyne_Sponsor);
+   end Set;
 
 end HostARM_Cookie;
