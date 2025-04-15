@@ -6,7 +6,29 @@
     <link rel="stylesheet" href="/assets/css/hostarm.css" />
 </head>
 
-<body>
+  <body>
+    <!--
+  <header class="nav">
+<div class="modern">-->
+    <ul class="nav">
+      <li class="nav">
+	<a class="nav-contents" href="@_MANUAL_TOC_@">Contents</a></li>
+
+      <li class="nav">
+	<a class="nav-index" href="@_MANUAL_INDEX_@">Index</a></li>
+
+      <li class="nav">
+	<a class="nav-reference" href="@_MANUAL_REFERENCE_@">Reference</a></li>
+
+      <li class="nav">
+	<a class="nav-search" href="@_MANUAL_AUTH_SEARCH_@">Ada Auth search</a></li>
+
+      <li class="nav">
+	<a class="nav-search" href="search">Search</a></li>
+    </ul>
+<!--    </div>
+  </header>  -->
+<br>
 
 <div class="grid-container">
 
@@ -80,26 +102,6 @@
 
 </div>
 
-  <div class="item22">
-    <h2>Shortcuts</h2>
-    <ul class="modern">
-      <li class="modern-contents">
-	<a class="modern-contents" href="@_MANUAL_TOC_@">Contents</a></li>
-
-      <li class="modern-index">
-	<a class="modern-index" href="@_MANUAL_INDEX_@">Index</a></li>
-
-      <li class="modern-reference">
-	<a class="modern-reference" href="@_MANUAL_REFERENCE_@">Reference</a></li>
-
-      <li class="modern-search">
-	<a class="modern-search" href="@_MANUAL_AUTH_SEARCH_@">Ada Auth search</a></li>
-
-      <li class="modern-search">
-	<a class="modern-search" href="search">Search</a></li>
-    </ul>
-  </div>
-
   <div class="item23">
     <h2>Navigation Keys</h2>
     <table class="item23">
@@ -118,7 +120,7 @@
 
 <div class="item24">
 <h2>Feedback</h2>
-<p>For <a href="https://github.com/jquorning/hostarm/discussions">questions</a>,
+<p class="item24-p">For <a href="https://github.com/jquorning/hostarm/discussions">questions</a>,
   <a href="https://github.com/jquorning/hostarm/issues">bug
   reports</a>, <a href="https://github.com/jquorning/hostarm/issues">feature
   requests</a>,
