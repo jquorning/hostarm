@@ -125,38 +125,67 @@ li.nav {
 }
 
 a.nav-contents {
+    background-image: url(/assets/images/star.png);
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position-x: 24px;
     border-left: 1px solid #333;
     border-right: 1px solid #333;
     float: left;
     font-style: normal;
-    padding-left: 24px;
+    padding-left: 50px;
     padding-right: 24px;
     color: #242;
 }
 
 a.nav-index {
+    background-image: url(/assets/images/folder.png);
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position-x: 24px;
     border-right: 1px solid #333;
     float: left;
     font-style: normal;
-    padding-left: 24px;
+    padding-left: 50px;
     padding-right: 24px;
     color: #242;
 }
 
 a.nav-reference {
+    background-image: url(/assets/images/book.png);
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position-x: 24px;
     border-right: 1px solid #333;
     float: left;
     font-style: normal;
-    padding-left: 24px;
+    padding-left: 50px;
     padding-right: 24px;
     color: #242;
 }
 
 a.nav-search {
+    background-image: url(/assets/images/search.png);
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position-x: 24px;
     border-right: 1px solid #333;
     float: left;
     font-style: normal;
-    padding-left: 24px;
+    padding-left: 50px;
+    padding-right: 24px;
+    color: #242;
+}
+
+a.nav-top {
+    background-image: url(/assets/images/gear.png);
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position-x: 24px;
+    border-right: 1px solid #333;
+    float: left;
+    font-style: normal;
+    padding-left: 50px;
     padding-right: 24px;
     color: #242;
 }

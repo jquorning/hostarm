@@ -11,28 +11,27 @@
     <ul class="nav">
       <li class="nav">
 	<a class="nav-contents" href="@_MANUAL_TOC_@">
-	  <img src='/assets/images/star.png' style='width: 20px; height: 20px; '>
 	  Contents</a>
       </li>
       <li class="nav">
 	<a class="nav-index" href="@_MANUAL_INDEX_@">
-	  <img src='/assets/images/folder.png' style='width: 20px; height: 20px;'>
 	  Index</a>
       </li>
       <li class="nav">
 	<a class="nav-reference" href="@_MANUAL_REFERENCE_@">
-	  <img src='/assets/images/book.png' style='width: 20px; height: 20px;'>
 	  Reference</a>
       </li>
       <li class="nav">
 	<a class="nav-search" href="@_MANUAL_AUTH_SEARCH_@">
-	  <img src='/assets/images/search.png' style='width: 20px; height: 20px;'>
 	  Ada Auth search</a>
       </li>
       <li class="nav">
 	<a class="nav-search" href="search">
-	  <img src='/assets/images/search.png' style='width: 20px; height: 20px;'>
 	  Search</a>
+      </li>
+      <li class="nav">
+	<a class="nav-top" href="/">
+	  Top</a>
       </li>
     </ul>
   </header>
