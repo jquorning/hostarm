@@ -236,29 +236,3 @@ a.IndexNavigation {
     font-size: 150%;
     padding-right: 0.5em;
 }
-
-.grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto auto;
-    border-style: solid;
-    border-width: 5px;
-    background: #EFE;
-    border-color: #Ada;
-    border-radius: 10px;
-    box-shadow: 4px 4px 3px #CDC;
-    margin: 15px;
-    padding: 10px;
-}
-
-.grid-container > div {
-    border-style: solid;
-    border-width: 5px;
-    background: #EFE;
-    border-color: #Ada;
-    border-radius: 10px;
-    box-shadow: 4px 4px 3px #CDC;
-    margin: 15px;
-    padding: 10px;
-    align: top;
-}

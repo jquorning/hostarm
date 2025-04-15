@@ -1,4 +1,5 @@
 
+with Ada.Characters.Latin_1;
 with Ada.Strings.Maps;
 with Ada.Strings.Unbounded;
 
@@ -8,9 +9,16 @@ package HostARM_Tools is
 
    subtype UString is Ada.Strings.Unbounded.Unbounded_String;
 
+   CRLF : constant String :=
+      Ada.Characters.Latin_1.CR & Ada.Characters.Latin_1.LF;
+
    To_Lower_Case : constant Character_Mapping :=
      To_Mapping (From => To_Sequence (To_Set ("ABCDEFGHIJKLMNOPQRSTUVWXYZ")),
                  To   => To_Sequence (To_Set ("abcdefghijklmnopqrstuvwxyz")));
+
+   Space_To_Hyphen : constant Character_Mapping :=
+     To_Mapping (From => To_Sequence (To_Set (" ")),
+                 To   => To_Sequence (To_Set ("-")));
 
    procedure Load_File (Name    : in     String;
                         Payload :    out UString);

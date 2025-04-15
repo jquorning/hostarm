@@ -93,6 +93,12 @@ package body HostARM_Server is
          Info => Default_Info (Version => State.Manual,
                                Next    => "search",
                                Prev    => "search"));
+
+      HostARM_Pyning.Insert_CSS_Links (Payload);
+
+      HostARM_Pyning.Pyne (Payload, State);
+      --  Nothing to pyne but inserts navigation header
+
       return
          AWS.Response.Build (Content_Type    => "text/html",
                              UString_Message => Payload);
@@ -126,8 +132,11 @@ package body HostARM_Server is
       end if;
 
       HostARM_Pyning.Pyne (Payload, State => State);
+
       HostARM_Pyning.Replace_Doctype (Payload);
-      HostARM_Pyning.Replace_Style_CSS (Payload);
+
+      HostARM_Pyning.Remove_Head_Style_CSS (Payload);
+      HostARM_Pyning.Insert_CSS_Links (Payload);
 
       return
          AWS.Response.Build (Content_Type    => "text/html",
@@ -363,7 +372,10 @@ package body HostARM_Server is
                                 Next    => "search",
                                 Prev    => "search"));
 
---      Hostarm_Modern.Make_Shortcut_DIV;
+      HostARM_Pyning.Insert_CSS_Links (Payload);
+
+      HostARM_Pyning.Pyne (Payload, State);
+      --  Nothing to pyne but inserts navigation header
 
       Response := AWS.Response.Build (Content_Type    => "text/html",
                                       UString_Message => Payload);

@@ -12,7 +12,9 @@ package HostARM_Pyning is
 
    procedure Replace_Doctype (Item : in out Tools.UString);
 
-   procedure Replace_Style_CSS (Item : in out Tools.UString);
+   procedure Remove_Head_Style_CSS (Item : in out Tools.UString);
+
+   procedure Insert_CSS_Links (Item : in out Tools.UString);
 
    procedure Append_Navigation_Bar (Item : in out Tools.UString);
 

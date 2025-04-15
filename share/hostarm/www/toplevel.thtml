@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>HostARM</title>
-    <link rel="stylesheet" href="/assets/css/hostarm.css" />
 </head>
 
   <body>
+<!--
   <header class="nav">
     <ul class="nav">
       <li class="nav">
@@ -36,7 +36,7 @@
     </ul>
   </header>
 <br>
-
+-->
 <div class="grid-container">
 
   <h1 class="item20">HostARM - Your ARM docs</h1>

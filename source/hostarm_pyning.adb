@@ -2,9 +2,17 @@
 with Ada.Strings.Unbounded;
 with Ada.Characters.Latin_1;
 
+with HostARM_Modern;
+with HostARM_Navigate;
+
 package body HostARM_Pyning is
 
+   package Navig renames HostARM_Navigate;
+
    use Ada.Strings.Unbounded;
+
+   CRLF : constant String :=
+      Ada.Characters.Latin_1.CR & Ada.Characters.Latin_1.LF;
 
    -------------------------
    -- Pyne_Top_Navigation --
@@ -180,6 +188,22 @@ package body HostARM_Pyning is
               Through => HR_Pos + HR_Match'Length);
    end Pyne_HR;
 
+   ------------------------------
+   -- Insert_Modern_Navigation --
+   ------------------------------
+
+   procedure Insert_Modern_Navigation (Item  : in out Tools.UString;
+                                       State : in     Config.State_Type;
+                                       Info  : in     Navig.Nav_Info)
+   is
+      DIV  : Tools.UString;
+   begin
+      HostARM_Modern.Make_Navigation_DIV (DIV => DIV,
+                                          Nav => Info,
+                                          Version => State.Manual);
+      HostARM_Modern.Insert_Navigation_DIV (Item, DIV);
+   end Insert_Modern_Navigation;
+
    ----------
    -- Pyne --
    ----------
@@ -187,7 +211,10 @@ package body HostARM_Pyning is
    procedure Pyne (Item  : in out Tools.UString;
                    State : in     Config.State_Type)
    is
+      Info : Navig.Nav_Info;
    begin
+      Navig.Read_Navigation (Item, Info);
+
       if State.Pyne_Nav_Top then
          Pyne_Top_Navigation (Item);
       end if;
@@ -218,6 +245,8 @@ package body HostARM_Pyning is
          Pyne_HR (Item, First => True);
       end if;
 
+      Insert_Modern_Navigation (Item, State, Info);
+
    end Pyne;
 
    ---------------------
@@ -244,31 +273,51 @@ package body HostARM_Pyning is
 
    end Replace_Doctype;
 
-   -----------------------
-   -- Replace_Style_CSS --
-   -----------------------
+   ----------------------
+   -- Insert_CSS_Links --
+   ----------------------
 
-   procedure Replace_Style_CSS (Item : in out Tools.UString)
+   procedure Insert_CSS_Links (Item : in out Tools.UString)
    is
-      Match_1 : constant String := "<STYLE type=";
-      Match_2 : constant String := "</STYLE>";
-      Match_3 : constant String := "</HEAD>";
-      Pos_1, Pos_2, Pos_3 : Natural;
-      Repl    : constant String :=
-        "<link rel='stylesheet' href='/assets/css/arm.css'>";
+      Match : constant String := "</head>";
+      Pos   : Natural;
+      Repl  : constant String :=
+        "<link rel='stylesheet' href='/assets/css/arm.css'>" & CRLF &
+        "<link rel='stylesheet' href='/assets/css/hostarm.css'>";
    begin
-      Pos_1 := Index (Item, Match_1, 1);
-      Pos_2 := Index (Item, Match_2, Natural'Max (1, Pos_1));
-      Pos_3 := Index (Item, Match_3, Natural'Max (1, Pos_2));
-      if Pos_1 = 0 or Pos_2 = 0 or Pos_3 = 0 or Pos_2 < Pos_1 then
+      Pos := Index (Item, Match, From => 1,
+                    Mapping => Tools.To_Lower_Case);
+      if Pos = 0 then
          return;
       end if;
 
       Replace_Slice (Item,
-                     Low  => Pos_1,
-                     High => Pos_2 + Match_2'Length,
+                     Low  => Pos + Match'Length,
+                     High => Pos + Match'Length,
                      By   => Repl);
-   end Replace_Style_CSS;
+   end Insert_CSS_Links;
+
+   ---------------------------
+   -- Remove_Head_Style_CSS --
+   ---------------------------
+
+   procedure Remove_Head_Style_CSS (Item : in out Tools.UString)
+   is
+      Match_1 : constant String := "<STYLE type=";
+      Match_2 : constant String := "</STYLE>";
+      Pos_1, Pos_2 : Natural;
+   begin
+      Pos_1 := Index (Item, Match_1, 1);
+      Pos_2 := Index (Item, Match_2, Natural'Max (1, Pos_1));
+      if Pos_1 = 0 or Pos_2 = 0 or Pos_2 < Pos_1 then
+         return;
+      end if;
+
+      Delete (Item,
+              From    => Pos_1,
+              Through => Pos_2 + Match_2'Length);
+
+   end Remove_Head_Style_CSS;
 
    ---------------------------
    -- Append_Navigation_Bar --
@@ -276,8 +325,6 @@ package body HostARM_Pyning is
 
    procedure Append_Navigation_Bar (Item : in out Tools.UString)
    is
-      CRLF    : constant String :=
-         Ada.Characters.Latin_1.CR & Ada.Characters.Latin_1.LF;
       Match_1 : constant String := "<SPAN STYLE=""font-size: 156%""><B>";
       Match_2 : constant String := "</B></SPAN><BR>";
       New_11  : constant String := "<h2 id='Section_";

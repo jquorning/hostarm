@@ -63,6 +63,7 @@
 
 p.item24-p {
     margin-right: 140px;
+    margin-left: 2.2em;
 }
 
 /* Modernize */
@@ -97,15 +98,6 @@ p.item24-p {
 /*
  * Navigation bar header
  */
-
-/*
-.nav {
-}
-
-header.nav {
-}
-*/
-
 ul.nav {
     list-style-type: none;
     background-color: #FFF;
@@ -166,6 +158,45 @@ a.nav-reference {
 
 a.nav-search {
     background-image: url(/assets/images/search.png);
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position-x: 24px;
+    border-right: 1px solid #333;
+    float: left;
+    font-style: normal;
+    padding-left: 50px;
+    padding-right: 24px;
+    color: #242;
+}
+
+a.nav-auth-search {
+    background-image: url(/assets/images/cloud.png);
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position-x: 24px;
+    border-right: 1px solid #333;
+    float: left;
+    font-style: normal;
+    padding-left: 50px;
+    padding-right: 24px;
+    color: #242;
+}
+
+a.nav-previous {
+    background-image: url(/assets/images/left_chevron.png);
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position-x: 24px;
+    border-right: 1px solid #333;
+    float: left;
+    font-style: normal;
+    padding-left: 50px;
+    padding-right: 24px;
+    color: #242;
+}
+
+a.nav-next {
+    background-image: url(/assets/images/right_chevron.png);
     background-size: 20px 20px;
     background-repeat: no-repeat;
     background-position-x: 24px;
