@@ -6,41 +6,10 @@
 </head>
 
   <body>
-<!--
-  <header class="nav">
-    <ul class="nav">
-      <li class="nav">
-	<a class="nav-contents" href="@_MANUAL_TOC_@">
-	  Contents</a>
-      </li>
-      <li class="nav">
-	<a class="nav-index" href="@_MANUAL_INDEX_@">
-	  Index</a>
-      </li>
-      <li class="nav">
-	<a class="nav-reference" href="@_MANUAL_REFERENCE_@">
-	  Reference</a>
-      </li>
-      <li class="nav">
-	<a class="nav-search" href="@_MANUAL_AUTH_SEARCH_@">
-	  Ada Auth search</a>
-      </li>
-      <li class="nav">
-	<a class="nav-search" href="search">
-	  Search</a>
-      </li>
-      <li class="nav">
-	<a class="nav-top" href="/">
-	  Top</a>
-      </li>
-    </ul>
-  </header>
-<br>
--->
+
 <div class="grid-container">
 
   <h1 class="item20">HostARM - Your ARM docs</h1>
-
 
   <div class="item21">
     <h2>Configuration</h2>
@@ -120,7 +89,7 @@
 	<tr><td>R</td><td><b>R</b>eference page</td></tr>
 	<tr><td>A</td><td><b>A</b>da-Auth search page</td></tr>
 	<tr><td>S</td><td><b>S</b>earch with Tipuesearch</td></tr>
-	<tr><td>H</td><td>Toplevel page (<b>H</b>ome)</td></tr>
+	<tr><td>H</td><td><b>H</b>ome, This page</td></tr>
       </tbody>
     </table>
   </div>
