@@ -98,3 +98,79 @@
 .item12 {
     grid-column: 1 / span 2;
 }
+
+/*
+ *
+ */
+
+.modern {
+    list-style-type: none;
+}
+
+a.modern-contents {
+    background: url(/assets/images/star.png);
+    background-color: rgba(#aa, #dd, #aa, 100%);
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: 20px 20px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #Ada;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px #CDC;
+    font-style: normal;
+    margin: 4px;
+    padding-left: 24px;
+    color: #242;
+}
+
+a.modern-index {
+    background: url(/assets/images/book.png);
+    background-color: rgba(#aa, #dd, #aa, 100%);
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: 20px 20px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #Ada;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px #CDC;
+    font-style: normal;
+    margin: 4px;
+    padding-left: 24px;
+    color: #242;
+}
+
+a.modern-reference {
+    background: url(/assets/images/folder.png);
+    background-color: rgba(#aa, #dd, #aa, 100%);
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: 20px 20px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #Ada;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px #CDC;
+    font-style: normal;
+    margin: 4px;
+    padding-left: 24px;
+    color: #242;
+}
+
+a.modern-search {
+    background: url(/assets/images/search.png);
+    background-color: rgba(#aa, #dd, #aa, 100%);
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: 20px 20px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #Ada;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px #CDC;
+    font-style: normal;
+    margin: 4px;
+    padding-left: 24px;
+    color: #242;
+}

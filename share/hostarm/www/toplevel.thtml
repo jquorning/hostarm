@@ -82,12 +82,21 @@
 
   <div class="item22">
     <h2>Shortcuts</h2>
-    <ul>
-      <li class="item22"><a href="@_MANUAL_TOC_@">Contents</a></li>
-      <li class="item22"><a href="@_MANUAL_INDEX_@">Index</a></li>
-      <li class="item22"><a href="@_MANUAL_REFERENCE_@">Reference</a></li>
-      <li class="item22"><a href="@_MANUAL_AUTH_SEARCH_@">Ada Auth search</a></li>
-      <li class="item22"><a href="search">Search</a></li>
+    <ul class="modern">
+      <li class="modern-contents">
+	<a class="modern-contents" href="@_MANUAL_TOC_@">Contents</a></li>
+
+      <li class="modern-index">
+	<a class="modern-index" href="@_MANUAL_INDEX_@">Index</a></li>
+
+      <li class="modern-reference">
+	<a class="modern-reference" href="@_MANUAL_REFERENCE_@">Reference</a></li>
+
+      <li class="modern-search">
+	<a class="modern-search" href="@_MANUAL_AUTH_SEARCH_@">Ada Auth search</a></li>
+
+      <li class="modern-search">
+	<a class="modern-search" href="search">Search</a></li>
     </ul>
   </div>
 
