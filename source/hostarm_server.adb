@@ -219,6 +219,24 @@ package body HostARM_Server is
    end Service_JPEG;
 
    -----------------
+   -- Service_PNG --
+   -----------------
+
+   function Service_PNG (Request : in AWS.Status.Data)
+                        return AWS.Response.Data
+   is
+      URI     : constant String := AWS.Status.URI (Request);
+      Name    : constant String := Config.Web_Base & URI;
+      Payload : Tools.UString;
+   begin
+      Tools.Load_File (Name, Payload);
+
+      return
+         AWS.Response.Build (Content_Type    => "image/png",
+                             UString_Message => Payload);
+   end Service_PNG;
+
+   -----------------
    -- Service_GIF --
    -----------------
 
@@ -345,6 +363,8 @@ package body HostARM_Server is
                                 Next    => "search",
                                 Prev    => "search"));
 
+--      Hostarm_Modern.Make_Shortcut_DIV;
+
       Response := AWS.Response.Build (Content_Type    => "text/html",
                                       UString_Message => Payload);
 
@@ -372,6 +392,7 @@ package body HostARM_Server is
       Register (Dispatcher, "/favicon.ico", Service_ICO'Access);
 
       Register_Regexp (Dispatcher, "/.*\.jpg", Service_JPEG'Access);
+      Register_Regexp (Dispatcher, "/.*\.png", Service_PNG'Access);
       Register_Regexp (Dispatcher, ".*\.gif",  Service_GIF'Access);
       Register_Regexp (Dispatcher, ".*\.html", Service_Redirect'Access);
       Register_Regexp (Dispatcher, "/assets/css/.*\.css", Service_CSS'Access);
