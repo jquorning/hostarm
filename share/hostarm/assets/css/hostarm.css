@@ -98,73 +98,65 @@ p.item24-p {
  * Navigation bar header
  */
 
+/*
 .nav {
 }
 
-heading.nav {
-    background-color: #Ada;
+header.nav {
 }
+*/
 
 ul.nav {
     list-style-type: none;
-    background-color: #Ada;
+    background-color: #FFF;
     font-family: 'Courier New', monospace;
     font-weight: bold;
     text-decoration: normal;
+    margin: 0px;
+    margin-left: -24px;
+    overflow: hidden;
 }
 
 a {
     text-decoration: none; !important!;
 }
 
+li.nav {
+}
+
 a.nav-contents {
-    display: block;
+    border-left: 1px solid #333;
+    border-right: 1px solid #333;
     float: left;
-    background: url(/assets/images/star.png);
-    background-repeat: no-repeat;
-    background-position: top left;
-    background-size: 20px 20px;
     font-style: normal;
-    margin: 4px;
     padding-left: 24px;
+    padding-right: 24px;
     color: #242;
 }
 
 a.nav-index {
-    display: block;
+    border-right: 1px solid #333;
     float: left;
-    background: url(/assets/images/folder.png);
-    background-repeat: no-repeat;
-    background-position: top left;
-    background-size: 20px 20px;
     font-style: normal;
-    margin: 4px;
     padding-left: 24px;
+    padding-right: 24px;
     color: #242;
 }
 
 a.nav-reference {
-    display: block;
+    border-right: 1px solid #333;
     float: left;
-    background: url(/assets/images/book.png);
-    background-repeat: no-repeat;
-    background-position: top left;
-    background-size: 20px 20px;
     font-style: normal;
-    margin: 4px;
     padding-left: 24px;
+    padding-right: 24px;
     color: #242;
 }
 
 a.nav-search {
-    display: block;
+    border-right: 1px solid #333;
     float: left;
-    background: url(/assets/images/search.png);
-    background-repeat: no-repeat;
-    background-position: top left;
-    background-size: 20px 20px;
     font-style: normal;
-    margin: 4px;
     padding-left: 24px;
+    padding-right: 24px;
     color: #242;
 }

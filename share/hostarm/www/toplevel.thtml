@@ -10,19 +10,29 @@
   <header class="nav">
     <ul class="nav">
       <li class="nav">
-	<a class="nav-contents" href="@_MANUAL_TOC_@">Contents</a>
+	<a class="nav-contents" href="@_MANUAL_TOC_@">
+	  <img src='/assets/images/star.png' style='width: 20px; height: 20px; '>
+	  Contents</a>
       </li>
       <li class="nav">
-	<a class="nav-index" href="@_MANUAL_INDEX_@">Index</a>
+	<a class="nav-index" href="@_MANUAL_INDEX_@">
+	  <img src='/assets/images/folder.png' style='width: 20px; height: 20px;'>
+	  Index</a>
       </li>
       <li class="nav">
-	<a class="nav-reference" href="@_MANUAL_REFERENCE_@">Reference</a>
+	<a class="nav-reference" href="@_MANUAL_REFERENCE_@">
+	  <img src='/assets/images/book.png' style='width: 20px; height: 20px;'>
+	  Reference</a>
       </li>
       <li class="nav">
-	<a class="nav-search" href="@_MANUAL_AUTH_SEARCH_@">Ada Auth search</a>
+	<a class="nav-search" href="@_MANUAL_AUTH_SEARCH_@">
+	  <img src='/assets/images/search.png' style='width: 20px; height: 20px;'>
+	  Ada Auth search</a>
       </li>
       <li class="nav">
-	<a class="nav-search" href="search">Search</a>
+	<a class="nav-search" href="search">
+	  <img src='/assets/images/search.png' style='width: 20px; height: 20px;'>
+	  Search</a>
       </li>
     </ul>
   </header>
