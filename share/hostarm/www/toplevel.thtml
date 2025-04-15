@@ -7,27 +7,25 @@
 </head>
 
   <body>
-    <!--
   <header class="nav">
-<div class="modern">-->
     <ul class="nav">
       <li class="nav">
-	<a class="nav-contents" href="@_MANUAL_TOC_@">Contents</a></li>
-
+	<a class="nav-contents" href="@_MANUAL_TOC_@">Contents</a>
+      </li>
       <li class="nav">
-	<a class="nav-index" href="@_MANUAL_INDEX_@">Index</a></li>
-
+	<a class="nav-index" href="@_MANUAL_INDEX_@">Index</a>
+      </li>
       <li class="nav">
-	<a class="nav-reference" href="@_MANUAL_REFERENCE_@">Reference</a></li>
-
+	<a class="nav-reference" href="@_MANUAL_REFERENCE_@">Reference</a>
+      </li>
       <li class="nav">
-	<a class="nav-search" href="@_MANUAL_AUTH_SEARCH_@">Ada Auth search</a></li>
-
+	<a class="nav-search" href="@_MANUAL_AUTH_SEARCH_@">Ada Auth search</a>
+      </li>
       <li class="nav">
-	<a class="nav-search" href="search">Search</a></li>
+	<a class="nav-search" href="search">Search</a>
+      </li>
     </ul>
-<!--    </div>
-  </header>  -->
+  </header>
 <br>
 
 <div class="grid-container">
