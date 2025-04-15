@@ -27,10 +27,10 @@ package HostARM_Configuration is
    Default_State : constant State_Type :=
          (Manual          => ARM_2022,
           Pyne_Banner     => False,
-          Pyne_Nav_Top    => False,
+          Pyne_Nav_Top    => True,
           Pyne_Nav_Bottom => True,
           Pyne_Sponsor    => False,
-	  Modernize       => True);
+          Modernize       => True);
 
    URL_Without_HTML : Boolean := True;
    --  Strip .html from URL in Tipuesearch

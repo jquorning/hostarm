@@ -245,7 +245,9 @@ package body HostARM_Pyning is
          Pyne_HR (Item, First => True);
       end if;
 
-      Insert_Modern_Navigation (Item, State, Info);
+      if State.Modernize then
+         Insert_Modern_Navigation (Item, State, Info);
+      end if;
 
    end Pyne;
 
