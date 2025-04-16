@@ -91,12 +91,15 @@ package body HostARM_Server is
       Insert_JS_Key_Navigation
         (Payload,
          Info => Default_Info (Version => State.Manual,
-                               Next    => "search",
-                               Prev    => "search"));
+                               Next    => Config.URI_Index    (State.Manual),
+                               Prev    => Config.URI_Contents (State.Manual)));
 
       HostARM_Pyning.Insert_CSS_Links (Payload);
 
-      HostARM_Pyning.Pyne (Payload, State);
+      HostARM_Pyning.Pyne
+        (Payload, State,
+         Next    => Config.URI_Index    (State.Manual),
+         Prev    => Config.URI_Contents (State.Manual));
       --  Nothing to pyne but inserts navigation header
 
       return
@@ -367,14 +370,17 @@ package body HostARM_Server is
           Translations => Trans (State));
 
       Insert_JS_Key_Navigation
-         (Payload,
-          Info => Default_Info (Version => State.Manual,
-                                Next    => "search",
-                                Prev    => "search"));
+        (Payload,
+         Info => Default_Info (Version => State.Manual,
+                               Next    => Config.URI_Index    (State.Manual),
+                               Prev    => Config.URI_Contents (State.Manual)));
 
       HostARM_Pyning.Insert_CSS_Links (Payload);
 
-      HostARM_Pyning.Pyne (Payload, State);
+      HostARM_Pyning.Pyne
+        (Payload, State,
+         Next    => Config.URI_Index    (State.Manual),
+         Prev    => Config.URI_Contents (State.Manual));
       --  Nothing to pyne but inserts navigation header
 
       Response := AWS.Response.Build (Content_Type    => "text/html",

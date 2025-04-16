@@ -64,7 +64,8 @@ package body HostARM_Modern is
       Append_LI (DIV, ALT => "Index",       URI => To_String (Nav.Index));
       Append_LI (DIV, ALT => "Reference",   URI => To_String (Nav.Reference));
       Append_LI (DIV,
-                 ALT => "Ada-Auth Search",  URI => Config.URI_Search (Version));
+                 ALT => "Ada-Auth Search",
+                 URI => Config.URI_Search (Version));
       Append_LI (DIV, ALT => "Search",      URI => "/search");
       Append_LI (DIV, ALT => "Previous",    URI => To_String (Nav.Prev));
       Append_LI (DIV, ALT => "Next",        URI => To_String (Nav.Next));

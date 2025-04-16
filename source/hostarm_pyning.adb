@@ -209,7 +209,9 @@ package body HostARM_Pyning is
    ----------
 
    procedure Pyne (Item  : in out Tools.UString;
-                   State : in     Config.State_Type)
+                   State : in     Config.State_Type;
+                   Next  : in     String := "";
+                   Prev  : in     String := "")
    is
       Info : Navig.Nav_Info;
    begin
@@ -246,6 +248,14 @@ package body HostARM_Pyning is
       end if;
 
       if State.Modernize then
+         if Next /= "" then
+            Info.Next := To_Unbounded_String (Next);
+         end if;
+
+         if Prev /= "" then
+            Info.Prev := To_Unbounded_String (Prev);
+         end if;
+
          Insert_Modern_Navigation (Item, State, Info);
       end if;
 
