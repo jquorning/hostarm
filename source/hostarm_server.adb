@@ -317,12 +317,12 @@ package body HostARM_Server is
       return AWS.Response.URL (Location => "/");
    end Service_Default;
 
-   ----------------------
-   -- Service_Toplevel --
-   ----------------------
+   ------------------
+   -- Service_Home --
+   ------------------
 
-   function Service_Toplevel (Request : in AWS.Status.Data)
-                              return AWS.Response.Data
+   function Service_Home (Request : in AWS.Status.Data)
+                          return AWS.Response.Data
    is
       use HostARM_Navigate;
       use AWS.Parameters;
@@ -342,7 +342,7 @@ package body HostARM_Server is
       end Get_Boolean;
 
       Params   : constant List := AWS.Status.Parameters (Request);
-      Name     : constant String := Config.Page_Base & "/toplevel.thtml";
+      Name     : constant String := Config.Page_Base & "/home.thtml";
       State    : Config.State_Type;
       Payload  : Tools.UString;
       Response : AWS.Response.Data;
@@ -391,7 +391,7 @@ package body HostARM_Server is
       end if;
 
       return Response;
-   end Service_Toplevel;
+   end Service_Home;
 
    -------------------------
    -- Register_Dispatcher --
@@ -404,9 +404,9 @@ package body HostARM_Server is
 
       Register (Dispatcher, "/search",      Service_Search'Access,
                 Prefix => True);
-      Register (Dispatcher, "/",            Service_Toplevel'Access);
-      Register (Dispatcher, "",             Service_Toplevel'Access);
-      Register (Dispatcher, "/toplevel",    Service_Toplevel'Access);
+      Register (Dispatcher, "/",            Service_Home'Access);
+      Register (Dispatcher, "",             Service_Home'Access);
+      Register (Dispatcher, "/home",        Service_Home'Access);
       Register (Dispatcher, "/favicon.ico", Service_ICO'Access);
 
       Register_Regexp (Dispatcher, "/.*\.jpg", Service_JPEG'Access);

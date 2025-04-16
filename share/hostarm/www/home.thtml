@@ -83,13 +83,13 @@
     <table class="item23">
       <tbody>
 	<tr><td style="width: 3em;">B, P</td><td><b>B</b>efore, <b>P</b>revious page</td></tr>
-	<tr><td>F, N</td><td><b>F</b>orward, <b>N</b>ext page</td></tr>
+	<tr><td>F, N</td><td><b>F</b>orward, <b>N</b>ext</td></tr>
 	<tr><td>C, T</td><td><b>C</b>ontents, <b>T</b>able of contents</td></tr>
-	<tr><td>I</td><td><b>I</b>ndex page</td></tr>
-	<tr><td>R</td><td><b>R</b>eference page</td></tr>
-	<tr><td>A</td><td><b>A</b>da-Auth search page</td></tr>
+	<tr><td>I</td><td><b>I</b>ndex</td></tr>
+	<tr><td>R</td><td><b>R</b>eference</td></tr>
+	<tr><td>A</td><td><b>A</b>da-Auth search</td></tr>
 	<tr><td>S</td><td><b>S</b>earch with Tipuesearch</td></tr>
-	<tr><td>H</td><td><b>H</b>ome, This page</td></tr>
+	<tr><td>H</td><td><b>H</b>ome</td></tr>
       </tbody>
     </table>
   </div>

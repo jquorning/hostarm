@@ -218,7 +218,7 @@ package body HostARM_Navigate is
       Insert_Key_Nav (Payload, 'A', Info.Search,   Last + 1, Last);
       Insert_Key_Nav (Payload, 'S', To_Unbounded_String ("search"),
                       Last + 1, Last);
-      Insert_Key_Nav (Payload, 'H', To_Unbounded_String ("toplevel"),
+      Insert_Key_Nav (Payload, 'H', To_Unbounded_String ("home"),
                       Last + 1, Last);
 
       Insert (Payload, Before => Last + 1,

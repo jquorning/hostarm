@@ -59,7 +59,7 @@ package body HostARM_Modern is
       use Ada.Strings.Unbounded;
    begin
       Append (DIV, Text_1);
-      Append_LI (DIV, ALT => "Home",        URI => "/toplevel");
+      Append_LI (DIV, ALT => "Home",        URI => "/home");
       Append_LI (DIV, ALT => "Contents",    URI => To_String (Nav.Contents));
       Append_LI (DIV, ALT => "Index",       URI => To_String (Nav.Index));
       Append_LI (DIV, ALT => "Reference",   URI => To_String (Nav.Reference));
