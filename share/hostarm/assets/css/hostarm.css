@@ -116,6 +116,20 @@ a {
 li.nav {
 }
 
+a.nav-home {
+    background-image: url(/assets/images/gear.png);
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position-x: 24px;
+    border-right: 1px solid #333;
+    border-left: 1px solid #333;
+    float: left;
+    font-style: normal;
+    padding-left: 50px;
+    padding-right: 24px;
+    color: #242;
+}
+
 a.nav-contents {
     background-image: url(/assets/images/star.png);
     background-size: 20px 20px;
@@ -197,19 +211,6 @@ a.nav-previous {
 
 a.nav-next {
     background-image: url(/assets/images/right_chevron.png);
-    background-size: 20px 20px;
-    background-repeat: no-repeat;
-    background-position-x: 24px;
-    border-right: 1px solid #333;
-    float: left;
-    font-style: normal;
-    padding-left: 50px;
-    padding-right: 24px;
-    color: #242;
-}
-
-a.nav-home {
-    background-image: url(/assets/images/gear.png);
     background-size: 20px 20px;
     background-repeat: no-repeat;
     background-position-x: 24px;
