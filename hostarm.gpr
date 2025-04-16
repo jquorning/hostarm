@@ -1,4 +1,5 @@
 with "config/hostarm_config.gpr";
+
 project Hostarm is
 
    for Source_Dirs use ("source/", "config/");
@@ -8,7 +9,7 @@ project Hostarm is
    for Main use ("hostarm.adb");
 
    package Compiler is
-      for Default_Switches ("Ada") use Hostarm_Config.Ada_Compiler_Switches;
+--      for Default_Switches ("Ada") use Hostarm_Config.Ada_Compiler_Switches;
    end Compiler;
 
    package Binder is
