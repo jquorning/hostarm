@@ -55,9 +55,9 @@ package body HostARM_Pyning is
    procedure Pyne_Banner (Item : in out Tools.UString)
    is
       Body_Match   : constant String := "<BODY TEXT=";
-      Top_RM_Match : constant String := "<DIV><SPAN ";
+      Top_RM_Match : constant String := "<div><span ";
       Top_AA_Match : constant String := "<DIV><B><SPAN ";  --  AA is special
-      Bot_Match    : constant String := "</DIV>";
+      Bot_Match    : constant String := "</div>";
       Body_Pos   : Natural;
       Top_RM_Pos : Natural;
       Top_AA_Pos : Natural;
@@ -69,14 +69,16 @@ package body HostARM_Pyning is
          return;
       end if;
 
-      Top_RM_Pos := Index (Item, Top_RM_Match, Body_Pos);
+      Top_RM_Pos := Index (Item, Top_RM_Match, Body_Pos,
+                           Mapping => Tools.To_Lower_Case);
       Top_AA_Pos := Index (Item, Top_AA_Match, Body_Pos);
       if Top_RM_Pos = 0 and Top_AA_Pos = 0 then
          return;
       end if;
 
       Top_Pos := Natural'Max (Top_RM_Pos, Top_AA_Pos);
-      Bot_Pos := Index (Item, Bot_Match, From => Top_Pos);
+      Bot_Pos := Index (Item, Bot_Match, From => Top_Pos,
+                        Mapping => Tools.To_Lower_Case);
       if Bot_Pos = 0 then
          return;
       end if;
