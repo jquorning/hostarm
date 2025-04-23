@@ -1,3 +1,6 @@
+
+with Ada.Directories;
+
 package body HostARM_Configuration is
 
    --------------
@@ -9,9 +12,9 @@ package body HostARM_Configuration is
    is
    begin
       case Version is
-         when ARM_2012  =>  return Web_Base & "/ARM/Ada_2012";
-         when ARM_2022  =>  return Web_Base & "/ARM/Ada_2022";
-         when AARM_202Y =>  return Web_Base & "/ARM/Ada_202Y";
+         when ARM_2012  =>  return "ARM/Ada_2012/";
+         when ARM_2022  =>  return "ARM/Ada_2022/";
+         when AARM_202Y =>  return "ARM/Ada_202Y/";
       end case;
    end ARM_Base;
 
@@ -70,5 +73,49 @@ package body HostARM_Configuration is
          when AARM_202Y =>  return "AA-STDS";
       end case;
    end URI_Reference;
+
+   -------------------
+   -- Looking_Valid --
+   -------------------
+
+   function Looking_Valid (Path : in String)
+                           return Boolean
+   is
+      use Ada.Directories;
+   begin
+      return      Exists (Path)
+         and then Exists (Path & "ARM/")
+         and then Exists (Path & "www/")
+         and then Exists (Path & "assets/");
+   end Looking_Valid;
+
+   --------------------------
+   -- Share_Path_Candidate --
+   --------------------------
+
+   function Share_Candidate_Path (Index : in Share_Candidate_Index)
+                                  return String
+   is
+   begin
+      case Index is
+         when  1 =>  return "/usr/share/";
+         when  2 =>  return "/usr/local/share/";
+         when  3 =>  return "~/share/";
+         when  4 =>  return "~/.alire/share/";
+         when  5 =>  return "$HOME/share/";
+         when  6 =>  return "$HOME/.alire/share/";
+         when  7 =>  return "%HOMEDRIVE%%HOMEPATH%/share/";
+         when  8 =>  return "%HOMEDRIVE%%HOMEPATH%/.alire/share/";
+         when  9 =>  return "../share/";
+         when 10 =>  return "./share/";
+      end case;
+   end Share_Candidate_Path;
+
+   -------------------
+   -- Set_Directory --
+   -------------------
+
+   procedure Set_Directory (Directory : in String)
+      renames Ada.Directories.Set_Directory;
 
 end HostARM_Configuration;

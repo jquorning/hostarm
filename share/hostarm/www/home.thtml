@@ -62,7 +62,7 @@
   <ul>
     <li class="item31">
       <input type="checkbox" id="modernize" name="modernize" value ="true" @_MODERNIZE_@>
-      <label for="modernize">Modernize navigation</label>
+      <label for="modernize">Add new navigation bar</label>
     </li>
   </ul>
 

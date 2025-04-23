@@ -20,19 +20,22 @@ Benefits
 HostARM is distributed as an [Alire](https://alire.ada.dev) crate.
 
 ```sh
-$ alr install hostarm
+alr get hostarm ; cd hostarm_25.*
+alr build --release
+alr install
 ```
 
 ## Invocation
 
 ```sh
-$ hostarm &
+hostarm &
 ```
 This will start HostARM as a deamon and the manuals are now accessable on
 [localhost](http://localhost:2778/).
 
 ## Links
 
-[Project website](https://github.com/jquorning/hostarm).
+Alire [crate](https://alire.ada.dev/crates/hostarm).  
 
-Alire [crate](https://alire.ada.dev/crates/hostarm.html).
+[Project website](https://github.com/jquorning/hostarm).  
+

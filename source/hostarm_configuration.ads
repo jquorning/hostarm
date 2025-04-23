@@ -1,10 +1,19 @@
+
+--  The resources are expected to be located on the path:
+--     share/hostarm/ARM    - Contain 3 dirs with the 2xRM and AA
+--     share/hostarm/www    - Hostarm pages (home.thtml and search.thtml)
+--     share/hostarm/assets - CSS, images, tipuesearch
+--
+--  Before building search DBs and serving pages then current directory
+--  must be set to the 'hostarm' dir above.
+
 package HostARM_Configuration is
 
    Default_Port : Positive := 16#ADA#;  --  Decimal: 2778
 
-   Web_Base   : constant String := "share/hostarm";
-   Page_Base  : constant String := Web_Base & "/www";
-   Tipue_Base : constant String := Web_Base;
+   Web_Base   : constant String := "./";
+   Page_Base  : constant String := "www/";
+   Tipue_Base : constant String := "./";
 
    type ARM_Version is (ARM_2012, ARM_2022, AARM_202Y);
 
@@ -44,5 +53,16 @@ package HostARM_Configuration is
    function URI_Reference (Version : in ARM_Version)
                            return String;
    --  Selected manual page URI
+
+   function Looking_Valid (Path : in String)
+                           return Boolean;
+   --  See if Path contains the needed directories.
+
+   type Share_Candidate_Index is range 1 .. 10;
+   function Share_Candidate_Path (Index : in Share_Candidate_Index)
+                                  return String;
+   --  Loop around this to get path of possible candidates for shared.
+
+   procedure Set_Directory (Directory : in String);
 
 end HostARM_Configuration;
