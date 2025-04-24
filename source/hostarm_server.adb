@@ -469,7 +469,7 @@ package body HostARM_Server is
 
    procedure Wait is
    begin
-      AWS.Server.Wait (AWS.Server.Q_Key_Pressed);
+      AWS.Server.Wait (AWS.Server.Forever);
    end Wait;
 
 end HostARM_Server;

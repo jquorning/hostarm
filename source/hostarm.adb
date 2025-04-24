@@ -80,10 +80,9 @@ begin
    HostARM_Tipue.Build_Content (Config.AARM_202Y);
 
    HostARM_Server.Start;
-   Put_Line ("HostARM: Accessible on URL: https://localhost:"
+   Put_Line ("HostARM: Accessible on URL: http://localhost:"
              & Fixed.Trim (Config.Default_Port'Image, Side => Left)
              & "/");
-   Put_Line ("HostARM: Press 'Q' to quit.");
 
    HostARM_Server.Wait;
    Put_Line ("HostARM: Shutting down");
