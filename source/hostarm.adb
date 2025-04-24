@@ -92,6 +92,6 @@ begin
 exception
    when AWS.Net.Socket_Error =>
       Put_Line (Standard_Error,
-                "HostARM: Socket in use. Try waiting 2 minutes and "
+                "HostARM: Port in use. Try waiting 2 minutes and "
                 & "then try again");
 end HostARM;
