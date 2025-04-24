@@ -24,6 +24,8 @@ procedure HostARM
    Found : Boolean := False;
 begin
 
+   Lookup_Home_Variable;
+
    if Argument_Count = 1 and then Argument (1) = "--version" then
       Put_Line ("HostARM version " & Hostarm_Config.Crate_Version);
       return;

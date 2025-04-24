@@ -54,11 +54,14 @@ package HostARM_Configuration is
                            return String;
    --  Selected manual page URI
 
+   procedure Lookup_Home_Variable;
+   --  Lookup HOME variable. Must be called before Share_Candidate_Path below.
+
    function Looking_Valid (Path : in String)
                            return Boolean;
    --  See if Path contains the needed directories.
 
-   type Share_Candidate_Index is range 1 .. 10;
+   type Share_Candidate_Index is range 1 .. 6;
    function Share_Candidate_Path (Index : in Share_Candidate_Index)
                                   return String;
    --  Loop around this to get path of possible candidates for shared.
