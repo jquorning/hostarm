@@ -109,8 +109,9 @@ package body HostARM_Configuration is
          when  2 =>  return "/usr/local/share/";
          when  3 =>  return To_String (Home_Path) & "/share/";
          when  4 =>  return To_String (Home_Path) & "/.alire/share/";
-         when  5 =>  return "../share/";
-         when  6 =>  return "./share/";
+         when  5 =>  return To_String (Home_Path) & "/.local/share/";
+         when  6 =>  return "../share/";
+         when  7 =>  return "./share/";
       end case;
    end Share_Candidate_Path;
 
