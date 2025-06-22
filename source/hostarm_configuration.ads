@@ -61,7 +61,7 @@ package HostARM_Configuration is
                            return Boolean;
    --  See if Path contains the needed directories.
 
-   type Share_Candidate_Index is range 1 .. 6;
+   type Share_Candidate_Index is range 1 .. 7;
    function Share_Candidate_Path (Index : in Share_Candidate_Index)
                                   return String;
    --  Loop around this to get path of possible candidates for shared.
