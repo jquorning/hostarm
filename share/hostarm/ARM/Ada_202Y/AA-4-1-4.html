@@ -28,7 +28,7 @@
     </STYLE>
 </HEAD>
 <BODY TEXT="#000000" BGCOLOR="#FFFFF0" LINK="#000080" VLINK="#330033" ALINK="#0000FF">
-<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 3)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
+<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 4)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
 <div style="margin-top: 0.6em; margin-bottom: 0.0em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-0-4.html"><IMG SRC="index.gif" ALT="Index" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-STDS.html"><IMG SRC="lib.gif" ALT="References" BORDER=0></A>&nbsp;
@@ -39,7 +39,7 @@
 <HR>
 <H1>4.1.4 Attributes</H1>
 <div class="paranum"><a name="p1">1</a></div>
-<div class="Normal"><A NAME="I2781"></A>[An <I>attribute</I> is a characteristic 
+<div class="Normal"><A NAME="I2785"></A>[An <I>attribute</I> is a characteristic 
 of an entity that can be queried via an <SPAN Class="swiss"><A HREF="AA-4-1-4.html#S0100">attribute_reference</A></SPAN> 
 or a <SPAN Class="swiss"><A HREF="AA-4-1-4.html#S0102">range_attribute_reference</A></SPAN>.] 
 </div>
@@ -51,18 +51,18 @@ cases specified</div>
 <H4 Class="centered">Syntax</H4>
 <div class="paranum"><a name="p2">2/5</a></div>
 <div class="Indented1">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0262-1.TXT">AI12-0262-1</A></I>} 
-<SPAN Class="swiss">attribute_reference</SPAN><A NAME="I2782"></A><A NAME="S0100"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN><BR>
-&nbsp;&nbsp;&nbsp;&nbsp;<A NAME="I2783"></A><SPAN Class="swiss"><A HREF="AA-4-1.html#S0093">prefix</A></SPAN>'<A NAME="I2784"></A><SPAN Class="swiss"><A HREF="AA-4-1-4.html#S0101">attribute_designator</A></SPAN><BR>
-&nbsp;&nbsp;|&nbsp;<A NAME="I2785"></A><SPAN Class="swiss"><A HREF="AA-4-5-10.html#S0158">reduction_attribute_reference</A></SPAN></div>
+<SPAN Class="swiss">attribute_reference</SPAN><A NAME="I2786"></A><A NAME="S0100"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN><BR>
+&nbsp;&nbsp;&nbsp;&nbsp;<A NAME="I2787"></A><SPAN Class="swiss"><A HREF="AA-4-1.html#S0093">prefix</A></SPAN>'<A NAME="I2788"></A><SPAN Class="swiss"><A HREF="AA-4-1-4.html#S0101">attribute_designator</A></SPAN><BR>
+&nbsp;&nbsp;|&nbsp;<A NAME="I2789"></A><SPAN Class="swiss"><A HREF="AA-4-5-10.html#S0158">reduction_attribute_reference</A></SPAN></div>
 <div class="paranum"><a name="p3">3/2</a></div>
 <div class="Indented1">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0004-1.TXT">AI05-0004-1</A></I>} 
-<SPAN Class="swiss">attribute_designator</SPAN><A NAME="I2786"></A><A NAME="S0101"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN><BR>
-&nbsp;&nbsp;&nbsp;&nbsp;<A NAME="I2787"></A><SPAN Class="swiss"><A HREF="AA-2-3.html#S0002">identifier</A></SPAN>[(<I>static_</I><A NAME="I2788"></A><SPAN Class="swiss"><A HREF="AA-4-4.html#S0132">expression</A></SPAN>)]<BR>
+<SPAN Class="swiss">attribute_designator</SPAN><A NAME="I2790"></A><A NAME="S0101"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN><BR>
+&nbsp;&nbsp;&nbsp;&nbsp;<A NAME="I2791"></A><SPAN Class="swiss"><A HREF="AA-2-3.html#S0002">identifier</A></SPAN>[(<I>static_</I><A NAME="I2792"></A><SPAN Class="swiss"><A HREF="AA-4-4.html#S0132">expression</A></SPAN>)]<BR>
 &nbsp;&nbsp;|&nbsp;Access&nbsp;|&nbsp;Delta&nbsp;|&nbsp;Digits&nbsp;|&nbsp;Mod</div>
 <div class="paranum"><a name="p4">4</a></div>
-<div class="Indented1"><SPAN Class="swiss">range_attribute_reference</SPAN><A NAME="I2789"></A><A NAME="S0102"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN><A NAME="I2790"></A><SPAN Class="swiss"><A HREF="AA-4-1.html#S0093">prefix</A></SPAN>'<A NAME="I2791"></A><SPAN Class="swiss"><A HREF="AA-4-1-4.html#S0103">range_attribute_designator</A></SPAN></div>
+<div class="Indented1"><SPAN Class="swiss">range_attribute_reference</SPAN><A NAME="I2793"></A><A NAME="S0102"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN><A NAME="I2794"></A><SPAN Class="swiss"><A HREF="AA-4-1.html#S0093">prefix</A></SPAN>'<A NAME="I2795"></A><SPAN Class="swiss"><A HREF="AA-4-1-4.html#S0103">range_attribute_designator</A></SPAN></div>
 <div class="paranum"><a name="p5">5</a></div>
-<div class="Indented1"><SPAN Class="swiss">range_attribute_designator</SPAN><A NAME="I2792"></A><A NAME="S0103"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN>Range[(<I>static_</I><A NAME="I2793"></A><SPAN Class="swiss"><A HREF="AA-4-4.html#S0132">expression</A></SPAN>)]</div>
+<div class="Indented1"><SPAN Class="swiss">range_attribute_designator</SPAN><A NAME="I2796"></A><A NAME="S0103"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN>Range[(<I>static_</I><A NAME="I2797"></A><SPAN Class="swiss"><A HREF="AA-4-4.html#S0132">expression</A></SPAN>)]</div>
 
 <H4 Class="centered">Name Resolution Rules</H4>
 <div class="paranum"><a name="p6">6/6</a></div>
@@ -146,7 +146,7 @@ This additional rule allows the Caller and Result attributes to be used
 even when the enclosing construct is overloaded; that otherwise would 
 be ambiguous.</span>&nbsp;</div>
 <div class="paranum"><a name="p7">7</a></div>
-<div class="Normal"><A NAME="I2794"></A><A NAME="I2795"></A>The <SPAN Class="swiss"><A HREF="AA-4-4.html#S0132">expression</A></SPAN>, 
+<div class="Normal"><A NAME="I2798"></A><A NAME="I2799"></A>The <SPAN Class="swiss"><A HREF="AA-4-4.html#S0132">expression</A></SPAN>, 
 if any, in an <SPAN Class="swiss"><A HREF="AA-4-1-4.html#S0101">attribute_designator</A></SPAN> 
 or <SPAN Class="swiss"><A HREF="AA-4-1-4.html#S0103">range_attribute_designator</A></SPAN> 
 is expected to be of any integer type.&nbsp;</div>
@@ -156,7 +156,7 @@ is expected to be of any integer type.&nbsp;</div>
 <div class="Normal">The <SPAN Class="swiss"><A HREF="AA-4-4.html#S0132">expression</A></SPAN>, 
 if any, in an <SPAN Class="swiss"><A HREF="AA-4-1-4.html#S0101">attribute_designator</A></SPAN> 
 or <SPAN Class="swiss"><A HREF="AA-4-1-4.html#S0103">range_attribute_designator</A></SPAN> 
-shall be static.<A NAME="I2796"></A>&nbsp;</div>
+shall be static.<A NAME="I2800"></A>&nbsp;</div>
 
 <H4 Class="centered">Static Semantics</H4>
 <div class="paranum"><a name="p9">9/4</a></div>
@@ -170,7 +170,7 @@ that denotes a value or an object, if its type is scalar, then its nominal
 subtype is the base subtype of the type; if its type is tagged, its nominal 
 subtype is the first subtype of the type; otherwise, its nominal subtype 
 is a subtype of the type without any constraint, <SPAN Class="swiss"><A HREF="AA-3-10.html#S0083">null_exclusion</A></SPAN>, 
-or predicate.<A NAME="I2797"></A> Similarly, unless explicitly specified 
+or predicate.<A NAME="I2801"></A> Similarly, unless explicitly specified 
 otherwise, for an <SPAN Class="swiss"><A HREF="AA-4-1-4.html#S0100">attribute_reference</A></SPAN> 
 that denotes a function, when its result type is scalar, its result subtype 
 is the base subtype of the type, when its result type is tagged, the 
@@ -216,7 +216,7 @@ is only evaluated once.]</div>
 <H4 Class="centered">Dynamic Semantics</H4>
 <div class="paranum"><a name="p11">11/5</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0262-1.TXT">AI12-0262-1</A></I>} 
-<A NAME="I2798"></A><A NAME="I2799"></A>The evaluation of a <SPAN Class="swiss"><A HREF="AA-4-1-4.html#S0102">range_attribute_reference</A></SPAN> 
+<A NAME="I2802"></A><A NAME="I2803"></A>The evaluation of a <SPAN Class="swiss"><A HREF="AA-4-1-4.html#S0102">range_attribute_reference</A></SPAN> 
 or an <SPAN Class="swiss"><A HREF="AA-4-1-4.html#S0100">attribute_reference</A></SPAN> 
 that is not a <SPAN Class="swiss"><A HREF="AA-4-5-10.html#S0158">reduction_attribute_reference</A></SPAN> 
 consists of the evaluation of the <SPAN Class="swiss"><A HREF="AA-4-1.html#S0093">prefix</A></SPAN>.[ 
@@ -280,7 +280,7 @@ which means that no context can be used to resolve the <SPAN Class="swiss"><A HR
 However, by the rules given in <A HREF="AA-3-10-2.html">3.10.2</A> for 
 the case of the Access attribute, the expected type for the <SPAN Class="swiss"><A HREF="AA-4-1-4.html#S0100">attribute_reference</A></SPAN> 
 will be a single access type, and the resolution of the <SPAN Class="swiss"><A HREF="AA-4-1.html#S0091">name</A></SPAN> 
-can make use of the designated type or profile of this access type. <A NAME="I2800"></A></div>
+can make use of the designated type or profile of this access type. <A NAME="I2804"></A></div>
 <div class="paranum"><a name="p17.a">17.a/2</a></div>
 <div class="Annotations"><B>Proof:&nbsp;</B>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-00235.TXT">AI95-00235</A></I>} 
 In the general case, there is no &ldquo;expected type&rdquo; for the 
@@ -311,7 +311,7 @@ Message'Address&nbsp;&nbsp;&nbsp;&nbsp;--<SPAN Class="roman"><I>&nbsp;address&nb
 
 <H4 Class="centered">Extensions to Ada 83</H4>
 <div class="paranum"><a name="p19.a">19.a</a></div>
-<div class="Annotations"><A NAME="I2801"></A>We now uniformly treat X'Range 
+<div class="Annotations"><A NAME="I2805"></A>We now uniformly treat X'Range 
 as X'First..X'Last, allowing its use with scalar subtypes.</div>
 <div class="paranum"><a name="p19.b">19.b</a></div>
 <div class="Annotations">We allow any integer type in the <I>static_</I><SPAN Class="swiss"><A HREF="AA-4-4.html#S0132">expression</A></SPAN> 
@@ -393,7 +393,7 @@ such as the rounding attributes found in <A HREF="AA-A-5-3.html">A.5.3</A>.
 <H4 Class="centered">Extensions to Ada 2022</H4>
 <div class="paranum"><a name="p19.o">19.o/6</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0054-1.html">AI22-0054-1</A></I>} 
-<span class="insert6"><A NAME="I2802"></A>Added a resolution rule allowing 
+<span class="insert6"><A NAME="I2806"></A>Added a resolution rule allowing 
 the fact that an attribute is required to be within a construct to resolve 
 the <SPAN Class="swiss"><A HREF="AA-4-1.html#S0093">prefix</A></SPAN> 
 of the attribute. This makes writing the Result and Caller attribute 

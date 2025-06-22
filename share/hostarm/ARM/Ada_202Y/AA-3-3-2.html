@@ -22,7 +22,7 @@
     </STYLE>
 </HEAD>
 <BODY TEXT="#000000" BGCOLOR="#FFFFF0" LINK="#000080" VLINK="#330033" ALINK="#0000FF">
-<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 3)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
+<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 4)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
 <div style="margin-top: 0.6em; margin-bottom: 0.0em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-0-4.html"><IMG SRC="index.gif" ALT="Index" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-STDS.html"><IMG SRC="lib.gif" ALT="References" BORDER=0></A>&nbsp;
@@ -38,7 +38,7 @@ declares a named number.&nbsp;</div>
 <div class="paranum"><a name="p1.a">1.a/5</a></div>
 <div class="Annotations"><B>Discussion:&nbsp;</B>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0299-1.TXT">AI05-0299-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0449-1.TXT">AI12-0449-1</A></I>} 
-<A NAME="I1746"></A>If a value or other property of a construct is required 
+<A NAME="I1750"></A>If a value or other property of a construct is required 
 to be <I>static</I> that means it is required to be determined prior 
 to execution. A <I>static</I> expression is an expression whose value 
 is computed at compile time and is usable in contexts where the actual 
@@ -47,12 +47,12 @@ in <A HREF="AA-4-9.html">4.9</A>.&nbsp;</div>
 
 <H4 Class="centered">Syntax</H4>
 <div class="paranum"><a name="p2">2</a></div>
-<div class="Indented1"><SPAN Class="swiss">number_declaration</SPAN><A NAME="I1747"></A><A NAME="S0034"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN><BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A NAME="I1748"></A><SPAN Class="swiss"><A HREF="AA-3-3-1.html#S0033">defining_identifier_list</A></SPAN>&nbsp;:&nbsp;<B>constant</B>&nbsp;:=&nbsp;<I>static_</I><A NAME="I1749"></A><SPAN Class="swiss"><A HREF="AA-4-4.html#S0132">expression</A></SPAN>;</div>
+<div class="Indented1"><SPAN Class="swiss">number_declaration</SPAN><A NAME="I1751"></A><A NAME="S0034"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN><BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A NAME="I1752"></A><SPAN Class="swiss"><A HREF="AA-3-3-1.html#S0033">defining_identifier_list</A></SPAN>&nbsp;:&nbsp;<B>constant</B>&nbsp;:=&nbsp;<I>static_</I><A NAME="I1753"></A><SPAN Class="swiss"><A HREF="AA-4-4.html#S0132">expression</A></SPAN>;</div>
 
 <H4 Class="centered">Name Resolution Rules</H4>
 <div class="paranum"><a name="p3">3</a></div>
-<div class="Normal"><A NAME="I1750"></A>The <I>static_</I><SPAN Class="swiss"><A HREF="AA-4-4.html#S0132">expression</A></SPAN> 
+<div class="Normal"><A NAME="I1754"></A>The <I>static_</I><SPAN Class="swiss"><A HREF="AA-4-4.html#S0132">expression</A></SPAN> 
 given for a <SPAN Class="swiss"><A HREF="AA-3-3-2.html#S0034">number_declaration</A></SPAN> 
 is expected to be of any numeric type.</div>
 <div class="paranum"><a name="p3.1">3.1/5</a></div>
@@ -75,7 +75,7 @@ named number is well-defined in all cases.&nbsp;</div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0299-1.TXT">AI05-0299-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0449-1.TXT">AI12-0449-1</A></I>} 
 The <I>static_</I><SPAN Class="swiss"><A HREF="AA-4-4.html#S0132">expression</A></SPAN> 
-given for a number declaration shall be a static expression<A NAME="I1751"></A>, 
+given for a number declaration shall be a static expression<A NAME="I1755"></A>, 
 as defined by <A HREF="AA-4-9.html">4.9</A>.&nbsp;</div>
 
 <H4 Class="centered">Static Semantics</H4>
@@ -88,11 +88,11 @@ is a real type.</div>
 <div class="paranum"><a name="p6">6</a></div>
 <div class="Normal">The value denoted by the named number is the value 
 of the <I>static_</I><SPAN Class="swiss"><A HREF="AA-4-4.html#S0132">expression</A></SPAN>, 
-converted to the corresponding universal type. <A NAME="I1752"></A></div>
+converted to the corresponding universal type. <A NAME="I1756"></A></div>
 
 <H4 Class="centered">Dynamic Semantics</H4>
 <div class="paranum"><a name="p7">7</a></div>
-<div class="Normal"><A NAME="I1753"></A>The elaboration of a <SPAN Class="swiss"><A HREF="AA-3-3-2.html#S0034">number_declaration</A></SPAN> 
+<div class="Normal"><A NAME="I1757"></A>The elaboration of a <SPAN Class="swiss"><A HREF="AA-3-3-2.html#S0034">number_declaration</A></SPAN> 
 has no effect.&nbsp;</div>
 <div class="paranum"><a name="p7.a">7.a</a></div>
 <div class="Annotations"><B>Proof:&nbsp;</B>Since the <I>static_</I><SPAN Class="swiss"><A HREF="AA-4-4.html#S0132">expression</A></SPAN> 
@@ -114,7 +114,7 @@ One,&nbsp;Un,&nbsp;Eins&nbsp;:&nbsp;<B>constant</B>&nbsp;:=&nbsp;1;&nbsp;&nbsp;&
 
 <H4 Class="centered">Extensions to Ada 83</H4>
 <div class="paranum"><a name="p10.a">10.a</a></div>
-<div class="Annotations"><A NAME="I1754"></A>We now allow a static expression 
+<div class="Annotations"><A NAME="I1758"></A>We now allow a static expression 
 of any numeric type to initialize a named number. For integer types, 
 it was possible in Ada 83 to use 'Pos to define a named number, but there 
 was no way to use a static expression of some nonuniversal real type 
@@ -134,7 +134,7 @@ be created, it seems simpler to say that the elaboration has no effect.
 <H4 Class="centered">Extensions to Ada 2012</H4>
 <div class="paranum"><a name="p10.d">10.d/5</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0394-1.TXT">AI12-0394-1</A></I>} 
-<A NAME="I1755"></A>Named numbers now can be used with (non-numeric) 
+<A NAME="I1759"></A>Named numbers now can be used with (non-numeric) 
 types that define user-defined literals (see <A HREF="AA-4-2-1.html">4.2.1</A>). 
 </div>
 

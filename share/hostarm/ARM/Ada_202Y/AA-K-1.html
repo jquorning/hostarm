@@ -13,8 +13,8 @@
     DIV.paranum {float: left; font-family: Arial, Helvetica, sans-serif; font-size: 64%; width: 2.8em; margin-left: -0.4em; margin-right: -3.0em; margin-top: 0.2em}
     TT {font-family: "Courier New", monospace}
     DT {display: compact}
-    SPAN.insert6 {text-decoration: underline; color: rgb(0,51,204) }
-    SPAN.delete6 {text-decoration: line-through; color: rgb(0,51,204) }
+    SPAN.insert7 {text-decoration: underline; color: rgb(153,0,0) }
+    SPAN.delete7 {text-decoration: line-through; color: rgb(153,0,0) }
     A.Bar:link {font-family: Arial, Helvetica, sans-serif; font-style: normal; text-decoration: none; color: rgb(204,204,51)}
     A.Bar:visited {font-family: Arial, Helvetica, sans-serif; font-style: normal; text-decoration: none; color: rgb(204,204,51)}
     DIV.Normal {font-family: "Times New Roman", Times, serif; line-height: 122%; margin-left: 1.8em; margin-bottom: 0.6em}
@@ -23,7 +23,7 @@
     </STYLE>
 </HEAD>
 <BODY TEXT="#000000" BGCOLOR="#FFFFF0" LINK="#000080" VLINK="#330033" ALINK="#0000FF">
-<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 3)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
+<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 4)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
 <div style="margin-top: 0.6em; margin-bottom: 0.0em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-0-4.html"><IMG SRC="index.gif" ALT="Index" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-STDS.html"><IMG SRC="lib.gif" ALT="References" BORDER=0></A>&nbsp;
@@ -36,7 +36,7 @@
 <div class="paranum"><a name="p1">1/3</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0229-1.TXT">AI05-0229-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0299-1.TXT">AI05-0299-1</A></I>} 
-<A NAME="I10857"></A>This subclause summarizes the definitions given 
+<A NAME="I10882"></A>This subclause summarizes the definitions given 
 elsewhere of the language-defined aspects. Aspects are properties of 
 entities that can be specified by the Ada program; unless otherwise specified 
 below, aspects can be specified using an <SPAN Class="swiss"><A HREF="AA-13-1-1.html#S0346">aspect_specification</A></SPAN>.</div>
@@ -91,10 +91,10 @@ Size in bits of a component of an array type. See <A HREF="AA-13-3.html">13.3</A
 <div class="WideHanging-Term">Constant_Indexing</div><div class="WideHanging-Body"><br clear="left">
 Defines function(s) to implement user-defined <SPAN Class="swiss"><A HREF="AA-4-1-1.html#S0096">indexed_component</A></SPAN>s. 
 See <A HREF="AA-4-1-6.html">4.1.6</A>.</div>
-<div class="paranum"><a name="p13.1">13.1/6</a></div>
-<div class="WideHanging-Term">&nbsp;&nbsp;<span class="insert6">Constructor_Extension</span></div><div class="WideHanging-Body"><br clear="left">
-<span class="insert6">Specifies that constructors for a derived type 
-can be automatically constructed.</span><span class="insert6">&nbsp;See <A HREF="AA-3-9-1.html">3.9.1</A>.</span></div>
+<div class="paranum"><a name="p13.1">13.1/7</a></div>
+<div class="WideHanging-Term">&nbsp;&nbsp;<span class="insert7">Constructor_Extension</span></div><div class="WideHanging-Body"><br clear="left">
+<span class="insert7">Specifies that constructors for a derived type 
+can be automatically constructed.</span><span class="insert7">&nbsp;See <A HREF="AA-3-9-1.html">3.9.1</A>.</span></div>
 <div class="paranum"><a name="p14">14/3</a></div>
 <div class="WideHanging-Term">Convention</div><div class="WideHanging-Body">
 Calling convention or other convention used for interfacing to other 
@@ -241,7 +241,9 @@ with a given type, including any bounds and discriminants. See <A HREF="AA-13-13
 Minimize storage when laying out records and arrays. See <A HREF="AA-13-2.html">13.2</A>.</div>
 <div class="paranum"><a name="p40.1">40.1/5</a></div>
 <div class="WideHanging-Term">&nbsp;&nbsp;Parallel_Calls</div><div class="WideHanging-Body"><br clear="left">
-Specifies whether a given subprogram is expected to be called in parallel. 
+Specifies whether a given subprogram<span class="insert7">, the operations 
+of a Storage_Pool of an access type, or the primitives of a limited type 
+are</span><span class="delete7">&nbsp;is</span> expected to be called in parallel. 
 See <A HREF="AA-9-10-1.html">9.10.1</A>.</div>
 <div class="paranum"><a name="p40.2">40.2/5</a></div>
 <div class="WideHanging-Term">&nbsp;&nbsp;Parallel_Iterator</div><div class="WideHanging-Body"><br clear="left">

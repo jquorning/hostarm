@@ -13,6 +13,8 @@
     DIV.paranum {float: left; font-family: Arial, Helvetica, sans-serif; font-size: 64%; width: 2.8em; margin-left: -0.4em; margin-right: -3.0em; margin-top: 0.2em}
     TT {font-family: "Courier New", monospace}
     DT {display: compact}
+    SPAN.insert6 {text-decoration: underline; color: rgb(0,51,204) }
+    SPAN.delete6 {text-decoration: line-through; color: rgb(0,51,204) }
     A.Bar:link {font-family: Arial, Helvetica, sans-serif; font-style: normal; text-decoration: none; color: rgb(204,204,51)}
     A.Bar:visited {font-family: Arial, Helvetica, sans-serif; font-style: normal; text-decoration: none; color: rgb(204,204,51)}
     DIV.Normal {font-family: "Times New Roman", Times, serif; line-height: 122%; margin-left: 1.8em; margin-bottom: 0.6em}
@@ -26,7 +28,7 @@
     </STYLE>
 </HEAD>
 <BODY TEXT="#000000" BGCOLOR="#FFFFF0" LINK="#000080" VLINK="#330033" ALINK="#0000FF">
-<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 3)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
+<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 4)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
 <div style="margin-top: 0.6em; margin-bottom: 0.0em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-0-4.html"><IMG SRC="index.gif" ALT="Index" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-STDS.html"><IMG SRC="lib.gif" ALT="References" BORDER=0></A>&nbsp;
@@ -144,21 +146,25 @@ not &ldquo;GREEK CAPITAL LETTER EPSILON&rdquo;.]&nbsp;</div>
 <div class="Annotations"><B>Discussion:&nbsp;</B>This just means that programs 
 can be written in plain ASCII characters; no characters outside of the 
 7-bit range are required.&nbsp;</div>
-<div class="paranum"><a name="p14.2">14.2/5</a></div>
+<div class="paranum"><a name="p14.2">14.2/6</a></div>
 <div class="WideAbove">&nbsp;&nbsp;{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-00395.TXT">AI95-00395-01</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0227-1.TXT">AI05-0227-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0299-1.TXT">AI05-0299-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0263-1.TXT">AI12-0263-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0450-1.TXT">AI12-0450-1</A></I>} 
+{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0073-1.html">AI22-0073-1</A></I>} 
 When this document mentions the conversion of some character or sequence 
 of characters to upper case, it means the character or sequence of characters 
-obtained by using simple upper case mapping, as defined by documents 
-referenced in Clause 2 of ISO/IEC 10646:2020.&nbsp;</div>
-<div class="paranum"><a name="p14.f">14.f/5</a></div>
+obtained by using simple upper case mapping, as defined by <span class="insert6">the 
+Unicode Character Database</span><span class="delete6">&nbsp;documents referenced 
+in Clause 2 of ISO/IEC 10646:2020</span>.&nbsp;</div>
+<div class="paranum"><a name="p14.f">14.f/6</a></div>
 <div class="Annotations"><B>Implementation Note:&nbsp;</B>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0263-1.TXT">AI12-0263-1</A></I>} 
-The &ldquo;documents referenced&rdquo; means Unicode, Chapter 4 (specifically, 
-section 4.2 &mdash; Case). Machine-readable versions of Simple Uppercase 
-Mapping and Simple Lowercase Mapping can be found in <A HREF="http://www.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt">http://www.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt</A>. 
+{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0073-1.html">AI22-0073-1</A></I>} 
+<span class="delete6">The &ldquo;documents referenced&rdquo; means Unicode, 
+Chapter 4 (specifically, section 4.2 &mdash; Case).&nbsp;</span>Machine-readable 
+versions of Simple Uppercase Mapping and Simple Lowercase Mapping can 
+be found in <A HREF="http://www.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt">http://www.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt</A>. 
 Data for older Unicode versions can be found on this site as well; start 
 at <A HREF="http://www.unicode.org/Public/">http://www.unicode.org/Public/</A> 
 and find the appropriate version number. Simple Uppercase Mapping is 

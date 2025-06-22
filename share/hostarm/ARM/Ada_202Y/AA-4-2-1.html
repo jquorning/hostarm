@@ -28,7 +28,7 @@
     </STYLE>
 </HEAD>
 <BODY TEXT="#000000" BGCOLOR="#FFFFF0" LINK="#000080" VLINK="#330033" ALINK="#0000FF">
-<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 3)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
+<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 4)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
 <div style="margin-top: 0.6em; margin-bottom: 0.0em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-0-4.html"><IMG SRC="index.gif" ALT="Index" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-STDS.html"><IMG SRC="lib.gif" ALT="References" BORDER=0></A>&nbsp;
@@ -49,7 +49,7 @@ to allow the use of one or more kinds of literals as values of the type.
 <div class="Normal" style="margin-bottom: 0.4em">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0249-1.TXT">AI12-0249-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0342-1.TXT">AI12-0342-1</A></I>} 
 The following type-related operational aspects (collectively known as 
-<I>user-defined literal aspects</I>)<A NAME="I2860"></A> <A NAME="I2861"></A>may 
+<I>user-defined literal aspects</I>)<A NAME="I2865"></A> <A NAME="I2866"></A>may 
 be specified for a type <I>T</I>:</div>
 <div class="paranum"><a name="p3">3/5</a></div>
 <div class="WideHanging-Term">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0249-1.TXT">AI12-0249-1</A></I>} 
@@ -59,7 +59,7 @@ Integer_Literal</div><div class="WideHanging-Body"><br clear="left">
 This aspect is specified by a <I>function_</I><SPAN Class="swiss"><A HREF="AA-4-1.html#S0091">name</A></SPAN> 
 that statically denotes a function with a result type of <I>T</I> and 
 one <B>in</B> parameter that is of type String and is not explicitly 
-aliased.<A NAME="I2862"></A><A NAME="I2863"></A></div>
+aliased.<A NAME="I2867"></A><A NAME="I2868"></A></div>
 <div class="paranum"><a name="p3.a">3.a/5</a></div>
 <div class="Annotations"><B>Aspect Description for&nbsp;</B><B>Integer_Literal: 
 </B>Defines a function to implement user-defined integer literals.</div>
@@ -74,7 +74,7 @@ that statically denotes a function with a result type of <I>T</I> and
 one <B>in</B> parameter that is of type String and is not explicitly 
 aliased, and optionally a second function [(overloading the first) ]with 
 a result type of <I>T</I> and two <B>in</B> parameters of type String 
-that are not explicitly aliased.<A NAME="I2864"></A><A NAME="I2865"></A></div>
+that are not explicitly aliased.<A NAME="I2869"></A><A NAME="I2870"></A></div>
 <div class="paranum"><a name="p4.a">4.a/5</a></div>
 <div class="Annotations"><B>Aspect Description for&nbsp;</B><B>Real_Literal: 
 </B>Defines a function or functions to implement user-defined real literals.</div>
@@ -86,7 +86,7 @@ String_Literal</div><div class="WideHanging-Body"><br clear="left">
 This aspect is specified by a <I>function_</I><SPAN Class="swiss"><A HREF="AA-4-1.html#S0091">name</A></SPAN> 
 that statically denotes a function with a result type of <I>T</I> and 
 one <B>in</B> parameter that is of type Wide_Wide_String and is not explicitly 
-aliased.<A NAME="I2866"></A><A NAME="I2867"></A></div>
+aliased.<A NAME="I2871"></A><A NAME="I2872"></A></div>
 <div class="paranum"><a name="p5.a">5.a/5</a></div>
 <div class="Annotations"><B>Aspect Description for&nbsp;</B><B>String_Literal: 
 </B>Defines a function to implement user-defined string literals.</div>
@@ -107,7 +107,7 @@ required for that aspect (see <A HREF="AA-13-1-1.html">13.1.1</A>):&nbsp;</div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0342-1.TXT">AI12-0342-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0419-1.TXT">AI12-0419-1</A></I>} 
 User-defined literal aspects are nonoverridable (see <A HREF="AA-13-1-1.html">13.1.1</A>). 
-<A NAME="I2868"></A><A NAME="I2869"></A><A NAME="I2870"></A></div>
+<A NAME="I2873"></A><A NAME="I2874"></A><A NAME="I2875"></A></div>
 <div class="paranum"><a name="p6.a">6.a/5</a></div>
 <div class="Annotations" style="margin-bottom: 0.4em"><B>Discussion: 
 </B>This means that in this example</div>
@@ -157,7 +157,7 @@ are defined by the usual rules for the bounds of a <SPAN Class="swiss"><A HREF="
 </div>
 <div class="paranum"><a name="p8">8/5</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0342-1.TXT">AI12-0342-1</A></I>} 
-Such a literal is said to be a <I>user-defined literal</I>.<A NAME="I2871"></A></div>
+Such a literal is said to be a <I>user-defined literal</I>.<A NAME="I2876"></A></div>
 <div class="paranum"><a name="p9">9/5</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0394-1.TXT">AI12-0394-1</A></I>} 
 When a named number that denotes a value of type <I>universal_integer</I> 
@@ -219,7 +219,7 @@ String, with result of type <I>T</I>.</div>
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0342-1.TXT">AI12-0342-1</A></I>} 
 In addition to the places where Legality Rules normally apply (see <A HREF="AA-12-3.html">12.3</A>), 
 these rules also apply in the private part of an instance of a generic 
-unit.<A NAME="I2872"></A>&nbsp;</div>
+unit.<A NAME="I2877"></A>&nbsp;</div>
 
 <H4 Class="centered">Bounded (Run-Time) Errors</H4>
 <div class="paranum"><a name="p17">17/5</a></div>
@@ -227,14 +227,14 @@ unit.<A NAME="I2872"></A>&nbsp;</div>
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0325-1.TXT">AI12-0325-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0342-1.TXT">AI12-0342-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0394-1.TXT">AI12-0394-1</A></I>} 
-<A NAME="I2873"></A>It is a bounded error if the evaluation of a literal 
+<A NAME="I2878"></A>It is a bounded error if the evaluation of a literal 
 or named number that has an expected type with a specified user-defined 
 literal aspect propagates an exception. Either Program_Error or the exception 
 propagated by the evaluation is raised at the point of use of the value 
 of the literal or named number. If it is recognized prior to run time 
 that evaluation of such a literal or named number will inevitably (if 
 executed) result in such a bounded error, then this may be reported as 
-an error prior to run time.<A NAME="I2874"></A></div>
+an error prior to run time.<A NAME="I2879"></A></div>
 <div class="paranum"><a name="p17.a">17.a/5</a></div>
 <div class="Annotations"><B>Implementation Note:&nbsp;</B>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0249-1.TXT">AI12-0249-1</A></I>} 
 As always, an implementation may apply &quot;as-if&quot; optimizations 
@@ -309,7 +309,7 @@ X&nbsp;:&nbsp;Roman_Number&nbsp;:=&nbsp;&quot;III&quot;&nbsp;*&nbsp;&quot;IV&quo
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0295-1.TXT">AI12-0295-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0325-1.TXT">AI12-0325-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0342-1.TXT">AI12-0342-1</A></I>} 
-<A NAME="I2875"></A>The user-defined literal aspects Integer_Literal, 
+<A NAME="I2880"></A>The user-defined literal aspects Integer_Literal, 
 Real_Literal, and String_Literal are new.&nbsp;</div>
 
 <H4 Class="centered">Wording Changes from Ada 2022</H4>

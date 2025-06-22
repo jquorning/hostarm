@@ -23,7 +23,7 @@
     </STYLE>
 </HEAD>
 <BODY TEXT="#000000" BGCOLOR="#FFFFF0" LINK="#000080" VLINK="#330033" ALINK="#0000FF">
-<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 3)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
+<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 4)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
 <div style="margin-top: 0.6em; margin-bottom: 0.0em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-0-4.html"><IMG SRC="index.gif" ALT="Index" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-STDS.html"><IMG SRC="lib.gif" ALT="References" BORDER=0></A>&nbsp;
@@ -54,8 +54,8 @@ Features</A>&rdquo;.</I></SPAN>&nbsp;</div>
 <div class="paranum"><a name="p4">4/5</a></div>
 <div class="Normal" style="margin-bottom: 0.4em">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0243-1.TXT">AI05-0243-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0417-1.TXT">AI12-0417-1</A></I>} 
-<A NAME="I10193"></A>When the library unit aspect (see <A HREF="AA-13-1-1.html">13.1.1</A>) 
-Remote_Types<A NAME="I10194"></A><A NAME="I10195"></A> of a library unit 
+<A NAME="I10218"></A>When the library unit aspect (see <A HREF="AA-13-1-1.html">13.1.1</A>) 
+Remote_Types<A NAME="I10219"></A><A NAME="I10220"></A> of a library unit 
 is True, the library unit is a <I>remote types library unit</I>. The 
 following restrictions apply to such a library unit:</div>
 <div class="paranum"><a name="p4.a">4.a/3</a></div>
@@ -109,9 +109,9 @@ not have specified attributes.&nbsp;</div>
 <div class="Normal" style="margin-bottom: 0.4em">{<I><A HREF="defect1.html#8652/0082">8652/0082</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-00164.TXT">AI95-00164-01</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0060-1.TXT">AI05-0060-1</A></I>} 
-<A NAME="I10196"></A>A named access type declared in the visible part 
+<A NAME="I10221"></A>A named access type declared in the visible part 
 of a remote types or remote call interface library unit is called a <I>remote 
-access type</I>. <A NAME="I10197"></A><A NAME="I10198"></A>Such a type 
+access type</I>. <A NAME="I10222"></A><A NAME="I10223"></A>Such a type 
 shall be:</div>
 <div class="paranum"><a name="p9.1">9.1/1</a></div>
 <div class="Bulleted">{<I><A HREF="defect1.html#8652/0082">8652/0082</A></I>} 
@@ -257,7 +257,7 @@ interfaces are all considered limited interfaces, see <A HREF="AA-3-9-4.html">3.
 <div class="paranum"><a name="p20.b">20.b/3</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-00240.TXT">AI95-00240-01</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0248-1.TXT">AI05-0248-1</A></I>} 
-<A NAME="I10199"></A><B>Amendment Correction:</B> The wording was changed 
+<A NAME="I10224"></A><B>Amendment Correction:</B> The wording was changed 
 from &ldquo;user-specified&rdquo; to &ldquo;available&rdquo; read and 
 write attributes. (This was then further changed, see below.) This means 
 that an access type with the attributes specified in the private part 
@@ -273,7 +273,7 @@ moreover, legality should not depend on the contents of the private part.
 <div class="paranum"><a name="p20.c">20.c/3</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-00366.TXT">AI95-00366-01</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0005-1.TXT">AI05-0005-1</A></I>} 
-<A NAME="I10200"></A>Remote types that cannot be streamed (that is, have 
+<A NAME="I10225"></A>Remote types that cannot be streamed (that is, have 
 no available stream attributes) do not require the specification of stream 
 attributes. This is necessary so that most extensions of Limited_Controlled 
 do not need stream attributes defined (otherwise there would be a significant 
@@ -319,7 +319,7 @@ type cannot be converted to a remote access-to-subprogram type, as intended
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0101-1.TXT">AI05-0101-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0005-1.TXT">AI12-0005-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0005-1.TXT">AI12-0005-1</A></I>} 
-<A NAME="I10201"></A><B>Correction:</B> Added rules about the returning 
+<A NAME="I10226"></A><B>Correction:</B> Added rules about the returning 
 of remote access-to-class-wide types; this had been missed in the past. 
 While programs that returned unstreamable types from RCI functions were 
 legal, it is not clear what they could have done (as the results could 
@@ -331,7 +331,7 @@ that any real programs will be impacted by these changes.&nbsp;</div>
 <H4 Class="centered">Extensions to Ada 2005</H4>
 <div class="paranum"><a name="p20.k">20.k/3</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0060-1.TXT">AI05-0060-1</A></I>} 
-<A NAME="I10202"></A><B>Correction:</B> Clarified that anonymous access 
+<A NAME="I10227"></A><B>Correction:</B> Clarified that anonymous access 
 types are never remote access types (and can be used in remote types 
 units subject to the normal restrictions). Added wording to allow limited 
 class-wide interfaces to be designated by remote access types.</div>
@@ -342,7 +342,7 @@ the specification of a remote types unit.</div>
 <div class="paranum"><a name="p20.m">20.m/5</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0243-1.TXT">AI05-0243-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0417-1.TXT">AI12-0417-1</A></I>} 
-<A NAME="I10203"></A>Remote_Types is now a categorization aspect, so 
+<A NAME="I10228"></A>Remote_Types is now a categorization aspect, so 
 it can be specified by an <SPAN Class="swiss"><A HREF="AA-13-1-1.html#S0346">aspect_specification</A></SPAN> 
 </div>
 

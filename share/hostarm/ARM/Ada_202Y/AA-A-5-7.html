@@ -13,10 +13,8 @@
     DIV.paranum {float: left; font-family: Arial, Helvetica, sans-serif; font-size: 64%; width: 2.8em; margin-left: -0.4em; margin-right: -3.0em; margin-top: 0.2em}
     TT {font-family: "Courier New", monospace}
     DT {display: compact}
-    SPAN.insert7 {text-decoration: underline; color: rgb(0,102,153) }
-    SPAN.delete7 {text-decoration: line-through; color: rgb(0,102,153) }
-    SPAN.insert8 {text-decoration: underline; color: rgb(204,51,0) }
-    SPAN.delete8 {text-decoration: line-through; color: rgb(204,51,0) }
+    SPAN.insert6 {text-decoration: underline; color: rgb(0,51,204) }
+    SPAN.delete6 {text-decoration: line-through; color: rgb(0,51,204) }
     A.Bar:link {font-family: Arial, Helvetica, sans-serif; font-style: normal; text-decoration: none; color: rgb(204,204,51)}
     A.Bar:visited {font-family: Arial, Helvetica, sans-serif; font-style: normal; text-decoration: none; color: rgb(204,204,51)}
     DIV.Normal {font-family: "Times New Roman", Times, serif; line-height: 122%; margin-left: 1.8em; margin-bottom: 0.6em}
@@ -26,7 +24,7 @@
     </STYLE>
 </HEAD>
 <BODY TEXT="#000000" BGCOLOR="#FFFFF0" LINK="#000080" VLINK="#330033" ALINK="#0000FF">
-<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 3)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
+<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 4)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
 <div style="margin-top: 0.6em; margin-bottom: 0.0em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-0-4.html"><IMG SRC="index.gif" ALT="Index" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-STDS.html"><IMG SRC="lib.gif" ALT="References" BORDER=0></A>&nbsp;
@@ -47,17 +45,17 @@ declaration:</div>
 <div class="Examples"><B>with</B>&nbsp;Ada.Numerics.Big_Numbers.Big_Integers;<BR>
 &nbsp;&nbsp;&nbsp;<B>use&nbsp;all&nbsp;type</B>&nbsp;Big_Integers.Big_Integer;<BR>
 <B>with</B>&nbsp;Ada.Strings.Text_Buffers;<BR>
-<B>package</B>&nbsp;Ada.Numerics.Big_Numbers.Big_Reals<A NAME="I7718"></A><BR>
+<B>package</B>&nbsp;Ada.Numerics.Big_Numbers.Big_Reals<A NAME="I7741"></A><BR>
 &nbsp;&nbsp;&nbsp;<B>with</B>&nbsp;Preelaborate,&nbsp;Nonblocking,&nbsp;Global&nbsp;=&gt;&nbsp;<B>in&nbsp;out&nbsp;synchronized</B>&nbsp;<B>is</B></div>
 <div class="paranum"><a name="p3">3/5</a></div>
 <div class="Examples">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0208-1.TXT">AI12-0208-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0366-1.TXT">AI12-0366-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0407-1.TXT">AI12-0407-1</A></I>} 
-&nbsp;&nbsp;&nbsp;<B>type</B>&nbsp;<A NAME="I7719"></A>Big_Real&nbsp;<B>is&nbsp;private</B><BR>
+&nbsp;&nbsp;&nbsp;<B>type</B>&nbsp;<A NAME="I7742"></A>Big_Real&nbsp;<B>is&nbsp;private</B><BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>with</B>&nbsp;Real_Literal&nbsp;=&gt;&nbsp;From_Universal_Image,<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Put_Image&nbsp;=&gt;&nbsp;Put_Image;</div>
 <div class="paranum"><a name="p4">4/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7720"></A>Is_Valid&nbsp;(Arg&nbsp;:&nbsp;Big_Real)&nbsp;<B>return</B>&nbsp;Boolean<BR>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7743"></A>Is_Valid&nbsp;(Arg&nbsp;:&nbsp;Big_Real)&nbsp;<B>return</B>&nbsp;Boolean<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>with</B>&nbsp;Convention&nbsp;=&gt;&nbsp;Intrinsic;</div>
 <div class="paranum"><a name="p4.a">4.a/5</a></div>
 <div class="Annotations"><B>Discussion:&nbsp;</B>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0005-1.TXT">AI12-0005-1</A></I>} 
@@ -67,7 +65,7 @@ applied to a default-initialized object of a real type (see <A HREF="AA-13-9-2.h
 The language-provided functions in the Big_Reals package only return 
 values for which Is_Valid is certain to be True.&nbsp;</div>
 <div class="paranum"><a name="p5">5/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<B>subtype</B>&nbsp;<A NAME="I7721"></A>Valid_Big_Real&nbsp;<B>is</B>&nbsp;Big_Real<BR>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<B>subtype</B>&nbsp;<A NAME="I7744"></A>Valid_Big_Real&nbsp;<B>is</B>&nbsp;Big_Real<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>with</B>&nbsp;Dynamic_Predicate&nbsp;=&gt;&nbsp;Is_Valid&nbsp;(Valid_Big_Real),<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Predicate_Failure&nbsp;=&gt;&nbsp;<B>raise</B>&nbsp;Program_Error;</div>
 <div class="paranum"><a name="p6">6/5</a></div>
@@ -76,7 +74,7 @@ values for which Is_Valid is certain to be True.&nbsp;</div>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>with</B>&nbsp;Pre&nbsp;=&gt;&nbsp;Den&nbsp;/=&nbsp;0<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>or&nbsp;else&nbsp;raise</B>&nbsp;Constraint_Error;</div>
 <div class="paranum"><a name="p7">7/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7722"></A>Numerator<BR>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7745"></A>Numerator<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Arg&nbsp;:&nbsp;Valid_Big_Real)&nbsp;<B>return</B>&nbsp;Big_Integers.Valid_Big_Integer<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>with</B>&nbsp;Post&nbsp;=&gt;&nbsp;(<B>if</B>&nbsp;Arg&nbsp;=&nbsp;0.0&nbsp;<B>then</B>&nbsp;Numerator'Result&nbsp;=&nbsp;0);</div>
 <div class="paranum"><a name="p7.a">7.a/5</a></div>
@@ -86,17 +84,17 @@ of Denominator uses Numerator, we would get an infinite mutual recursion
 if both postconditions are enabled. The postcondition of Denominator 
 serves as the postcondition for Numerator as well unless Arg = 0.0.&nbsp;</div>
 <div class="paranum"><a name="p8">8/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7723"></A>Denominator&nbsp;(Arg&nbsp;:&nbsp;Valid_Big_Real)<BR>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7746"></A>Denominator&nbsp;(Arg&nbsp;:&nbsp;Valid_Big_Real)<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>return</B>&nbsp;Big_Integers.Big_Positive<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>with</B>&nbsp;Post&nbsp;=&gt;<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<B>if</B>&nbsp;Arg&nbsp;=&nbsp;0.0&nbsp;<B>then</B>&nbsp;Denominator'Result&nbsp;=&nbsp;1<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>else</B>&nbsp;Big_Integers.Greatest_Common_Divisor<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Numerator&nbsp;(Arg),&nbsp;Denominator'Result)&nbsp;=&nbsp;1);</div>
 <div class="paranum"><a name="p9">9/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7724"></A>To_Big_Real&nbsp;(Arg&nbsp;:&nbsp;Big_Integers.Valid_Big_Integer)<BR>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7747"></A>To_Big_Real&nbsp;(Arg&nbsp;:&nbsp;Big_Integers.Valid_Big_Integer)<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>return</B>&nbsp;Valid_Big_Real&nbsp;<B>is</B>&nbsp;(Arg&nbsp;/&nbsp;1);</div>
 <div class="paranum"><a name="p10">10/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7725"></A>To_Real&nbsp;(Arg&nbsp;:&nbsp;Integer)&nbsp;<B>return</B>&nbsp;Valid_Big_Real&nbsp;<B>is</B><BR>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7748"></A>To_Real&nbsp;(Arg&nbsp;:&nbsp;Integer)&nbsp;<B>return</B>&nbsp;Valid_Big_Real&nbsp;<B>is</B><BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Big_Integers.To_Big_Integer&nbsp;(Arg)&nbsp;/&nbsp;1);</div>
 <div class="paranum"><a name="p11">11/5</a></div>
 <div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;&quot;=&quot;&nbsp;(L,&nbsp;R&nbsp;:&nbsp;Valid_Big_Real)&nbsp;<B>return</B>&nbsp;Boolean;<BR>
@@ -105,14 +103,14 @@ serves as the postcondition for Numerator as well unless Arg = 0.0.&nbsp;</div>
 &nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;&quot;&gt;&quot;&nbsp;(L,&nbsp;R&nbsp;:&nbsp;Valid_Big_Real)&nbsp;<B>return</B>&nbsp;Boolean;<BR>
 &nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;&quot;&gt;=&quot;&nbsp;(L,&nbsp;R&nbsp;:&nbsp;Valid_Big_Real)&nbsp;<B>return</B>&nbsp;Boolean;</div>
 <div class="paranum"><a name="p12">12/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7726"></A>In_Range&nbsp;(Arg,&nbsp;Low,&nbsp;High&nbsp;:&nbsp;Valid_Big_Real)&nbsp;<B>return</B>&nbsp;Boolean&nbsp;<B>is</B><BR>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7749"></A>In_Range&nbsp;(Arg,&nbsp;Low,&nbsp;High&nbsp;:&nbsp;Valid_Big_Real)&nbsp;<B>return</B>&nbsp;Boolean&nbsp;<B>is</B><BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Low&nbsp;&lt;=&nbsp;Arg&nbsp;<B>and</B>&nbsp;Arg&nbsp;&lt;=&nbsp;High);</div>
 <div class="paranum"><a name="p13">13/5</a></div>
 <div class="Examples">&nbsp;&nbsp;&nbsp;<B>generic</B><BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>type</B>&nbsp;Num&nbsp;<B>is&nbsp;digits</B>&nbsp;&lt;&gt;;<BR>
-&nbsp;&nbsp;&nbsp;<B>package</B>&nbsp;<A NAME="I7727"></A>Float_Conversions&nbsp;<B>is</B><BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7728"></A>To_Big_Real&nbsp;(Arg&nbsp;:&nbsp;Num)&nbsp;<B>return</B>&nbsp;Valid_Big_Real;<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7729"></A>From_Big_Real&nbsp;(Arg&nbsp;:&nbsp;Valid_Big_Real)&nbsp;<B>return</B>&nbsp;Num<BR>
+&nbsp;&nbsp;&nbsp;<B>package</B>&nbsp;<A NAME="I7750"></A>Float_Conversions&nbsp;<B>is</B><BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7751"></A>To_Big_Real&nbsp;(Arg&nbsp;:&nbsp;Num)&nbsp;<B>return</B>&nbsp;Valid_Big_Real;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7752"></A>From_Big_Real&nbsp;(Arg&nbsp;:&nbsp;Valid_Big_Real)&nbsp;<B>return</B>&nbsp;Num<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>with</B>&nbsp;Pre&nbsp;=&gt;&nbsp;In_Range&nbsp;(Arg,<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Low&nbsp;&nbsp;=&gt;&nbsp;To_Big_Real&nbsp;(Num'First),<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;High&nbsp;=&gt;&nbsp;To_Big_Real&nbsp;(Num'Last))<BR>
@@ -121,53 +119,53 @@ serves as the postcondition for Numerator as well unless Arg = 0.0.&nbsp;</div>
 <div class="paranum"><a name="p14">14/5</a></div>
 <div class="Examples">&nbsp;&nbsp;&nbsp;<B>generic</B><BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>type</B>&nbsp;Num&nbsp;<B>is&nbsp;delta</B>&nbsp;&lt;&gt;;<BR>
-&nbsp;&nbsp;&nbsp;<B>package</B>&nbsp;<A NAME="I7730"></A>Fixed_Conversions&nbsp;<B>is</B><BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7731"></A>To_Big_Real&nbsp;(Arg&nbsp;:&nbsp;Num)&nbsp;<B>return</B>&nbsp;Valid_Big_Real;<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7732"></A>From_Big_Real&nbsp;(Arg&nbsp;:&nbsp;Valid_Big_Real)&nbsp;<B>return</B>&nbsp;Num<BR>
+&nbsp;&nbsp;&nbsp;<B>package</B>&nbsp;<A NAME="I7753"></A>Fixed_Conversions&nbsp;<B>is</B><BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7754"></A>To_Big_Real&nbsp;(Arg&nbsp;:&nbsp;Num)&nbsp;<B>return</B>&nbsp;Valid_Big_Real;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7755"></A>From_Big_Real&nbsp;(Arg&nbsp;:&nbsp;Valid_Big_Real)&nbsp;<B>return</B>&nbsp;Num<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>with</B>&nbsp;Pre&nbsp;=&gt;&nbsp;In_Range&nbsp;(Arg,<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Low&nbsp;&nbsp;=&gt;&nbsp;To_Big_Real&nbsp;(Num'First),<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;High&nbsp;=&gt;&nbsp;To_Big_Real&nbsp;(Num'Last))<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>or&nbsp;else</B>&nbsp;(<B>raise</B>&nbsp;Constraint_Error);<BR>
 &nbsp;&nbsp;&nbsp;<B>end</B>&nbsp;Fixed_Conversions;</div>
-<div class="paranum"><a name="p15">15/7</a></div>
+<div class="paranum"><a name="p14.1">14.1/6</a></div>
 <div class="Examples">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0078-1.html">AI22-0078-1</A></I>} 
-<span class="insert7">&nbsp;&nbsp;&nbsp;<B>generic</B><BR>
+<span class="insert6">&nbsp;&nbsp;&nbsp;<B>generic</B><BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>type</B>&nbsp;Num&nbsp;<B>is&nbsp;delta</B>&nbsp;&lt;&gt;&nbsp;<B>digits</B>&nbsp;&lt;&gt;;<BR>
-&nbsp;&nbsp;&nbsp;<B>package</B>&nbsp;<A NAME="I7733"></A>Decimal_Conversions&nbsp;<B>is</B><BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7734"></A>To_Big_Real&nbsp;(Arg&nbsp;:&nbsp;Num)&nbsp;<B>return</B>&nbsp;Valid_Big_Real;<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7735"></A>From_Big_Real&nbsp;(Arg&nbsp;:&nbsp;Valid_Big_Real)&nbsp;<B>return</B>&nbsp;Num<BR>
+&nbsp;&nbsp;&nbsp;<B>package</B>&nbsp;<A NAME="I7756"></A>Decimal_Conversions&nbsp;<B>is</B><BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7757"></A>To_Big_Real&nbsp;(Arg&nbsp;:&nbsp;Num)&nbsp;<B>return</B>&nbsp;Valid_Big_Real;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7758"></A>From_Big_Real&nbsp;(Arg&nbsp;:&nbsp;Valid_Big_Real)&nbsp;<B>return</B>&nbsp;Num<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>with</B>&nbsp;Pre&nbsp;=&gt;&nbsp;In_Range&nbsp;(Arg,<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Low&nbsp;&nbsp;=&gt;&nbsp;To_Big_Real&nbsp;(Num'First),<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;High&nbsp;=&gt;&nbsp;To_Big_Real&nbsp;(Num'Last))<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>or&nbsp;else</B>&nbsp;(<B>raise</B>&nbsp;Constraint_Error);<BR>
 &nbsp;&nbsp;&nbsp;<B>end</B>&nbsp;Decimal_Conversions;</span></div>
-<div class="paranum"><a name="p16">16/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7736"></A>To_String&nbsp;(Arg&nbsp;&nbsp;:&nbsp;Valid_Big_Real;<BR>
+<div class="paranum"><a name="p15">15/5</a></div>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7759"></A>To_String&nbsp;(Arg&nbsp;&nbsp;:&nbsp;Valid_Big_Real;<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fore&nbsp;:&nbsp;Field&nbsp;:=&nbsp;2;<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aft&nbsp;&nbsp;:&nbsp;Field&nbsp;:=&nbsp;3;<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exp&nbsp;&nbsp;:&nbsp;Field&nbsp;:=&nbsp;0)&nbsp;<B>return</B>&nbsp;String<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>with</B>&nbsp;Post&nbsp;=&gt;&nbsp;To_String'Result'First&nbsp;=&nbsp;1;</div>
+<div class="paranum"><a name="p16">16/5</a></div>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7760"></A>From_String&nbsp;(Arg&nbsp;&nbsp;&nbsp;:&nbsp;String)&nbsp;<B>return</B>&nbsp;Valid_Big_Real;</div>
 <div class="paranum"><a name="p17">17/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7737"></A>From_String&nbsp;(Arg&nbsp;&nbsp;&nbsp;:&nbsp;String)&nbsp;<B>return</B>&nbsp;Valid_Big_Real;</div>
+<div class="Examples">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0407-1.TXT">AI12-0407-1</A></I>} 
+&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7761"></A>From_Universal_Image&nbsp;(Arg&nbsp;:&nbsp;String)&nbsp;<B>return</B>&nbsp;Valid_Big_Real<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>renames</B>&nbsp;From_String;</div>
 <div class="paranum"><a name="p18">18/5</a></div>
 <div class="Examples">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0407-1.TXT">AI12-0407-1</A></I>} 
-&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7738"></A>From_Universal_Image&nbsp;(Arg&nbsp;:&nbsp;String)&nbsp;<B>return</B>&nbsp;Valid_Big_Real<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>renames</B>&nbsp;From_String;</div>
-<div class="paranum"><a name="p19">19/5</a></div>
-<div class="Examples">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0407-1.TXT">AI12-0407-1</A></I>} 
-&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7739"></A>From_Universal_Image&nbsp;(Num,&nbsp;Den&nbsp;:&nbsp;String)<BR>
+&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7762"></A>From_Universal_Image&nbsp;(Num,&nbsp;Den&nbsp;:&nbsp;String)<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>return</B>&nbsp;Valid_Big_Real&nbsp;<B>is</B><BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Big_Integers.From_Universal_Image&nbsp;(Num)&nbsp;/<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Big_Integers.From_Universal_Image&nbsp;(Den));</div>
-<div class="paranum"><a name="p20">20/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7740"></A>To_Quotient_String&nbsp;(Arg&nbsp;:&nbsp;Valid_Big_Real)&nbsp;<B>return</B>&nbsp;String&nbsp;<B>is</B><BR>
+<div class="paranum"><a name="p19">19/5</a></div>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7763"></A>To_Quotient_String&nbsp;(Arg&nbsp;:&nbsp;Valid_Big_Real)&nbsp;<B>return</B>&nbsp;String&nbsp;<B>is</B><BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(To_String&nbsp;(Numerator&nbsp;(Arg))&nbsp;&amp;&nbsp;&quot;&nbsp;/&nbsp;&quot;&nbsp;&amp;&nbsp;To_String&nbsp;(Denominator&nbsp;(Arg)));<BR>
-&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7741"></A>From_Quotient_String&nbsp;(Arg&nbsp;:&nbsp;String)&nbsp;<B>return</B>&nbsp;Valid_Big_Real;</div>
-<div class="paranum"><a name="p21">21/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<B>procedure</B>&nbsp;<A NAME="I7742"></A>Put_Image<BR>
+&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7764"></A>From_Quotient_String&nbsp;(Arg&nbsp;:&nbsp;String)&nbsp;<B>return</B>&nbsp;Valid_Big_Real;</div>
+<div class="paranum"><a name="p20">20/5</a></div>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<B>procedure</B>&nbsp;<A NAME="I7765"></A>Put_Image<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Buffer&nbsp;:&nbsp;<B>in&nbsp;out</B>&nbsp;Ada.Strings.Text_Buffers.Root_Buffer_Type'Class;<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arg&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<B>in</B>&nbsp;Valid_Big_Real);</div>
-<div class="paranum"><a name="p22">22/5</a></div>
+<div class="paranum"><a name="p21">21/5</a></div>
 <div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;&quot;+&quot;&nbsp;(L&nbsp;:&nbsp;Valid_Big_Real)&nbsp;<B>return</B>&nbsp;Valid_Big_Real;<BR>
 &nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;&quot;-&quot;&nbsp;(L&nbsp;:&nbsp;Valid_Big_Real)&nbsp;<B>return</B>&nbsp;Valid_Big_Real;<BR>
 &nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;&quot;abs&quot;&nbsp;(L&nbsp;:&nbsp;Valid_Big_Real)&nbsp;<B>return</B>&nbsp;Valid_Big_Real;<BR>
@@ -177,13 +175,13 @@ serves as the postcondition for Numerator as well unless Arg = 0.0.&nbsp;</div>
 &nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;&quot;/&quot;&nbsp;(L,&nbsp;R&nbsp;:&nbsp;Valid_Big_Real)&nbsp;<B>return</B>&nbsp;Valid_Big_Real;<BR>
 &nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;&quot;**&quot;&nbsp;(L&nbsp;:&nbsp;Valid_Big_Real;&nbsp;R&nbsp;:&nbsp;Integer)<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>return</B>&nbsp;Valid_Big_Real;<BR>
-&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7743"></A>Min&nbsp;(L,&nbsp;R&nbsp;:&nbsp;Valid_Big_Real)&nbsp;<B>return</B>&nbsp;Valid_Big_Real;<BR>
-&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7744"></A>Max&nbsp;(L,&nbsp;R&nbsp;:&nbsp;Valid_Big_Real)&nbsp;<B>return</B>&nbsp;Valid_Big_Real;</div>
-<div class="paranum"><a name="p23">23/5</a></div>
+&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7766"></A>Min&nbsp;(L,&nbsp;R&nbsp;:&nbsp;Valid_Big_Real)&nbsp;<B>return</B>&nbsp;Valid_Big_Real;<BR>
+&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7767"></A>Max&nbsp;(L,&nbsp;R&nbsp;:&nbsp;Valid_Big_Real)&nbsp;<B>return</B>&nbsp;Valid_Big_Real;</div>
+<div class="paranum"><a name="p22">22/5</a></div>
 <div class="Examples"><B>private</B><BR>
 &nbsp;&nbsp;&nbsp;...&nbsp;--&nbsp;<SPAN Class="roman"><I>not&nbsp;specified&nbsp;by&nbsp;the&nbsp;language</I></SPAN><BR>
 <B>end</B>&nbsp;Ada.Numerics.Big_Numbers.Big_Reals;</div>
-<div class="paranum"><a name="p24">24/5</a></div>
+<div class="paranum"><a name="p23">23/5</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0208-1.TXT">AI12-0208-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0366-1.TXT">AI12-0366-1</A></I>} 
 To_String and From_String behave analogously to the Put and Get procedures 
@@ -193,68 +191,69 @@ Data_Error) is propagated in error cases. From_Quotient_String implements
 the inverse function of To_Quotient_String; Constraint_Error is propagated 
 in error cases. Put_Image calls To_String, and writes the resulting value 
 to the buffer using Text_Buffers.Put.</div>
-<div class="paranum"><a name="p25">25/7</a></div>
+<div class="paranum"><a name="p24">24/6</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0208-1.TXT">AI12-0208-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0078-1.html">AI22-0078-1</A></I>} 
-For an instance of Float_Conversions<span class="insert7">,</span><span class="delete7">&nbsp;or</span> Fixed_Conversions<span class="insert7">, or Decimal_Conversions</span>, 
+For an instance of Float_Conversions<span class="insert6">,</span><span class="delete6">&nbsp;or</span> Fixed_Conversions<span class="insert6">, or Decimal_Conversions</span>, 
 To_Big_Real is exact (that is, the result represents exactly the same 
 mathematical value as the argument) and From_Big_Real is subject to the 
 same precision rules as a type conversion of a value of type T to the 
 target type Num, where T is a hypothetical floating point type whose 
 model numbers include all of the model numbers of Num as well as the 
 exact mathematical value of the argument.</div>
-<div class="paranum"><a name="p26">26/5</a></div>
+<div class="paranum"><a name="p25">25/5</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0208-1.TXT">AI12-0208-1</A></I>} 
 The other functions have their usual mathematical meanings.</div>
-<div class="paranum"><a name="p27">27/5</a></div>
+<div class="paranum"><a name="p26">26/5</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0208-1.TXT">AI12-0208-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0366-1.TXT">AI12-0366-1</A></I>} 
-The type Big_Real needs finalization<A NAME="I7745"></A> (see <A HREF="AA-7-6.html">7.6</A>).</div>
+The type Big_Real needs finalization<A NAME="I7768"></A> (see <A HREF="AA-7-6.html">7.6</A>).</div>
 
 <H4 Class="centered">Dynamic Semantics</H4>
-<div class="paranum"><a name="p28">28/5</a></div>
+<div class="paranum"><a name="p27">27/5</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0208-1.TXT">AI12-0208-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0366-1.TXT">AI12-0366-1</A></I>} 
 For purposes of determining whether predicate checks are performed as 
 part of default initialization, the type Big_Real is considered to have 
 a subcomponent that has a <SPAN Class="swiss"><A HREF="AA-3-7.html#S0063">default_expression</A></SPAN>.</div>
-<div class="paranum"><a name="p28.a">28.a/5</a></div>
+<div class="paranum"><a name="p27.a">27.a/5</a></div>
 <div class="Annotations" style="margin-bottom: 0.4em"><B>Ramification: 
 </B>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0005-1.TXT">AI12-0005-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0208-1.TXT">AI12-0208-1</A></I>} 
 This means that the elaboration of&nbsp;</div>
-<div class="paranum"><a name="p28.b">28.b/5</a></div>
+<div class="paranum"><a name="p27.b">27.b/5</a></div>
 <div class="SmallExamples">Default_Initialized_Object&nbsp;:&nbsp;Valid_Big_Real;</div>
-<div class="paranum"><a name="p28.c">28.c/5</a></div>
+<div class="paranum"><a name="p27.c">27.c/5</a></div>
 <div class="Annotations">either produces a value for which Is_Valid is 
 True. or it propagates Program_Error.&nbsp;</div>
 
 <H4 Class="centered">Implementation Requirements</H4>
-<div class="paranum"><a name="p29">29/5</a></div>
+<div class="paranum"><a name="p28">28/5</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0208-1.TXT">AI12-0208-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0366-1.TXT">AI12-0366-1</A></I>} 
 No storage associated with a Big_Real object shall be lost upon assignment 
 or scope exit.</div>
-<div class="paranum"><a name="p29.a">29.a/5</a></div>
+<div class="paranum"><a name="p28.a">28.a/5</a></div>
 <div class="Annotations"><B>Implementation Note:&nbsp;</B>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0208-1.TXT">AI12-0208-1</A></I>} 
 The &ldquo;No storage ... shall be lost&rdquo; requirement does not preclude 
 implementation techniques such as caching or unique number tables.&nbsp;</div>
 
 <H4 Class="centered">Extensions to Ada 2012</H4>
-<div class="paranum"><a name="p29.b">29.b/5</a></div>
+<div class="paranum"><a name="p28.b">28.b/5</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0208-1.TXT">AI12-0208-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0366-1.TXT">AI12-0366-1</A></I>} 
-<A NAME="I7746"></A>The package Numerics.Big_Numbers.Big_Reals is new. 
+<A NAME="I7769"></A>The package Numerics.Big_Numbers.Big_Reals is new. 
 </div>
 
 <H4 Class="centered">Incompatibilities With Ada 2022</H4>
-<div class="paranum"><a name="p29.c">29.c/7</a></div>
+<div class="paranum"><a name="p28.c">28.c/6</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0078-1.html">AI22-0078-1</A></I>} 
-<span class="insert7"><A NAME="I7747"></A>To fix an omission, a new nested 
-generic package Decimal_Conversions has been added to the package Numerics.Big_Numbers.Big_Reals. 
-Therefore, a use clause conflict is possible; see Incompatibilities With 
-Ada 2012 in the introduction of <A HREF="AA-A.html">Annex A</A> for more 
-on this topic.</span>&nbsp;</div>
+<span class="insert6"><A NAME="I7770"></A><B>Corrigendum:</B> To fix 
+an omission, a new nested generic package Decimal_Conversions has been 
+added to the package Numerics.Big_Numbers.Big_Reals. Therefore, a use 
+clause conflict is possible; see Incompatibilities With Ada 2012 in the 
+introduction of <A HREF="AA-A.html">Annex A</A> for more on this topic.</span> 
+</div>
 
 <HR>
 <div style="margin-top: 0.0em; margin-bottom: 0.6em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;

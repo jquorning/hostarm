@@ -1,12 +1,12 @@
 name = "hostarm"
 description = "Local hosting of Ada Reference Manual (ARM)"
-version = "25.0.2"
+version = "25.0.4"
 
 long-description = """
 HostARM is a local hosting of
 - Ada Reference Manual 2012
 - Ada Reference Manual 2022
-- Annotated Ada Reference Manual 202Y (Draft 3)
+- Annotated Ada Reference Manual 202Y (Draft 4)
 
 HostARM focuses on user friendliness and more modern look of the manuals.
 
@@ -24,7 +24,7 @@ maintainers = ["Jesper Quorning <jesper.quorning@gmail.com>"]
 maintainers-logins = ["jquorning"]
 licenses = "MIT"
 website = "https://github.com/jquorning/hostarm"
-tags = ["arm", "aarm", "local", "reference", "manual"]
+tags = ["arm", "aarm", "reference", "manual"]
 
 executables = ["hostarm"]
 

@@ -23,7 +23,7 @@
     </STYLE>
 </HEAD>
 <BODY TEXT="#000000" BGCOLOR="#FFFFF0" LINK="#000080" VLINK="#330033" ALINK="#0000FF">
-<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 3)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
+<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 4)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
 <div style="margin-top: 0.6em; margin-bottom: 0.0em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-0-4.html"><IMG SRC="index.gif" ALT="Index" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-STDS.html"><IMG SRC="lib.gif" ALT="References" BORDER=0></A>&nbsp;
@@ -48,8 +48,8 @@ The following additional syntax is provided to override the mode of a
 formal parameter to reflect indirect effects on variables reachable from 
 the formal parameter by one or more access-value dereferences:</div>
 <div class="paranum"><a name="p3">3/5</a></div>
-<div class="Indented1"><SPAN Class="swiss">extended_global_mode</SPAN><A NAME="I10592"></A><A NAME="S0361"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN><BR>
-&nbsp;&nbsp;&nbsp;&nbsp;<B>overriding</B>&nbsp;<A NAME="I10593"></A><SPAN Class="swiss"><A HREF="AA-6-1-2.html#S0212">basic_global_mode</A></SPAN></div>
+<div class="Indented1"><SPAN Class="swiss">extended_global_mode</SPAN><A NAME="I10617"></A><A NAME="S0361"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN><BR>
+&nbsp;&nbsp;&nbsp;&nbsp;<B>overriding</B>&nbsp;<A NAME="I10618"></A><SPAN Class="swiss"><A HREF="AA-6-1-2.html#S0212">basic_global_mode</A></SPAN></div>
 
 <H4 Class="centered">Name Resolution Rules</H4>
 <div class="paranum"><a name="p4">4/5</a></div>
@@ -57,8 +57,8 @@ the formal parameter by one or more access-value dereferences:</div>
 The <I>object_</I><SPAN Class="swiss"><A HREF="AA-4-1.html#S0091">name</A></SPAN> 
 that is associated with an <B>overriding</B> mode shall resolve to statically 
 denote a formal object, or a formal parameter of the associated entity.</div>
-<div class="paranum"><a name="p5">5/6</a></div>
-<div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0052-1.html">AI22-0052-1</A></I>} 
+<div class="paranum"><a name="p4.1">4.1/6</a></div>
+<div class="Normal">&nbsp;{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0052-1.html">AI22-0052-1</A></I>} 
 <span class="insert6">An <I>object_</I><SPAN Class="swiss"><A HREF="AA-4-1.html#S0091">name</A></SPAN> 
 used as a <SPAN Class="swiss"><A HREF="AA-6-1-2.html#S0215">global_name</A></SPAN> 
 may also be an <SPAN Class="swiss"><A HREF="AA-4-1-4.html#S0100">attribute_reference</A></SPAN> 
@@ -66,19 +66,19 @@ with attribute designator Storage_Pool. [The attribute <SPAN Class="swiss"><A HR
 can denote a formal access-to-object type.]</span>&nbsp;</div>
 
 <H4 Class="centered">Static Semantics</H4>
-<div class="paranum"><a name="p6">6/5</a></div>
+<div class="paranum"><a name="p5">5/5</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0079-3.TXT">AI12-0079-3</A></I>} 
 The presence of the reserved word <B>overriding</B> in a global mode 
 indicates that the specification is overriding the mode of a formal parameter 
 with another mode to reflect the overall effect of an invocation of the 
 callable entity on the state associated with the corresponding actual 
 parameter.</div>
-<div class="paranum"><a name="p7">7/5</a></div>
+<div class="paranum"><a name="p6">6/5</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0380-1.TXT">AI12-0380-1</A></I>} 
 [As described in <A HREF="AA-6-1-2.html">6.1.2</A>, the following rules 
 are defined in terms of operations that are performed by or on behalf 
 of an entity.]</div>
-<div class="paranum"><a name="p8">8/6</a></div>
+<div class="paranum"><a name="p7">7/6</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0079-3.TXT">AI12-0079-3</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0431-1.TXT">AI12-0431-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0439-1.TXT">AI12-0439-1</A></I>} 
@@ -102,7 +102,7 @@ the enclosing library unit otherwise. If not specified for a nonfirst
 subtype <I>S</I>, the Global aspect defaults to that of the subtype identified 
 in the <SPAN Class="swiss"><A HREF="AA-3-2-2.html#S0027">subtype_indication</A></SPAN> 
 defining <I>S</I>.</div>
-<div class="paranum"><a name="p9">9/5</a></div>
+<div class="paranum"><a name="p8">8/5</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0079-3.TXT">AI12-0079-3</A></I>} 
 The Global'Class aspect may be specified for the first subtype of a tagged 
 type <I>T</I>, indicating an upper bound on the Global aspect of any 
@@ -110,7 +110,7 @@ descendant of <I>T</I>. If not specified, it defaults to Unspecified.
 </div>
 
 <H4 Class="centered">Legality Rules</H4>
-<div class="paranum"><a name="p10">10/5</a></div>
+<div class="paranum"><a name="p9">9/5</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0079-3.TXT">AI12-0079-3</A></I>} 
 For a tagged subtype <I>T</I>, each mode of its Global aspect shall identify 
 a subset of the variables identified either by the corresponding mode, 
@@ -118,15 +118,15 @@ or by the <B>in out</B> mode, of the Global'Class aspect of the first
 subtype of any ancestor of <I>T</I>.&nbsp;</div>
 
 <H4 Class="centered">Extensions to Ada 2012</H4>
-<div class="paranum"><a name="p10.a">10.a/5</a></div>
+<div class="paranum"><a name="p9.a">9.a/5</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0079-3.TXT">AI12-0079-3</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0380-1.TXT">AI12-0380-1</A></I>} 
-<A NAME="I10594"></A>These extensions to the Global aspect are new.&nbsp;</div>
+<A NAME="I10619"></A>These extensions to the Global aspect are new.&nbsp;</div>
 
 <H4 Class="centered">Extensions to Ada 2022</H4>
-<div class="paranum"><a name="p10.b">10.b/6</a></div>
+<div class="paranum"><a name="p9.b">9.b/6</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0052-1.html">AI22-0052-1</A></I>} 
-<span class="insert6"><A NAME="I10595"></A>We allow the Storage_Pool 
+<span class="insert6"><A NAME="I10620"></A>We allow the Storage_Pool 
 attribute to be named in Global aspects.</span>&nbsp;</div>
 
 <HR>

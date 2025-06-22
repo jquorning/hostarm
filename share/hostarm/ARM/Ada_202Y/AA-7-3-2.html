@@ -34,7 +34,7 @@
     </STYLE>
 </HEAD>
 <BODY TEXT="#000000" BGCOLOR="#FFFFF0" LINK="#000080" VLINK="#330033" ALINK="#0000FF">
-<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 3)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
+<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 4)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
 <div style="margin-top: 0.6em; margin-bottom: 0.0em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-0-4.html"><IMG SRC="index.gif" ALT="Index" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-STDS.html"><IMG SRC="lib.gif" ALT="References" BORDER=0></A>&nbsp;
@@ -66,11 +66,11 @@ assertion aspects may be specified with an <SPAN Class="swiss"><A HREF="AA-13-1-
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0250-1.TXT">AI05-0250-1</A></I>} 
 Type_Invariant</div><div class="WideHanging-Body"><br clear="left">
 This aspect shall be specified by an <SPAN Class="swiss"><A HREF="AA-4-4.html#S0132">expression</A></SPAN>, 
-called an <I>invariant expression</I>.<A NAME="I4515"></A> Type_Invariant 
+called an <I>invariant expression</I>.<A NAME="I4520"></A> Type_Invariant 
 may be specified on a <SPAN Class="swiss"><A HREF="AA-7-3.html#S0232">private_type_declaration</A></SPAN>, 
 on a <SPAN Class="swiss"><A HREF="AA-7-3.html#S0233">private_extension_declaration</A></SPAN>, 
 or on a <SPAN Class="swiss"><A HREF="AA-3-2-1.html#S0024">full_type_declaration</A></SPAN> 
-that declares the completion of a private type or private extension.<A NAME="I4516"></A><A NAME="I4517"></A><A NAME="I4518"></A><A NAME="I4519"></A><A NAME="I4520"></A></div>
+that declares the completion of a private type or private extension.<A NAME="I4521"></A><A NAME="I4522"></A><A NAME="I4523"></A><A NAME="I4524"></A><A NAME="I4525"></A></div>
 <div class="paranum"><a name="p2.a">2.a/3</a></div>
 <div class="Annotations"><B>Aspect Description for&nbsp;</B><B>Type_Invariant: 
 </B>A condition that will hold true for all objects of a type.</div>
@@ -85,8 +85,8 @@ called an <I>invariant expression</I>. Type_Invariant'Class may be specified
 on a <SPAN Class="swiss"><A HREF="AA-7-3.html#S0232">private_type_declaration</A></SPAN>, 
 a <SPAN Class="swiss"><A HREF="AA-7-3.html#S0233">private_extension_declaration</A></SPAN>, 
 or a <SPAN Class="swiss"><A HREF="AA-3-2-1.html#S0024">full_type_declaration</A></SPAN> 
-for an interface type.<A NAME="I4521"></A><A NAME="I4522"></A> Type_Invariant'Class 
-determines a <I>class-wide type invariant</I> for a tagged type.<A NAME="I4523"></A><A NAME="I4524"></A><A NAME="I4525"></A> 
+for an interface type.<A NAME="I4526"></A><A NAME="I4527"></A> Type_Invariant'Class 
+determines a <I>class-wide type invariant</I> for a tagged type.<A NAME="I4528"></A><A NAME="I4529"></A><A NAME="I4530"></A> 
 [The Type_Invariant'Class aspect is not inherited, but its effects are 
 additive, as defined below.]</div>
 <div class="paranum"><a name="p3.a">3.a/3</a></div>
@@ -108,13 +108,13 @@ type when viewed from outside the defining package</div>
 <H4 Class="centered">Name Resolution Rules</H4>
 <div class="paranum"><a name="p4">4/3</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0146-1.TXT">AI05-0146-1</A></I>} 
-The expected type for an invariant expression is any boolean type.<A NAME="I4526"></A></div>
+The expected type for an invariant expression is any boolean type.<A NAME="I4531"></A></div>
 <div class="paranum"><a name="p5">5/6</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0146-1.TXT">AI05-0146-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0150-1.TXT">AI12-0150-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0159-1.TXT">AI12-0159-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0199-1.TXT">AI12-0199-1</A></I>} 
-{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0023-1.TXT">AI22-0023-1</A></I>} 
+{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0023-1.html">AI22-0023-1</A></I>} 
 [Within an invariant expression, <span class="insert6">a <SPAN Class="swiss"><A HREF="AA-4-1.html#S0091">name</A></SPAN> 
 that denotes the associated type declaration is interpreted as denoting</span><span class="delete6">&nbsp;the 
 identifier of the first subtype of the associated type denotes</span> 
@@ -164,7 +164,7 @@ If the Type_Invariant'Class aspect is specified for a tagged type <I>T</I>,
 then a <I>corresponding expression</I> also applies to each nonabstract 
 descendant <I>T1</I> of <I>T</I> [(including <I>T</I> itself if it is 
 nonabstract)]. The corresponding expression is constructed from the associated 
-expression as follows:<A NAME="I4527"></A></div>
+expression as follows:<A NAME="I4532"></A></div>
 <div class="paranum"><a name="p8.1">8.1/5</a></div>
 <div class="Bulleted">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0199-1.TXT">AI12-0199-1</A></I>} 
 References to nondiscriminant components of <I>T</I> (or to <I>T</I> 
@@ -194,7 +194,7 @@ in <A HREF="AA-13-1-1.html">13.1.1</A>.&nbsp;</div>
 <div class="Normal" style="margin-bottom: 0.4em">&nbsp;{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0075-1.TXT">AI12-0075-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0191-1.TXT">AI12-0191-1</A></I>} 
 For a nonabstract type <I>T</I>, a callable entity is said to be a <I>boundary 
-entity</I><A NAME="I4528"></A> for <I>T</I> if it is declared within 
+entity</I><A NAME="I4533"></A> for <I>T</I> if it is declared within 
 the immediate scope of <I>T</I> (or by an instance of a generic unit, 
 and the generic is declared within the immediate scope of type <I>T</I>), 
 or is the Read or Input stream-oriented attribute of type <I>T</I>, and 
@@ -225,7 +225,7 @@ we describe the actual checks.&nbsp;</div>
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0150-1.TXT">AI12-0150-1</A></I>} 
 If one or more invariant expressions apply to a nonabstract type <I>T</I>, 
 then an invariant check is performed at the following places, on the 
-specified object(s):<A NAME="I4529"></A></div>
+specified object(s):<A NAME="I4534"></A></div>
 <div class="paranum"><a name="p10">10/4</a></div>
 <div class="Bulleted">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0133-1.TXT">AI12-0133-1</A></I>} 
 After successful initialization of an object of type <I>T</I> by default 
@@ -379,7 +379,7 @@ If performing checks is required by the Type_Invariant or Type_Invariant'Class
 assertion policies (see <A HREF="AA-11-4-2.html">11.4.2</A>) in effect 
 at the point of the corresponding aspect specification applicable to 
 a given type, then the respective invariant expression is considered 
-<I>enabled</I>.<A NAME="I4530"></A></div>
+<I>enabled</I>.<A NAME="I4535"></A></div>
 <div class="paranum"><a name="p21.a">21.a/3</a></div>
 <div class="Annotations"><B>Ramification:&nbsp;</B>If a class-wide invariant 
 expression is enabled for a type, it remains enabled when inherited by 
@@ -393,7 +393,7 @@ the inheriting type.&nbsp;</div>
 The invariant check consists of the evaluation of each enabled invariant 
 expression that applies to <I>T</I>, on each of the objects specified 
 above. If any of these evaluate to False, Assertions.Assertion_Error 
-is raised at the point of the object initialization, conversion, or call.<A NAME="I4531"></A><A NAME="I4532"></A> 
+is raised at the point of the object initialization, conversion, or call.<A NAME="I4536"></A><A NAME="I4537"></A> 
 If a given call requires more than one evaluation of an invariant expression, 
 either for multiple objects of a single type or for multiple types with 
 invariants, the evaluations are performed in an arbitrary order, and 
@@ -596,12 +596,12 @@ for weekends:</I></div>
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0247-1.TXT">AI05-0247-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0250-1.TXT">AI05-0250-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0289-1.TXT">AI05-0289-1</A></I>} 
-<A NAME="I4533"></A>Type_Invariant aspects are new.&nbsp;</div>
+<A NAME="I4538"></A>Type_Invariant aspects are new.&nbsp;</div>
 
 <H4 Class="centered">Inconsistencies With Ada 2012</H4>
 <div class="paranum"><a name="p41.b">41.b/4</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0042-1.TXT">AI12-0042-1</A></I>} 
-<A NAME="I4534"></A><B>Corrigendum:</B> Clarified the definition of when 
+<A NAME="I4539"></A><B>Corrigendum:</B> Clarified the definition of when 
 invariant checks occur for inherited subprograms. This might cause checks 
 to be added or removed in some cases. These are all rare cases involving 
 class-wide type invariants and either record extensions or multiple levels 
@@ -665,7 +665,7 @@ this incompatibility most likely will never be seen in practice.&nbsp;</div>
 <div class="paranum"><a name="p41.h">41.h/5</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0042-1.TXT">AI12-0042-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0382-1.TXT">AI12-0382-1</A></I>} 
-<A NAME="I4535"></A><B>Corrigendum:</B> A private operation that is inherited 
+<A NAME="I4540"></A><B>Corrigendum:</B> A private operation that is inherited 
 in the visible part of a package to which a class-wide invariant applies 
 now requires overriding. This is a very unlikely situation, and will 
 prevent problems with invariant checks being added to routines that assume 
@@ -676,7 +676,7 @@ for Ada 2022.&nbsp;</div>
 <H4 Class="centered">Extensions to Ada 2012</H4>
 <div class="paranum"><a name="p41.i">41.i/4</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0041-1.TXT">AI12-0041-1</A></I>} 
-<A NAME="I4536"></A><B>Corrigendum:</B> Class-wide type invariants can 
+<A NAME="I4541"></A><B>Corrigendum:</B> Class-wide type invariants can 
 now be specified on interfaces as well as private types.&nbsp;</div>
 
 <H4 Class="centered">Wording Changes from Ada 2012</H4>

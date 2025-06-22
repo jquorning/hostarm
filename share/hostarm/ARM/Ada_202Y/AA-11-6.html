@@ -26,7 +26,7 @@
     </STYLE>
 </HEAD>
 <BODY TEXT="#000000" BGCOLOR="#FFFFF0" LINK="#000080" VLINK="#330033" ALINK="#0000FF">
-<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 3)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
+<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 4)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
 <div style="margin-top: 0.6em; margin-bottom: 0.0em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-0-4.html"><IMG SRC="index.gif" ALT="Index" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-STDS.html"><IMG SRC="lib.gif" ALT="References" BORDER=0></A>&nbsp;
@@ -38,14 +38,14 @@
 <H1>11.6 Exceptions and Optimization</H1>
 <div class="paranum"><a name="p1">1/3</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0299-1.TXT">AI05-0299-1</A></I>} 
-[<A NAME="I5779"></A> <A NAME="I5780"></A><A NAME="I5781"></A><A NAME="I5782"></A><A NAME="I5783"></A><A NAME="I5784"></A>This 
+[<A NAME="I5785"></A> <A NAME="I5786"></A><A NAME="I5787"></A><A NAME="I5788"></A><A NAME="I5789"></A><A NAME="I5790"></A>This 
 subclause gives permission to the implementation to perform certain &ldquo;optimizations&rdquo; 
 that do not necessarily preserve the canonical semantics.]&nbsp;</div>
 
 <H4 Class="centered">Dynamic Semantics</H4>
 <div class="paranum"><a name="p2">2/3</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0299-1.TXT">AI05-0299-1</A></I>} 
-<A NAME="I5785"></A>The rest of this Reference Manual (outside this subclause) 
+<A NAME="I5791"></A>The rest of this Reference Manual (outside this subclause) 
 defines the <I>canonical semantics</I> of the language. [The canonical 
 semantics of a given (legal) program determines a set of possible external 
 effects that can result from the execution of the program with given 
@@ -94,7 +94,7 @@ not be any constraints on the machine code executed in those circumstances.
 permissions are granted to the implementation:&nbsp;</div>
 <div class="paranum"><a name="p5">5/5</a></div>
 <div class="Bulleted">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0444-1.TXT">AI12-0444-1</A></I>} 
-<A NAME="I5786"></A><A NAME="I5787"></A>An implementation can omit raising 
+<A NAME="I5792"></A><A NAME="I5793"></A>An implementation can omit raising 
 an exception when a language-defined check fails. Instead, the operation 
 that failed the check can simply yield an <I>undefined result</I>. The 
 exception is required to be raised by the implementation only if, in 
@@ -158,7 +158,7 @@ belongs to the subtype Str10, without even &quot;looking&quot;.&nbsp;</div>
 <div class="paranum"><a name="p6">6/5</a></div>
 <div class="Bulleted">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0229-1.TXT">AI05-0229-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0445-1.TXT">AI12-0445-1</A></I>} 
-<A NAME="I5788"></A>If an exception is raised due to the failure of a 
+<A NAME="I5794"></A>If an exception is raised due to the failure of a 
 language-defined check, then upon reaching the corresponding <SPAN Class="swiss"><A HREF="AA-11-2.html#S0305">exception_handler</A></SPAN> 
 (or the termination of the task, if none), the external interactions 
 that have occurred have to reflect only that the exception was raised 
@@ -168,9 +168,9 @@ possibly earlier (or later if the interactions are independent of the
 result of the checked operation) than that defined by the canonical semantics, 
 but not within the execution of some abort-deferred operation or <I>independent</I> 
 subprogram that does not dynamically enclose the execution of the construct 
-whose check failed. <A NAME="I5789"></A>An independent subprogram is 
+whose check failed. <A NAME="I5795"></A>An independent subprogram is 
 one that is defined outside the library unit containing the construct 
-whose check failed, and for which the Inline aspect is False. <A NAME="I5790"></A><A NAME="I5791"></A><A NAME="I5792"></A>Any 
+whose check failed, and for which the Inline aspect is False. <A NAME="I5796"></A><A NAME="I5797"></A><A NAME="I5798"></A>Any 
 assignment that occurred outside of such abort-deferred operations or 
 independent subprograms can be disrupted by the raising of the exception, 
 causing the object or its parts to become abnormal, and certain subsequent 

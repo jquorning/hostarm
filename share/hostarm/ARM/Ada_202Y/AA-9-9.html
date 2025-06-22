@@ -13,10 +13,8 @@
     DIV.paranum {float: left; font-family: Arial, Helvetica, sans-serif; font-size: 64%; width: 2.8em; margin-left: -0.4em; margin-right: -3.0em; margin-top: 0.2em}
     TT {font-family: "Courier New", monospace}
     DT {display: compact}
-    SPAN.insert7 {text-decoration: underline; color: rgb(0,102,153) }
-    SPAN.delete7 {text-decoration: line-through; color: rgb(0,102,153) }
-    SPAN.insert8 {text-decoration: underline; color: rgb(204,51,0) }
-    SPAN.delete8 {text-decoration: line-through; color: rgb(204,51,0) }
+    SPAN.insert7 {text-decoration: underline; color: rgb(153,0,0) }
+    SPAN.delete7 {text-decoration: line-through; color: rgb(153,0,0) }
     A.Bar:link {font-family: Arial, Helvetica, sans-serif; font-style: normal; text-decoration: none; color: rgb(204,204,51)}
     A.Bar:visited {font-family: Arial, Helvetica, sans-serif; font-style: normal; text-decoration: none; color: rgb(204,204,51)}
     DIV.Normal {font-family: "Times New Roman", Times, serif; line-height: 122%; margin-left: 1.8em; margin-bottom: 0.6em}
@@ -26,7 +24,7 @@
     </STYLE>
 </HEAD>
 <BODY TEXT="#000000" BGCOLOR="#FFFFF0" LINK="#000080" VLINK="#330033" ALINK="#0000FF">
-<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 3)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
+<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 4)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
 <div style="margin-top: 0.6em; margin-bottom: 0.0em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-0-4.html"><IMG SRC="index.gif" ALT="Index" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-STDS.html"><IMG SRC="lib.gif" ALT="References" BORDER=0></A>&nbsp;
@@ -44,13 +42,13 @@ T that is of a task type [(after any implicit dereference)], the following
 attributes are defined:&nbsp;</div>
 <div class="paranum"><a name="p2">2</a></div>
 <div class="WideHanging-Term">T'Callable</div><div class="WideHanging-Body">
-<A NAME="I5346"></A><A NAME="I5347"></A>Yields the value True when the 
-task denoted by T is <I>callable</I>, and False otherwise; <A NAME="I5348"></A><A NAME="I5349"></A>a 
+<A NAME="I5351"></A><A NAME="I5352"></A>Yields the value True when the 
+task denoted by T is <I>callable</I>, and False otherwise; <A NAME="I5353"></A><A NAME="I5354"></A>a 
 task is callable unless it is completed or abnormal. The value of this 
 attribute is of the predefined type Boolean.</div>
 <div class="paranum"><a name="p3">3</a></div>
 <div class="WideHanging-Term">T'Terminated</div><div class="WideHanging-Body">
-<A NAME="I5350"></A><A NAME="I5351"></A>Yields the value True if the 
+<A NAME="I5355"></A><A NAME="I5356"></A>Yields the value True if the 
 task denoted by T is terminated, and False otherwise. The value of this 
 attribute is of the predefined type Boolean.&nbsp;</div>
 <div class="paranum"><a name="p4">4</a></div>
@@ -62,7 +60,7 @@ within any program unit that is, itself, inner to the body of the task
 unit.&nbsp;</div>
 <div class="paranum"><a name="p5">5</a></div>
 <div class="WideHanging-Term">E'Count</div><div class="WideHanging-Body">
-<A NAME="I5352"></A><A NAME="I5353"></A>Yields the number of calls presently 
+<A NAME="I5357"></A><A NAME="I5358"></A>Yields the number of calls presently 
 queued on the entry E of the current instance of the unit. The value 
 of this attribute is of the type <I>universal_integer</I>.</div>
 

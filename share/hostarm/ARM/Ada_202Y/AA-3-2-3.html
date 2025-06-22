@@ -13,8 +13,8 @@
     DIV.paranum {float: left; font-family: Arial, Helvetica, sans-serif; font-size: 64%; width: 2.8em; margin-left: -0.4em; margin-right: -3.0em; margin-top: 0.2em}
     TT {font-family: "Courier New", monospace}
     DT {display: compact}
-    SPAN.insert6 {text-decoration: underline; color: rgb(0,51,204) }
-    SPAN.delete6 {text-decoration: line-through; color: rgb(0,51,204) }
+    SPAN.insert7 {text-decoration: underline; color: rgb(153,0,0) }
+    SPAN.delete7 {text-decoration: line-through; color: rgb(153,0,0) }
     A.Bar:link {font-family: Arial, Helvetica, sans-serif; font-style: normal; text-decoration: none; color: rgb(204,204,51)}
     A.Bar:visited {font-family: Arial, Helvetica, sans-serif; font-style: normal; text-decoration: none; color: rgb(204,204,51)}
     DIV.Normal {font-family: "Times New Roman", Times, serif; line-height: 122%; margin-left: 1.8em; margin-bottom: 0.6em}
@@ -24,7 +24,7 @@
     </STYLE>
 </HEAD>
 <BODY TEXT="#000000" BGCOLOR="#FFFFF0" LINK="#000080" VLINK="#330033" ALINK="#0000FF">
-<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 3)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
+<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 4)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
 <div style="margin-top: 0.6em; margin-bottom: 0.0em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-0-4.html"><IMG SRC="index.gif" ALT="Index" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-STDS.html"><IMG SRC="lib.gif" ALT="References" BORDER=0></A>&nbsp;
@@ -38,14 +38,14 @@
 <H4 Class="centered">Static Semantics</H4>
 <div class="paranum"><a name="p1">1/2</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-00416.TXT">AI95-00416-01</A></I>} 
-<A NAME="I1626"></A>An operation <I>operates on a type</I> <I>T</I> if 
+<A NAME="I1630"></A>An operation <I>operates on a type</I> <I>T</I> if 
 it yields a value of type <I>T</I>, if it has an operand whose expected 
 type (see <A HREF="AA-8-6.html">8.6</A>) is <I>T</I>, or if it has an 
 access parameter or access result type (see <A HREF="AA-6-1.html">6.1</A>) 
-designating <I>T</I>. <A NAME="I1627"></A>A predefined operator, or other 
+designating <I>T</I>. <A NAME="I1631"></A>A predefined operator, or other 
 language-defined operation such as assignment or a membership test, that 
 operates on a type, is called a <I>predefined operation</I> of the type. 
-<A NAME="I1628"></A>The <I>primitive operations</I> of a type are the 
+<A NAME="I1632"></A>The <I>primitive operations</I> of a type are the 
 predefined operations of the type, plus any user-defined primitive subprograms. 
 </div>
 <div class="paranum"><a name="p1.a.1">1.a.1/5</a></div>
@@ -63,7 +63,7 @@ they are subprograms, and they are inherited by derived types.&nbsp;</div>
 subprogram&rdquo; in most of the rest of the manual. The term &ldquo;primitive 
 operation&rdquo; is used mostly in conceptual discussions.&nbsp;</div>
 <div class="paranum"><a name="p2">2</a></div>
-<div class="Normal" style="margin-bottom: 0.4em"><A NAME="I1629"></A>The 
+<div class="Normal" style="margin-bottom: 0.4em"><A NAME="I1633"></A>The 
 <I>primitive subprograms</I> of a specific type are defined as follows: 
 </div>
 <div class="paranum"><a name="p3">3</a></div>
@@ -87,7 +87,7 @@ operator whose result type is Boolean, the corresponding &quot;/=&quot;
 operator (see <A HREF="AA-6-6.html">6.6</A>);</div>
 <div class="paranum"><a name="p7">7/2</a></div>
 <div class="Bulleted">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-00200.TXT">AI95-00200-01</A></I>} 
-<A NAME="I1630"></A>For a nonformal type, any subprograms not covered 
+<A NAME="I1634"></A>For a nonformal type, any subprograms not covered 
 above [that are explicitly declared immediately within the same declarative 
 region as the type] and that override (see <A HREF="AA-8-3.html">8.3</A>) 
 other implicitly declared primitive subprograms of the type.&nbsp;</div>
@@ -113,16 +113,16 @@ Subprograms declared in a generic package specification are never primitive
 for a formal type, even if they happen to override an operation of the 
 formal type. This includes formal subprograms, which are never primitive 
 operations (that's true even for an abstract formal subprogram).&nbsp;</div>
-<div class="paranum"><a name="p8">8/6</a></div>
+<div class="paranum"><a name="p8">8/7</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0056-1.html">AI22-0056-1</A></I>} 
-<A NAME="I1631"></A>A primitive subprogram whose designator is an <SPAN Class="swiss"><A HREF="AA-6-1.html#S0202">operator_symbol</A></SPAN> 
-is called a <I>primitive operator</I>.<span class="insert6">&nbsp;A primitive 
+<A NAME="I1635"></A>A primitive subprogram whose designator is an <SPAN Class="swiss"><A HREF="AA-6-1.html#S0202">operator_symbol</A></SPAN> 
+is called a <I>primitive operator</I>.<span class="insert7">&nbsp;A primitive 
 function of <I>T</I> whose result type is <I>T</I> is called a <I>constructor 
-function</I> of <I>T</I>.<A NAME="I1632"></A><A NAME="I1633"></A></span></div>
+function</I> of <I>T</I>.<A NAME="I1636"></A><A NAME="I1637"></A></span></div>
 
 <H4 Class="centered">Incompatibilities With Ada 83</H4>
 <div class="paranum"><a name="p8.a">8.a</a></div>
-<div class="Annotations"><A NAME="I1634"></A>The attribute S'Base is 
+<div class="Annotations"><A NAME="I1638"></A>The attribute S'Base is 
 no longer defined for nonscalar subtypes. Since this was only permitted 
 as the prefix of another attribute, and there are no interesting nonscalar 
 attributes defined for an unconstrained composite or access subtype, 
@@ -130,7 +130,7 @@ this should not affect any existing programs.&nbsp;</div>
 
 <H4 Class="centered">Extensions to Ada 83</H4>
 <div class="paranum"><a name="p8.b">8.b</a></div>
-<div class="Annotations"><A NAME="I1635"></A>The primitive subprograms 
+<div class="Annotations"><A NAME="I1639"></A>The primitive subprograms 
 (derivable subprograms) include subprograms declared in the private part 
 of a package specification as well, and those that override implicitly 
 declared subprograms, even if declared in a body.&nbsp;</div>
@@ -164,9 +164,9 @@ that operate on a type T.&nbsp;</div>
 made visible by a <B>use type</B> clause.&nbsp;</div>
 
 <H4 Class="centered">Wording Changes from Ada 2022</H4>
-<div class="paranum"><a name="p8.h">8.h/6</a></div>
+<div class="paranum"><a name="p8.h">8.h/7</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0056-1.html">AI22-0056-1</A></I>} 
-<span class="insert6">Added a definition of the term &ldquo;constructor 
+<span class="insert7">Added a definition of the term &ldquo;constructor 
 function&rdquo;. This simplifies wording elsewhere in this Reference 
 Manual.</span>&nbsp;</div>
 

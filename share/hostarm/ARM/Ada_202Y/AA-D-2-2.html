@@ -22,7 +22,7 @@
     </STYLE>
 </HEAD>
 <BODY TEXT="#000000" BGCOLOR="#FFFFF0" LINK="#000080" VLINK="#330033" ALINK="#0000FF">
-<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 3)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
+<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 4)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
 <div style="margin-top: 0.6em; margin-bottom: 0.0em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-0-4.html"><IMG SRC="index.gif" ALT="Index" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-STDS.html"><IMG SRC="lib.gif" ALT="References" BORDER=0></A>&nbsp;
@@ -44,17 +44,17 @@ that are assigned individual dispatching policies.]&nbsp;</div>
 <div class="Indented1" style="margin-bottom: 0.4em">The form of a <SPAN Class="swiss"><A HREF="AA-2-8.html#S0019">pragma</A></SPAN> 
 Task_Dispatching_Policy is as follows:&nbsp;</div>
 <div class="paranum"><a name="p2">2</a></div>
-<div class="Indented1">&nbsp;&nbsp;<B>pragma</B> <A NAME="I9773"></A><A NAME="I9774"></A>Task_Dispatching_Policy(<I>policy_</I><A NAME="I9775"></A><SPAN Class="swiss"><A HREF="AA-2-3.html#S0002">identifier</A></SPAN>);</div>
+<div class="Indented1">&nbsp;&nbsp;<B>pragma</B> <A NAME="I9798"></A><A NAME="I9799"></A>Task_Dispatching_Policy(<I>policy_</I><A NAME="I9800"></A><SPAN Class="swiss"><A HREF="AA-2-3.html#S0002">identifier</A></SPAN>);</div>
 <div class="paranum"><a name="p2.1">2.1/2</a></div>
 <div class="Indented1" style="margin-bottom: 0.4em">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-00355.TXT">AI95-00355-01</A></I>} 
 The form of a <SPAN Class="swiss"><A HREF="AA-2-8.html#S0019">pragma</A></SPAN> 
 Priority_Specific_Dispatching is as follows:&nbsp;</div>
 <div class="paranum"><a name="p2.2">2.2/2</a></div>
-<div class="Indented1">&nbsp;&nbsp;<B>pragma</B> <A NAME="I9776"></A><A NAME="I9777"></A>Priority_Specific_Dispatching 
+<div class="Indented1">&nbsp;&nbsp;<B>pragma</B> <A NAME="I9801"></A><A NAME="I9802"></A>Priority_Specific_Dispatching 
 (<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<I>policy_</I><A NAME="I9778"></A><SPAN Class="swiss"><A HREF="AA-2-3.html#S0002">identifier</A></SPAN>, 
-<I>first_priority_</I><A NAME="I9779"></A><SPAN Class="swiss"><A HREF="AA-4-4.html#S0132">expression</A></SPAN>, 
-<I>last_priority_</I><A NAME="I9780"></A><SPAN Class="swiss"><A HREF="AA-4-4.html#S0132">expression</A></SPAN>);</div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<I>policy_</I><A NAME="I9803"></A><SPAN Class="swiss"><A HREF="AA-2-3.html#S0002">identifier</A></SPAN>, 
+<I>first_priority_</I><A NAME="I9804"></A><SPAN Class="swiss"><A HREF="AA-4-4.html#S0132">expression</A></SPAN>, 
+<I>last_priority_</I><A NAME="I9805"></A><SPAN Class="swiss"><A HREF="AA-4-4.html#S0132">expression</A></SPAN>);</div>
 
 <H4 Class="centered">Name Resolution Rules</H4>
 <div class="paranum"><a name="p2.3">2.3/2</a></div>
@@ -85,7 +85,7 @@ policy.</div>
 Both <I>first_priority_</I><SPAN Class="swiss"><A HREF="AA-4-4.html#S0132">expression</A></SPAN> 
 and <I>last_priority_</I><SPAN Class="swiss"><A HREF="AA-4-4.html#S0132">expression</A></SPAN> 
 shall be static expressions in the range of System.Any_Priority; <I>last_priority_</I><SPAN Class="swiss"><A HREF="AA-4-4.html#S0132">expression</A></SPAN> 
-shall have a value greater than or equal to <I>first_priority_</I><SPAN Class="swiss"><A HREF="AA-4-4.html#S0132">expression</A></SPAN>.<A NAME="I9781"></A></div>
+shall have a value greater than or equal to <I>first_priority_</I><SPAN Class="swiss"><A HREF="AA-4-4.html#S0132">expression</A></SPAN>.<A NAME="I9806"></A></div>
 
 <H4 Class="centered">Static Semantics</H4>
 <div class="paranum"><a name="p3.3">3.3/2</a></div>
@@ -120,9 +120,9 @@ pragmas is FIFO_Within_Priorities.</div>
 <H4 Class="centered">Post-Compilation Rules</H4>
 <div class="paranum"><a name="p4">4/2</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-00355.TXT">AI95-00355-01</A></I>} 
-<A NAME="I9782"></A><A NAME="I9783"></A>A Task_Dispatching_Policy pragma 
+<A NAME="I9807"></A><A NAME="I9808"></A>A Task_Dispatching_Policy pragma 
 is a configuration pragma. A Priority_Specific_Dispatching pragma is 
-a configuration pragma. <A NAME="I9784"></A><A NAME="I9785"></A></div>
+a configuration pragma. <A NAME="I9809"></A><A NAME="I9810"></A></div>
 <div class="paranum"><a name="p4.1">4.1/2</a></div>
 <div class="Normal">&nbsp;{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-00355.TXT">AI95-00355-01</A></I>} 
 The priority ranges specified in more than one Priority_Specific_Dispatching 
@@ -139,7 +139,7 @@ deleted.</I></SPAN>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/A
 <H4 Class="centered">Dynamic Semantics</H4>
 <div class="paranum"><a name="p6">6/2</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-00355.TXT">AI95-00355-01</A></I>} 
-<A NAME="I9786"></A>[A <I>task dispatching policy</I> specifies the details 
+<A NAME="I9811"></A>[A <I>task dispatching policy</I> specifies the details 
 of task dispatching that are not covered by the basic task dispatching 
 model. These rules govern when tasks are inserted into and deleted from 
 the ready queues.] A single task dispatching policy is specified by a 
@@ -147,7 +147,7 @@ Task_Dispatching_Policy pragma. Pragma Priority_Specific_Dispatching
 assigns distinct dispatching policies to subranges of System.Any_Priority.</div>
 <div class="paranum"><a name="p6.1">6.1/2</a></div>
 <div class="Normal">&nbsp;{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-00355.TXT">AI95-00355-01</A></I>} 
-<A NAME="I9787"></A>If neither <SPAN Class="swiss"><A HREF="AA-2-8.html#S0019">pragma</A></SPAN> 
+<A NAME="I9812"></A>If neither <SPAN Class="swiss"><A HREF="AA-2-8.html#S0019">pragma</A></SPAN> 
 applies to any of the program units comprising a partition, the task 
 dispatching policy for that partition is unspecified.</div>
 <div class="paranum"><a name="p6.2">6.2/3</a></div>
@@ -215,7 +215,7 @@ defined task dispatching policies.</div>
 <H4 Class="centered">Extensions to Ada 95</H4>
 <div class="paranum"><a name="p21.a">21.a/2</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-00333.TXT">AI95-00333-01</A></I>} 
-<A NAME="I9788"></A><B>Amendment Correction:</B> It is no longer required 
+<A NAME="I9813"></A><B>Amendment Correction:</B> It is no longer required 
 to specify Ceiling_Locking with the language-defined task dispatching 
 policies; we only require that implementations <I>allow</I> them to be 
 used together.</div>

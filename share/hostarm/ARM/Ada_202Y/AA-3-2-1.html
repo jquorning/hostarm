@@ -23,7 +23,7 @@
     </STYLE>
 </HEAD>
 <BODY TEXT="#000000" BGCOLOR="#FFFFF0" LINK="#000080" VLINK="#330033" ALINK="#0000FF">
-<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 3)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
+<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 4)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
 <div style="margin-top: 0.6em; margin-bottom: 0.0em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-0-4.html"><IMG SRC="index.gif" ALT="Index" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-STDS.html"><IMG SRC="lib.gif" ALT="References" BORDER=0></A>&nbsp;
@@ -39,24 +39,24 @@ declares a type and its first subtype.&nbsp;</div>
 
 <H4 Class="centered">Syntax</H4>
 <div class="paranum"><a name="p2">2</a></div>
-<div class="Indented1"><SPAN Class="swiss">type_declaration</SPAN><A NAME="I1563"></A><A NAME="S0023"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN>&nbsp;<A NAME="I1564"></A><SPAN Class="swiss"><A HREF="AA-3-2-1.html#S0024">full_type_declaration</A></SPAN><BR>
-&nbsp;&nbsp;&nbsp;|&nbsp;<A NAME="I1565"></A><SPAN Class="swiss"><A HREF="AA-3-10-1.html#S0085">incomplete_type_declaration</A></SPAN><BR>
-&nbsp;&nbsp;&nbsp;|&nbsp;<A NAME="I1566"></A><SPAN Class="swiss"><A HREF="AA-7-3.html#S0232">private_type_declaration</A></SPAN><BR>
-&nbsp;&nbsp;&nbsp;|&nbsp;<A NAME="I1567"></A><SPAN Class="swiss"><A HREF="AA-7-3.html#S0233">private_extension_declaration</A></SPAN></div>
+<div class="Indented1"><SPAN Class="swiss">type_declaration</SPAN><A NAME="I1567"></A><A NAME="S0023"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN>&nbsp;<A NAME="I1568"></A><SPAN Class="swiss"><A HREF="AA-3-2-1.html#S0024">full_type_declaration</A></SPAN><BR>
+&nbsp;&nbsp;&nbsp;|&nbsp;<A NAME="I1569"></A><SPAN Class="swiss"><A HREF="AA-3-10-1.html#S0085">incomplete_type_declaration</A></SPAN><BR>
+&nbsp;&nbsp;&nbsp;|&nbsp;<A NAME="I1570"></A><SPAN Class="swiss"><A HREF="AA-7-3.html#S0232">private_type_declaration</A></SPAN><BR>
+&nbsp;&nbsp;&nbsp;|&nbsp;<A NAME="I1571"></A><SPAN Class="swiss"><A HREF="AA-7-3.html#S0233">private_extension_declaration</A></SPAN></div>
 <div class="paranum"><a name="p3">3/3</a></div>
 <div class="Indented1">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0183-1.TXT">AI05-0183-1</A></I>} 
-<SPAN Class="swiss">full_type_declaration</SPAN><A NAME="I1568"></A><A NAME="S0024"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN><BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>type</B>&nbsp;<A NAME="I1569"></A><SPAN Class="swiss"><A HREF="AA-3-1.html#S0022">defining_identifier</A></SPAN>&nbsp;[<A NAME="I1570"></A><SPAN Class="swiss"><A HREF="AA-3-7.html#S0061">known_discriminant_part</A></SPAN>]&nbsp;<B>is</B>&nbsp;<A NAME="I1571"></A><SPAN Class="swiss"><A HREF="AA-3-2-1.html#S0025">type_definition</A></SPAN><BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<A NAME="I1572"></A><SPAN Class="swiss"><A HREF="AA-13-1-1.html#S0346">aspect_specification</A></SPAN>];<BR>
-&nbsp;&nbsp;&nbsp;|&nbsp;<A NAME="I1573"></A><SPAN Class="swiss"><A HREF="AA-9-1.html#S0244">task_type_declaration</A></SPAN><BR>
-&nbsp;&nbsp;&nbsp;|&nbsp;<A NAME="I1574"></A><SPAN Class="swiss"><A HREF="AA-9-4.html#S0249">protected_type_declaration</A></SPAN></div>
+<SPAN Class="swiss">full_type_declaration</SPAN><A NAME="I1572"></A><A NAME="S0024"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN><BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>type</B>&nbsp;<A NAME="I1573"></A><SPAN Class="swiss"><A HREF="AA-3-1.html#S0022">defining_identifier</A></SPAN>&nbsp;[<A NAME="I1574"></A><SPAN Class="swiss"><A HREF="AA-3-7.html#S0061">known_discriminant_part</A></SPAN>]&nbsp;<B>is</B>&nbsp;<A NAME="I1575"></A><SPAN Class="swiss"><A HREF="AA-3-2-1.html#S0025">type_definition</A></SPAN><BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<A NAME="I1576"></A><SPAN Class="swiss"><A HREF="AA-13-1-1.html#S0346">aspect_specification</A></SPAN>];<BR>
+&nbsp;&nbsp;&nbsp;|&nbsp;<A NAME="I1577"></A><SPAN Class="swiss"><A HREF="AA-9-1.html#S0244">task_type_declaration</A></SPAN><BR>
+&nbsp;&nbsp;&nbsp;|&nbsp;<A NAME="I1578"></A><SPAN Class="swiss"><A HREF="AA-9-4.html#S0249">protected_type_declaration</A></SPAN></div>
 <div class="paranum"><a name="p4">4/2</a></div>
 <div class="Indented1">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-00251.TXT">AI95-00251-01</A></I>} 
-<SPAN Class="swiss">type_definition</SPAN><A NAME="I1575"></A><A NAME="S0025"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN><BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A NAME="I1576"></A><SPAN Class="swiss"><A HREF="AA-3-5-1.html#S0038">enumeration_type_definition</A></SPAN>&nbsp;|&nbsp;<A NAME="I1577"></A><SPAN Class="swiss"><A HREF="AA-3-5-4.html#S0041">integer_type_definition</A></SPAN><BR>
-&nbsp;&nbsp;&nbsp;|&nbsp;<A NAME="I1578"></A><SPAN Class="swiss"><A HREF="AA-3-5-6.html#S0044">real_type_definition</A></SPAN>&nbsp;|&nbsp;<A NAME="I1579"></A><SPAN Class="swiss"><A HREF="AA-3-6.html#S0051">array_type_definition</A></SPAN><BR>
-&nbsp;&nbsp;&nbsp;|&nbsp;<A NAME="I1580"></A><SPAN Class="swiss"><A HREF="AA-3-8.html#S0066">record_type_definition</A></SPAN>&nbsp;|&nbsp;<A NAME="I1581"></A><SPAN Class="swiss"><A HREF="AA-3-10.html#S0079">access_type_definition</A></SPAN><BR>
-&nbsp;&nbsp;&nbsp;|&nbsp;<A NAME="I1582"></A><SPAN Class="swiss"><A HREF="AA-3-4.html#S0035">derived_type_definition</A></SPAN>&nbsp;|&nbsp;<A NAME="I1583"></A><SPAN Class="swiss"><A HREF="AA-3-9-4.html#S0077">interface_type_definition</A></SPAN></div>
+<SPAN Class="swiss">type_definition</SPAN><A NAME="I1579"></A><A NAME="S0025"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN><BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A NAME="I1580"></A><SPAN Class="swiss"><A HREF="AA-3-5-1.html#S0038">enumeration_type_definition</A></SPAN>&nbsp;|&nbsp;<A NAME="I1581"></A><SPAN Class="swiss"><A HREF="AA-3-5-4.html#S0041">integer_type_definition</A></SPAN><BR>
+&nbsp;&nbsp;&nbsp;|&nbsp;<A NAME="I1582"></A><SPAN Class="swiss"><A HREF="AA-3-5-6.html#S0044">real_type_definition</A></SPAN>&nbsp;|&nbsp;<A NAME="I1583"></A><SPAN Class="swiss"><A HREF="AA-3-6.html#S0051">array_type_definition</A></SPAN><BR>
+&nbsp;&nbsp;&nbsp;|&nbsp;<A NAME="I1584"></A><SPAN Class="swiss"><A HREF="AA-3-8.html#S0066">record_type_definition</A></SPAN>&nbsp;|&nbsp;<A NAME="I1585"></A><SPAN Class="swiss"><A HREF="AA-3-10.html#S0079">access_type_definition</A></SPAN><BR>
+&nbsp;&nbsp;&nbsp;|&nbsp;<A NAME="I1586"></A><SPAN Class="swiss"><A HREF="AA-3-4.html#S0035">derived_type_definition</A></SPAN>&nbsp;|&nbsp;<A NAME="I1587"></A><SPAN Class="swiss"><A HREF="AA-3-9-4.html#S0077">interface_type_definition</A></SPAN></div>
 
 <H4 Class="centered">Legality Rules</H4>
 <div class="paranum"><a name="p5">5</a></div>
@@ -66,7 +66,7 @@ type is the given type itself.&nbsp;</div>
 <H4 Class="centered">Static Semantics</H4>
 <div class="paranum"><a name="p6">6/5</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0449-1.TXT">AI12-0449-1</A></I>} 
-<A NAME="I1584"></A>The <SPAN Class="swiss"><A HREF="AA-3-1.html#S0022">defining_identifier</A></SPAN> 
+<A NAME="I1588"></A>The <SPAN Class="swiss"><A HREF="AA-3-1.html#S0022">defining_identifier</A></SPAN> 
 of a <SPAN Class="swiss"><A HREF="AA-3-2-1.html#S0023">type_declaration</A></SPAN> 
 denotes the <I>first subtype</I> of the type. The <SPAN Class="swiss"><A HREF="AA-3-7.html#S0061">known_discriminant_part</A></SPAN>, 
 if any, defines the discriminants of the type (see <A HREF="AA-3-7.html">3.7</A>). 
@@ -74,12 +74,12 @@ The remainder of the <SPAN Class="swiss"><A HREF="AA-3-2-1.html#S0023">type_decl
 defines the remaining characteristics of (the view of) the type.</div>
 <div class="paranum"><a name="p7">7/2</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-00230.TXT">AI95-00230-01</A></I>} 
-<A NAME="I1585"></A>A type defined by a <SPAN Class="swiss"><A HREF="AA-3-2-1.html#S0023">type_declaration</A></SPAN> 
+<A NAME="I1589"></A>A type defined by a <SPAN Class="swiss"><A HREF="AA-3-2-1.html#S0023">type_declaration</A></SPAN> 
 is a <I>named</I> type; such a type has one or more nameable subtypes. 
-<A NAME="I1586"></A>Certain other forms of declaration also include type 
+<A NAME="I1590"></A>Certain other forms of declaration also include type 
 definitions as part of the declaration for an object. The type defined 
 by such a declaration is <I>anonymous</I> &mdash; it has no nameable 
-subtypes. <A NAME="I1587"></A>For explanatory purposes, this document 
+subtypes. <A NAME="I1591"></A>For explanatory purposes, this document 
 sometimes refers to an anonymous type by a pseudo-name, written in italics, 
 and uses such pseudo-names at places where the syntax normally requires 
 an <SPAN Class="swiss"><A HREF="AA-2-3.html#S0002">identifier</A></SPAN>. 
@@ -95,11 +95,11 @@ An anonymous access type can be defined as part of numerous other constructs.
 <div class="paranum"><a name="p8">8/2</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-00230.TXT">AI95-00230-01</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-00326.TXT">AI95-00326-01</A></I>} 
-<A NAME="I1588"></A>A named type that is declared by a <SPAN Class="swiss"><A HREF="AA-3-2-1.html#S0024">full_type_declaration</A></SPAN>, 
+<A NAME="I1592"></A>A named type that is declared by a <SPAN Class="swiss"><A HREF="AA-3-2-1.html#S0024">full_type_declaration</A></SPAN>, 
 or an anonymous type that is defined by an <SPAN Class="swiss"><A HREF="AA-3-10.html#S0084">access_definition</A></SPAN> 
-or as part of declaring an object of the type, is called a <I>full type</I>.<A NAME="I1589"></A> 
+or as part of declaring an object of the type, is called a <I>full type</I>.<A NAME="I1593"></A> 
 The declaration of a full type also declares the <I>full view</I> of 
-the type.<A NAME="I1590"></A> The <SPAN Class="swiss"><A HREF="AA-3-2-1.html#S0025">type_definition</A></SPAN>, 
+the type.<A NAME="I1594"></A> The <SPAN Class="swiss"><A HREF="AA-3-2-1.html#S0025">type_definition</A></SPAN>, 
 <SPAN Class="swiss"><A HREF="AA-9-1.html#S0246">task_definition</A></SPAN>, 
 <SPAN Class="swiss"><A HREF="AA-9-4.html#S0251">protected_definition</A></SPAN>, 
 or <SPAN Class="swiss"><A HREF="AA-3-10.html#S0084">access_definition</A></SPAN> 
@@ -117,7 +117,7 @@ separately, as it may occur in renames, which do not declare objects.
 </div>
 <div class="paranum"><a name="p9">9/5</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0449-1.TXT">AI12-0449-1</A></I>} 
-<A NAME="I1591"></A>The definition of a type implicitly declares certain 
+<A NAME="I1595"></A>The definition of a type implicitly declares certain 
 <I>predefined operators</I> that operate on the type, according to what 
 classes the type belongs, as specified in <A HREF="AA-4-5.html">4.5</A>. 
 </div>
@@ -127,7 +127,7 @@ implicit declaration of basic operations. These are treated like an <SPAN Class=
 &mdash; they don't need to be declared, but are still applicable to only 
 certain classes of types.</div>
 <div class="paranum"><a name="p10">10</a></div>
-<div class="Normal"><A NAME="I1592"></A>The <I>predefined types</I> [(for 
+<div class="Normal"><A NAME="I1596"></A>The <I>predefined types</I> [(for 
 example the types Boolean, Wide_Character, Integer, <I>root_integer</I>, 
 and <I>universal_integer</I>)] are the types that are defined in [a predefined 
 library package called] Standard[; this package also includes the [(implicit)] 
@@ -144,8 +144,8 @@ and Text_IO.Put_Line is not a predefined operation.&nbsp;</div>
 
 <H4 Class="centered">Dynamic Semantics</H4>
 <div class="paranum"><a name="p11">11</a></div>
-<div class="Normal"><A NAME="I1593"></A>The elaboration of a <SPAN Class="swiss"><A HREF="AA-3-2-1.html#S0024">full_type_declaration</A></SPAN> 
-consists of the elaboration of the full type definition. <A NAME="I1594"></A>Each 
+<div class="Normal"><A NAME="I1597"></A>The elaboration of a <SPAN Class="swiss"><A HREF="AA-3-2-1.html#S0024">full_type_declaration</A></SPAN> 
+consists of the elaboration of the full type definition. <A NAME="I1598"></A>Each 
 elaboration of a full type definition creates a distinct type and its 
 first subtype.&nbsp;</div>
 <div class="paranum"><a name="p11.a">11.a</a></div>
@@ -226,7 +226,7 @@ full view.&nbsp;</div>
 <H4 Class="centered">Extensions to Ada 2005</H4>
 <div class="paranum"><a name="p16.g">16.g/3</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0183-1.TXT">AI05-0183-1</A></I>} 
-<A NAME="I1595"></A>An optional <SPAN Class="swiss"><A HREF="AA-13-1-1.html#S0346">aspect_specification</A></SPAN> 
+<A NAME="I1599"></A>An optional <SPAN Class="swiss"><A HREF="AA-13-1-1.html#S0346">aspect_specification</A></SPAN> 
 can be used in a <SPAN Class="swiss"><A HREF="AA-3-2-1.html#S0024">full_type_declaration</A></SPAN>. 
 This is described in <A HREF="AA-13-1-1.html">13.1.1</A>.&nbsp;</div>
 

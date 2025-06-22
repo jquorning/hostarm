@@ -23,7 +23,7 @@
     </STYLE>
 </HEAD>
 <BODY TEXT="#000000" BGCOLOR="#FFFFF0" LINK="#000080" VLINK="#330033" ALINK="#0000FF">
-<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 3)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
+<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 4)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
 <div style="margin-top: 0.6em; margin-bottom: 0.0em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-0-4.html"><IMG SRC="index.gif" ALT="Index" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-STDS.html"><IMG SRC="lib.gif" ALT="References" BORDER=0></A>&nbsp;
@@ -46,27 +46,27 @@ of the operation.</div>
 For any declaration within a generic unit for which a global or Nonblocking 
 aspect may be specified, other than a <SPAN Class="swiss"><A HREF="AA-12-1.html#S0314">generic_formal_parameter_declaration</A></SPAN>, 
 the following aspect may be specified to indicate which generic formal 
-parameters are <I>used</I> by the associated entity:<A NAME="I10596"></A></div>
+parameters are <I>used</I> by the associated entity:<A NAME="I10621"></A></div>
 <div class="paranum"><a name="p3">3/5</a></div>
 <div class="WideHanging-Term" style="margin-bottom: 0.4em">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0380-1.TXT">AI12-0380-1</A></I>} 
 Use_Formal</div><div class="WideHanging-Body"><br clear="left">
 The aspect is specified with a <SPAN Class="swiss"><A HREF="AA-H-7-1.html#S0362">formal_parameter_set</A></SPAN>, 
-with the following form:<A NAME="I10597"></A><A NAME="I10598"></A></div>
+with the following form:<A NAME="I10622"></A><A NAME="I10623"></A></div>
 <div class="paranum"><a name="p3.a">3.a/5</a></div>
 <div class="Annotations"><B>Aspect Description for&nbsp;</B><B>Use_Formal: 
 </B>Generic formal parameters used in the implementation of an entity.</div>
 <div class="paranum"><a name="p4">4/5</a></div>
-<div class="WideHanging-Body"><SPAN Class="swiss">formal_parameter_set</SPAN><A NAME="I10599"></A><A NAME="S0362"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN><BR>
-&nbsp;&nbsp;&nbsp;&nbsp;<A NAME="I10600"></A><SPAN Class="swiss"><A HREF="AA-H-7-1.html#S0363">formal_group_designator</A></SPAN><BR>
-&nbsp;&nbsp;|&nbsp;<A NAME="I10601"></A><SPAN Class="swiss"><A HREF="AA-H-7-1.html#S0364">formal_parameter_name</A></SPAN><BR>
-&nbsp;&nbsp;|&nbsp;(<A NAME="I10602"></A><SPAN Class="swiss"><A HREF="AA-H-7-1.html#S0364">formal_parameter_name</A></SPAN>{,&nbsp;<A NAME="I10603"></A><SPAN Class="swiss"><A HREF="AA-H-7-1.html#S0364">formal_parameter_name</A></SPAN>})</div>
+<div class="WideHanging-Body"><SPAN Class="swiss">formal_parameter_set</SPAN><A NAME="I10624"></A><A NAME="S0362"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN><BR>
+&nbsp;&nbsp;&nbsp;&nbsp;<A NAME="I10625"></A><SPAN Class="swiss"><A HREF="AA-H-7-1.html#S0363">formal_group_designator</A></SPAN><BR>
+&nbsp;&nbsp;|&nbsp;<A NAME="I10626"></A><SPAN Class="swiss"><A HREF="AA-H-7-1.html#S0364">formal_parameter_name</A></SPAN><BR>
+&nbsp;&nbsp;|&nbsp;(<A NAME="I10627"></A><SPAN Class="swiss"><A HREF="AA-H-7-1.html#S0364">formal_parameter_name</A></SPAN>{,&nbsp;<A NAME="I10628"></A><SPAN Class="swiss"><A HREF="AA-H-7-1.html#S0364">formal_parameter_name</A></SPAN>})</div>
 <div class="paranum"><a name="p5">5/5</a></div>
-<div class="WideHanging-Body"><SPAN Class="swiss">formal_group_designator</SPAN><A NAME="I10604"></A><A NAME="S0363"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN><B>null</B>&nbsp;|&nbsp;<B>all</B></div>
+<div class="WideHanging-Body"><SPAN Class="swiss">formal_group_designator</SPAN><A NAME="I10629"></A><A NAME="S0363"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN><B>null</B>&nbsp;|&nbsp;<B>all</B></div>
 <div class="paranum"><a name="p6">6/5</a></div>
-<div class="WideHanging-Body"><SPAN Class="swiss">formal_parameter_name</SPAN><A NAME="I10605"></A><A NAME="S0364"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN><BR>
-&nbsp;&nbsp;&nbsp;&nbsp;<I>formal_</I><A NAME="I10606"></A><SPAN Class="swiss"><A HREF="AA-3-2-2.html#S0028">subtype_mark</A></SPAN><BR>
-&nbsp;&nbsp;|&nbsp;<I>formal_subprogram_</I><A NAME="I10607"></A><SPAN Class="swiss"><A HREF="AA-4-1.html#S0091">name</A></SPAN><BR>
-&nbsp;&nbsp;|&nbsp;<I>formal_access_to_subprogram_object_</I><A NAME="I10608"></A><SPAN Class="swiss"><A HREF="AA-4-1.html#S0091">name</A></SPAN></div>
+<div class="WideHanging-Body"><SPAN Class="swiss">formal_parameter_name</SPAN><A NAME="I10630"></A><A NAME="S0364"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN><BR>
+&nbsp;&nbsp;&nbsp;&nbsp;<I>formal_</I><A NAME="I10631"></A><SPAN Class="swiss"><A HREF="AA-3-2-2.html#S0028">subtype_mark</A></SPAN><BR>
+&nbsp;&nbsp;|&nbsp;<I>formal_subprogram_</I><A NAME="I10632"></A><SPAN Class="swiss"><A HREF="AA-4-1.html#S0091">name</A></SPAN><BR>
+&nbsp;&nbsp;|&nbsp;<I>formal_access_to_subprogram_object_</I><A NAME="I10633"></A><SPAN Class="swiss"><A HREF="AA-4-1.html#S0091">name</A></SPAN></div>
 <div class="paranum"><a name="p7">7/5</a></div>
 <div class="Normal" style="margin-bottom: 0.4em">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0079-3.TXT">AI12-0079-3</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0380-1.TXT">AI12-0380-1</A></I>} 
@@ -77,17 +77,17 @@ formal, the following aspect may be specified:</div>
 <div class="WideHanging-Term" style="margin-bottom: 0.4em">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0380-1.TXT">AI12-0380-1</A></I>} 
 Dispatching</div><div class="WideHanging-Body"><br clear="left">
  The aspect is specified with a <SPAN Class="swiss"><A HREF="AA-H-7-1.html#S0365">dispatching_operation_set</A></SPAN>, 
-with the following form:<A NAME="I10609"></A><A NAME="I10610"></A></div>
+with the following form:<A NAME="I10634"></A><A NAME="I10635"></A></div>
 <div class="paranum"><a name="p8.a">8.a/5</a></div>
 <div class="Annotations"><B>Aspect Description for&nbsp;</B><B>Dispatching: 
 </B>Generic formal parameters used in the implementation of an entity.</div>
 <div class="paranum"><a name="p9">9/5</a></div>
-<div class="WideHanging-Body"><SPAN Class="swiss">dispatching_operation_set</SPAN><A NAME="I10611"></A><A NAME="S0365"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN><BR>
-&nbsp;&nbsp;&nbsp;&nbsp;<A NAME="I10612"></A><SPAN Class="swiss"><A HREF="AA-H-7-1.html#S0366">dispatching_operation_specifier</A></SPAN><BR>
-&nbsp;&nbsp;|&nbsp;(<A NAME="I10613"></A><SPAN Class="swiss"><A HREF="AA-H-7-1.html#S0366">dispatching_operation_specifier</A></SPAN>{,&nbsp;<A NAME="I10614"></A><SPAN Class="swiss"><A HREF="AA-H-7-1.html#S0366">dispatching_operation_specifier</A></SPAN>})</div>
+<div class="WideHanging-Body"><SPAN Class="swiss">dispatching_operation_set</SPAN><A NAME="I10636"></A><A NAME="S0365"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN><BR>
+&nbsp;&nbsp;&nbsp;&nbsp;<A NAME="I10637"></A><SPAN Class="swiss"><A HREF="AA-H-7-1.html#S0366">dispatching_operation_specifier</A></SPAN><BR>
+&nbsp;&nbsp;|&nbsp;(<A NAME="I10638"></A><SPAN Class="swiss"><A HREF="AA-H-7-1.html#S0366">dispatching_operation_specifier</A></SPAN>{,&nbsp;<A NAME="I10639"></A><SPAN Class="swiss"><A HREF="AA-H-7-1.html#S0366">dispatching_operation_specifier</A></SPAN>})</div>
 <div class="paranum"><a name="p10">10/5</a></div>
-<div class="WideHanging-Body"><SPAN Class="swiss">dispatching_operation_specifier</SPAN><A NAME="I10615"></A><A NAME="S0366"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN><BR>
-&nbsp;&nbsp;&nbsp;&nbsp;<I>dispatching_operation_</I><A NAME="I10616"></A><SPAN Class="swiss"><A HREF="AA-4-1.html#S0091">name</A></SPAN>&nbsp;(<I>object_</I><A NAME="I10617"></A><SPAN Class="swiss"><A HREF="AA-4-1.html#S0091">name</A></SPAN>)</div>
+<div class="WideHanging-Body"><SPAN Class="swiss">dispatching_operation_specifier</SPAN><A NAME="I10640"></A><A NAME="S0366"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN><BR>
+&nbsp;&nbsp;&nbsp;&nbsp;<I>dispatching_operation_</I><A NAME="I10641"></A><SPAN Class="swiss"><A HREF="AA-4-1.html#S0091">name</A></SPAN>&nbsp;(<I>object_</I><A NAME="I10642"></A><SPAN Class="swiss"><A HREF="AA-4-1.html#S0091">name</A></SPAN>)</div>
 
 <H4 Class="centered">Name Resolution Rules</H4>
 <div class="paranum"><a name="p11">11/5</a></div>
@@ -111,7 +111,7 @@ with <I>T</I>.&nbsp;</div>
 <div class="paranum"><a name="p13">13/5</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0380-1.TXT">AI12-0380-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0439-1.TXT">AI12-0439-1</A></I>} 
-The <I>formal parameter set</I><A NAME="I10618"></A> is identified by 
+The <I>formal parameter set</I><A NAME="I10643"></A> is identified by 
 a set of <SPAN Class="swiss"><A HREF="AA-H-7-1.html#S0364">formal_parameter_name</A></SPAN>s. 
 Alternatively, the reserved word <B>null</B> may be used to indicate 
 none of the generic formal parameters, or <B>all</B> to indicate all 
@@ -123,7 +123,7 @@ a generic unit, it defaults to <B>all</B>.</div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0380-1.TXT">AI12-0380-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0404-1.TXT">AI12-0404-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0444-1.TXT">AI12-0444-1</A></I>} 
-The <I>dispatching operation set</I><A NAME="I10619"></A> is identified 
+The <I>dispatching operation set</I><A NAME="I10644"></A> is identified 
 by a set of <SPAN Class="swiss"><A HREF="AA-H-7-1.html#S0366">dispatching_operation_specifier</A></SPAN>s. 
 It indicates that the Nonblocking and global effects of dispatching calls 
 that match one of the specifiers, rather than being accounted for by 
@@ -195,7 +195,7 @@ of Hashed_Sets in <A HREF="AA-A-18-8.html">A.18.8</A>.</I></div>
 <H4 Class="centered">Extensions to Ada 2012</H4>
 <div class="paranum"><a name="p20.a">20.a/5</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0079-3.TXT">AI12-0079-3</A></I>} 
-<A NAME="I10620"></A>The aspects Use_Formal and Dispatching are new. 
+<A NAME="I10645"></A>The aspects Use_Formal and Dispatching are new. 
 </div>
 
 <HR>

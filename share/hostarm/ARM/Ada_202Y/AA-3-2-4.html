@@ -30,7 +30,7 @@
     </STYLE>
 </HEAD>
 <BODY TEXT="#000000" BGCOLOR="#FFFFF0" LINK="#000080" VLINK="#330033" ALINK="#0000FF">
-<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 3)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
+<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 4)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
 <div style="margin-top: 0.6em; margin-bottom: 0.0em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-0-4.html"><IMG SRC="index.gif" ALT="Index" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-STDS.html"><IMG SRC="lib.gif" ALT="References" BORDER=0></A>&nbsp;
@@ -49,7 +49,7 @@
 The language-defined <I>predicate aspects</I> Static_Predicate and Dynamic_Predicate 
 may be used to define properties of subtypes. A <I>predicate specification</I> 
 is an <SPAN Class="swiss"><A HREF="AA-13-1-1.html#S0346">aspect_specification</A></SPAN> 
-for one of the two predicate aspects.<A NAME="I1636"></A><A NAME="I1637"></A><A NAME="I1638"></A><A NAME="I1639"></A><A NAME="I1640"></A><A NAME="I1641"></A><A NAME="I1642"></A> 
+for one of the two predicate aspects.<A NAME="I1640"></A><A NAME="I1641"></A><A NAME="I1642"></A><A NAME="I1643"></A><A NAME="I1644"></A><A NAME="I1645"></A><A NAME="I1646"></A> 
 General rules for aspects and <SPAN Class="swiss"><A HREF="AA-13-1-1.html#S0346">aspect_specification</A></SPAN>s 
 are found in Clause <A HREF="AA-13.html">13</A> (<A HREF="AA-13-1.html">13.1</A> 
 and <A HREF="AA-13-1-1.html">13.1.1</A> respectively). The predicate 
@@ -69,7 +69,7 @@ subtype is not static.</div>
 <div class="paranum"><a name="p2">2/3</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0153-3.TXT">AI05-0153-3</A></I>} 
 The expected type for a predicate aspect <SPAN Class="swiss"><A HREF="AA-4-4.html#S0132">expression</A></SPAN> 
-is any boolean type.<A NAME="I1643"></A></div>
+is any boolean type.<A NAME="I1647"></A></div>
 
 <H4 Class="centered">Static Semantics</H4>
 <div class="paranum"><a name="p3">3/3</a></div>
@@ -95,7 +95,7 @@ deleted.</I></SPAN>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s
 <div class="paranum"><a name="p7">7/3</a></div>
 <div class="Normal" style="margin-bottom: 0.4em">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0290-1.TXT">AI05-0290-1</A></I>} 
 Predicate checks are defined to be <I>enabled</I> or <I>disabled</I> 
-for a given subtype as follows:<A NAME="I1644"></A><A NAME="I1645"></A><A NAME="I1646"></A></div>
+for a given subtype as follows:<A NAME="I1648"></A><A NAME="I1649"></A><A NAME="I1650"></A></div>
 <div class="paranum"><a name="p8">8/3</a></div>
 <div class="Bulleted" style="margin-bottom: 0.3em">If a subtype is declared 
 by a <SPAN Class="swiss"><A HREF="AA-3-2-1.html#S0023">type_declaration</A></SPAN> 
@@ -151,7 +151,7 @@ additional language-defined aspect may be specified with an <SPAN Class="swiss">
 This aspect shall be specified by an <SPAN Class="swiss"><A HREF="AA-4-4.html#S0132">expression</A></SPAN>, 
 which determines the action to be performed when a predicate check fails 
 because a directly-specified predicate aspect of the subtype evaluates 
-to False, as explained below.<A NAME="I1647"></A><A NAME="I1648"></A> 
+to False, as explained below.<A NAME="I1651"></A><A NAME="I1652"></A> 
 </div>
 <div class="paranum"><a name="p14.b.1">14.b.1/4</a></div>
 <div class="Annotations"><B>Aspect Description for&nbsp;</B><B>Predicate_Failure: 
@@ -169,7 +169,7 @@ is String.&nbsp;</div>
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0269-1.TXT">AI05-0269-1</A></I>} 
 The <SPAN Class="swiss"><A HREF="AA-4-4.html#S0132">expression</A></SPAN> 
 of a Static_Predicate specification shall be <I>predicate-static</I>; 
-that is, one of the following:<A NAME="I1649"></A><A NAME="I1650"></A> 
+that is, one of the following:<A NAME="I1653"></A><A NAME="I1654"></A> 
 </div>
 <div class="paranum"><a name="p16">16/3</a></div>
 <div class="Bulleted">a static expression;</div>
@@ -275,13 +275,13 @@ the runtime generic body check applies.&nbsp;</div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0262-1.TXT">AI05-0262-1</A></I>} 
 In addition to the places where Legality Rules normally apply (see <A HREF="AA-12-3.html">12.3</A>), 
 these rules apply also in the private part of an instance of a generic 
-unit.<A NAME="I1651"></A>&nbsp;</div>
+unit.<A NAME="I1655"></A>&nbsp;</div>
 
 <H4 Class="centered">Dynamic Semantics</H4>
 <div class="paranum"><a name="p29.1">29.1/4</a></div>
 <div class="Normal">&nbsp;&nbsp;{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0071-1.TXT">AI12-0071-1</A></I>} 
 If any of the above Legality Rules is violated in an instance of a generic 
-unit, Program_Error is raised at the point of the violation.<A NAME="I1652"></A><A NAME="I1653"></A><A NAME="I1654"></A></div>
+unit, Program_Error is raised at the point of the violation.<A NAME="I1656"></A><A NAME="I1657"></A><A NAME="I1658"></A></div>
 <div class="paranum"><a name="p29.a">29.a/4</a></div>
 <div class="Annotations"><B>Discussion:&nbsp;</B>This is the usual way around 
 the contract model; this applies even in instance bodies. Note that errors 
@@ -294,7 +294,7 @@ To determine whether a value <I>satisfies the predicates</I> of a subtype
 <I>S</I>, the following tests are performed in the following order, until 
 one of the tests fails, in which case the predicates are not satisfied 
 and no further tests are performed, or all of the tests succeed, in which 
-case the predicates are satisfied:<A NAME="I1655"></A><A NAME="I1656"></A></div>
+case the predicates are satisfied:<A NAME="I1659"></A><A NAME="I1660"></A></div>
 <div class="paranum"><a name="p29.3">29.3/4</a></div>
 <div class="Bulleted">the value is first tested to determine whether 
 it satisfies any constraints or any null exclusion of <I>S</I>;</div>
@@ -349,7 +349,7 @@ or by an uninitialized <SPAN Class="swiss"><A HREF="AA-4-8.html#S0164">allocator
 if the types of any parts have specified Default_Value or Default_Component_Value 
 aspects, or any subcomponents have <SPAN Class="swiss"><A HREF="AA-3-7.html#S0063">default_expression</A></SPAN>s, 
 a check is performed that the value of the created object satisfies the 
-predicates of the nominal subtype.<A NAME="I1657"></A><A NAME="I1658"></A><A NAME="I1659"></A><A NAME="I1660"></A></div>
+predicates of the nominal subtype.<A NAME="I1661"></A><A NAME="I1662"></A><A NAME="I1663"></A><A NAME="I1664"></A></div>
 <div class="paranum"><a name="p31.a.1">31.a.1/5</a></div>
 <div class="Annotations"><B>Ramification:&nbsp;</B>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0333-1.TXT">AI12-0333-1</A></I>} 
 Most parameter passing is covered by the subtype conversion rule: all 
@@ -372,7 +372,7 @@ for the failure of the predicate check; otherwise, Assertion_Error is
 raised, with an associated message string defined by the value of the 
 Predicate_Failure <SPAN Class="swiss"><A HREF="AA-4-4.html#S0132">expression</A></SPAN>. 
 In the absence of such a Predicate_Failure aspect, an implementation-defined 
-message string is associated with the Assertion_Error exception.<A NAME="I1661"></A></div>
+message string is associated with the Assertion_Error exception.<A NAME="I1665"></A></div>
 <div class="paranum"><a name="p31.a">31.a/3</a></div>
 <div class="Annotations"><B>Ramification:&nbsp;</B>Predicates are not evaluated 
 at the point of the (sub)type declaration.&nbsp;</div>
@@ -480,12 +480,12 @@ disruption.&nbsp;</div>
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0262-1.TXT">AI05-0262-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0276-1.TXT">AI05-0276-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0290-1.TXT">AI05-0290-1</A></I>} 
-<A NAME="I1662"></A>Predicate aspects are new in Ada 2012.&nbsp;</div>
+<A NAME="I1666"></A>Predicate aspects are new in Ada 2012.&nbsp;</div>
 
 <H4 Class="centered">Inconsistencies With Ada 2012</H4>
 <div class="paranum"><a name="p52.c">52.c/5</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0301-1.TXT">AI12-0301-1</A></I>} 
-<A NAME="I1663"></A><B>Correction:</B> Predicate checks are now performed 
+<A NAME="I1667"></A><B>Correction:</B> Predicate checks are now performed 
 on default-initialized objects with parts that have Default_Value or 
 Default_Component_Value specified. This is consistent with the handling 
 of constraint checks for such objects; it is thought that the omission 
@@ -498,7 +498,7 @@ catch a bug than create one.&nbsp;</div>
 <H4 Class="centered">Extensions to Ada 2012</H4>
 <div class="paranum"><a name="p52.d">52.d/4</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0054-2.TXT">AI12-0054-2</A></I>} 
-<A NAME="I1664"></A><B>Corrigendum:</B> The Predicate_Failure aspect 
+<A NAME="I1668"></A><B>Corrigendum:</B> The Predicate_Failure aspect 
 is new. We can consider this a correction as it is always possible for 
 implementers to add implementation-defined aspects, so the same is true 
 for language-defined aspects.&nbsp;</div>
