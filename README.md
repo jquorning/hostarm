@@ -4,7 +4,7 @@
 HostARM is a local hosting of
 - Ada Reference Manual 2012
 - Ada Reference Manual 2022
-- Annotated Ada Reference Manual 202Y (Draft 3)
+- Annotated Ada Reference Manual 202Y (Draft 4)
 
 HostARM focuses on user friendliness and more modern look of the manuals.
 

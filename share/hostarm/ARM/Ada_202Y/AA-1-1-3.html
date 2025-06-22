@@ -13,8 +13,8 @@
     DIV.paranum {float: left; font-family: Arial, Helvetica, sans-serif; font-size: 64%; width: 2.8em; margin-left: -0.4em; margin-right: -3.0em; margin-top: 0.2em}
     TT {font-family: "Courier New", monospace}
     DT {display: compact}
-    SPAN.insert6 {text-decoration: underline; color: rgb(0,51,204) }
-    SPAN.delete6 {text-decoration: line-through; color: rgb(0,51,204) }
+    SPAN.insert7 {text-decoration: underline; color: rgb(153,0,0) }
+    SPAN.delete7 {text-decoration: line-through; color: rgb(153,0,0) }
     A.Bar:link {font-family: Arial, Helvetica, sans-serif; font-style: normal; text-decoration: none; color: rgb(204,204,51)}
     A.Bar:visited {font-family: Arial, Helvetica, sans-serif; font-style: normal; text-decoration: none; color: rgb(204,204,51)}
     DIV.Normal {font-family: "Times New Roman", Times, serif; line-height: 122%; margin-left: 1.8em; margin-bottom: 0.6em}
@@ -26,7 +26,7 @@
     </STYLE>
 </HEAD>
 <BODY TEXT="#000000" BGCOLOR="#FFFFF0" LINK="#000080" VLINK="#330033" ALINK="#0000FF">
-<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 3)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
+<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 4)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
 <div style="margin-top: 0.6em; margin-bottom: 0.0em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-0-4.html"><IMG SRC="index.gif" ALT="Index" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-STDS.html"><IMG SRC="lib.gif" ALT="References" BORDER=0></A>&nbsp;
@@ -223,17 +223,17 @@ This in turn implies that the time at which an external interaction occurs
 is part of the characterization of the external interaction, at least 
 in some cases, again making the specification of the required &ldquo;exact 
 effect&rdquo; impractical.&nbsp;</div>
-<div class="paranum"><a name="p16">16/6</a></div>
+<div class="paranum"><a name="p16">16/7</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0441-1.TXT">AI12-0441-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0065-1.html">AI22-0065-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0105-1.html">AI22-0105-1</A></I>} 
-An implementation that <span class="insert6">fully&nbsp;</span>conforms to 
-<span class="insert6">the <I>core</I> of&nbsp;</span>this Reference Manual 
-shall support each capability required by the core language <span class="insert6">(see 
-<A HREF="AA-1-1-2.html">1.1.2</A>),&nbsp;</span>as specified. <span class="delete6">In 
+An implementation that <span class="insert7">fully&nbsp;</span>conforms to 
+<span class="insert7">the <I>core</I> of&nbsp;</span>this Reference Manual 
+shall support each capability required by the core language <span class="insert7">(see 
+<A HREF="AA-1-1-2.html">1.1.2</A>),&nbsp;</span>as specified. <span class="delete7">In 
 addition, an implementation that conforms to this Reference Manual may 
-conform to one or more Specialized Needs Annexes (or to none).&nbsp;</span><span class="insert6">Full 
-conformance</span><span class="delete6">&nbsp;Conformance</span> to a Specialized 
+conform to one or more Specialized Needs Annexes (or to none).&nbsp;</span><span class="insert7">Full 
+conformance</span><span class="delete7">&nbsp;Conformance</span> to a Specialized 
 Needs Annex means that each capability required by the Annex shall be 
 provided as specified.&nbsp;</div>
 <div class="paranum"><a name="p16.a">16.a</a></div>
@@ -241,53 +241,53 @@ provided as specified.&nbsp;</div>
 what it means to say that an implementation conforms to a Specialized 
 Needs Annex, namely, only by supporting all capabilities required by 
 the Annex.&nbsp;</div>
-<div class="paranum"><a name="p17">17/6</a></div>
+<div class="paranum"><a name="p17">17/7</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0229-1.TXT">AI05-0229-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0065-1.html">AI22-0065-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0105-1.html">AI22-0105-1</A></I>} 
-An implementation conforming<span class="insert6">, either in full or 
+An implementation conforming<span class="insert7">, either in full or 
 in part,</span> to this Reference Manual may provide additional aspects, 
 attributes, library units, and pragmas. However, it shall not provide 
 any aspect, attribute, library unit, or pragma having the same name as 
 an aspect, attribute, library unit, or pragma (respectively) specified 
-in <span class="insert6">the core or&nbsp;</span>a Specialized Needs Annex 
-unless the provided construct is either as specified in <span class="insert6">this 
-Reference Manual</span><span class="delete6">&nbsp;the Specialized Needs Annex</span> 
-or is more limited in capability than that required by <span class="insert6">this 
-Reference Manual</span><span class="delete6">&nbsp;the Annex</span>. A program 
-that attempts to use an unsupported capability <span class="delete6">of 
+in <span class="insert7">the core or&nbsp;</span>a Specialized Needs Annex 
+unless the provided construct is either as specified in <span class="insert7">this 
+Reference Manual</span><span class="delete7">&nbsp;the Specialized Needs Annex</span> 
+or is more limited in capability than that required by <span class="insert7">this 
+Reference Manual</span><span class="delete7">&nbsp;the Annex</span>. A program 
+that attempts to use an unsupported capability <span class="delete7">of 
 an Annex&nbsp;</span>shall either be identified by the implementation before 
 run time or shall raise an exception at run time.&nbsp;</div>
-<div class="paranum"><a name="p17.a">17.a/6</a></div>
+<div class="paranum"><a name="p17.a">17.a/7</a></div>
 <div class="Annotations"><B>Discussion:&nbsp;</B>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0105-1.html">AI22-0105-1</A></I>} 
 The last sentence of the preceding paragraph defines what an implementation 
-is allowed to do when it does not &quot;conform&quot; to <span class="insert6">some 
-part of this Reference Manual</span><span class="delete6">&nbsp;a Specialized 
+is allowed to do when it does not &quot;conform&quot; to <span class="insert7">some 
+part of this Reference Manual</span><span class="delete7">&nbsp;a Specialized 
 Needs Annex</span>. In particular, the sentence forbids implementations 
 from providing a construct with the same name as a corresponding construct 
-in <span class="insert6">the Reference Manual</span><span class="delete6">&nbsp;a 
-Specialized Needs Annex</span> but with a different syntax (<span class="insert6">e.g.</span><span class="delete6">&nbsp;for 
+in <span class="insert7">the Reference Manual</span><span class="delete7">&nbsp;a 
+Specialized Needs Annex</span> but with a different syntax (<span class="insert7">e.g.</span><span class="delete7">&nbsp;for 
 instance</span>, an extended syntax) or quite different semantics. The 
 phrase concerning &quot;more limited in capability&quot; is intended 
 to give permission to provide a partial implementation, such as not implementing 
 a subprogram in a package or having a restriction not permitted by an 
-implementation that conforms to the <span class="insert6">Reference Manual</span><span class="delete6">&nbsp;Annex</span>. 
+implementation that conforms to the <span class="insert7">Reference Manual</span><span class="delete7">&nbsp;Annex</span>. 
 For example, a partial implementation of the package Ada.Decimal might 
 have Decimal.Max_Decimal_Digits as 15 (rather than the required 18). 
 This allows a partial implementation to grow to a fully conforming implementation.</div>
-<div class="paranum"><a name="p17.b">17.b/6</a></div>
+<div class="paranum"><a name="p17.b">17.b/7</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0105-1.html">AI22-0105-1</A></I>} 
 A restricted implementation might be restricted by not providing some 
-subprograms specified in one of the packages defined by <span class="insert6">the 
-Reference Manual</span><span class="delete6">&nbsp;an Annex</span>. In this 
+subprograms specified in one of the packages defined by <span class="insert7">the 
+Reference Manual</span><span class="delete7">&nbsp;an Annex</span>. In this 
 case, a program that tries to use the missing subprogram will usually 
 fail to compile. Alternatively, the implementation might declare the 
 subprogram as abstract, so it cannot be called. Alternatively, a subprogram 
 body might be implemented just to raise Program_Error. The advantage 
 of this approach is that a program to be run under a fully conforming 
-<span class="delete6">Annex&nbsp;</span>implementation can be checked syntactically 
+<span class="delete7">Annex&nbsp;</span>implementation can be checked syntactically 
 and semantically under an implementation that only partially supports 
-the <span class="insert6">Reference Manual</span><span class="delete6">&nbsp;Annex</span>. 
+the <span class="insert7">Reference Manual</span><span class="delete7">&nbsp;Annex</span>. 
 Finally, an implementation might provide a package declaration without 
 the corresponding body, so that programs can be compiled, but partitions 
 cannot be built and executed.</div>
@@ -299,11 +299,11 @@ be detected only at run time. For example, a partial implementation of
 Ada.Decimal might require the length of the Currency string to be 1, 
 and hence, an exception would be raised if a subprogram were called in 
 the package Edited_Output with a length greater than 1.&nbsp;</div>
-<div class="paranum"><a name="p17.1">17.1/6</a></div>
+<div class="paranum"><a name="p17.1">17.1/7</a></div>
 <div class="Normal">&nbsp;&nbsp;{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0179-1.TXT">AI12-0179-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0265-1.TXT">AI12-0265-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0105-1.html">AI22-0105-1</A></I>} 
-<span class="insert6">A conforming</span><span class="delete6">&nbsp;For an 
+<span class="insert7">A conforming</span><span class="delete7">&nbsp;For an 
 implementation that conforms to this Reference Manual, the</span> implementation 
 of a language-defined unit shall abide by all postconditions, type invariants, 
 and default initial conditions specified for the unit by this document 
@@ -402,11 +402,11 @@ does not conform to the Annex, but it does conform to the Reference Manual.
 <H4 Class="centered">Wording Changes from Ada 2022</H4>
 <div class="paranum"><a name="p22.b">22.b/6</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0065-1.html">AI22-0065-1</A></I>} 
-<span class="insert6"></span>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0105-1.html">AI22-0105-1</A></I>} 
-<span class="insert6"><B>Corrigendum</B>: Revised the definition of conformance 
-to allow partial conformance to the core of the Standard, and clarify 
-that the requirements on conforming implementations also apply to partially 
-conforming implementations.</span> &nbsp;</div>
+<span class="insert7"></span>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0105-1.html">AI22-0105-1</A></I>} 
+<span class="insert7">Revised the definition of conformance to allow 
+partial conformance to the core of the Standard, and clarify that the 
+requirements on conforming implementations also apply to partially conforming 
+implementations.</span> &nbsp;</div>
 
 <HR>
 <div style="margin-top: 0.0em; margin-bottom: 0.6em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;

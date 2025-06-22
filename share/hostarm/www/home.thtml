@@ -29,7 +29,7 @@
 
     <li class="item21">
       <input type="radio" id="aarm202Y" name="manual" value="AARM_202Y" @_MAN_AARM_202Y_@>
-      <label for="aarm202Y">AARM 202Y</label>
+      <label for="aarm202Y">AARM 202Y (Draft 4)</label>
     </li>
   </ul>
 

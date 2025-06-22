@@ -24,7 +24,7 @@
     </STYLE>
 </HEAD>
 <BODY TEXT="#000000" BGCOLOR="#FFFFF0" LINK="#000080" VLINK="#330033" ALINK="#0000FF">
-<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 3)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
+<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 4)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
 <div style="margin-top: 0.6em; margin-bottom: 0.0em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-0-4.html"><IMG SRC="index.gif" ALT="Index" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-STDS.html"><IMG SRC="lib.gif" ALT="References" BORDER=0></A>&nbsp;
@@ -36,19 +36,19 @@
 <H1>4.5.9 Declare Expressions</H1>
 <div class="paranum"><a name="p1">1/5</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0236-1.TXT">AI12-0236-1</A></I>} 
-Declare expressions<A NAME="I3471"></A><A NAME="I3472"></A> provide a 
+Declare expressions<A NAME="I3476"></A><A NAME="I3477"></A> provide a 
 way to declare local constants and object renamings in an expression 
 context.&nbsp;</div>
 
 <H4 Class="centered">Syntax</H4>
 <div class="paranum"><a name="p2">2/5</a></div>
 <div class="Indented1">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0236-1.TXT">AI12-0236-1</A></I>} 
-<SPAN Class="swiss">declare_expression</SPAN><A NAME="I3473"></A><A NAME="S0156"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN><BR>
-&nbsp;&nbsp;&nbsp;&nbsp;<B>declare</B>&nbsp;{<A NAME="I3474"></A><SPAN Class="swiss"><A HREF="AA-4-5-9.html#S0157">declare_item</A></SPAN>}<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;<B>begin</B>&nbsp;<I>body_</I><A NAME="I3475"></A><SPAN Class="swiss"><A HREF="AA-4-4.html#S0132">expression</A></SPAN></div>
+<SPAN Class="swiss">declare_expression</SPAN><A NAME="I3478"></A><A NAME="S0156"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN><BR>
+&nbsp;&nbsp;&nbsp;&nbsp;<B>declare</B>&nbsp;{<A NAME="I3479"></A><SPAN Class="swiss"><A HREF="AA-4-5-9.html#S0157">declare_item</A></SPAN>}<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;<B>begin</B>&nbsp;<I>body_</I><A NAME="I3480"></A><SPAN Class="swiss"><A HREF="AA-4-4.html#S0132">expression</A></SPAN></div>
 <div class="paranum"><a name="p3">3/5</a></div>
 <div class="Indented1">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0236-1.TXT">AI12-0236-1</A></I>} 
-<SPAN Class="swiss">declare_item</SPAN><A NAME="I3476"></A><A NAME="S0157"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN><A NAME="I3477"></A><SPAN Class="swiss"><A HREF="AA-3-3-1.html#S0032">object_declaration</A></SPAN>&nbsp;|&nbsp;<A NAME="I3478"></A><SPAN Class="swiss"><A HREF="AA-8-5-1.html#S0239">object_renaming_declaration</A></SPAN></div>
+<SPAN Class="swiss">declare_item</SPAN><A NAME="I3481"></A><A NAME="S0157"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN><A NAME="I3482"></A><SPAN Class="swiss"><A HREF="AA-3-3-1.html#S0032">object_declaration</A></SPAN>&nbsp;|&nbsp;<A NAME="I3483"></A><SPAN Class="swiss"><A HREF="AA-8-5-1.html#S0239">object_renaming_declaration</A></SPAN></div>
 <div class="paranum"><a name="p3.a">3.a/5</a></div>
 <div class="Annotations"><B>Reason:&nbsp;</B>We allow <TT>(<B>declare begin</B> 
 </TT><SPAN Class="swiss"><A HREF="AA-4-4.html#S0132">expression</A></SPAN><TT>)</TT> 
@@ -190,12 +190,12 @@ for Ada.Containers.Vectors.&quot;&amp;&quot; (see <A HREF="AA-A-18-2.html">A.18.
 <H4 Class="centered">Extensions to Ada 2012</H4>
 <div class="paranum"><a name="p12.a">12.a/5</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0236-1.TXT">AI12-0236-1</A></I>} 
-<A NAME="I3479"></A>Declare expressions are new.&nbsp;</div>
+<A NAME="I3484"></A>Declare expressions are new.&nbsp;</div>
 
 <H4 Class="centered">Incompatibilities With Ada 2022</H4>
 <div class="paranum"><a name="p12.b">12.b/6</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0016-1.html">AI22-0016-1</A></I>} 
-<span class="insert6"><A NAME="I3480"></A><B>Corrigendum:</B> Renaming 
+<span class="insert6"><A NAME="I3485"></A><B>Corrigendum:</B> Renaming 
 of limited newly constructed objects is not allowed in a <SPAN Class="swiss"><A HREF="AA-4-5-9.html#S0156">declare_expression</A></SPAN> 
 in original Ada 2022; this is now extended to any parts of such objects. 
 Thus, a (nonlimited) component or slice of a limited newly constructed 
@@ -207,7 +207,7 @@ are a new feature in Ada 2022, we expect this to be rare.</span>&nbsp;</div>
 <H4 Class="centered">Extensions to Ada 2022</H4>
 <div class="paranum"><a name="p12.c">12.c/6</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0045-1.html">AI22-0045-1</A></I>} 
-<span class="insert6"><A NAME="I3481"></A>Executable pragmas (such as 
+<span class="insert6"><A NAME="I3486"></A>Executable pragmas (such as 
 pragma Assert) are now allowed in declare expressions. Ada 2022 did not 
 intend to allow any pragmas in declare expressions.</span>&nbsp;</div>
 

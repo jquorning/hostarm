@@ -24,7 +24,7 @@
     </STYLE>
 </HEAD>
 <BODY TEXT="#000000" BGCOLOR="#FFFFF0" LINK="#000080" VLINK="#330033" ALINK="#0000FF">
-<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 3)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
+<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 4)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
 <div style="margin-top: 0.6em; margin-bottom: 0.0em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-0-4.html"><IMG SRC="index.gif" ALT="Index" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-STDS.html"><IMG SRC="lib.gif" ALT="References" BORDER=0></A>&nbsp;
@@ -48,28 +48,28 @@ has the following declaration:</div>
 <div class="paranum"><a name="p3">3/5</a></div>
 <div class="Examples"><B>generic</B><BR>
 &nbsp;&nbsp;&nbsp;<B>type</B>&nbsp;Atomic_Type&nbsp;<B>is&nbsp;mod</B>&nbsp;&lt;&gt;&nbsp;<B>with</B>&nbsp;Atomic;<BR>
-<B>package</B>&nbsp;System.Atomic_Operations.Modular_Arithmetic<A NAME="I9681"></A><BR>
+<B>package</B>&nbsp;System.Atomic_Operations.Modular_Arithmetic<A NAME="I9706"></A><BR>
 &nbsp;&nbsp;&nbsp;<B>with</B>&nbsp;Pure,&nbsp;Nonblocking&nbsp;<B>is</B></div>
 <div class="paranum"><a name="p4">4/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<B>procedure</B>&nbsp;<A NAME="I9682"></A>Atomic_Add&nbsp;(Item&nbsp;&nbsp;:&nbsp;<B>aliased&nbsp;in&nbsp;out</B>&nbsp;Atomic_Type;<BR>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<B>procedure</B>&nbsp;<A NAME="I9707"></A>Atomic_Add&nbsp;(Item&nbsp;&nbsp;:&nbsp;<B>aliased&nbsp;in&nbsp;out</B>&nbsp;Atomic_Type;<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Value&nbsp;:&nbsp;Atomic_Type)<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>with</B>&nbsp;Convention&nbsp;=&gt;&nbsp;Intrinsic;</div>
 <div class="paranum"><a name="p5">5/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<B>procedure</B>&nbsp;<A NAME="I9683"></A>Atomic_Subtract&nbsp;(Item&nbsp;&nbsp;:&nbsp;<B>aliased&nbsp;in&nbsp;out</B>&nbsp;Atomic_Type;<BR>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<B>procedure</B>&nbsp;<A NAME="I9708"></A>Atomic_Subtract&nbsp;(Item&nbsp;&nbsp;:&nbsp;<B>aliased&nbsp;in&nbsp;out</B>&nbsp;Atomic_Type;<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Value&nbsp;:&nbsp;Atomic_Type)<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>with</B>&nbsp;Convention&nbsp;=&gt;&nbsp;Intrinsic;</div>
 <div class="paranum"><a name="p6">6/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I9684"></A>Atomic_Fetch_And_Add<BR>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I9709"></A>Atomic_Fetch_And_Add<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Item&nbsp;&nbsp;:&nbsp;<B>aliased&nbsp;in&nbsp;out</B>&nbsp;Atomic_Type;<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Value&nbsp;:&nbsp;Atomic_Type)&nbsp;<B>return</B>&nbsp;Atomic_Type<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>with</B>&nbsp;Convention&nbsp;=&gt;&nbsp;Intrinsic;</div>
 <div class="paranum"><a name="p7">7/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I9685"></A>Atomic_Fetch_And_Subtract<BR>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I9710"></A>Atomic_Fetch_And_Subtract<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Item&nbsp;&nbsp;:&nbsp;<B>aliased&nbsp;in&nbsp;out</B>&nbsp;Atomic_Type;<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Value&nbsp;:&nbsp;Atomic_Type)&nbsp;<B>return</B>&nbsp;Atomic_Type<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>with</B>&nbsp;Convention&nbsp;=&gt;&nbsp;Intrinsic;</div>
 <div class="paranum"><a name="p8">8/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I9686"></A>Is_Lock_Free&nbsp;(Item&nbsp;:&nbsp;<B>aliased</B>&nbsp;Atomic_Type)&nbsp;<B>return</B>&nbsp;Boolean<BR>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I9711"></A>Is_Lock_Free&nbsp;(Item&nbsp;:&nbsp;<B>aliased</B>&nbsp;Atomic_Type)&nbsp;<B>return</B>&nbsp;Boolean<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>with</B>&nbsp;Convention&nbsp;=&gt;&nbsp;Intrinsic;</div>
 <div class="paranum"><a name="p9">9/5</a></div>
 <div class="Examples"><B>end</B>&nbsp;System.Atomic_Operations.Modular_Arithmetic;</div>
@@ -141,12 +141,12 @@ the subtype should be a base subtype so that no range check need be performed.</
 <H4 Class="centered">Extensions to Ada 2012</H4>
 <div class="paranum"><a name="p20.a">20.a/5</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0364-1.TXT">AI12-0364-1</A></I>} 
-<A NAME="I9687"></A>This package is new.&nbsp;</div>
+<A NAME="I9712"></A>This package is new.&nbsp;</div>
 
 <H4 Class="centered">Inconsistencies With Ada 2022</H4>
 <div class="paranum"><a name="p20.b">20.b/6</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0125-1.html">AI22-0125-1</A></I>} 
-<span class="insert6"><A NAME="I9688"></A><B>Corrigendum:</B> We now 
+<span class="insert6"><A NAME="I9713"></A><B>Corrigendum:</B> We now 
 allow language-defined checks to be performed after the atomic operation 
 so that they do not have to harm performance. If an Ada 2022 program 
 depends on the checks being made atomically, it might fail with an updated 

@@ -13,10 +13,8 @@
     DIV.paranum {float: left; font-family: Arial, Helvetica, sans-serif; font-size: 64%; width: 2.8em; margin-left: -0.4em; margin-right: -3.0em; margin-top: 0.2em}
     TT {font-family: "Courier New", monospace}
     DT {display: compact}
-    SPAN.insert7 {text-decoration: underline; color: rgb(0,102,153) }
-    SPAN.delete7 {text-decoration: line-through; color: rgb(0,102,153) }
-    SPAN.insert8 {text-decoration: underline; color: rgb(204,51,0) }
-    SPAN.delete8 {text-decoration: line-through; color: rgb(204,51,0) }
+    SPAN.insert7 {text-decoration: underline; color: rgb(153,0,0) }
+    SPAN.delete7 {text-decoration: line-through; color: rgb(153,0,0) }
     A.Bar:link {font-family: Arial, Helvetica, sans-serif; font-style: normal; text-decoration: none; color: rgb(204,204,51)}
     A.Bar:visited {font-family: Arial, Helvetica, sans-serif; font-style: normal; text-decoration: none; color: rgb(204,204,51)}
     DIV.Normal {font-family: "Times New Roman", Times, serif; line-height: 122%; margin-left: 1.8em; margin-bottom: 0.6em}
@@ -31,7 +29,7 @@
     </STYLE>
 </HEAD>
 <BODY TEXT="#000000" BGCOLOR="#FFFFF0" LINK="#000080" VLINK="#330033" ALINK="#0000FF">
-<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 3)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
+<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 4)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
 <div style="margin-top: 0.6em; margin-bottom: 0.0em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-0-4.html"><IMG SRC="index.gif" ALT="Index" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-STDS.html"><IMG SRC="lib.gif" ALT="References" BORDER=0></A>&nbsp;
@@ -52,11 +50,11 @@ is used to rename an object or value.]&nbsp;</div>
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-00423.TXT">AI95-00423-01</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0183-1.TXT">AI05-0183-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0275-1.TXT">AI12-0275-1</A></I>} 
-<SPAN Class="swiss">object_renaming_declaration</SPAN><A NAME="I4757"></A><A NAME="S0239"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN><BR>
-&nbsp;&nbsp;&nbsp;&nbsp;<A NAME="I4758"></A><SPAN Class="swiss"><A HREF="AA-3-1.html#S0022">defining_identifier</A></SPAN>&nbsp;[:&nbsp;[<A NAME="I4759"></A><SPAN Class="swiss"><A HREF="AA-3-10.html#S0083">null_exclusion</A></SPAN>]&nbsp;<A NAME="I4760"></A><SPAN Class="swiss"><A HREF="AA-3-2-2.html#S0028">subtype_mark</A></SPAN>]&nbsp;<B>renames</B>&nbsp;<I>object_</I><A NAME="I4761"></A><SPAN Class="swiss"><A HREF="AA-4-1.html#S0091">name</A></SPAN><BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<A NAME="I4762"></A><SPAN Class="swiss"><A HREF="AA-13-1-1.html#S0346">aspect_specification</A></SPAN>];<BR>
-&nbsp;&nbsp;|&nbsp;<A NAME="I4763"></A><SPAN Class="swiss"><A HREF="AA-3-1.html#S0022">defining_identifier</A></SPAN>&nbsp;:&nbsp;<A NAME="I4764"></A><SPAN Class="swiss"><A HREF="AA-3-10.html#S0084">access_definition</A></SPAN>&nbsp;<B>renames</B>&nbsp;<I>object_</I><A NAME="I4765"></A><SPAN Class="swiss"><A HREF="AA-4-1.html#S0091">name</A></SPAN><BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<A NAME="I4766"></A><SPAN Class="swiss"><A HREF="AA-13-1-1.html#S0346">aspect_specification</A></SPAN>];</div>
+<SPAN Class="swiss">object_renaming_declaration</SPAN><A NAME="I4762"></A><A NAME="S0239"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN><BR>
+&nbsp;&nbsp;&nbsp;&nbsp;<A NAME="I4763"></A><SPAN Class="swiss"><A HREF="AA-3-1.html#S0022">defining_identifier</A></SPAN>&nbsp;[:&nbsp;[<A NAME="I4764"></A><SPAN Class="swiss"><A HREF="AA-3-10.html#S0083">null_exclusion</A></SPAN>]&nbsp;<A NAME="I4765"></A><SPAN Class="swiss"><A HREF="AA-3-2-2.html#S0028">subtype_mark</A></SPAN>]&nbsp;<B>renames</B>&nbsp;<I>object_</I><A NAME="I4766"></A><SPAN Class="swiss"><A HREF="AA-4-1.html#S0091">name</A></SPAN><BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<A NAME="I4767"></A><SPAN Class="swiss"><A HREF="AA-13-1-1.html#S0346">aspect_specification</A></SPAN>];<BR>
+&nbsp;&nbsp;|&nbsp;<A NAME="I4768"></A><SPAN Class="swiss"><A HREF="AA-3-1.html#S0022">defining_identifier</A></SPAN>&nbsp;:&nbsp;<A NAME="I4769"></A><SPAN Class="swiss"><A HREF="AA-3-10.html#S0084">access_definition</A></SPAN>&nbsp;<B>renames</B>&nbsp;<I>object_</I><A NAME="I4770"></A><SPAN Class="swiss"><A HREF="AA-4-1.html#S0091">name</A></SPAN><BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<A NAME="I4771"></A><SPAN Class="swiss"><A HREF="AA-13-1-1.html#S0346">aspect_specification</A></SPAN>];</div>
 
 <H4 Class="centered">Name Resolution Rules</H4>
 <div class="paranum"><a name="p3">3/7</a></div>
@@ -131,11 +129,11 @@ the type of the renamed entity and the type defined by the <SPAN Class="swiss"><
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-00409.TXT">AI95-00409-01</A></I>} 
 shall both be access-to-object types with statically matching designated 
 subtypes and with both or neither being access-to-constant types; or 
-<A NAME="I4767"></A></div>
+<A NAME="I4772"></A></div>
 <div class="paranum"><a name="p4.4">4.4/7</a></div>
 <div class="Bulleted">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-00409.TXT">AI95-00409-01</A></I>} 
 shall both be access-to-subprogram types with subtype conformant designated 
-profiles. <A NAME="I4768"></A></div>
+profiles. <A NAME="I4773"></A></div>
 <div class="paranum"><a name="p4.5">4.5/7</a></div>
 <div class="Normal" style="margin-bottom: 0.4em">&nbsp;{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-00423.TXT">AI95-00423-01</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0287-1.TXT">AI12-0287-1</A></I>} 
@@ -206,7 +204,7 @@ that denotes an object <I>Q</I>:&nbsp;</div>
 a dereference of an access type; or</div>
 <div class="paranum"><a name="p4.11">4.11/7</a></div>
 <div class="Indented2Bulleted">the nominal subtype of <I>Q</I> shall 
-be statically compatible with <I>S</I>; or<A NAME="I4769"></A></div>
+be statically compatible with <I>S</I>; or<A NAME="I4774"></A></div>
 <div class="paranum"><a name="p4.12">4.12/7</a></div>
 <div class="Indented2Bulleted"><I>S</I> shall statically match the base 
 subtype of its type if scalar, or the first subtype of its type if an 
@@ -240,7 +238,7 @@ of an array shall not be renamed if this restriction disallows renaming
 of the array.&nbsp;</div>
 <div class="paranum"><a name="p5.1">5.1/5</a></div>
 <div class="Normal">&nbsp;{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0401-1.TXT">AI12-0401-1</A></I>} 
-<A NAME="I4770"></A>In addition to the places where Legality Rules normally 
+<A NAME="I4775"></A>In addition to the places where Legality Rules normally 
 apply (see <A HREF="AA-12-3.html">12.3</A>), these rules also apply in 
 the private part of an instance of a generic unit.</div>
 <div class="paranum"><a name="p5.a.1">5.a.1/7</a></div>
@@ -355,7 +353,7 @@ an indefinite unconstrained nominal subtype.&nbsp;</div>
 <H4 Class="centered">Incompatibilities With Ada 95</H4>
 <div class="paranum"><a name="p10.b">10.b/2</a></div>
 <div class="Annotations" style="margin-bottom: 0.4em">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-00363.TXT">AI95-00363-01</A></I>} 
-<A NAME="I4771"></A>Aliased variables are not necessarily constrained 
+<A NAME="I4776"></A>Aliased variables are not necessarily constrained 
 in Ada 2005 (see <A HREF="AA-3-6.html">3.6</A>). Therefore, a subcomponent 
 of an aliased variable may disappear or change shape, and renaming such 
 a subcomponent thus is illegal, while the same operation would have been 
@@ -376,7 +374,7 @@ the type T2 of the previous example:&nbsp;</div>
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-00231.TXT">AI95-00231-01</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-00254.TXT">AI95-00254-01</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-00409.TXT">AI95-00409-01</A></I>} 
-<A NAME="I4772"></A>A renaming can have an anonymous access type. In 
+<A NAME="I4777"></A>A renaming can have an anonymous access type. In 
 that case, the accessibility of the renaming is that of the original 
 object (accessibility is not lost as it is for assignment to a component 
 or stand-alone object).</div>
@@ -398,7 +396,7 @@ components if the type <I>might</I> be definite.&nbsp;</div>
 <H4 Class="centered">Incompatibilities With Ada 2005</H4>
 <div class="paranum"><a name="p10.g">10.g/3</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0008-1.TXT">AI05-0008-1</A></I>} 
-<A NAME="I4773"></A><B>Correction:</B> Simplified the description of 
+<A NAME="I4778"></A><B>Correction:</B> Simplified the description of 
 when a discriminant-dependent component is allowed to be renamed &mdash; 
 it's now simply when the object is known to be constrained. This fixes 
 a confusion as to whether a subcomponent of an object that is not certain 
@@ -411,14 +409,14 @@ is not too bad, since most kinds of constants are known to be constrained.
 <H4 Class="centered">Extensions to Ada 2005</H4>
 <div class="paranum"><a name="p10.h">10.h/3</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0183-1.TXT">AI05-0183-1</A></I>} 
-<A NAME="I4774"></A>An optional <SPAN Class="swiss"><A HREF="AA-13-1-1.html#S0346">aspect_specification</A></SPAN> 
+<A NAME="I4779"></A>An optional <SPAN Class="swiss"><A HREF="AA-13-1-1.html#S0346">aspect_specification</A></SPAN> 
 can be used in an <SPAN Class="swiss"><A HREF="AA-8-5-1.html#S0239">object_renaming_declaration</A></SPAN>. 
 This is described in <A HREF="AA-13-1-1.html">13.1.1</A>.&nbsp;</div>
 
 <H4 Class="centered">Incompatibilities With Ada 2012</H4>
 <div class="paranum"><a name="p10.i">10.i/5</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0287-1.TXT">AI12-0287-1</A></I>} 
-<A NAME="I4775"></A><B>Correction:</B> The Legality Rules for renames 
+<A NAME="I4780"></A><B>Correction:</B> The Legality Rules for renames 
 with null exclusions no longer applies to generic formal objects of mode 
 <B>in</B>, but does apply to renames of generic formal functions. This 
 means a few unlikely programs are now illegal that were previously allowed 
@@ -437,7 +435,7 @@ from changing to violate their known properties.&nbsp;</div>
 <H4 Class="centered">Extensions to Ada 2012</H4>
 <div class="paranum"><a name="p10.k">10.k/5</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0275-1.TXT">AI12-0275-1</A></I>} 
-<A NAME="I4776"></A>The <SPAN Class="swiss"><A HREF="AA-3-2-2.html#S0028">subtype_mark</A></SPAN> 
+<A NAME="I4781"></A>The <SPAN Class="swiss"><A HREF="AA-3-2-2.html#S0028">subtype_mark</A></SPAN> 
 in an object renaming is now optional, as the subtype information it 
 provides is not trustworthy anyway (that comes from the renamed object 
 and there is no requirement that it is the same as that of the object).</div>
@@ -451,7 +449,7 @@ can be renamed by qualifying it.&nbsp;</div>
 <H4 Class="centered">Incompatibilities With Ada 2022</H4>
 <div class="paranum"><a name="p10.m">10.m/7</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0083-1.html">AI22-0083-1</A></I>} 
-<span class="insert7"><A NAME="I4777"></A>A class-wide type can now rename 
+<span class="insert7"><A NAME="I4782"></A>A class-wide type can now rename 
 a dynamically-tagged object. It is possible (but very unlikely) that 
 this change would make a previously legal expression ambiguous. Most 
 such cases that actually would arise would be caused by use clauses, 

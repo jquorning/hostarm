@@ -24,7 +24,7 @@
     </STYLE>
 </HEAD>
 <BODY TEXT="#000000" BGCOLOR="#FFFFF0" LINK="#000080" VLINK="#330033" ALINK="#0000FF">
-<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 3)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
+<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 4)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
 <div style="margin-top: 0.6em; margin-bottom: 0.0em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-0-4.html"><IMG SRC="index.gif" ALT="Index" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-STDS.html"><IMG SRC="lib.gif" ALT="References" BORDER=0></A>&nbsp;
@@ -50,7 +50,7 @@ of the visible part of package Interfaces and its language-defined descendants.<
 Interfaces has the following skeletal declaration:&nbsp;</div>
 <div class="paranum"><a name="p3">3/5</a></div>
 <div class="Examples">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0414-1.TXT">AI12-0414-1</A></I>} 
-<B>package</B>&nbsp;Interfaces<A NAME="I9325"></A><BR>
+<B>package</B>&nbsp;Interfaces<A NAME="I9350"></A><BR>
 &nbsp;&nbsp;&nbsp;<B>with</B>&nbsp;Pure&nbsp;<B>is</B></div>
 <div class="paranum"><a name="p4">4</a></div>
 <div class="Examples">&nbsp;&nbsp;&nbsp;<B>type</B>&nbsp;Integer_<SPAN Class="roman"><I>n</I></SPAN>&nbsp;<B>is</B>&nbsp;<B>range</B>&nbsp;-2**(<SPAN Class="roman"><I>n</I></SPAN>-1)&nbsp;..&nbsp;2**(<SPAN Class="roman"><I>n</I></SPAN>-1)&nbsp;-&nbsp;1;&nbsp;&nbsp;--<SPAN Class="roman"><I>2's&nbsp;complement</I></SPAN></div>
@@ -67,7 +67,7 @@ Interfaces has the following skeletal declaration:&nbsp;</div>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>return</B>&nbsp;Unsigned_<SPAN Class="roman"><I>n</I></SPAN>;<BR>
 &nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;Rotate_Right&nbsp;(Value&nbsp;:&nbsp;Unsigned_<SPAN Class="roman"><I>n</I></SPAN>;&nbsp;Amount&nbsp;:&nbsp;Natural)<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>return</B>&nbsp;Unsigned_<SPAN Class="roman"><I>n</I></SPAN>;<BR>
-&nbsp;&nbsp;&nbsp;...<A NAME="I9326"></A><A NAME="I9327"></A><A NAME="I9328"></A><A NAME="I9329"></A><A NAME="I9330"></A><BR>
+&nbsp;&nbsp;&nbsp;...<A NAME="I9351"></A><A NAME="I9352"></A><A NAME="I9353"></A><A NAME="I9354"></A><A NAME="I9355"></A><BR>
 <B>end</B>&nbsp;Interfaces;</div>
 
 <H4 Class="centered">Implementation Requirements</H4>
@@ -80,7 +80,7 @@ provide the following declarations in the visible part of package Interfaces:
 if supported by the target architecture, for each <I>n</I> that is at 
 least the size of a storage element and that is a factor of the word 
 size. The names of these types are of the form Integer_<I>n</I> for the 
-signed types, and Unsigned_<I>n</I> for the modular types;<A NAME="I9331"></A><A NAME="I9332"></A> 
+signed types, and Unsigned_<I>n</I> for the modular types;<A NAME="I9356"></A><A NAME="I9357"></A> 
 </div>
 <div class="paranum"><a name="p8.a">8.a</a></div>
 <div class="Annotations"><B>Ramification:&nbsp;</B>For example, for a typical 
@@ -91,7 +91,7 @@ Integer_16, Unsigned_16, Integer_32, and Unsigned_32.</div>
 Integer_16'Size = Unsigned_16'Size = 16. Unchecked conversions between 
 same-Sized types will work as expected.&nbsp;</div>
 <div class="paranum"><a name="p9">9</a></div>
-<div class="Bulleted"><A NAME="I9333"></A><A NAME="I9334"></A>For each 
+<div class="Bulleted"><A NAME="I9358"></A><A NAME="I9359"></A>For each 
 such modular type in Interfaces, shifting and rotating subprograms as 
 specified in the declaration of Interfaces above. These subprograms are 
 Intrinsic. They operate on a bit-by-bit basis, using the binary representation 
@@ -189,9 +189,9 @@ the correct result to be produced for all values of Amount.&nbsp;</div>
 point format fully supported by the hardware.&nbsp;</div>
 <div class="paranum"><a name="p10.a">10.a</a></div>
 <div class="Annotations"><B>Implementation Note:&nbsp;</B>The names for these 
-floating point types are not specified. <A NAME="I9335"></A>However, 
+floating point types are not specified. <A NAME="I9360"></A>However, 
 if IEEE arithmetic is supported, then the names should be IEEE_Float_32 
-and IEEE_Float_64 for single and double precision, respectively.<A NAME="I9336"></A><A NAME="I9337"></A></div>
+and IEEE_Float_64 for single and double precision, respectively.<A NAME="I9361"></A><A NAME="I9362"></A></div>
 
 <H4 Class="centered">Implementation Permissions</H4>
 <div class="paranum"><a name="p11">11</a></div>

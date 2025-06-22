@@ -30,7 +30,7 @@
     </STYLE>
 </HEAD>
 <BODY TEXT="#000000" BGCOLOR="#FFFFF0" LINK="#000080" VLINK="#330033" ALINK="#0000FF">
-<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 3)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
+<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 4)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
 <div style="margin-top: 0.6em; margin-bottom: 0.0em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-0-4.html"><IMG SRC="index.gif" ALT="Index" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-STDS.html"><IMG SRC="lib.gif" ALT="References" BORDER=0></A>&nbsp;
@@ -47,7 +47,7 @@ provide private types Map and Cursor, and a set of operations for each
 type. A map container allows an arbitrary type to be used as a key to 
 find the element associated with that key. A hashed map uses a hash function 
 to organize the keys, while an ordered map orders the keys per a specified 
-relation. <A NAME="I8539"></A><A NAME="I8540"></A></div>
+relation. <A NAME="I8562"></A><A NAME="I8563"></A></div>
 <div class="paranum"><a name="p2">2/3</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-20302.TXT">AI95-00302-03</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0299-1.TXT">AI05-0299-1</A></I>} 
@@ -66,7 +66,7 @@ and return the same result value each time it is called with a particular
 pair of values. If it behaves in some other manner, the function &quot;=&quot; 
 on map values returns an unspecified value. The exact arguments and number 
 of calls of this generic formal function by the function &quot;=&quot; 
-on map values are unspecified.<A NAME="I8541"></A></div>
+on map values are unspecified.<A NAME="I8564"></A></div>
 <div class="paranum"><a name="p3.a">3.a/2</a></div>
 <div class="Annotations"><B>Ramification:&nbsp;</B>If the actual function 
 for &quot;=&quot; is not symmetric and consistent, the result returned 
@@ -79,20 +79,20 @@ other subprograms are not allowed to break if &quot;=&quot; is bad (they
 aren't expected to use &quot;=&quot;).&nbsp;</div>
 <div class="paranum"><a name="p4">4/2</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-20302.TXT">AI95-00302-03</A></I>} 
-The type Map is used to represent maps. The type Map needs finalization<A NAME="I8542"></A> 
+The type Map is used to represent maps. The type Map needs finalization<A NAME="I8565"></A> 
 (see <A HREF="AA-7-6.html">7.6</A>).</div>
 <div class="paranum"><a name="p5">5/2</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-20302.TXT">AI95-00302-03</A></I>} 
-<A NAME="I8543"></A>A map contains pairs of keys and elements, called 
+<A NAME="I8566"></A>A map contains pairs of keys and elements, called 
 <I>nodes</I>. Map cursors designate nodes, but also can be thought of 
 as designating an element (the element contained in the node) for consistency 
 with the other containers. There exists an equivalence relation on keys, 
 whose definition is different for hashed maps and ordered maps. A map 
 never contains two or more nodes with equivalent keys. The <I>length</I> 
-of a map is the number of nodes it contains.<A NAME="I8544"></A></div>
+of a map is the number of nodes it contains.<A NAME="I8567"></A></div>
 <div class="paranum"><a name="p6">6/2</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-20302.TXT">AI95-00302-03</A></I>} 
-<A NAME="I8545"></A><A NAME="I8546"></A><A NAME="I8547"></A>Each nonempty 
+<A NAME="I8568"></A><A NAME="I8569"></A><A NAME="I8570"></A>Each nonempty 
 map has two particular nodes called the <I>first node</I> and the <I>last 
 node</I> (which may be the same). Each node except for the last node 
 has a <I>successor node</I>. If there are no other intervening operations, 
@@ -104,12 +104,12 @@ ordered maps.</div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-20302.TXT">AI95-00302-03</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0111-1.TXT">AI12-0111-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0112-1.TXT">AI12-0112-1</A></I>} 
-[Some operations<A NAME="I8548"></A><A NAME="I8549"></A> check for &ldquo;tampering 
+[Some operations<A NAME="I8571"></A><A NAME="I8572"></A> check for &ldquo;tampering 
 with cursors&rdquo; of a container because they depend on the set of 
 elements of the container remaining constant, and others check for &ldquo;tampering 
 with elements&rdquo; of a container because they depend on elements of 
-the container not being replaced.] When tampering with cursors is <I>prohibited</I><A NAME="I8550"></A> 
-<A NAME="I8551"></A>for a particular map object <I>M</I>, Program_Error 
+the container not being replaced.] When tampering with cursors is <I>prohibited</I><A NAME="I8573"></A> 
+<A NAME="I8574"></A>for a particular map object <I>M</I>, Program_Error 
 is propagated by the finalization of <I>M</I>[, as well as by a call 
 that passes <I>M</I> to certain of the operations of this package, as 
 indicated by the precondition of such an operation]. Similarly, when 
@@ -418,7 +418,8 @@ the discriminants of the element in place.&nbsp;</div>
 <div class="Examples">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0112-1.TXT">AI12-0112-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0082-1.html">AI22-0082-1</A></I>} 
 <B>type</B>&nbsp;Constant_Reference_Type<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Element&nbsp;:&nbsp;<B>not&nbsp;null&nbsp;access&nbsp;constant</B>&nbsp;Element_Type)&nbsp;<B>is</B><span class="insert6"><B>&nbsp;limited</B></span><B>&nbsp;private</B><BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Element&nbsp;:&nbsp;<B>not&nbsp;null&nbsp;access&nbsp;constant</B>&nbsp;Element_Type)&nbsp;<B>is</B><span class="insert6"><BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>limited</B></span><B>&nbsp;private</B><BR>
 &nbsp;&nbsp;&nbsp;<B>with</B>&nbsp;Implicit_Dereference&nbsp;=&gt;&nbsp;Element,<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nonblocking,&nbsp;Global&nbsp;=&gt;&nbsp;<B>in&nbsp;out&nbsp;synchronized</B>,<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default_Initial_Condition&nbsp;=&gt;&nbsp;(<B>raise</B>&nbsp;Program_Error);</div>
@@ -432,7 +433,7 @@ the discriminants of the element in place.&nbsp;</div>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default_Initial_Condition&nbsp;=&gt;&nbsp;(<B>raise</B>&nbsp;Program_Error);</div>
 <div class="paranum"><a name="p41.3">41.3/3</a></div>
 <div class="Indented2" style="margin-bottom: 0.9em">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0212-1.TXT">AI05-0212-1</A></I>} 
-The types Constant_Reference_Type and Reference_Type need finalization.<A NAME="I8552"></A></div>
+The types Constant_Reference_Type and Reference_Type need finalization.<A NAME="I8575"></A></div>
 <div class="paranum"><a name="p41.4">41.4/5</a></div>
 <div class="Indented2"><SPAN STYLE="font-size: 80%"><I>This paragraph 
 was deleted.</I></SPAN>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0112-1.TXT">AI12-0112-1</A></I>} 
@@ -864,9 +865,9 @@ for a suggested implementation of the check.&nbsp;</div>
 <div class="paranum"><a name="p75.1">75.1/5</a></div>
 <div class="Normal">&nbsp;&nbsp;{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0111-1.TXT">AI12-0111-1</A></I>} 
 The nested package Stable provides a type Stable.Map that represents 
-a <I>stable</I> map,<A NAME="I8553"></A> which is one that cannot grow 
+a <I>stable</I> map,<A NAME="I8576"></A> which is one that cannot grow 
 and shrink. Such a map can be created by calling the Copy function, or 
-by establishing a <I>stabilized view</I> of an ordinary map.<A NAME="I8554"></A></div>
+by establishing a <I>stabilized view</I> of an ordinary map.<A NAME="I8577"></A></div>
 <div class="paranum"><a name="p75.2">75.2/5</a></div>
 <div class="Normal" style="margin-bottom: 0.4em">&nbsp;&nbsp;{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0111-1.TXT">AI12-0111-1</A></I>} 
 The subprograms of the map package that have a parameter or result of 
@@ -922,27 +923,27 @@ Initialization is required as the type is indefinite, see <A HREF="AA-3-3-1.html
 <div class="paranum"><a name="p75.7">75.7/3</a></div>
 <div class="Normal">&nbsp;&nbsp;{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0022-1.TXT">AI05-0022-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0248-1.TXT">AI05-0248-1</A></I>} 
-<A NAME="I8555"></A>It is a bounded error for the actual function associated 
+<A NAME="I8578"></A>It is a bounded error for the actual function associated 
 with a generic formal subprogram, when called as part of an operation 
 of a map package, to tamper with elements of any map parameter of the 
 operation. Either Program_Error is raised, or the operation works as 
 defined on the value of the map either prior to, or subsequent to, some 
-or all of the modifications to the map.<A NAME="I8556"></A></div>
+or all of the modifications to the map.<A NAME="I8579"></A></div>
 <div class="paranum"><a name="p75.8">75.8/3</a></div>
 <div class="Normal">&nbsp;&nbsp;{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0027-1.TXT">AI05-0027-1</A></I>} 
-<A NAME="I8557"></A>It is a bounded error to call any subprogram declared 
+<A NAME="I8580"></A>It is a bounded error to call any subprogram declared 
 in the visible part of a map package when the associated container has 
 been finalized. If the operation takes Container as an <B>in out</B> 
 parameter, then it raises Constraint_Error or Program_Error. Otherwise, 
 the operation either proceeds as it would for an empty container, or 
-it raises Constraint_Error<A NAME="I8558"></A> or Program_Error.<A NAME="I8559"></A> 
+it raises Constraint_Error<A NAME="I8581"></A> or Program_Error.<A NAME="I8582"></A> 
 </div>
 
 <H4 Class="centered">Erroneous Execution</H4>
 <div class="paranum"><a name="p76">76/2</a></div>
 <div class="Normal" style="margin-bottom: 0.4em">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-20302.TXT">AI95-00302-03</A></I>} 
 A Cursor value is <I>invalid</I> if any of the following have occurred 
-since it was created:<A NAME="I8560"></A> <A NAME="I8561"></A></div>
+since it was created:<A NAME="I8583"></A> <A NAME="I8584"></A></div>
 <div class="paranum"><a name="p77">77/2</a></div>
 <div class="Bulleted">The map that contains the node it designates has 
 been finalized;</div>
@@ -963,9 +964,9 @@ contained the node.&nbsp;</div>
 This can happen directly via calls to Clear, Exclude, and Delete.&nbsp;</div>
 <div class="paranum"><a name="p80">80/2</a></div>
 <div class="Normal">The result of &quot;=&quot; or Has_Element is unspecified 
-if these functions are called with an invalid cursor parameter.<A NAME="I8562"></A> 
+if these functions are called with an invalid cursor parameter.<A NAME="I8585"></A> 
 Execution is erroneous if any other subprogram declared in Containers.Hashed_Maps 
-or Containers.Ordered_Maps is called with an invalid cursor parameter.<A NAME="I8563"></A></div>
+or Containers.Ordered_Maps is called with an invalid cursor parameter.<A NAME="I8586"></A></div>
 <div class="paranum"><a name="p80.a">80.a/2</a></div>
 <div class="Annotations"><B>Discussion:&nbsp;</B>The list above is intended 
 to be exhaustive. In other cases, a cursor value continues to designate 
@@ -1054,7 +1055,7 @@ specific packages.&nbsp;</div>
 <H4 Class="centered">Extensions to Ada 2005</H4>
 <div class="paranum"><a name="p84.d">84.d/3</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0212-1.TXT">AI05-0212-1</A></I>} 
-<A NAME="I8564"></A>Added reference support to make map containers more 
+<A NAME="I8587"></A>Added reference support to make map containers more 
 convenient to use.&nbsp;</div>
 
 <H4 Class="centered">Wording Changes from Ada 2005</H4>
@@ -1087,7 +1088,7 @@ to more clearly define where the check is made and the exception raised.
 <H4 Class="centered">Inconsistencies With Ada 2012</H4>
 <div class="paranum"><a name="p84.k">84.k/5</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0111-1.TXT">AI12-0111-1</A></I>} 
-<A NAME="I8565"></A><B>Correction:</B> Tampering with elements is now 
+<A NAME="I8588"></A><B>Correction:</B> Tampering with elements is now 
 defined to be equivalent to tampering with cursors for ordinary containers. 
 If a program requires tampering detection to work, it might fail in Ada 
 2022. Needless to say, this shouldn't happen outside of test programs. 
@@ -1097,7 +1098,7 @@ for more details.&nbsp;</div>
 <H4 Class="centered">Extensions to Ada 2012</H4>
 <div class="paranum"><a name="p84.l">84.l/5</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0196-1.TXT">AI12-0196-1</A></I>} 
-<A NAME="I8566"></A><B>Correction:</B> Replace_Element is now defined 
+<A NAME="I8589"></A><B>Correction:</B> Replace_Element is now defined 
 such that it can be used concurrently so long as it operates on different 
 elements. This allows some container operations to be used in parallel 
 without separate synchronization.&nbsp;</div>

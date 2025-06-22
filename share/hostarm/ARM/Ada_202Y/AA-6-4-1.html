@@ -27,7 +27,7 @@
     </STYLE>
 </HEAD>
 <BODY TEXT="#000000" BGCOLOR="#FFFFF0" LINK="#000080" VLINK="#330033" ALINK="#0000FF">
-<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 3)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
+<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 4)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
 <div style="margin-top: 0.6em; margin-bottom: 0.0em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-0-4.html"><IMG SRC="index.gif" ALT="Index" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-STDS.html"><IMG SRC="lib.gif" ALT="References" BORDER=0></A>&nbsp;
@@ -38,7 +38,7 @@
 <HR>
 <H1>6.4.1 Parameter Associations</H1>
 <div class="paranum"><a name="p1">1</a></div>
-<div class="Normal">[<A NAME="I4308"></A> A parameter association defines 
+<div class="Normal">[<A NAME="I4313"></A> A parameter association defines 
 the association between an actual parameter and a formal parameter.] 
 </div>
 
@@ -64,7 +64,7 @@ access results, as those have the master of the function result.&nbsp;</div>
 The <I>formal_parameter_</I><SPAN Class="swiss"><A HREF="AA-4-1-3.html#S0099">selector_name</A></SPAN> 
 of a named <SPAN Class="swiss"><A HREF="AA-6-4.html#S0220">parameter_association</A></SPAN> 
 shall resolve to denote a <SPAN Class="swiss"><A HREF="AA-6-1.html#S0207">parameter_specification</A></SPAN> 
-of the view being called; <A NAME="I4309"></A><A NAME="I4310"></A><A NAME="I4311"></A><A NAME="I4312"></A>this 
+of the view being called; <A NAME="I4314"></A><A NAME="I4315"></A><A NAME="I4316"></A><A NAME="I4317"></A>this 
 is the formal parameter of the association. The formal parameter for 
 a positional <SPAN Class="swiss"><A HREF="AA-6-4.html#S0220">parameter_association</A></SPAN> 
 is the parameter with the corresponding position in the formal part of 
@@ -74,12 +74,12 @@ the view being called.</div>
 For positional parameters, the &ldquo;corresponding position&rdquo; is 
 calculated after any transformation of prefixed views.&nbsp;</div>
 <div class="paranum"><a name="p3">3</a></div>
-<div class="Normal"><A NAME="I4313"></A>The <I>actual parameter</I> is 
+<div class="Normal"><A NAME="I4318"></A>The <I>actual parameter</I> is 
 either the <SPAN Class="swiss"><A HREF="AA-6-4.html#S0221">explicit_actual_parameter</A></SPAN> 
 given in a <SPAN Class="swiss"><A HREF="AA-6-4.html#S0220">parameter_association</A></SPAN> 
 for a given formal parameter, or the corresponding <SPAN Class="swiss"><A HREF="AA-3-7.html#S0063">default_expression</A></SPAN> 
 if no <SPAN Class="swiss"><A HREF="AA-6-4.html#S0220">parameter_association</A></SPAN> 
-is given for the formal parameter. <A NAME="I4314"></A>The expected type 
+is given for the formal parameter. <A NAME="I4319"></A>The expected type 
 for an actual parameter is the type of the corresponding formal parameter. 
 </div>
 <div class="paranum"><a name="p3.a">3.a</a></div>
@@ -116,7 +116,7 @@ of an <B>in</B> formal parameter as opposed to an otherwise matching
 <div class="paranum"><a name="p5">5</a></div>
 <div class="Normal">If the mode is <B>in out</B> or <B>out</B>, the actual 
 shall be a <SPAN Class="swiss"><A HREF="AA-4-1.html#S0091">name</A></SPAN> 
-that denotes a variable.<A NAME="I4315"></A><A NAME="I4316"></A>&nbsp;</div>
+that denotes a variable.<A NAME="I4320"></A><A NAME="I4321"></A>&nbsp;</div>
 <div class="paranum"><a name="p5.a">5.a/5</a></div>
 <div class="Annotations"><B>Discussion:&nbsp;</B>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0005-1.TXT">AI12-0005-1</A></I>} 
 We no longer need &ldquo;or a <SPAN Class="swiss"><A HREF="AA-4-6.html#S0162">type_conversion</A></SPAN> 
@@ -163,7 +163,7 @@ type and the operand type.&nbsp;</div>
 <div class="paranum"><a name="p5.4">5.4/4</a></div>
 <div class="Normal">&nbsp;{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0074-1.TXT">AI12-0074-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0159-1.TXT">AI12-0159-1</A></I>} 
-<A NAME="I4317"></A>In addition to the places where Legality Rules normally 
+<A NAME="I4322"></A>In addition to the places where Legality Rules normally 
 apply (see <A HREF="AA-12-3.html">12.3</A>), these rules also apply in 
 the private part of an instance of a generic unit.</div>
 <div class="paranum"><a name="p5.e">5.e/4</a></div>
@@ -207,7 +207,7 @@ of an untagged generic formal private or derived type (see <A HREF="AA-12-5-1.ht
 for the formal definition of this rule).&nbsp;</div>
 <div class="paranum"><a name="p6.3">6.3/4</a></div>
 <div class="Normal">&nbsp;{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0095-1.TXT">AI12-0095-1</A></I>} 
-<A NAME="I4318"></A>In addition to the places where Legality Rules normally 
+<A NAME="I4323"></A>In addition to the places where Legality Rules normally 
 apply (see <A HREF="AA-12-3.html">12.3</A>), these rules also apply in 
 the private part of an instance of a generic unit.</div>
 <div class="paranum"><a name="p6.4">6.4/3</a></div>
@@ -235,7 +235,7 @@ in almost all other cases this check will always pass.&nbsp;</div>
 <div class="paranum"><a name="p6.5">6.5/3</a></div>
 <div class="Normal" style="margin-bottom: 0.4em">&nbsp;{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0144-2.TXT">AI05-0144-2</A></I>} 
 Two <SPAN Class="swiss"><A HREF="AA-4-1.html#S0091">name</A></SPAN>s 
-are <I>known to denote the same object</I> if:<A NAME="I4319"></A></div>
+are <I>known to denote the same object</I> if:<A NAME="I4324"></A></div>
 <div class="paranum"><a name="p6.6">6.6/3</a></div>
 <div class="Bulleted">both <SPAN Class="swiss"><A HREF="AA-4-1.html#S0091">name</A></SPAN>s 
 statically denote the same stand-alone object or parameter; or</div>
@@ -364,7 +364,7 @@ vs. S(ONE), which we already know denote the same object.&nbsp;</div>
 <div class="paranum"><a name="p6.12">6.12/3</a></div>
 <div class="Normal" style="margin-bottom: 0.4em">&nbsp;&nbsp;{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0144-2.TXT">AI05-0144-2</A></I>} 
 Two <SPAN Class="swiss"><A HREF="AA-4-1.html#S0091">name</A></SPAN>s 
-are <I>known to refer to the same object</I> if <A NAME="I4320"></A></div>
+are <I>known to refer to the same object</I> if <A NAME="I4325"></A></div>
 <div class="paranum"><a name="p6.13">6.13/3</a></div>
 <div class="Bulleted">The two <SPAN Class="swiss"><A HREF="AA-4-1.html#S0091">name</A></SPAN>s 
 are known to denote the same object; or</div>
@@ -480,7 +480,7 @@ in an aggregate (via &lt;&gt;).&nbsp;</div>
 
 <H4 Class="centered">Dynamic Semantics</H4>
 <div class="paranum"><a name="p7">7</a></div>
-<div class="Normal" style="margin-bottom: 0.4em"><A NAME="I4321"></A>For 
+<div class="Normal" style="margin-bottom: 0.4em"><A NAME="I4326"></A>For 
 the evaluation of a <SPAN Class="swiss"><A HREF="AA-6-4.html#S0220">parameter_association</A></SPAN>: 
 </div>
 <div class="paranum"><a name="p8">8</a></div>
@@ -492,16 +492,16 @@ is elaborated, which creates the anonymous access type.</div>
 <div class="Bulleted">For a parameter [(of any mode)] that is passed 
 by reference (see <A HREF="AA-6-2.html">6.2</A>), a view conversion of 
 the actual parameter to the nominal subtype of the formal parameter is 
-evaluated, and the formal parameter denotes that conversion. <A NAME="I4322"></A></div>
+evaluated, and the formal parameter denotes that conversion. <A NAME="I4327"></A></div>
 <div class="paranum"><a name="p10.a">10.a</a></div>
 <div class="Annotations"><B>Discussion:&nbsp;</B>We are always allowing sliding, 
 even for [<B>in</B>] <B>out</B> by-reference parameters.&nbsp;</div>
 <div class="paranum"><a name="p11">11</a></div>
-<div class="Bulleted"><A NAME="I4323"></A>For an <B>in</B> or <B>in out</B> 
+<div class="Bulleted"><A NAME="I4328"></A>For an <B>in</B> or <B>in out</B> 
 parameter that is passed by copy (see <A HREF="AA-6-2.html">6.2</A>), 
 the formal parameter object is created, and the value of the actual parameter 
 is converted to the nominal subtype of the formal parameter and assigned 
-to the formal. <A NAME="I4324"></A></div>
+to the formal. <A NAME="I4329"></A></div>
 <div class="paranum"><a name="p11.a">11.a</a></div>
 <div class="Annotations"><B>Ramification:&nbsp;</B>The conversion mentioned 
 here is a value conversion.&nbsp;</div>
@@ -612,16 +612,16 @@ overhead to accurately know the dynamic accessibility of a formal parameter
 (all tagged and explicitly aliased parameters would have to carry accessibility 
 levels).&nbsp;</div>
 <div class="paranum"><a name="p16">16</a></div>
-<div class="Normal"><A NAME="I4325"></A><A NAME="I4326"></A>A formal 
+<div class="Normal"><A NAME="I4330"></A><A NAME="I4331"></A>A formal 
 parameter of mode <B>in out</B> or <B>out</B> with discriminants is constrained 
 if either its nominal subtype or the actual parameter is constrained.</div>
 <div class="paranum"><a name="p17">17</a></div>
-<div class="Normal"><A NAME="I4327"></A><A NAME="I4328"></A><A NAME="I4329"></A><A NAME="I4330"></A><A NAME="I4331"></A>After 
+<div class="Normal"><A NAME="I4332"></A><A NAME="I4333"></A><A NAME="I4334"></A><A NAME="I4335"></A><A NAME="I4336"></A>After 
 normal completion and leaving of a subprogram, for each <B>in out</B> 
 or <B>out</B> parameter that is passed by copy, the value of the formal 
 parameter is converted to the subtype of the variable given as the actual 
-parameter and assigned to it. <A NAME="I4332"></A>These conversions and 
-assignments occur in an arbitrary order.<A NAME="I4333"></A>&nbsp;</div>
+parameter and assigned to it. <A NAME="I4337"></A>These conversions and 
+assignments occur in an arbitrary order.<A NAME="I4338"></A>&nbsp;</div>
 <div class="paranum"><a name="p17.a">17.a</a></div>
 <div class="Annotations"><B>Ramification:&nbsp;</B>The conversions mentioned 
 above during parameter passing might raise Constraint_Error &mdash; (see 
@@ -652,7 +652,7 @@ in <A HREF="AA-4-6.html">4.6</A> will convert to S1.&nbsp;</div>
 <H4 Class="centered">Erroneous Execution</H4>
 <div class="paranum"><a name="p18">18/3</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0008-1.TXT">AI05-0008-1</A></I>} 
-<A NAME="I4334"></A>If the nominal subtype of a formal parameter with 
+<A NAME="I4339"></A>If the nominal subtype of a formal parameter with 
 discriminants is constrained or indefinite, and the parameter is passed 
 by reference, then the execution of the call is erroneous if the value 
 of any discriminant of the actual is changed while the formal parameter 
@@ -675,7 +675,7 @@ of an access type used as an <B>out</B> parameter.</div>
 
 <H4 Class="centered">Extensions to Ada 83</H4>
 <div class="paranum"><a name="p19.b">19.b</a></div>
-<div class="Annotations"><A NAME="I4335"></A>In Ada 95, a program can 
+<div class="Annotations"><A NAME="I4340"></A>In Ada 95, a program can 
 rely on the fact that passing an object as an <B>out</B> parameter does 
 not &ldquo;de-initialize&rdquo; any parts of the object whose subtypes 
 have implicit initial values. (This generalizes the RM83 rule that required 
@@ -690,7 +690,7 @@ by earlier subclauses.&nbsp;</div>
 <H4 Class="centered">Inconsistencies With Ada 2005</H4>
 <div class="paranum"><a name="p19.d">19.d/3</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0196-1.TXT">AI05-0196-1</A></I>} 
-<A NAME="I4336"></A><B>Correction:</B> Clarified that <B>out</B> parameters 
+<A NAME="I4341"></A><B>Correction:</B> Clarified that <B>out</B> parameters 
 of an access type are not checked for null exclusions when they are passed 
 in (which is similar to the behavior for constraints). This was unspecified 
 in Ada 2005, so a program which depends on the behavior of an implementation 
@@ -700,7 +700,7 @@ on an exception being raised is unlikely.&nbsp;</div>
 <H4 Class="centered">Incompatibilities With Ada 2005</H4>
 <div class="paranum"><a name="p19.e">19.e/3</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0144-2.TXT">AI05-0144-2</A></I>} 
-<A NAME="I4337"></A>Additional rules have been added to make illegal 
+<A NAME="I4342"></A>Additional rules have been added to make illegal 
 passing the same elementary object to more than one <B>in out</B> or 
 <B>out</B> parameters of the same call. In this case, the result in the 
 object could depend on the compiler version, optimization settings, and 
@@ -744,7 +744,7 @@ and the like. Thus they've been banned.&nbsp;</div>
 <H4 Class="centered">Inconsistencies With Ada 2012</H4>
 <div class="paranum"><a name="p19.k">19.k/5</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0378-1.TXT">AI12-0378-1</A></I>} 
-<A NAME="I4338"></A><B>Correction:</B> Added a permission to pass <B>null</B> 
+<A NAME="I4343"></A><B>Correction:</B> Added a permission to pass <B>null</B> 
 so that value passed into an <B>out</B> parameter for access types is 
 well-defined in the case of a view conversion. <B>Null</B> may be passed 
 for any view conversion between unrelated access types; this is important 
@@ -766,7 +766,7 @@ read. In addition, at least one widely-used Ada compiler already passes
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0159-1.TXT">AI12-0159-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0377-1.TXT">AI12-0377-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0378-1.TXT">AI12-0378-1</A></I>} 
-<A NAME="I4339"></A><B>Corrigendum:</B> Added rules to ensure that the 
+<A NAME="I4344"></A><B>Corrigendum:</B> Added rules to ensure that the 
 value passed into an <B>out</B> parameter for scalar types is well-defined 
 in the case of a view conversion. The new rules can be incompatible. 
 View conversions from/to an unrelated type with the Default_Value aspect 

@@ -23,7 +23,7 @@
     </STYLE>
 </HEAD>
 <BODY TEXT="#000000" BGCOLOR="#FFFFF0" LINK="#000080" VLINK="#330033" ALINK="#0000FF">
-<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 3)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
+<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 4)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
 <div style="margin-top: 0.6em; margin-bottom: 0.0em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-0-4.html"><IMG SRC="index.gif" ALT="Index" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-STDS.html"><IMG SRC="lib.gif" ALT="References" BORDER=0></A>&nbsp;
@@ -48,51 +48,51 @@ The text buffer library packages have the following declarations:</div>
 <div class="Examples">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0340-1.TXT">AI12-0340-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0384-2.TXT">AI12-0384-2</A></I>} 
 <B>with</B>&nbsp;Ada.Strings.UTF_Encoding.Wide_Wide_Strings;<BR>
-<A NAME="I7491"></A><B>package</B>&nbsp;Ada.Strings.Text_Buffers<BR>
+<A NAME="I7497"></A><B>package</B>&nbsp;Ada.Strings.Text_Buffers<BR>
 &nbsp;&nbsp;&nbsp;<B>with</B>&nbsp;Pure&nbsp;<B>is</B></div>
 <div class="paranum"><a name="p4">4/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<B>type</B>&nbsp;<A NAME="I7492"></A>Text_Buffer_Count&nbsp;<B>is&nbsp;range</B>&nbsp;0&nbsp;..&nbsp;<SPAN Class="roman"><I>implementation-defined</I></SPAN>;</div>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<B>type</B>&nbsp;<A NAME="I7498"></A>Text_Buffer_Count&nbsp;<B>is&nbsp;range</B>&nbsp;0&nbsp;..&nbsp;<SPAN Class="roman"><I>implementation-defined</I></SPAN>;</div>
 <div class="paranum"><a name="p5">5/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<A NAME="I7493"></A>New_Line_Count&nbsp;:&nbsp;<B>constant</B>&nbsp;Text_Buffer_Count&nbsp;:=&nbsp;<SPAN Class="roman"><I>implementation-defined</I></SPAN>;</div>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<A NAME="I7499"></A>New_Line_Count&nbsp;:&nbsp;<B>constant</B>&nbsp;Text_Buffer_Count&nbsp;:=&nbsp;<SPAN Class="roman"><I>implementation-defined</I></SPAN>;</div>
 <div class="paranum"><a name="p6">6/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<B>type</B>&nbsp;<A NAME="I7494"></A>Root_Buffer_Type&nbsp;<B>is&nbsp;abstract&nbsp;tagged&nbsp;private</B><BR>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<B>type</B>&nbsp;<A NAME="I7500"></A>Root_Buffer_Type&nbsp;<B>is&nbsp;abstract&nbsp;tagged&nbsp;private</B><BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>with</B>&nbsp;Default_Initial_Condition&nbsp;=&gt;<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Current_Indent&nbsp;(Root_Buffer_Type)&nbsp;=&nbsp;0;</div>
 <div class="paranum"><a name="p7">7/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<B>procedure</B>&nbsp;<A NAME="I7495"></A>Put&nbsp;(<BR>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<B>procedure</B>&nbsp;<A NAME="I7501"></A>Put&nbsp;(<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Buffer&nbsp;:&nbsp;<B>in&nbsp;out</B>&nbsp;Root_Buffer_Type;<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Item&nbsp;&nbsp;&nbsp;:&nbsp;<B>in</B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String)&nbsp;<B>is&nbsp;abstract</B>;</div>
 <div class="paranum"><a name="p8">8/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<B>procedure</B>&nbsp;<A NAME="I7496"></A>Wide_Put&nbsp;(<BR>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<B>procedure</B>&nbsp;<A NAME="I7502"></A>Wide_Put&nbsp;(<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Buffer&nbsp;:&nbsp;<B>in&nbsp;out</B>&nbsp;Root_Buffer_Type;<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Item&nbsp;&nbsp;&nbsp;:&nbsp;<B>in</B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wide_String)&nbsp;<B>is&nbsp;abstract</B>;</div>
 <div class="paranum"><a name="p9">9/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<B>procedure</B>&nbsp;<A NAME="I7497"></A>Wide_Wide_Put&nbsp;(<BR>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<B>procedure</B>&nbsp;<A NAME="I7503"></A>Wide_Wide_Put&nbsp;(<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Buffer&nbsp;:&nbsp;<B>in&nbsp;out</B>&nbsp;Root_Buffer_Type;<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Item&nbsp;&nbsp;&nbsp;:&nbsp;<B>in</B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wide_Wide_String)&nbsp;<B>is&nbsp;abstract</B>;</div>
 <div class="paranum"><a name="p10">10/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<B>procedure</B>&nbsp;<A NAME="I7498"></A>Put_UTF_8&nbsp;(<BR>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<B>procedure</B>&nbsp;<A NAME="I7504"></A>Put_UTF_8&nbsp;(<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Buffer&nbsp;:&nbsp;<B>in&nbsp;out</B>&nbsp;Root_Buffer_Type;<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Item&nbsp;&nbsp;&nbsp;:&nbsp;<B>in</B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UTF_Encoding.UTF_8_String)&nbsp;<B>is&nbsp;abstract</B>;</div>
 <div class="paranum"><a name="p11">11/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<B>procedure</B>&nbsp;<A NAME="I7499"></A>Wide_Put_UTF_16&nbsp;(<BR>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<B>procedure</B>&nbsp;<A NAME="I7505"></A>Wide_Put_UTF_16&nbsp;(<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Buffer&nbsp;:&nbsp;<B>in&nbsp;out</B>&nbsp;Root_Buffer_Type;<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Item&nbsp;&nbsp;&nbsp;:&nbsp;<B>in</B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UTF_Encoding.UTF_16_Wide_String)&nbsp;<B>is&nbsp;abstract</B>;</div>
 <div class="paranum"><a name="p12">12/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<B>procedure</B>&nbsp;<A NAME="I7500"></A>New_Line&nbsp;(Buffer&nbsp;:&nbsp;<B>in&nbsp;out</B>&nbsp;Root_Buffer_Type)&nbsp;<B>is&nbsp;abstract</B>;</div>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<B>procedure</B>&nbsp;<A NAME="I7506"></A>New_Line&nbsp;(Buffer&nbsp;:&nbsp;<B>in&nbsp;out</B>&nbsp;Root_Buffer_Type)&nbsp;<B>is&nbsp;abstract</B>;</div>
 <div class="paranum"><a name="p13">13/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<A NAME="I7501"></A>Standard_Indent&nbsp;:&nbsp;<B>constant</B>&nbsp;Text_Buffer_Count&nbsp;:=&nbsp;3;</div>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<A NAME="I7507"></A>Standard_Indent&nbsp;:&nbsp;<B>constant</B>&nbsp;Text_Buffer_Count&nbsp;:=&nbsp;3;</div>
 <div class="paranum"><a name="p14">14/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7502"></A>Current_Indent&nbsp;(<BR>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7508"></A>Current_Indent&nbsp;(<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Buffer&nbsp;:&nbsp;Root_Buffer_Type)&nbsp;<B>return</B>&nbsp;Text_Buffer_Count;</div>
 <div class="paranum"><a name="p15">15/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<B>procedure</B>&nbsp;<A NAME="I7503"></A>Increase_Indent&nbsp;(<BR>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<B>procedure</B>&nbsp;<A NAME="I7509"></A>Increase_Indent&nbsp;(<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Buffer&nbsp;:&nbsp;<B>in&nbsp;out</B>&nbsp;Root_Buffer_Type;<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Amount&nbsp;:&nbsp;<B>in</B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Text_Buffer_Count&nbsp;:=&nbsp;Standard_Indent)<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>with</B>&nbsp;Post'Class&nbsp;=&gt;<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Current_Indent&nbsp;(Buffer)&nbsp;=&nbsp;Current_Indent&nbsp;(Buffer)'Old&nbsp;+&nbsp;Amount;</div>
 <div class="paranum"><a name="p16">16/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<B>procedure</B>&nbsp;<A NAME="I7504"></A>Decrease_Indent&nbsp;(<BR>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<B>procedure</B>&nbsp;<A NAME="I7510"></A>Decrease_Indent&nbsp;(<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Buffer&nbsp;:&nbsp;<B>in&nbsp;out</B>&nbsp;Root_Buffer_Type;<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Amount&nbsp;:&nbsp;<B>in</B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Text_Buffer_Count&nbsp;:=&nbsp;Standard_Indent)<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>with</B>&nbsp;Pre'Class&nbsp;=&gt;<BR>
@@ -108,37 +108,37 @@ The text buffer library packages have the following declarations:</div>
 <div class="paranum"><a name="p18">18/5</a></div>
 <div class="Examples">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0340-1.TXT">AI12-0340-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0384-2.TXT">AI12-0384-2</A></I>} 
-<A NAME="I7505"></A><B>package</B>&nbsp;Ada.Strings.Text_Buffers.Unbounded<BR>
+<A NAME="I7511"></A><B>package</B>&nbsp;Ada.Strings.Text_Buffers.Unbounded<BR>
 &nbsp;&nbsp;&nbsp;<B>with</B>&nbsp;Preelaborate,&nbsp;Nonblocking,&nbsp;Global&nbsp;=&gt;&nbsp;<B>null&nbsp;is</B></div>
 <div class="paranum"><a name="p19">19/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<B>type</B>&nbsp;<A NAME="I7506"></A>Buffer_Type&nbsp;<B>is&nbsp;new</B>&nbsp;Root_Buffer_Type&nbsp;<B>with&nbsp;private</B>;</div>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<B>type</B>&nbsp;<A NAME="I7512"></A>Buffer_Type&nbsp;<B>is&nbsp;new</B>&nbsp;Root_Buffer_Type&nbsp;<B>with&nbsp;private</B>;</div>
 <div class="paranum"><a name="p20">20/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7507"></A>Get&nbsp;(<BR>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7513"></A>Get&nbsp;(<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Buffer&nbsp;:&nbsp;<B>in&nbsp;out</B>&nbsp;Buffer_Type)<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>return</B>&nbsp;String<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>with</B>&nbsp;Post'Class&nbsp;=&gt;<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get'Result'First&nbsp;=&nbsp;1&nbsp;<B>and&nbsp;then</B>&nbsp;Current_Indent&nbsp;(Buffer)&nbsp;=&nbsp;0;</div>
 <div class="paranum"><a name="p21">21/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7508"></A>Wide_Get&nbsp;(<BR>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7514"></A>Wide_Get&nbsp;(<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Buffer&nbsp;:&nbsp;<B>in&nbsp;out</B>&nbsp;Buffer_Type)<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>return</B>&nbsp;Wide_String<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>with</B>&nbsp;Post'Class&nbsp;=&gt;<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wide_Get'Result'First&nbsp;=&nbsp;1&nbsp;<B>and&nbsp;then</B>&nbsp;Current_Indent&nbsp;(Buffer)&nbsp;=&nbsp;0;</div>
 <div class="paranum"><a name="p22">22/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7509"></A>Wide_Wide_Get&nbsp;(<BR>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7515"></A>Wide_Wide_Get&nbsp;(<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Buffer&nbsp;:&nbsp;<B>in&nbsp;out</B>&nbsp;Buffer_Type)<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>return</B>&nbsp;Wide_Wide_String<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>with</B>&nbsp;Post'Class&nbsp;=&gt;<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wide_Wide_Get'Result'First&nbsp;=&nbsp;1<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>and&nbsp;then</B>&nbsp;Current_Indent&nbsp;(Buffer)&nbsp;=&nbsp;0;</div>
 <div class="paranum"><a name="p23">23/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7510"></A>Get_UTF_8&nbsp;(<BR>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7516"></A>Get_UTF_8&nbsp;(<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Buffer&nbsp;:&nbsp;<B>in&nbsp;out</B>&nbsp;Buffer_Type)<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>return</B>&nbsp;UTF_Encoding.UTF_8_String<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>with</B>&nbsp;Post'Class&nbsp;=&gt;<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get_UTF_8'Result'First&nbsp;=&nbsp;1&nbsp;<B>and&nbsp;then</B>&nbsp;Current_Indent&nbsp;(Buffer)&nbsp;=&nbsp;0;</div>
 <div class="paranum"><a name="p24">24/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7511"></A>Wide_Get_UTF_16&nbsp;(<BR>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7517"></A>Wide_Get_UTF_16&nbsp;(<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Buffer&nbsp;:&nbsp;<B>in&nbsp;out</B>&nbsp;Buffer_Type)<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>return</B>&nbsp;UTF_Encoding.UTF_16_Wide_String<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>with</B>&nbsp;Post'Class&nbsp;=&gt;<BR>
@@ -152,14 +152,14 @@ The text buffer library packages have the following declarations:</div>
 <div class="paranum"><a name="p26">26/5</a></div>
 <div class="Examples">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0340-1.TXT">AI12-0340-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0384-2.TXT">AI12-0384-2</A></I>} 
-<A NAME="I7512"></A><B>package</B>&nbsp;Ada.Strings.Text_Buffers.Bounded<BR>
+<A NAME="I7518"></A><B>package</B>&nbsp;Ada.Strings.Text_Buffers.Bounded<BR>
 &nbsp;&nbsp;&nbsp;<B>with</B>&nbsp;Pure,&nbsp;Nonblocking,&nbsp;Global&nbsp;=&gt;&nbsp;<B>null&nbsp;is</B></div>
 <div class="paranum"><a name="p27">27/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<B>type</B>&nbsp;<A NAME="I7513"></A>Buffer_Type&nbsp;(Max_Characters&nbsp;:&nbsp;Text_Buffer_Count)<BR>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<B>type</B>&nbsp;<A NAME="I7519"></A>Buffer_Type&nbsp;(Max_Characters&nbsp;:&nbsp;Text_Buffer_Count)<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>is&nbsp;new</B>&nbsp;Root_Buffer_Type&nbsp;<B>with&nbsp;private</B><BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>with</B>&nbsp;Default_Initial_Condition&nbsp;=&gt;&nbsp;<B>not</B>&nbsp;Text_Truncated&nbsp;(Buffer_Type);</div>
 <div class="paranum"><a name="p28">28/5</a></div>
-<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7514"></A>Text_Truncated&nbsp;(Buffer&nbsp;:&nbsp;<B>in</B>&nbsp;Buffer_Type)&nbsp;<B>return</B>&nbsp;Boolean;</div>
+<div class="Examples">&nbsp;&nbsp;&nbsp;<B>function</B>&nbsp;<A NAME="I7520"></A>Text_Truncated&nbsp;(Buffer&nbsp;:&nbsp;<B>in</B>&nbsp;Buffer_Type)&nbsp;<B>return</B>&nbsp;Boolean;</div>
 <div class="paranum"><a name="p29">29/5</a></div>
 <div class="Examples">&nbsp;&nbsp;&nbsp;--<SPAN Class="roman"><I>&nbsp;Get,&nbsp;Wide_Get,&nbsp;Wide_Wide_Get,&nbsp;Get_UTF_8,&nbsp;and&nbsp;Wide_Get_UTF_16</I></SPAN><BR>
 &nbsp;&nbsp;&nbsp;--<SPAN Class="roman"><I>&nbsp;are&nbsp;declared&nbsp;here&nbsp;just&nbsp;as&nbsp;in&nbsp;the&nbsp;Unbounded&nbsp;child.</I></SPAN></div>
@@ -235,7 +235,7 @@ objects should be implemented without dynamic allocation.</div>
 <div class="paranum"><a name="p36.a">36.a/5</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0340-1.TXT">AI12-0340-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0384-2.TXT">AI12-0384-2</A></I>} 
-<A NAME="I7515"></A>The packages Strings.Text_Buffers, Strings.Text_Buffers.Unbounded, 
+<A NAME="I7521"></A>The packages Strings.Text_Buffers, Strings.Text_Buffers.Unbounded, 
 and Strings.Text_Buffers.Bounded are new.&nbsp;</div>
 
 <H4 Class="centered">Wording Changes from Ada 2022</H4>

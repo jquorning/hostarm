@@ -21,7 +21,7 @@
     </STYLE>
 </HEAD>
 <BODY TEXT="#000000" BGCOLOR="#FFFFF0" LINK="#000080" VLINK="#330033" ALINK="#0000FF">
-<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 3)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
+<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 4)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
 <div style="margin-top: 0.6em; margin-bottom: 0.0em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-0-4.html"><IMG SRC="index.gif" ALT="Index" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-STDS.html"><IMG SRC="lib.gif" ALT="References" BORDER=0></A>&nbsp;
@@ -47,12 +47,12 @@ and eliminate the syntax for these <SPAN Class="swiss">_constraint</SPAN>s.
 <H4 Class="centered">Syntax</H4>
 <div class="paranum"><a name="p2">2/4</a></div>
 <div class="Indented1">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0152-1.TXT">AI12-0152-1</A></I>} 
-<SPAN Class="swiss">delta_constraint</SPAN><A NAME="I10622"></A><A NAME="S0367"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN><B>delta</B>&nbsp;<I>static_</I><A NAME="I10623"></A><SPAN Class="swiss"><A HREF="AA-4-4.html#S0138">simple_expression</A></SPAN>&nbsp;[<A NAME="I10624"></A><SPAN Class="swiss"><A HREF="AA-3-5.html#S0036">range_constraint</A></SPAN>]</div>
+<SPAN Class="swiss">delta_constraint</SPAN><A NAME="I10647"></A><A NAME="S0367"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN><B>delta</B>&nbsp;<I>static_</I><A NAME="I10648"></A><SPAN Class="swiss"><A HREF="AA-4-4.html#S0138">simple_expression</A></SPAN>&nbsp;[<A NAME="I10649"></A><SPAN Class="swiss"><A HREF="AA-3-5.html#S0036">range_constraint</A></SPAN>]</div>
 
 <H4 Class="centered">Name Resolution Rules</H4>
 <div class="paranum"><a name="p3">3/4</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0152-1.TXT">AI12-0152-1</A></I>} 
-<A NAME="I10625"></A>The <SPAN Class="swiss"><A HREF="AA-4-4.html#S0138">simple_expression</A></SPAN> 
+<A NAME="I10650"></A>The <SPAN Class="swiss"><A HREF="AA-4-4.html#S0138">simple_expression</A></SPAN> 
 of a <SPAN Class="swiss"><A HREF="AA-J-3.html#S0367">delta_constraint</A></SPAN> 
 is expected to be of any real type.&nbsp;</div>
 
@@ -61,14 +61,14 @@ is expected to be of any real type.&nbsp;</div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0152-1.TXT">AI12-0152-1</A></I>} 
 The <SPAN Class="swiss"><A HREF="AA-4-4.html#S0138">simple_expression</A></SPAN> 
 of a <SPAN Class="swiss"><A HREF="AA-J-3.html#S0367">delta_constraint</A></SPAN> 
-shall be static.<A NAME="I10626"></A></div>
+shall be static.<A NAME="I10651"></A></div>
 <div class="paranum"><a name="p5">5</a></div>
 <div class="Normal">For a <SPAN Class="swiss"><A HREF="AA-3-2-2.html#S0027">subtype_indication</A></SPAN> 
 with a <SPAN Class="swiss"><A HREF="AA-J-3.html#S0367">delta_constraint</A></SPAN>, 
 the <SPAN Class="swiss"><A HREF="AA-3-2-2.html#S0028">subtype_mark</A></SPAN> 
 shall denote an ordinary fixed point subtype.</div>
 <div class="paranum"><a name="p6">6</a></div>
-<div class="Normal"><A NAME="I10627"></A>For a <SPAN Class="swiss"><A HREF="AA-3-2-2.html#S0027">subtype_indication</A></SPAN> 
+<div class="Normal"><A NAME="I10652"></A>For a <SPAN Class="swiss"><A HREF="AA-3-2-2.html#S0027">subtype_indication</A></SPAN> 
 with a <SPAN Class="swiss"><A HREF="AA-3-5-9.html#S0050">digits_constraint</A></SPAN>, 
 the <SPAN Class="swiss"><A HREF="AA-3-2-2.html#S0028">subtype_mark</A></SPAN> 
 shall denote either a decimal fixed point subtype or a floating point 
@@ -107,21 +107,21 @@ then the floating point subtype is constrained by the <SPAN Class="swiss"><A HRE
 <H4 Class="centered">Dynamic Semantics</H4>
 <div class="paranum"><a name="p9">9/4</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0152-1.TXT">AI12-0152-1</A></I>} 
-<A NAME="I10628"></A>A <SPAN Class="swiss"><A HREF="AA-J-3.html#S0367">delta_constraint</A></SPAN> 
+<A NAME="I10653"></A>A <SPAN Class="swiss"><A HREF="AA-J-3.html#S0367">delta_constraint</A></SPAN> 
 is <I>compatible</I> with an ordinary fixed point subtype if the value 
 of the <SPAN Class="swiss"><A HREF="AA-4-4.html#S0138">simple_expression</A></SPAN> 
 is no less than the <I>delta</I> of the subtype, and the <SPAN Class="swiss"><A HREF="AA-3-5.html#S0036">range_constraint</A></SPAN>, 
 if any, is compatible with the subtype.</div>
 <div class="paranum"><a name="p10">10/4</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0152-1.TXT">AI12-0152-1</A></I>} 
-<A NAME="I10629"></A>A <SPAN Class="swiss"><A HREF="AA-3-5-9.html#S0050">digits_constraint</A></SPAN> 
+<A NAME="I10654"></A>A <SPAN Class="swiss"><A HREF="AA-3-5-9.html#S0050">digits_constraint</A></SPAN> 
 is <I>compatible</I> with a floating point subtype if the value of the 
 <SPAN Class="swiss"><A HREF="AA-4-4.html#S0138">simple_expression</A></SPAN> 
 is no greater than the requested decimal precision of the subtype, and 
 the <SPAN Class="swiss"><A HREF="AA-3-5.html#S0036">range_constraint</A></SPAN>, 
 if any, is compatible with the subtype.</div>
 <div class="paranum"><a name="p11">11</a></div>
-<div class="Normal"><A NAME="I10630"></A>The elaboration of a <SPAN Class="swiss"><A HREF="AA-J-3.html#S0367">delta_constraint</A></SPAN> 
+<div class="Normal"><A NAME="I10655"></A>The elaboration of a <SPAN Class="swiss"><A HREF="AA-J-3.html#S0367">delta_constraint</A></SPAN> 
 consists of the elaboration of the <SPAN Class="swiss"><A HREF="AA-3-5.html#S0036">range_constraint</A></SPAN>, 
 if any.&nbsp;</div>
 <div class="paranum"><a name="p11.a">11.a</a></div>

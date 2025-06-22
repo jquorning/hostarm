@@ -29,7 +29,7 @@
     </STYLE>
 </HEAD>
 <BODY TEXT="#000000" BGCOLOR="#FFFFF0" LINK="#000080" VLINK="#330033" ALINK="#0000FF">
-<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 3)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
+<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 4)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
 <div style="margin-top: 0.6em; margin-bottom: 0.0em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-0-4.html"><IMG SRC="index.gif" ALT="Index" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-STDS.html"><IMG SRC="lib.gif" ALT="References" BORDER=0></A>&nbsp;
@@ -42,7 +42,7 @@
 <div class="paranum"><a name="p1">1/5</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0315-1.TXT">AI12-0315-1</A></I>} 
 An <I>image</I> of a value is a string representing the value in display 
-form.<A NAME="I3741"></A> The attributes Image, Wide_Image, and Wide_Wide_Image 
+form.<A NAME="I3746"></A> The attributes Image, Wide_Image, and Wide_Wide_Image 
 are available to produce the image of a value as a String, Wide_String, 
 or Wide_Wide_String (respectively). User-defined images for a given type 
 can be implemented by overriding the default implementation of the attribute 
@@ -56,7 +56,7 @@ For every subtype S of a type T other than <I>universal_real</I> or <I>universal
 the following type-related operational attribute is defined:</div>
 <div class="paranum"><a name="p3">3/5</a></div>
 <div class="WideHanging-Term" style="margin-bottom: 0.4em">S'Put_Image</div><div class="WideHanging-Body">
-<A NAME="I3742"></A><A NAME="I3743"></A>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0020-1.TXT">AI12-0020-1</A></I>} 
+<A NAME="I3747"></A><A NAME="I3748"></A>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0020-1.TXT">AI12-0020-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0320-1.TXT">AI12-0320-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0340-1.TXT">AI12-0340-1</A></I>} 
 S'Put_Image denotes a procedure with the following specification:&nbsp;</div>
@@ -77,7 +77,7 @@ an <I>image</I> of the value of <SPAN Class="roman"><I>Arg</I></SPAN>.</div>
 The Put_Image attribute may be specified for any specific <span class="insert6">noninterface 
 </span>type T either via an <SPAN Class="swiss"><A HREF="AA-13-3.html#S0349">attribute_definition_clause</A></SPAN> 
 or via an <SPAN Class="swiss"><A HREF="AA-13-1-1.html#S0346">aspect_specification</A></SPAN> 
-specifying the Put_Image aspect of the type.<A NAME="I3744"></A><A NAME="I3745"></A>[ 
+specifying the Put_Image aspect of the type.<A NAME="I3749"></A><A NAME="I3750"></A>[ 
 The Put_Image aspect is not inherited, but rather is implicitly composed 
 for derived types, as defined below.]</div>
 <div class="paranum"><a name="p4.a">4.a/5</a></div>
@@ -166,7 +166,7 @@ For a <I>nongraphic character</I> (a value of a character type that has
 no enumeration literal associated with it), the value is a corresponding 
 language-defined name in upper case (for example, the image of the nongraphic 
 character identified as <I>nul</I> is <TT>&quot;NUL&quot;</TT> &mdash; 
-the quotes are not part of the image).<A NAME="I3746"></A></div>
+the quotes are not part of the image).<A NAME="I3751"></A></div>
 <div class="paranum"><a name="p12.a">12.a/5</a></div>
 <div class="Annotations"><B>Implementation Note:&nbsp;</B>For an enumeration 
 type T that has &quot;holes&quot; (caused by an enumeration_representation_clause), 
@@ -286,13 +286,15 @@ or protected type.</span></div>
 <div class="paranum"><a name="p17">17/5</a></div>
 <div class="Normal" style="margin-bottom: 0.4em">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0419-1.TXT">AI12-0419-1</A></I>} 
 For a specific, nonderived composite type:</div>
-<div class="paranum"><a name="p18">18/5</a></div>
-<div class="Bulleted">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0020-1.TXT">AI12-0020-1</A></I>} 
-If the default implementation of Put_Image writes components, the order 
-in which components are written is the same canonical order in which 
-components of a composite type T are written out by the default implementation 
-of T'Write. [This is also the order that is used in determining the meaning 
-of a positional aggregate of type T.]</div>
+<div class="paranum"><a name="p18">18/6</a></div>
+<div class="Bulleted"><SPAN STYLE="font-size: 80%"><I>This paragraph 
+was deleted.</I></SPAN>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0020-1.TXT">AI12-0020-1</A></I>} 
+{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0132-1.TXT">AI12-0132-1</A></I>} 
+<span class="delete6">If the default implementation of Put_Image writes 
+components, the order in which components are written is the same canonical 
+order in which components of a composite type T are written out by the 
+default implementation of T'Write. [This is also the order that is used 
+in determining the meaning of a positional aggregate of type T.]</span></div>
 <div class="paranum"><a name="p18.a">18.a/5</a></div>
 <div class="Annotations"><B>Discussion:&nbsp;</B>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0020-1.TXT">AI12-0020-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0384-2.TXT">AI12-0384-2</A></I>} 
@@ -300,18 +302,21 @@ In general, the default implementation of T'Put_Image for a composite
 type will involve some sequence of calls to Put and its Wide and Wide_Wide 
 variants and calls to the Put_Image procedures of component types and, 
 in the case of an array type, index types. The Put calls may pass in 
-either literal values (e.g., &quot;(&quot;, &quot;)&quot;, &quot;'(&quot;, 
+either literal values (such as &quot;(&quot;, &quot;)&quot;, &quot;'(&quot;, 
 &quot; =&gt; &quot;, or &quot;, &quot;), or other things (such as component 
 names for record values, task_id images for tasks, or the Wide_Wide_Expanded_Name 
 of the tag in the class-wide case).&nbsp;</div>
-<div class="paranum"><a name="p19">19/5</a></div>
+<div class="paranum"><a name="p19">19/6</a></div>
 <div class="Bulleted">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0020-1.TXT">AI12-0020-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0419-1.TXT">AI12-0419-1</A></I>} 
+{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0132-1.html">AI22-0132-1</A></I>} 
 For an array type T, the default implementation of T'Put_Image generates 
 an image based on named (not positional) array aggregate syntax (with 
 '[' and ']' as the delimiters) using calls to the Put_Image procedures 
 of the index type(s) and the element type to generate images for values 
-of those types.</div>
+of those types.<span class="insert6">&nbsp;The components are written in increasing 
+index order at each level, using a nested syntax for a multidimensional 
+array, as in a multidimensional array aggregate.</span></div>
 <div class="paranum"><a name="p19.a">19.a/5</a></div>
 <div class="Annotations" style="margin-bottom: 0.4em"><B>Discussion: 
 </B>An array type might generate an image such as:&nbsp;</div>
@@ -337,6 +342,7 @@ that the overall array is a null array and has no actual elements.&nbsp;</div>
 <div class="Bulleted">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0020-1.TXT">AI12-0020-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0419-1.TXT">AI12-0419-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0118-1.html">AI22-0118-1</A></I>} 
+{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0132-1.html">AI22-0132-1</A></I>} 
 For a record type (or, as indicated above, <span class="insert6">certain 
 composite derived types</span><span class="delete6">&nbsp;a type extension 
 with no noninterface ancestor specifying Put_Image</span>), or a protected 
@@ -346,7 +352,8 @@ protected type, the initial left parenthesis is followed by <TT>&quot;PROTECTED
 with &quot;</TT>). Component names are displayed in upper case, following 
 the rules for the image of an enumeration value. Component values are 
 displayed via calls to the <span class="delete6">component type's&nbsp;</span>Put_Image 
-procedure<span class="insert6">&nbsp;of the component type</span>.</div>
+procedure<span class="insert6">&nbsp;of the component type</span>.<span class="insert6">&nbsp; Components are displayed in the order they occur within the declarative 
+region of the type (see <A HREF="AA-8-1.html">8.1</A> and <A HREF="AA-3-4.html">3.4</A>).</span></div>
 <div class="paranum"><a name="p21.a">21.a/5</a></div>
 <div class="Annotations" style="margin-bottom: 0.4em"><B>Discussion: 
 </B>This might generate an image such as:&nbsp;</div>
@@ -383,7 +390,9 @@ with the id of the given task and then passing that String to Characters.Convers
 <div class="paranum"><a name="p24">24/5</a></div>
 <div class="Bulleted" style="margin-bottom: 0.3em">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0020-1.TXT">AI12-0020-1</A></I>} 
 For a discriminated task type, the default implementation of T'Put_Image 
-also includes discriminant values, as in:&nbsp;</div>
+also includes discriminant values, <span class="insert6">&nbsp;in the order 
+they occur within the <SPAN Class="swiss"><A HREF="AA-3-7.html#S0061">known_discriminant_part</A></SPAN>, 
+</span>as in:&nbsp;</div>
 <div class="paranum"><a name="p25">25/5</a></div>
 <div class="Examples">&quot;(TASK&nbsp;&lt;task_id_image&gt;&nbsp;with&nbsp;D1&nbsp;=&gt;&nbsp;&nbsp;123,&nbsp;D2&nbsp;=&gt;&nbsp;&nbsp;456)&quot;</div>
 <div class="paranum"><a name="p26">26/5</a></div>
@@ -433,7 +442,7 @@ called for any type.&nbsp;</div>
 For every subtype S of a type T, the following attributes are defined:</div>
 <div class="paranum"><a name="p30">30/5</a></div>
 <div class="WideHanging-Term" style="margin-bottom: 0.4em">S'Wide_Wide_Image</div><div class="WideHanging-Body"><br clear="left">
-<A NAME="I3747"></A><A NAME="I3748"></A>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0020-1.TXT">AI12-0020-1</A></I>} 
+<A NAME="I3752"></A><A NAME="I3753"></A>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0020-1.TXT">AI12-0020-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0340-1.TXT">AI12-0340-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0384-2.TXT">AI12-0384-2</A></I>} 
 S'Wide_Wide_Image denotes a function with the following specification: 
@@ -450,7 +459,7 @@ lower bound of the result is one. [Any exception propagated by the call
 of S'Put_Image is propagated.]</div>
 <div class="paranum"><a name="p31">31/5</a></div>
 <div class="WideHanging-Term" style="margin-bottom: 0.4em">S'Wide_Image</div><div class="WideHanging-Body">
-<A NAME="I3749"></A><A NAME="I3750"></A>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0020-1.TXT">AI12-0020-1</A></I>} 
+<A NAME="I3754"></A><A NAME="I3755"></A>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0020-1.TXT">AI12-0020-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0340-1.TXT">AI12-0340-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0384-2.TXT">AI12-0384-2</A></I>} 
 S'Wide_Image denotes a function with the following specification:&nbsp;</div>
@@ -466,7 +475,7 @@ bound of the result is one. [Any exception propagated by the call of
 S'Put_Image is propagated.]</div>
 <div class="paranum"><a name="p34">34/5</a></div>
 <div class="WideHanging-Term" style="margin-bottom: 0.4em">S'Image</div><div class="WideHanging-Body">
-<A NAME="I3751"></A><A NAME="I3752"></A>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0020-1.TXT">AI12-0020-1</A></I>} 
+<A NAME="I3756"></A><A NAME="I3757"></A>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0020-1.TXT">AI12-0020-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0340-1.TXT">AI12-0340-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0384-2.TXT">AI12-0384-2</A></I>} 
 S'Image denotes a function with the following specification:&nbsp;</div>
@@ -488,19 +497,19 @@ X of a type T other than <I>universal_real</I> or <I>universal_fixed</I>,
 the following attributes are defined:</div>
 <div class="paranum"><a name="p38">38/5</a></div>
 <div class="WideHanging-Term">X'Wide_Wide_Image</div><div class="WideHanging-Body"><br clear="left">
-<A NAME="I3753"></A><A NAME="I3754"></A>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0124-1.TXT">AI12-0124-1</A></I>} 
+<A NAME="I3758"></A><A NAME="I3759"></A>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0124-1.TXT">AI12-0124-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0020-1.TXT">AI12-0020-1</A></I>} 
 X'Wide_Wide_Image denotes the result of calling function S'Wide_Wide_Image 
 with <I>Arg</I> being X, where S is the nominal subtype of X.</div>
 <div class="paranum"><a name="p39">39/5</a></div>
 <div class="WideHanging-Term">X'Wide_Image</div><div class="WideHanging-Body">
-<A NAME="I3755"></A><A NAME="I3756"></A>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0124-1.TXT">AI12-0124-1</A></I>} 
+<A NAME="I3760"></A><A NAME="I3761"></A>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0124-1.TXT">AI12-0124-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0020-1.TXT">AI12-0020-1</A></I>} 
 X'Wide_Image denotes the result of calling function S'Wide_Image with 
 <I>Arg</I> being X, where S is the nominal subtype of X.</div>
 <div class="paranum"><a name="p40">40/5</a></div>
 <div class="WideHanging-Term">X'Image</div><div class="WideHanging-Body">
-<A NAME="I3757"></A><A NAME="I3758"></A>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0124-1.TXT">AI12-0124-1</A></I>} 
+<A NAME="I3762"></A><A NAME="I3763"></A>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0124-1.TXT">AI12-0124-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0020-1.TXT">AI12-0020-1</A></I>} 
 X'Image denotes the result of calling function S'Image with <I>Arg</I> 
 being X, where S is the nominal subtype of X.&nbsp;</div>
@@ -665,7 +674,7 @@ based only on the relevant public interfaces.</div>
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0419-1.TXT">AI12-0419-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0427-1.TXT">AI12-0427-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0435-1.TXT">AI12-0435-1</A></I>} 
-<A NAME="I3759"></A>Attribute Put_Image is new. Attributes Image, Wide_Image, 
+<A NAME="I3764"></A>Attribute Put_Image is new. Attributes Image, Wide_Image, 
 and Wide_Wide_Image now can be used with any type, and are defined in 
 terms of Put_Image so that they can be redefined.&nbsp;</div>
 
@@ -693,8 +702,13 @@ implementation of Put_Image for type extensions does not respect privacy.</span>
 be specified for interface types. This might seem to be incompatible, 
 but not only is the construct useless, the only known implementation 
 of Put_Image gets an internal error when specifying Put_Image for an 
-interface. It is safe to say that this has never happened in user code.</span> 
-</div>
+interface. It is safe to say that this has never happened in user code.</span></div>
+<div class="paranum"><a name="p56.f">56.f/6</a></div>
+<div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0132-1.html">AI22-0132-1</A></I>} 
+<span class="insert6"><B>Corrigendum</B>: Clarified the order that the 
+default implementation of Put_Image for a composite type writes the individual 
+components. We originally had a blanket rule which did not make sense 
+for a multidimensional array, we now have individual rules for each case.</span></div>
 
 <HR>
 <div style="margin-top: 0.0em; margin-bottom: 0.6em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;

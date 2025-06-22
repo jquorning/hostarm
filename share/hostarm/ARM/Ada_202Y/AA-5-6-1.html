@@ -22,7 +22,7 @@
     </STYLE>
 </HEAD>
 <BODY TEXT="#000000" BGCOLOR="#FFFFF0" LINK="#000080" VLINK="#330033" ALINK="#0000FF">
-<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 3)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
+<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 4)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
 <div style="margin-top: 0.6em; margin-bottom: 0.0em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-0-4.html"><IMG SRC="index.gif" ALT="Index" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-STDS.html"><IMG SRC="lib.gif" ALT="References" BORDER=0></A>&nbsp;
@@ -45,13 +45,13 @@ that is intended to proceed concurrently with the others.]</div>
 <div class="Indented1">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0119-1.TXT">AI12-0119-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0427-1.TXT">AI12-0427-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0436-1.TXT">AI12-0436-1</A></I>} 
-<SPAN Class="swiss">parallel_block_statement</SPAN><A NAME="I4031"></A><A NAME="S0192"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN><BR>
-&nbsp;&nbsp;&nbsp;&nbsp;<B>parallel</B>&nbsp;[(<A NAME="I4032"></A><SPAN Class="swiss"><A HREF="AA-5-5.html#S0180">chunk_specification</A></SPAN>)]&nbsp;[<A NAME="I4033"></A><SPAN Class="swiss"><A HREF="AA-13-1-1.html#S0346">aspect_specification</A></SPAN>]&nbsp;<B>do</B><BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A NAME="I4034"></A><SPAN Class="swiss"><A HREF="AA-5-1.html#S0166">sequence_of_statements</A></SPAN><BR>
+<SPAN Class="swiss">parallel_block_statement</SPAN><A NAME="I4036"></A><A NAME="S0192"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN><BR>
+&nbsp;&nbsp;&nbsp;&nbsp;<B>parallel</B>&nbsp;[(<A NAME="I4037"></A><SPAN Class="swiss"><A HREF="AA-5-5.html#S0180">chunk_specification</A></SPAN>)]&nbsp;[<A NAME="I4038"></A><SPAN Class="swiss"><A HREF="AA-13-1-1.html#S0346">aspect_specification</A></SPAN>]&nbsp;<B>do</B><BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A NAME="I4039"></A><SPAN Class="swiss"><A HREF="AA-5-1.html#S0166">sequence_of_statements</A></SPAN><BR>
 &nbsp;&nbsp;&nbsp;&nbsp;<B>and</B><BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A NAME="I4035"></A><SPAN Class="swiss"><A HREF="AA-5-1.html#S0166">sequence_of_statements</A></SPAN><BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A NAME="I4040"></A><SPAN Class="swiss"><A HREF="AA-5-1.html#S0166">sequence_of_statements</A></SPAN><BR>
 &nbsp;&nbsp;&nbsp;{<B>and</B><BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A NAME="I4036"></A><SPAN Class="swiss"><A HREF="AA-5-1.html#S0166">sequence_of_statements</A></SPAN>}<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A NAME="I4041"></A><SPAN Class="swiss"><A HREF="AA-5-1.html#S0166">sequence_of_statements</A></SPAN>}<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;<B>end&nbsp;do</B>;</div>
 <div class="paranum"><a name="p3">3/5</a></div>
 <div class="Indented1">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0427-1.TXT">AI12-0427-1</A></I>} 
@@ -69,15 +69,15 @@ the <SPAN Class="swiss"><A HREF="AA-5-5.html#S0180">chunk_specification</A></SPA
 and the <SPAN Class="swiss"><A HREF="AA-13-1-1.html#S0346">aspect_specification</A></SPAN>, 
 if any, are elaborated in an arbitrary order. After elaborating the <SPAN Class="swiss"><A HREF="AA-5-5.html#S0180">chunk_specification</A></SPAN>, 
 if any, a check is made that the determined maximum number of chunks 
-is greater than zero. If this check fails, Program_Error is raised.<A NAME="I4037"></A><A NAME="I4038"></A> 
-<A NAME="I4039"></A></div>
+is greater than zero. If this check fails, Program_Error is raised.<A NAME="I4042"></A><A NAME="I4043"></A> 
+<A NAME="I4044"></A></div>
 <div class="paranum"><a name="p5">5/5</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0119-1.TXT">AI12-0119-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0427-1.TXT">AI12-0427-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0436-1.TXT">AI12-0436-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0449-1.TXT">AI12-0449-1</A></I>} 
 Then, the various <SPAN Class="swiss"><A HREF="AA-5-1.html#S0166">sequence_of_statements</A></SPAN> 
-are grouped into one or more <I>chunks</I>,<A NAME="I4040"></A> each 
+are grouped into one or more <I>chunks</I>,<A NAME="I4045"></A> each 
 with its own logical thread of control (see Clause <A HREF="AA-9.html">9</A>), 
 up to the maximum number of chunks specified by the <SPAN Class="swiss"><A HREF="AA-5-5.html#S0180">chunk_specification</A></SPAN>, 
 if any. Within each chunk every <SPAN Class="swiss"><A HREF="AA-5-1.html#S0166">sequence_of_statements</A></SPAN> 
@@ -157,7 +157,7 @@ in parallel:</I></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0119-1.TXT">AI12-0119-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0427-1.TXT">AI12-0427-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0436-1.TXT">AI12-0436-1</A></I>} 
-<A NAME="I4041"></A>The <SPAN Class="swiss"><A HREF="AA-5-6-1.html#S0192">parallel_block_statement</A></SPAN> 
+<A NAME="I4046"></A>The <SPAN Class="swiss"><A HREF="AA-5-6-1.html#S0192">parallel_block_statement</A></SPAN> 
 is new.&nbsp;</div>
 
 <HR>

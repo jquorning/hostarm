@@ -13,16 +13,19 @@
     DIV.paranum {float: left; font-family: Arial, Helvetica, sans-serif; font-size: 64%; width: 2.8em; margin-left: -0.4em; margin-right: -3.0em; margin-top: 0.2em}
     TT {font-family: "Courier New", monospace}
     DT {display: compact}
+    SPAN.insert7 {text-decoration: underline; color: rgb(153,0,0) }
+    SPAN.delete7 {text-decoration: line-through; color: rgb(153,0,0) }
     A.Bar:link {font-family: Arial, Helvetica, sans-serif; font-style: normal; text-decoration: none; color: rgb(204,204,51)}
     A.Bar:visited {font-family: Arial, Helvetica, sans-serif; font-style: normal; text-decoration: none; color: rgb(204,204,51)}
     DIV.Normal {font-family: "Times New Roman", Times, serif; line-height: 122%; margin-left: 1.8em; margin-bottom: 0.6em}
     DIV.Annotations {font-family: "Times New Roman", Times, serif; font-size: 80%; line-height: 122%; margin-left: 6.8em; margin-bottom: 0.6em}
+    DIV.Indented4Examples {font-family: "Courier New", monospace; font-size: 90%; line-height: 122%; margin-left:  10.6em; margin-bottom: 0.6em}
     DIV.WideHanging-Body {font-family: "Times New Roman", Times, serif; line-height: 122%; margin-left: 7.8em; margin-top: 0em; margin-bottom: 0.6em}
     DIV.WideHanging-Term {float: left; font-family: "Times New Roman", Times, serif; line-height: 122%; margin-left: 1.8em; margin-top: 0em; margin-bottom: 0em}
     </STYLE>
 </HEAD>
 <BODY TEXT="#000000" BGCOLOR="#FFFFF0" LINK="#000080" VLINK="#330033" ALINK="#0000FF">
-<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 3)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
+<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 4)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
 <div style="margin-top: 0.6em; margin-bottom: 0.0em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-0-4.html"><IMG SRC="index.gif" ALT="Index" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-STDS.html"><IMG SRC="lib.gif" ALT="References" BORDER=0></A>&nbsp;
@@ -35,45 +38,164 @@
 
 <H4 Class="centered">Static Semantics</H4>
 <div class="paranum"><a name="p1">1</a></div>
-<div class="Normal" style="margin-bottom: 0.4em"><A NAME="I7681"></A>The 
+<div class="Normal" style="margin-bottom: 0.4em"><A NAME="I7687"></A>The 
 following <I>representation-oriented</I> attributes are defined for every 
 subtype S of a fixed point type <SPAN Class="roman"><I>T</I></SPAN>. 
 </div>
 <div class="paranum"><a name="p2">2</a></div>
 <div class="WideHanging-Term">S'Machine_Radix</div><div class="WideHanging-Body"><br clear="left">
-<A NAME="I7682"></A><A NAME="I7683"></A>Yields the radix of the hardware 
+<A NAME="I7688"></A><A NAME="I7689"></A>Yields the radix of the hardware 
 representation of the type <SPAN Class="roman"><I>T</I></SPAN>. The value 
 of this attribute is of the type <I>universal_integer</I>.</div>
 <div class="paranum"><a name="p3">3</a></div>
 <div class="WideHanging-Term">S'Machine_Rounds</div><div class="WideHanging-Body"><br clear="left">
-<A NAME="I7684"></A><A NAME="I7685"></A>Yields the value True if rounding 
+<A NAME="I7690"></A><A NAME="I7691"></A>Yields the value True if rounding 
 is performed on inexact results of every predefined operation that yields 
 a result of the type <SPAN Class="roman"><I>T</I></SPAN>; yields the 
 value False otherwise. The value of this attribute is of the predefined 
 type Boolean.</div>
 <div class="paranum"><a name="p4">4</a></div>
 <div class="WideHanging-Term">S'Machine_Overflows</div><div class="WideHanging-Body"><br clear="left">
-<A NAME="I7686"></A><A NAME="I7687"></A>Yields the value True if overflow 
+<A NAME="I7692"></A><A NAME="I7693"></A>Yields the value True if overflow 
 and divide-by-zero are detected and reported by raising Constraint_Error 
 for every predefined operation that yields a result of the type <SPAN Class="roman"><I>T</I></SPAN>; 
 yields the value False otherwise. The value of this attribute is of the 
 predefined type Boolean.&nbsp;</div>
+<div class="paranum"><a name="p5">5/7</a></div>
+<div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0057-1.html">AI22-0057-1</A></I>} 
+<span class="insert7">A fixed point type <I>has integral values</I> if 
+its Small value is an integer or the reciprocal of an integer. A generic 
+formal type is defined to have integral values.<A NAME="I7694"></A><A NAME="I7695"></A></span></div>
+<div class="paranum"><a name="p6">6/7</a></div>
+<div class="Normal" style="margin-bottom: 0.4em">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0057-1.html">AI22-0057-1</A></I>} 
+<span class="insert7">The following primitive function attributes are 
+defined for every subtype S of a fixed point type <SPAN Class="roman"><I>T</I></SPAN> 
+that has integral values.</span>&nbsp;</div>
+<div class="paranum"><a name="p7">7/7</a></div>
+<div class="WideHanging-Term" style="margin-bottom: 0.4em"><span class="insert7">S'Ceiling</span></div><div class="WideHanging-Body">
+<span class="insert7"><A NAME="I7696"></A><A NAME="I7697"></A></span>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0057-1.html">AI22-0057-1</A></I>} 
+<span class="insert7"></span><span class="insert7">S'Ceiling denotes 
+a function with the following specification:</span>&nbsp;</div>
+<div class="paranum"><a name="p7.1">7.1/7</a></div>
+<div class="Indented4Examples"><span class="insert7"><B>function</B>&nbsp;S'Ceiling&nbsp;(<SPAN Class="roman"><I>X</I></SPAN>&nbsp;:&nbsp;<SPAN Class="roman"><I>T</I></SPAN>)<BR>
+&nbsp;&nbsp;&nbsp;<B>return</B>&nbsp;<SPAN Class="roman"><I>T</I></SPAN></span></div>
+<div class="paranum"><a name="p7.2">7.2/7</a></div>
+<div class="WideHanging-Body"><span class="insert7">The function yields 
+the value <I>Ceiling(X)</I>, that is, the smallest (most negative) integral 
+value greater than or equal to <SPAN Class="roman"><I>X</I></SPAN>.</span></div>
+<div class="paranum"><a name="p8">8/7</a></div>
+<div class="WideHanging-Term" style="margin-bottom: 0.4em"><span class="insert7">S'Floor</span></div><div class="WideHanging-Body">
+<span class="insert7"><A NAME="I7698"></A><A NAME="I7699"></A></span>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0057-1.html">AI22-0057-1</A></I>} 
+<span class="insert7"></span><span class="insert7">S'Floor denotes a 
+function with the following specification:</span>&nbsp;</div>
+<div class="paranum"><a name="p8.1">8.1/7</a></div>
+<div class="Indented4Examples"><span class="insert7"><B>function</B>&nbsp;S'Floor&nbsp;(<SPAN Class="roman"><I>X</I></SPAN>&nbsp;:&nbsp;<SPAN Class="roman"><I>T</I></SPAN>)<BR>
+&nbsp;&nbsp;&nbsp;<B>return</B>&nbsp;<SPAN Class="roman"><I>T</I></SPAN></span></div>
+<div class="paranum"><a name="p8.2">8.2/7</a></div>
+<div class="WideHanging-Body"><span class="insert7">The function yields 
+the value <I>Floor(X)</I>, that is, the largest (most positive) integral 
+value less than or equal to <SPAN Class="roman"><I>X</I></SPAN>.</span></div>
+<div class="paranum"><a name="p9">9/7</a></div>
+<div class="WideHanging-Term" style="margin-bottom: 0.4em"><span class="insert7">S'Rounding</span></div><div class="WideHanging-Body">
+<span class="insert7"><A NAME="I7700"></A><A NAME="I7701"></A></span>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0057-1.html">AI22-0057-1</A></I>} 
+<span class="insert7"></span><span class="insert7">S'Rounding denotes 
+a function with the following specification:</span>&nbsp;</div>
+<div class="paranum"><a name="p9.1">9.1/7</a></div>
+<div class="Indented4Examples"><span class="insert7"><B>function</B>&nbsp;S'Rounding&nbsp;(<SPAN Class="roman"><I>X</I></SPAN>&nbsp;:&nbsp;<SPAN Class="roman"><I>T</I></SPAN>)<BR>
+&nbsp;&nbsp;&nbsp;<B>return</B>&nbsp;<SPAN Class="roman"><I>T</I></SPAN></span></div>
+<div class="paranum"><a name="p9.2">9.2/7</a></div>
+<div class="WideHanging-Body"><span class="insert7">The function yields 
+the integral value nearest to <SPAN Class="roman"><I>X</I></SPAN>, rounding 
+away from zero if <SPAN Class="roman"><I>X</I></SPAN> lies exactly halfway 
+between two integers.</span></div>
+<div class="paranum"><a name="p10">10/7</a></div>
+<div class="WideHanging-Term" style="margin-bottom: 0.4em"><span class="insert7">S'Unbiased_Rounding</span></div><div class="WideHanging-Body"><br clear="left">
+<span class="insert7"><A NAME="I7702"></A><A NAME="I7703"></A></span>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0057-1.html">AI22-0057-1</A></I>} 
+<span class="insert7"></span><span class="insert7">S'Unbiased_Rounding 
+denotes a function with the following specification:</span>&nbsp;</div>
+<div class="paranum"><a name="p10.1">10.1/7</a></div>
+<div class="Indented4Examples"><span class="insert7"><B>function</B>&nbsp;S'Unbiased_Rounding&nbsp;(<SPAN Class="roman"><I>X</I></SPAN>&nbsp;:&nbsp;<SPAN Class="roman"><I>T</I></SPAN>)<BR>
+&nbsp;&nbsp;&nbsp;<B>return</B>&nbsp;<SPAN Class="roman"><I>T</I></SPAN></span></div>
+<div class="paranum"><a name="p10.2">10.2/7</a></div>
+<div class="WideHanging-Body"><span class="insert7">The function yields 
+the integral value nearest to <SPAN Class="roman"><I>X</I></SPAN>, rounding 
+toward the even integer if <SPAN Class="roman"><I>X</I></SPAN> lies exactly 
+halfway between two integers.</span></div>
+<div class="paranum"><a name="p11">11/7</a></div>
+<div class="WideHanging-Term" style="margin-bottom: 0.4em"><span class="insert7">S'Machine_Rounding</span></div><div class="WideHanging-Body"><br clear="left">
+<span class="insert7"><A NAME="I7704"></A><A NAME="I7705"></A></span>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0057-1.html">AI22-0057-1</A></I>} 
+<span class="insert7"></span><span class="insert7">S'Machine_Rounding 
+denotes a function with the following specification:</span>&nbsp;</div>
+<div class="paranum"><a name="p11.1">11.1/7</a></div>
+<div class="Indented4Examples"><span class="insert7"><B>function</B>&nbsp;S'Machine_Rounding&nbsp;(<SPAN Class="roman"><I>X</I></SPAN>&nbsp;:&nbsp;<SPAN Class="roman"><I>T</I></SPAN>)<BR>
+&nbsp;&nbsp;&nbsp;<B>return</B>&nbsp;<SPAN Class="roman"><I>T</I></SPAN></span></div>
+<div class="paranum"><a name="p11.2">11.2/7</a></div>
+<div class="WideHanging-Body"><span class="insert7">The function yields 
+the integral value nearest to <SPAN Class="roman"><I>X</I></SPAN>. If 
+<SPAN Class="roman"><I>X</I></SPAN> lies exactly halfway between two 
+integers, one of those integers is returned, but which of them is returned 
+is unspecified. This function provides access to the rounding behavior 
+which is most efficient on the target processor.<A NAME="I7706"></A></span></div>
+<div class="paranum"><a name="p11.a.1">11.a.1/7</a></div>
+<div class="Annotations"><span class="insert7"><B>Discussion:&nbsp;</B>We 
+leave the rounding unspecified, so that users cannot depend on a particular 
+rounding. This attribute is intended for use in cases where the particular 
+rounding chosen is irrelevant. If there is a need to know which way values 
+halfway between two integers are rounded, one of the other rounding attributes 
+should be used.</span>&nbsp;</div>
+<div class="paranum"><a name="p12">12/7</a></div>
+<div class="WideHanging-Term" style="margin-bottom: 0.4em"><span class="insert7">S'Truncation</span></div><div class="WideHanging-Body">
+<span class="insert7"><A NAME="I7707"></A><A NAME="I7708"></A></span>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0057-1.html">AI22-0057-1</A></I>} 
+<span class="insert7"></span><span class="insert7">S'Truncation denotes 
+a function with the following specification:</span>&nbsp;</div>
+<div class="paranum"><a name="p12.1">12.1/7</a></div>
+<div class="Indented4Examples"><span class="insert7"><B>function</B>&nbsp;S'Truncation&nbsp;(<SPAN Class="roman"><I>X</I></SPAN>&nbsp;:&nbsp;<SPAN Class="roman"><I>T</I></SPAN>)<BR>
+&nbsp;&nbsp;&nbsp;<B>return</B>&nbsp;<SPAN Class="roman"><I>T</I></SPAN></span></div>
+<div class="paranum"><a name="p12.2">12.2/7</a></div>
+<div class="WideHanging-Body"><span class="insert7">The function yields 
+the value <I>Ceiling(X)</I> when <SPAN Class="roman"><I>X</I></SPAN> 
+is negative, and <I>Floor(X)</I> otherwise.</span></div>
+<div class="paranum"><a name="p13">13/7</a></div>
+<div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0057-1.html">AI22-0057-1</A></I>} 
+<span class="insert7">For all of these attributes, if <SPAN Class="roman"><I>T</I></SPAN> 
+is a generic formal type, Program_Error is raised if the actual subtype 
+does not have integral values.<A NAME="I7709"></A></span></div>
+<div class="paranum"><a name="p13.a">13.a/7</a></div>
+<div class="Annotations"><span class="insert7"><B>To be honest:&nbsp;</B></span>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0057-1.html">AI22-0057-1</A></I>} 
+<span class="insert7">The check that the type of the prefix has integral 
+values is considered a Legality Rules.</span>&nbsp;</div>
+<div class="paranum"><a name="p13.b">13.b/7</a></div>
+<div class="Annotations"><span class="insert7"><B>Reason:&nbsp;</B></span>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0057-1.html">AI22-0057-1</A></I>} 
+<span class="insert7">The rules here for generic formal types are classic 
+assume-the-best rules for legality checking; the check is redone in the 
+specification of the instance. We use a runtime check on the actual subtype 
+to avoid assume-the-worst in generic bodies (which would mean the attributes 
+could never be used in a generic body on a formal subtype). For implementations 
+that expand generic bodies, it is always possible to provide a warning 
+about the exception being raised.</span>&nbsp;</div>
 
 <H4 Class="centered">Incompatibilities With Ada 83</H4>
-<div class="paranum"><a name="p4.a">4.a</a></div>
-<div class="Annotations"><A NAME="I7688"></A>The Mantissa, Large, Safe_Small, 
+<div class="paranum"><a name="p13.c">13.c</a></div>
+<div class="Annotations"><A NAME="I7710"></A>The Mantissa, Large, Safe_Small, 
 and Safe_Large attributes of fixed point types are removed from the language.</div>
-<div class="paranum"><a name="p4.b">4.b</a></div>
+<div class="paranum"><a name="p13.d">13.d</a></div>
 <div class="Annotations">Implementations are encouraged to eliminate 
 the resulting incompatibility by retaining these attributes, during a 
 transition period, in the form of implementation-defined attributes with 
 their former values.&nbsp;</div>
 
 <H4 Class="centered">Extensions to Ada 83</H4>
-<div class="paranum"><a name="p4.c">4.c</a></div>
-<div class="Annotations"><A NAME="I7689"></A>The Machine_Radix attribute 
+<div class="paranum"><a name="p13.e">13.e</a></div>
+<div class="Annotations"><A NAME="I7711"></A>The Machine_Radix attribute 
 is now allowed for fixed point types. It is also specifiable in an attribute 
 definition clause (see <A HREF="AA-F-1.html">F.1</A>).&nbsp;</div>
+
+<H4 Class="centered">Extensions to Ada 2022</H4>
+<div class="paranum"><a name="p13.f">13.f/7</a></div>
+<div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0057-1.html">AI22-0057-1</A></I>} 
+<span class="insert7"><A NAME="I7712"></A>The Floor, Ceiling, Rounding, 
+Unbiased_Rounding, Machine_Rounding, and Trunaction attributes are new 
+for fixed point types.</span>&nbsp;</div>
 
 <HR>
 <div style="margin-top: 0.0em; margin-bottom: 0.6em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
