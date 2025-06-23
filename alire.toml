@@ -29,6 +29,8 @@ tags = ["arm", "aarm", "reference", "manual"]
 executables = ["hostarm"]
 
 [[depends-on]]
+gnat = "<15"
+
 # See https://github.com/AdaCore/aws/issues/380
 # and https://github.com/alire-project/alire/issues/1710
 [depends-on.'case(os)'.windows]
