@@ -8,8 +8,19 @@ project Hostarm is
    for Exec_Dir use "bin";
    for Main use ("hostarm.adb");
 
+   package Builder is
+     for Global_Configuration_Pragmas use "source/hostarm.adc";
+   end Builder;
+
    package Compiler is
-      for Default_Switches ("Ada") use ("-gnatwa", "-gnatyy-s", "-O2");
+      for Default_Switches ("Ada") use (
+         "-ffunction-sections",
+         "-fdata-sections",
+         "-gnatwa",
+         "-gnatyy-s",
+         "-O1"
+      );
+      for Local_Configuration_Pragmas use "source/hostarm.adc";
    end Compiler;
 
    package Binder is
