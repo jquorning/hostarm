@@ -29,7 +29,7 @@
     </STYLE>
 </HEAD>
 <BODY TEXT="#000000" BGCOLOR="#FFFFF0" LINK="#000080" VLINK="#330033" ALINK="#0000FF">
-<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 4)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
+<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 5)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
 <div style="margin-top: 0.6em; margin-bottom: 0.0em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-0-4.html"><IMG SRC="index.gif" ALT="Index" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-STDS.html"><IMG SRC="lib.gif" ALT="References" BORDER=0></A>&nbsp;
@@ -51,11 +51,11 @@ X that denotes a scalar object [(after any implicit dereference)], the
 following attribute is defined:&nbsp;</div>
 <div class="paranum"><a name="p3">3/4</a></div>
 <div class="WideHanging-Term">X'Valid</div><div class="WideHanging-Body">
-<A NAME="I6451"></A><A NAME="I6452"></A>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0153-3.TXT">AI05-0153-3</A></I>} 
+<A NAME="I6457"></A><A NAME="I6458"></A>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0153-3.TXT">AI05-0153-3</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0071-1.TXT">AI12-0071-1</A></I>} 
 Yields True if and only if the object denoted by X is normal, has a valid 
 representation, and then, if the preceding conditions hold, the value 
-of X also satisfies the predicates<A NAME="I6453"></A> of the nominal 
+of X also satisfies the predicates<A NAME="I6459"></A> of the nominal 
 subtype of X. The value of this attribute is of the predefined type Boolean. 
 </div>
 <div class="paranum"><a name="p3.a">3.a</a></div>
@@ -66,6 +66,7 @@ representation. Such a read will produce a value in the subtype of X.
 </div>
 <div class="paranum"><a name="p3.1">3.1/6</a></div>
 <div class="WideHanging-Term">&nbsp;{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0115-1.html">AI22-0115-1</A></I>} 
+<span class="insert6"></span></div><div class="WideHanging-Body"><br clear="left">
 <span class="insert6">Notwithstanding what this Reference Manual says 
 elsewhere, evaluating X'Valid does not evaluate the prefix X unless X 
 is normal and has a valid representation. If X is Volatile, evaluating 
@@ -179,7 +180,7 @@ was deleted.</I></SPAN>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/A
 
 <H4 Class="centered">Extensions to Ada 83</H4>
 <div class="paranum"><a name="p14.d">14.d</a></div>
-<div class="Annotations"><A NAME="I6454"></A>X'Valid is new in Ada 95. 
+<div class="Annotations"><A NAME="I6460"></A>X'Valid is new in Ada 95. 
 </div>
 
 <H4 Class="centered">Wording Changes from Ada 95</H4>
@@ -208,7 +209,7 @@ validity of volatile objects.&nbsp;</div>
 <H4 Class="centered">Wording Changes from Ada 2022</H4>
 <div class="paranum"><a name="p14.h">14.h/6</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0115-1.html">AI22-0115-1</A></I>} 
-<span class="insert6"><B>Corrigendum:</B> We now normatively say that 
+<span class="insert6"><B>Correction:</B> We now normatively say that 
 the prefix of X'Valid is not evaluated until after we've checked for 
 validity, because that cannot be derived from any normative wording and 
 thus it is inappropriate for a note. The rule for volatile objects was 

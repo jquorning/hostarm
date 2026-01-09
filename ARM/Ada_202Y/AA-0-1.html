@@ -26,7 +26,7 @@
     </STYLE>
 </HEAD>
 <BODY TEXT="#000000" BGCOLOR="#FFFFF0" LINK="#000080" VLINK="#330033" ALINK="#0000FF">
-<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 4)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
+<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 5)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
 <div style="margin-top: 0.6em; margin-bottom: 0.0em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-0-4.html"><IMG SRC="index.gif" ALT="Index" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-STDS.html"><IMG SRC="lib.gif" ALT="References" BORDER=0></A>&nbsp;
@@ -41,8 +41,8 @@ The International Standard for the programming language Ada is ISO/IEC
 8652:2023(E). The International Standard is derived from the Ada Reference 
 Manual, with various non-normative changes. In particular, the International 
 Standard numbers clauses differently, omits the annotations and paragraph 
-numbers, eliminates the Acknowledgements, and modifies various front 
-matter such as the Title page and the Foreword.</div>
+numbers, eliminates the Acknowledgments, and modifies various front matter 
+such as the Title page and the Foreword.</div>
 <div class="paranum"><a name="p0.a">0.a/5</a></div>
 <div class="Annotations"><B>Discussion:&nbsp;</B>New ISO requirements necessitated 
 changing the numbers of all of the numbered clauses and subclauses in 
@@ -63,22 +63,25 @@ needed. ISO/IEC documents often list the individual changes that need
 to be made to the text of a Standard, rather than simply updating the 
 document. As such, an International Standard is often found in several 
 parts, while the Ada Reference Manual is always a single document.</div>
-<div class="paranum"><a name="p0.5">0.5/5</a></div>
+<div class="paranum"><a name="p0.5">0.5/6</a></div>
 <div class="Normal">&nbsp;In June 2016, WG 9 approved a tentative schedule 
 for the preparation of an Amendment or Revision to the International 
 Standard, with a delivery no earlier than 2018. In July 2019, WG 9 approved 
 an additional review and prototyping period for this revision, extending 
 the delivery to no earlier than late 2020. The draft standard was delivered 
 to WG 9 in July 2021, and the Standard was published as ISO/IEC 8652:2023 
-in May 2023.</div>
+in May 2023.<span class="insert6">&nbsp;This edition is informally known as 
+Ada 2022.</span></div>
 <div class="paranum"><a name="p0.6">0.6/6</a></div>
 <div class="Normal">&nbsp;<span class="insert6">Since the completion of Ada 
 2022, work has continued on Ada, both to correct errors and to add enhancements. 
 A Corrigendum to correct errors and add missing rules was submitted to 
-standardization in June 2025; as of this writing it is unknown whether 
+standardization in June 2025; it was rejected for process reasons and 
+replaced by an Amendment with similar contents as well as several minor 
+enhancements in December 2025. As of this writing it is unknown whether 
 standardization will succeed.</span><span class="insert7">&nbsp;In addition, 
 there has been no determination of when or in what form other changes 
-(including all of the enhancements) will be issued.</span><span class="insert6">&nbsp;However, it is valuable to have all of the corrections</span><span class="insert7">&nbsp;and other changes</span><span class="insert6">&nbsp;available in one place. 
+(including many enhancements) will be issued.</span><span class="insert6">&nbsp;However, it is valuable to have all of the changes available in one place. 
 Thus, we've created this&nbsp;</span><span class="insert7">draft update, which 
 for the purposes of this document, we'll call Ada 202y</span><span class="insert6"></span><span class="insert6"><span class="delete7">&nbsp;consolidated 
 edition</span></span><span class="insert6">.</span></div>
@@ -86,16 +89,42 @@ edition</span></span><span class="insert6">.</span></div>
 <div class="Normal">This version of the Ada Reference Manual shows the 
 current state of Ada<span class="insert7">&nbsp;202y. As Ada 202y is still 
 under development, features are still subject to change</span><span class="delete7">&nbsp;2022</span><span class="insert6"><span class="delete7">&nbsp;including the 
-changes made by Technical Corrigendum 1</span></span><span class="delete7"></span>..</div>
+changes made by Amendment 1</span></span><span class="delete7"></span>.</div>
 <div class="paranum"><a name="p2">2/6</a></div>
-<div class="Normal">Significant changes in this consolidated edition 
-are as follows:&nbsp;</div>
+<div class="Normal"><span class="insert6">Significant changes in this 
+consolidated edition are as follows:</span>&nbsp;</div>
 <div class="paranum"><a name="p3">3/7</a></div>
 <div class="Bulleted"><span class="insert7">Many new aspects and attributes 
 are defined.</span></div>
 <div class="paranum"><a name="p4">4/6</a></div>
+<div class="Bulleted">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0056-1.html">AI22-0056-1</A></I>} 
+<span class="insert6">Automatic construction of functions as provided 
+for null extensions is now optionally available for most type extensions.</span></div>
+<div class="paranum"><a name="p5">5/6</a></div>
+<div class="Bulleted">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0057-1.html">AI22-0057-1</A></I>} 
+<span class="insert6">Rounding attributes similar to the ones long available 
+for floating point types are added for fixed point types.</span></div>
+<div class="paranum"><a name="p6">6/6</a></div>
+<div class="Bulleted">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0109-1.html">AI22-0109-1</A></I>} 
+<span class="insert6"></span>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0111-1.html">AI22-0111-1</A></I>} 
+<span class="insert6">Clarified that both user-defined literals and container 
+aggregates can be of class-wide types, and described what happens when 
+they do have such types.</span></div>
+<div class="paranum"><a name="p7">7/6</a></div>
+<div class="Bulleted">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0049-1.html">AI22-0049-1</A></I>} 
+<span class="insert6"></span>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0102-1.html">AI22-0102-1</A></I>} 
+<span class="insert6"></span>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0104-1.html">AI22-0104-1</A></I>} 
+<span class="insert6">Additional capabilities are added to many language-defined 
+packages, adding important missing functionality.</span></div>
+<div class="paranum"><a name="p8">8/6</a></div>
+<div class="Bulleted">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0081-1.html">AI22-0081-1</A></I>} 
+<span class="insert6"></span>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0090-1.html">AI22-0090-1</A></I>} 
+<span class="insert6"></span>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0120-1.html">AI22-0120-1</A></I>} 
+<span class="insert6">Minor extensions are made to make the language 
+more regular and improve usability.</span></div>
+<div class="paranum"><a name="p9">9/6</a></div>
 <div class="Bulleted"><span class="insert6">Many corrections and clarifications 
-have been made to the original edition.</span></div>
+have been made to the original edition of Ada 2022.</span></div>
 
 <HR>
 <div style="margin-top: 0.0em; margin-bottom: 0.6em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;

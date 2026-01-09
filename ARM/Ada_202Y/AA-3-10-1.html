@@ -13,6 +13,8 @@
     DIV.paranum {float: left; font-family: Arial, Helvetica, sans-serif; font-size: 64%; width: 2.8em; margin-left: -0.4em; margin-right: -3.0em; margin-top: 0.2em}
     TT {font-family: "Courier New", monospace}
     DT {display: compact}
+    SPAN.insert6 {text-decoration: underline; color: rgb(0,51,204) }
+    SPAN.delete6 {text-decoration: line-through; color: rgb(0,51,204) }
     A.Bar:link {font-family: Arial, Helvetica, sans-serif; font-style: normal; text-decoration: none; color: rgb(204,204,51)}
     A.Bar:visited {font-family: Arial, Helvetica, sans-serif; font-style: normal; text-decoration: none; color: rgb(204,204,51)}
     DIV.Normal {font-family: "Times New Roman", Times, serif; line-height: 122%; margin-left: 1.8em; margin-bottom: 0.6em}
@@ -26,7 +28,7 @@
     </STYLE>
 </HEAD>
 <BODY TEXT="#000000" BGCOLOR="#FFFFF0" LINK="#000080" VLINK="#330033" ALINK="#0000FF">
-<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 4)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
+<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 5)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
 <div style="margin-top: 0.6em; margin-bottom: 0.0em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-0-4.html"><IMG SRC="index.gif" ALT="Index" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-STDS.html"><IMG SRC="lib.gif" ALT="References" BORDER=0></A>&nbsp;
@@ -218,11 +220,12 @@ in a construct that makes up an <SPAN Class="swiss"><A HREF="AA-3-10.html#S0084"
 such as a <SPAN Class="swiss"><A HREF="AA-6-1.html#S0206">formal_part</A></SPAN>, 
 just the one given directly in the syntax of <SPAN Class="swiss"><A HREF="AA-3-10.html#S0084">access_definition</A></SPAN>. 
 </div>
-<div class="paranum"><a name="p8.1">8.1/3</a></div>
+<div class="paranum"><a name="p8.1">8.1/6</a></div>
 <div class="Bulleted">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0151-1.TXT">AI05-0151-1</A></I>} 
+{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0137-1.html">AI22-0137-1</A></I>} 
 as the <SPAN Class="swiss"><A HREF="AA-3-2-2.html#S0028">subtype_mark</A></SPAN> 
 defining the subtype of a parameter or result in a profile occurring 
-within a <SPAN Class="swiss"><A HREF="AA-3-1.html#S0021">basic_declaration</A></SPAN>; 
+within a <SPAN Class="swiss"><A HREF="AA-3-1.html#S0021">basic_declaration</A></SPAN><span class="insert6">&nbsp;other than a renaming-as-body (see <A HREF="AA-8-5-4.html">8.5.4</A>)</span>; 
 </div>
 <div class="paranum"><a name="p8.b">8.b/3</a></div>
 <div class="Annotations"><B>Ramification:&nbsp;</B>But not in the profile 
@@ -236,13 +239,15 @@ is a formal incomplete type (see <A HREF="AA-12-5-1.html">12.5.1</A>).
 <div class="Normal" style="margin-bottom: 0.4em">&nbsp;{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-00326.TXT">AI95-00326-01</A></I>} 
 If such a <SPAN Class="swiss"><A HREF="AA-4-1.html#S0091">name</A></SPAN> 
 denotes a tagged incomplete view, it may also be used:</div>
-<div class="paranum"><a name="p8.4">8.4/3</a></div>
+<div class="paranum"><a name="p8.4">8.4/6</a></div>
 <div class="Bulleted">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-00326.TXT">AI95-00326-01</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI05s/AI05-0151-1.TXT">AI05-0151-1</A></I>} 
+{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0137-1.html">AI22-0137-1</A></I>} 
 as the <SPAN Class="swiss"><A HREF="AA-3-2-2.html#S0028">subtype_mark</A></SPAN> 
 defining the subtype of a parameter in the profile for a <SPAN Class="swiss"><A HREF="AA-6-3.html#S0216">subprogram_body</A></SPAN>, 
 <SPAN Class="swiss"><A HREF="AA-9-5-2.html#S0260">entry_body</A></SPAN>, 
-or <SPAN Class="swiss"><A HREF="AA-9-5-2.html#S0258">accept_statement</A></SPAN>;</div>
+<span class="delete6">or&nbsp;</span><SPAN Class="swiss"><A HREF="AA-9-5-2.html#S0258">accept_statement</A></SPAN><span class="insert6">, 
+or renaming-as-body</span>;</div>
 <div class="paranum"><a name="p9">9/2</a></div>
 <div class="Bulleted">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-00326.TXT">AI95-00326-01</A></I>} 
 as the <SPAN Class="swiss"><A HREF="AA-4-1.html#S0093">prefix</A></SPAN> 
@@ -565,6 +570,18 @@ type before the completion. This is not an incompatibility as previously
 this was prevented by the freezing rules. However, that violated the 
 intended design of the freezing rules, so we've now changed to an explicit 
 Legality Rule here, and eliminated the associated freezing rules.&nbsp;</div>
+
+<H4 Class="centered">Incompatibilities With Ada 2022</H4>
+<div class="paranum"><a name="p23.t">23.t/6</a></div>
+<div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0137-1.html">AI22-0137-1</A></I>} 
+<span class="insert6"><A NAME="I2615"></A><B>Correction:</B> It is now 
+illegal to use an incomplete view (type) as the parameter or result of 
+a renaming-as-body (with the exception of tagged incomplete views as 
+parameters of such renamings). A renaming-as-body is really a body, and 
+should follow the rules for bodies, not declarations. While this is technically 
+incompatible, known compilers fail if given such a renaming-as-body, 
+so we do not believe that there will be any practical effect.</span> 
+</div>
 
 <HR>
 <div style="margin-top: 0.0em; margin-bottom: 0.6em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;

@@ -15,8 +15,6 @@
     DT {display: compact}
     SPAN.insert6 {text-decoration: underline; color: rgb(0,51,204) }
     SPAN.delete6 {text-decoration: line-through; color: rgb(0,51,204) }
-    SPAN.insert7 {text-decoration: underline; color: rgb(153,0,0) }
-    SPAN.delete7 {text-decoration: line-through; color: rgb(153,0,0) }
     A.Bar:link {font-family: Arial, Helvetica, sans-serif; font-style: normal; text-decoration: none; color: rgb(204,204,51)}
     A.Bar:visited {font-family: Arial, Helvetica, sans-serif; font-style: normal; text-decoration: none; color: rgb(204,204,51)}
     DIV.Normal {font-family: "Times New Roman", Times, serif; line-height: 122%; margin-left: 1.8em; margin-bottom: 0.6em}
@@ -32,7 +30,7 @@
     </STYLE>
 </HEAD>
 <BODY TEXT="#000000" BGCOLOR="#FFFFF0" LINK="#000080" VLINK="#330033" ALINK="#0000FF">
-<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 4)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
+<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 5)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
 <div style="margin-top: 0.6em; margin-bottom: 0.0em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-0-4.html"><IMG SRC="index.gif" ALT="Index" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-STDS.html"><IMG SRC="lib.gif" ALT="References" BORDER=0></A>&nbsp;
@@ -491,7 +489,7 @@ We don't mention the <SPAN Class="swiss"><A HREF="AA-3-9-4.html#S0078">interface
 because it does not need elaboration (see <A HREF="AA-3-9-4.html">3.9.4</A>). 
 This is consistent with the handling of <SPAN Class="swiss"><A HREF="AA-3-7.html#S0059">discriminant_part</A></SPAN>s, 
 which aren't elaborated either.&nbsp;</div>
-<div class="paranum"><a name="p27">27/7</a></div>
+<div class="paranum"><a name="p27">27/6</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-00391.TXT">AI95-00391-01</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-00401.TXT">AI95-00401-01</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0014-1.html">AI22-0014-1</A></I>} 
@@ -503,19 +501,19 @@ the subtype of the corresponding formal parameter (see <A HREF="AA-6-4-1.html">6
 performs any necessary type conversion as well. If the result type of 
 the inherited subprogram is the derived type, the result of calling the 
 subprogram of the parent or progenitor is converted to the derived type, 
-or in the case of a <span class="insert7">type that has automatic constructor 
-extension (see <A HREF="AA-3-9-1.html">3.9.1</A>)</span><span class="delete7">&nbsp;null 
+or in the case of a <span class="insert6">type that has automatic constructor 
+extension (see <A HREF="AA-3-9-1.html">3.9.1</A>)</span><span class="delete6">&nbsp;null 
 extension</span>, extended to the derived type using the equivalent of 
 an <SPAN Class="swiss"><A HREF="AA-4-3-2.html#S0111">extension_aggregate</A></SPAN> 
 with the original result as the <SPAN Class="swiss"><A HREF="AA-4-3-2.html#S0112">ancestor_part</A></SPAN> 
-and <span class="insert7"><B>others</B> =&gt; &lt;&gt;</span><span class="delete7"><B>&nbsp;null 
+and <span class="insert6"><B>others</B> =&gt; &lt;&gt;</span><span class="delete6"><B>&nbsp;null 
 record</B></span> as the <SPAN Class="swiss"><A HREF="AA-4-3-1.html#S0108">record_component_association_list</A></SPAN>.<span class="insert6">&nbsp;In either case, the result is then converted to the corresponding subtype 
 [(as defined above)] of the derived type.</span> <A NAME="I1789"></A></div>
-<div class="paranum"><a name="p27.a">27.a/7</a></div>
+<div class="paranum"><a name="p27.a">27.a/6</a></div>
 <div class="Annotations"><B>Discussion:&nbsp;</B>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AIs/AI-00391.TXT">AI95-00391-01</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0056-1.html">AI22-0056-1</A></I>} 
 If an inherited function returns the derived type, and the type is a 
-<span class="delete7">nonnull&nbsp;</span>record extension<span class="insert7">&nbsp;that does not have automatic constructor extension</span>, then the inherited 
+<span class="delete6">nonnull&nbsp;</span>record extension<span class="insert6">&nbsp;that does not have automatic constructor extension</span>, then the inherited 
 function shall be overridden, unless the type is abstract (in which case 
 the function is abstract, and (unless overridden) cannot be called except 
 via a dispatching call). See <A HREF="AA-3-9-3.html">3.9.3</A>.&nbsp;</div>
@@ -712,13 +710,13 @@ types don't get modified on derivation.&nbsp;</div>
 <H4 Class="centered">Wording Changes from Ada 2022</H4>
 <div class="paranum"><a name="p38.p">38.p/6</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0014-1.html">AI22-0014-1</A></I>} 
-<span class="insert6"><B>Corrigendum:</B> Clarified that the result of 
+<span class="insert6"><B>Correction:</B> Clarified that the result of 
 an inherited function is converted to the appropriate derived subtype. 
 This means that any predicate that applies to the derived type will be 
 checked.</span></div>
-<div class="paranum"><a name="p38.q">38.q/7</a></div>
+<div class="paranum"><a name="p38.q">38.q/6</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0056-1.html">AI22-0056-1</A></I>} 
-<span class="insert7">Generalized the mechanism for automatically constructing 
+<span class="insert6">Generalized the mechanism for automatically constructing 
 constructor functions for derived types. The primary definition for this 
 feature is found in <A HREF="AA-3-9-1.html">3.9.1</A>.</span>&nbsp;</div>
 

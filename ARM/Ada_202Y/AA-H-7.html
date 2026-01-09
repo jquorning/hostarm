@@ -23,7 +23,7 @@
     </STYLE>
 </HEAD>
 <BODY TEXT="#000000" BGCOLOR="#FFFFF0" LINK="#000080" VLINK="#330033" ALINK="#0000FF">
-<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 4)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
+<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 5)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
 <div style="margin-top: 0.6em; margin-bottom: 0.0em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-0-4.html"><IMG SRC="index.gif" ALT="Index" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-STDS.html"><IMG SRC="lib.gif" ALT="References" BORDER=0></A>&nbsp;
@@ -48,8 +48,8 @@ The following additional syntax is provided to override the mode of a
 formal parameter to reflect indirect effects on variables reachable from 
 the formal parameter by one or more access-value dereferences:</div>
 <div class="paranum"><a name="p3">3/5</a></div>
-<div class="Indented1"><SPAN Class="swiss">extended_global_mode</SPAN><A NAME="I10617"></A><A NAME="S0361"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN><BR>
-&nbsp;&nbsp;&nbsp;&nbsp;<B>overriding</B>&nbsp;<A NAME="I10618"></A><SPAN Class="swiss"><A HREF="AA-6-1-2.html#S0212">basic_global_mode</A></SPAN></div>
+<div class="Indented1"><SPAN Class="swiss">extended_global_mode</SPAN><A NAME="I10634"></A><A NAME="S0361"></A><SPAN Class="swiss">&nbsp;::=&nbsp;</SPAN><BR>
+&nbsp;&nbsp;&nbsp;&nbsp;<B>overriding</B>&nbsp;<A NAME="I10635"></A><SPAN Class="swiss"><A HREF="AA-6-1-2.html#S0212">basic_global_mode</A></SPAN></div>
 
 <H4 Class="centered">Name Resolution Rules</H4>
 <div class="paranum"><a name="p4">4/5</a></div>
@@ -90,17 +90,16 @@ the subtype, including the evaluation of any assertion expressions that
 apply.<span class="insert6">&nbsp;For a formal access-to-object subtype, or 
 an access-to-object subtype whose storage pool is not a standard storage 
 pool, the Global aspect identifies the global variables (other than the 
-storage pool itself) that might be referenced by a call on Allocate, 
-Deallocate, or Storage_Size for the storage pool type.</span> If not 
-specified for the first subtype of a derived type, the aspect defaults 
-to that of the ancestor subtype; if not specified for a nonderived composite 
-first subtype the aspect defaults to that of the enclosing library unit; 
-if not specified for a nonderived elementary first subtype (or scalar 
-base subtype), the aspect defaults to <B>null</B> in the absence of a 
-predicate (or when the predicate is statically True), and to that of 
-the enclosing library unit otherwise. If not specified for a nonfirst 
-subtype <I>S</I>, the Global aspect defaults to that of the subtype identified 
-in the <SPAN Class="swiss"><A HREF="AA-3-2-2.html#S0027">subtype_indication</A></SPAN> 
+storage pool itself) that can be referenced by a call on Allocate, Deallocate, 
+or Storage_Size for the storage pool type.</span> If not specified for 
+the first subtype of a derived type, the aspect defaults to that of the 
+ancestor subtype; if not specified for a nonderived composite first subtype 
+the aspect defaults to that of the enclosing library unit; if not specified 
+for a nonderived elementary first subtype (or scalar base subtype), the 
+aspect defaults to <B>null</B> in the absence of a predicate (or when 
+the predicate is statically True), and to that of the enclosing library 
+unit otherwise. If not specified for a nonfirst subtype <I>S</I>, the 
+Global aspect defaults to that of the subtype identified in the <SPAN Class="swiss"><A HREF="AA-3-2-2.html#S0027">subtype_indication</A></SPAN> 
 defining <I>S</I>.</div>
 <div class="paranum"><a name="p8">8/5</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0079-3.TXT">AI12-0079-3</A></I>} 
@@ -121,12 +120,12 @@ subtype of any ancestor of <I>T</I>.&nbsp;</div>
 <div class="paranum"><a name="p9.a">9.a/5</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0079-3.TXT">AI12-0079-3</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0380-1.TXT">AI12-0380-1</A></I>} 
-<A NAME="I10619"></A>These extensions to the Global aspect are new.&nbsp;</div>
+<A NAME="I10636"></A>These extensions to the Global aspect are new.&nbsp;</div>
 
 <H4 Class="centered">Extensions to Ada 2022</H4>
 <div class="paranum"><a name="p9.b">9.b/6</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0052-1.html">AI22-0052-1</A></I>} 
-<span class="insert6"><A NAME="I10620"></A>We allow the Storage_Pool 
+<span class="insert6"><A NAME="I10637"></A>We allow the Storage_Pool 
 attribute to be named in Global aspects.</span>&nbsp;</div>
 
 <HR>
