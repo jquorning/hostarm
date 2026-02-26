@@ -435,6 +435,7 @@ package body HostARM_Server is
       Server_Conf := Default_Config;
       Set.Server_Name    (Server_Conf, Server_Name);
       Set.Max_Connection (Server_Conf, 8);
+      Set.Reuse_Address  (Server_Conf, True);
       Set.Server_Port    (Server_Conf, Config.Default_Port);
    end Config_Server;
 
@@ -469,7 +470,7 @@ package body HostARM_Server is
 
    procedure Wait is
    begin
-      AWS.Server.Wait (AWS.Server.Forever);
+      AWS.Server.Wait (AWS.Server.Q_Key_Pressed);
    end Wait;
 
 end HostARM_Server;
