@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Rounded square background -->
+  <rect width="512" height="512" rx="110" ry="110" fill="#ada"/>
+
+  <!-- Numbers -->
+  <text x="256" y="220"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-weight="700"
+        font-size="220"
+        fill="#111">
+    27
+  </text>
+
+  <text x="256" y="420"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-weight="700"
+        font-size="220"
+        fill="#111">
+    78
+  </text>
+</svg>
