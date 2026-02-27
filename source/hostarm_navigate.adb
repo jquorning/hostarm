@@ -182,9 +182,16 @@ package body HostARM_Navigate is
    is
       Text_1 : constant String :=
         "<script>" & CRLF;
+
       Text_2 : constant String :=
         "document.addEventListener('keydown',function(e){" & CRLF &
-        "   if (e.target=='[object HTMLInputElement]') return true;" & CRLF;
+        "    if (e.target=='[object HTMLInputElement]') return true;" &
+        " // Do not capture keypress for search input form" & CRLF &
+        "    if (e.getModifierState(""Shift""))   return;" & CRLF &
+        "    if (e.getModifierState(""Alt""))     return;" & CRLF &
+        "    if (e.getModifierState(""Control"")) return;" & CRLF &
+        "    if (e.getModifierState(""Meta""))    return;" & CRLF;
+
       Text_3 : constant String :=
         "})"        & CRLF &
         "</script>" & CRLF;
