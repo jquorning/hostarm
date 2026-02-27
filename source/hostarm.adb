@@ -14,8 +14,7 @@ with HostARM_Tipue;
 -- HostARM --
 -------------
 
-procedure HostARM
-is
+procedure HostARM is
    package Config renames HostARM_Configuration;
    use Ada.Text_IO, Ada.Strings;
    use Ada.Command_Line;
@@ -31,7 +30,7 @@ begin
    if Argument_Count = 1 and then Argument (1) = "--help" then
       Put_Line ("SUMMARY");
       Put_Line ("    Start HostARM and then access (Annotated) Ada Reference");
-      Put      ("    Manual in the web browser address ");
+      Put ("    Manual in the web browser address ");
       Put_Line ("htts://localhost:2778/.");
       New_Line;
       Put_Line ("USAGE");
@@ -49,8 +48,7 @@ begin
             Put_Line ("HostARM: Argument error in " & Arg & ".");
             return;
          end if;
-         Config.Server_Port :=
-           Natural'Value (Arg (Equal + 1 .. Arg'Last));
+         Config.Server_Port := Natural'Value (Arg (Equal + 1 .. Arg'Last));
 
       exception
          when others =>
@@ -72,13 +70,17 @@ begin
    HostARM_Tipue.Build_Content (Config.AARM_202Y);
 
    HostARM_Server.Start;
-   Put_Line ("HostARM: Accessible on URL: http://localhost:"
-             & Fixed.Trim (Config.Server_Port'Image, Side => Left)
-             & "/");
+   Put_Line
+     ("HostARM: Accessible on URL: http://localhost:" &
+      Fixed.Trim (Config.Server_Port'Image, Side => Left) & "/");
 
    HostARM_Server.Wait;
    Put_Line ("HostARM: Shutting down");
 
    HostARM_Server.Stop;
 
+exception
+   when Program_Error =>
+      Put_Line ("HostARM: Could not start server.");
+      Put_Line ("HostARM: Port in use or missing permission.");
 end HostARM;

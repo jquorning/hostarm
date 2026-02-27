@@ -3,6 +3,7 @@ with Ada.Strings.Fixed;
 
 with AWS.Config.Set;
 with AWS.Messages;
+with AWS.Net;
 with AWS.Response;
 with AWS.Parameters;
 with AWS.Server;
@@ -465,6 +466,9 @@ package body HostARM_Server is
         (Web_Server => Server, Dispatcher => Dispatcher,
          Config     => Server_Conf);
 
+   exception
+      when AWS.Net.Socket_Error =>
+         raise Program_Error with "could not start server";
    end Start;
 
    ----------
