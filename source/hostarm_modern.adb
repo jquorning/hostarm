@@ -14,7 +14,6 @@ package body HostARM_Modern is
    Text_31 : constant String := "  <li class='nav'>";
    Text_3x : constant String := "<a class='nav-";
    Text_3y : constant String := "' href='";
-   Text_32 : constant String := "' alt='";
    Text_33 : constant String := "'>";
    Text_34 : constant String := "</a></li>"  & CRLF;
    Text_2  : constant String := CRLF & "</ul></header>" & CRLF;
@@ -43,7 +42,6 @@ package body HostARM_Modern is
       Append (DIV, Class);
 
       Append (DIV, Text_3y);  Append (DIV, URI);
-      Append (DIV, Text_32);  Append (DIV, ALT);
       Append (DIV, Text_33);  Append (DIV, ALT);
       Append (DIV, Text_34);
    end Append_LI;
