@@ -43,3 +43,5 @@ aws = "^24.0.0"
 xmlada = "^24.0.0"
 gnatcoll = "^24.0.0"
 
+[[depends-on]]
+resources = "~0.1.0"
