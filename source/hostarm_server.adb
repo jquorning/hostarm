@@ -449,7 +449,7 @@ package body HostARM_Server is
       Set.Server_Name (Server_Conf, Server_Name);
       Set.Max_Connection (Server_Conf, 8);
       Set.Reuse_Address  (Server_Conf, True);
-      Set.Server_Port    (Server_Conf, Config.Default_Port);
+      Set.Server_Port    (Server_Conf, Config.Server_Port);
    end Config_Server;
 
    -----------

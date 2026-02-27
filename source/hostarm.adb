@@ -3,7 +3,6 @@ with Ada.Command_Line;
 with Ada.Strings.Fixed;
 with Ada.Text_IO;
 
-with AWS.Net;
 with Resources;
 
 with Hostarm_Config;
@@ -36,9 +35,28 @@ begin
       Put_Line ("htts://localhost:2778/.");
       New_Line;
       Put_Line ("USAGE");
-      Put_Line ("    hostarm [--help] | [--version]");
+      Put_Line ("    hostarm [--help] | [--version] | [--port=PORT]");
       New_Line;
       return;
+   end if;
+
+   if Argument_Count = 1 then
+      declare
+         Arg   : constant String  := Argument (1);
+         Equal : constant Natural := Ada.Strings.Fixed.Index (Arg, "=");
+      begin
+         if Equal = 0 or Arg (Arg'First .. Equal) /= "--port=" then
+            Put_Line ("HostARM: Argument error in " & Arg & ".");
+            return;
+         end if;
+         Config.Server_Port :=
+           Natural'Value (Arg (Equal + 1 .. Arg'Last));
+
+      exception
+         when others =>
+            Put_Line ("HostARM: Argument error in " & Arg & ".");
+            return;
+      end;
    end if;
 
    if Looking_Valid (Resource.Resource_Path) then
@@ -55,7 +73,7 @@ begin
 
    HostARM_Server.Start;
    Put_Line ("HostARM: Accessible on URL: http://localhost:"
-             & Fixed.Trim (Config.Default_Port'Image, Side => Left)
+             & Fixed.Trim (Config.Server_Port'Image, Side => Left)
              & "/");
 
    HostARM_Server.Wait;
@@ -63,9 +81,4 @@ begin
 
    HostARM_Server.Stop;
 
-exception
-   when AWS.Net.Socket_Error =>
-      Put_Line (Standard_Error,
-                "HostARM: Port in use. Wait 2 minutes and "
-                & "then try again");
 end HostARM;

@@ -9,7 +9,7 @@
 
 package HostARM_Configuration is
 
-   Default_Port : Positive := 16#ADA#;  --  Decimal: 2778
+   Server_Port : Positive := 2778; -- Hex: 16#ADA#;
 
    Web_Base   : constant String := "./";
    Page_Base  : constant String := "./assets/www/";
