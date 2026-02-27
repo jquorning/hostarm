@@ -1,20 +1,20 @@
 
 # HostARM
 
-![Badge](https://img.shields.io/endpoint?url=https://alire.ada.dev/badges/hostarm.json)  
+![Badge](https://img.shields.io/endpoint?url=https://alire.ada.dev/badges/hostarm.json)
 
 HostARM is a local hosting of
 - Ada Reference Manual 2012
 - Ada Reference Manual 2022
-- Annotated Ada Reference Manual 202Y (Draft 4)
+- Annotated Ada Reference Manual 202Y (Draft 5)
 
 HostARM focuses on user friendliness and more modern look of the manuals.
 
 Benefits
+- Search not dependant on external hosts
+- Keypress navigation
 - Shorter URL: Remove two levels of the URL and no html ending
 - Optional stripping of navigation bars
-- Keypress navigation
-- Local search not dependant on external hosts
 - Alphabet navigation bar in index
 
 ## Installation
@@ -22,9 +22,7 @@ Benefits
 HostARM is distributed as an [Alire](https://alire.ada.dev) crate.
 
 ```sh
-alr get hostarm ; cd hostarm_25.*
-alr build --release
-alr install
+alr install hostarm
 ```
 
 ## Invocation
@@ -32,14 +30,14 @@ alr install
 ```sh
 hostarm &
 ```
-This will start HostARM as a deamon and the manuals are now accessable on
-[localhost](http://localhost:2778/).
+This will start HostARM as a daemon and the manuals are now accessible at
+[/localhost:2778/](http://localhost:2778/).
 
 ## Links
 
-Alire [crate](https://alire.ada.dev/crates/hostarm).  
+Alire [crate](https://alire.ada.dev/crates/hostarm).
 
-[Project website](https://github.com/jquorning/hostarm).  
+[Project website](https://github.com/jquorning/hostarm).
 
 ## Screenshot
 

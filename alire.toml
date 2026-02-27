@@ -6,17 +6,33 @@ long-description = """
 HostARM is a local hosting of
 - Ada Reference Manual 2012
 - Ada Reference Manual 2022
-- Annotated Ada Reference Manual 202Y (Draft 4)
+- Annotated Ada Reference Manual 202Y (Draft 5)
 
 HostARM focuses on user friendliness and more modern look of the manuals.
 
 Benefits
+- Search not dependant on external hosts
+- Keypress navigation
 - Shorter URL: Remove two levels of the URL and no html ending
 - Optional stripping of navigation bars
-- Keypress navigation
-- Local search not dependant on external hosts
 - Optional modernized navigation bar
 - Alphabet navigation bar in index
+
+## Installation
+
+HostARM is distributed as an [Alire](https://alire.ada.dev) crate.
+
+```sh
+alr install hostarm
+```
+
+## Invocation
+
+```sh
+hostarm &
+```
+This will start HostARM as a daemon and the manuals are now accessible at
+[/localhost:2778/](http://localhost:2778/).
 """
 
 authors = ["Jesper Quorning"]
@@ -44,4 +60,4 @@ xmlada = "^24.0.0"
 gnatcoll = "^24.0.0"
 
 [[depends-on]]
-resources = "~0.1.0"
+resources = "=0.1.0"
