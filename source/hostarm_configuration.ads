@@ -12,7 +12,7 @@ package HostARM_Configuration is
    Default_Port : Positive := 16#ADA#;  --  Decimal: 2778
 
    Web_Base   : constant String := "./";
-   Page_Base  : constant String := "www/";
+   Page_Base  : constant String := "./assets/www/";
    Tipue_Base : constant String := "./";
 
    type ARM_Version is (ARM_2012, ARM_2022, AARM_202Y);
