@@ -103,14 +103,14 @@ ul.nav {
     background-color: #FFF;
     font-family: 'Courier New', monospace;
     font-weight: bold;
-    text-decoration: normal;
+    text-decoration: none;
     margin: 0px;
     margin-left: -24px;
     overflow: hidden;
 }
 
 a {
-    text-decoration: none; !important!;
+    text-decoration: none !important;
 }
 
 li.nav {
