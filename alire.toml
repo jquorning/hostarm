@@ -1,6 +1,6 @@
 name = "hostarm"
 description = "Local hosting of Ada Reference Manual (ARM)"
-version = "25.0.4"
+version = "26.5.0"
 
 long-description = """
 HostARM is a local hosting of
@@ -42,4 +42,3 @@ gnatcoll = "^23.0.0"
 aws = "^24.0.0"
 xmlada = "^24.0.0"
 gnatcoll = "^24.0.0"
-
