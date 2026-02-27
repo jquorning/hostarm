@@ -69,7 +69,7 @@
   <h3>Submit</h3>
   <ul>
     <li class="item41">
-      <input type="submit" id="submit" id="submit" value="Submit">
+      <input type="submit" id="submit" value="Submit">
       <label for="submit">By submitting you accept cookies</label>
     </li>
   </ul>
