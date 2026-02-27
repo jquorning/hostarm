@@ -293,9 +293,12 @@ package body HostARM_Pyning is
 
    procedure Insert_CSS_Links (Item : in out Tools.UString)
    is
-      Match : constant String := "</head>";
       Pos   : Natural;
-      Repl  : constant String :=
+
+      Match : constant String := "</head>";
+
+      Repl : constant String :=
+        "<link rel='icon' href='/assets/favicon/2778.svg'>" & CRLF &
         "<link rel='stylesheet' href='/assets/css/arm.css'>" & CRLF &
         "<link rel='stylesheet' href='/assets/css/hostarm.css'>";
    begin
@@ -306,8 +309,8 @@ package body HostARM_Pyning is
       end if;
 
       Replace_Slice (Item,
-                     Low  => Pos + Match'Length,
-                     High => Pos + Match'Length,
+                     Low  => Pos,
+                     High => Pos - 1,
                      By   => Repl);
    end Insert_CSS_Links;
 

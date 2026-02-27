@@ -270,23 +270,22 @@ package body HostARM_Server is
    end Service_GIF;
 
    -----------------
-   -- Service_ICO --
+   -- Service_SVG --
    -----------------
 
-   function Service_ICO (Request : in AWS.Status.Data)
+   function Service_SVG (Request : in AWS.Status.Data)
                          return AWS.Response.Data
    is
       URI     : constant String := AWS.Status.URI (Request);
-      Name    : constant String :=
-        Config.Web_Base & "/assets/favicon/" & URI;
+      Name    : constant String := Config.Web_Base & URI;
       Payload : Tools.UString;
    begin
       Tools.Load_File (Name, Payload);
 
       return
-         AWS.Response.Build (Content_Type    => "image/ico",
+         AWS.Response.Build (Content_Type    => "image/svg-xml",
                              UString_Message => Payload);
-   end Service_ICO;
+   end Service_SVG;
 
    ----------------------
    -- Service_Redirect --
@@ -407,8 +406,8 @@ package body HostARM_Server is
       Register (Dispatcher, "/",            Service_Home'Access);
       Register (Dispatcher, "",             Service_Home'Access);
       Register (Dispatcher, "/home",        Service_Home'Access);
-      Register (Dispatcher, "/favicon.ico", Service_ICO'Access);
 
+      Register_Regexp (Dispatcher, "/.*\.svg", Service_SVG'Access);
       Register_Regexp (Dispatcher, "/.*\.jpg", Service_JPEG'Access);
       Register_Regexp (Dispatcher, "/.*\.png", Service_PNG'Access);
       Register_Regexp (Dispatcher, ".*\.gif",  Service_GIF'Access);
