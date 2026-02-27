@@ -2,6 +2,7 @@
 with Ada.Strings.Fixed;
 
 with AWS.Config.Set;
+with AWS.Messages;
 with AWS.Response;
 with AWS.Parameters;
 with AWS.Server;
@@ -27,6 +28,10 @@ package body HostARM_Server is
 
    Server_Name : constant String := "HostARM: Ada Reference Manual";
    Tipue_Path  : constant String := "/assets/tipuesearch";
+
+   Cache_Control : constant AWS.Messages.Cache_Option :=
+     AWS.Messages.To_Cache_Option
+       ((CKind => AWS.Messages.Response, Max_Age => 10_000, others => <>));
 
    Server      : AWS.Server.HTTP;
    Server_Conf : AWS.Config.Object;
@@ -108,7 +113,8 @@ package body HostARM_Server is
 
       return
         AWS.Response.Build
-          (Content_Type => "text/html", UString_Message => Payload);
+          (Content_Type => "text/html", Cache_Control => Cache_Control,
+           UString_Message => Payload);
    end Service_Search;
 
    -----------------
@@ -146,7 +152,8 @@ package body HostARM_Server is
 
       return
         AWS.Response.Build
-          (Content_Type => "text/html", UString_Message => Payload);
+          (Content_Type => "text/html", -- Cache_Control => Cache_Control,
+           UString_Message => Payload);
    end Service_ARM;
 
    -------------------
@@ -169,6 +176,7 @@ package body HostARM_Server is
          return
            AWS.Response.Build
              (Content_Type    => "text/javascript",
+              Cache_Control   => Cache_Control,
               UString_Message => HostARM_Tipue.Get_Content (State.Manual));
 
       elsif Tail_Is (URI, ".js") then
@@ -176,20 +184,26 @@ package body HostARM_Server is
 
          return
            AWS.Response.Build
-             (Content_Type => "text/javascript", UString_Message => Payload);
+             (Content_Type    => "text/javascript",
+              Cache_Control   => Cache_Control,
+              UString_Message => Payload);
       elsif Tail_Is (URI, ".css") then
          Tools.Load_File (Name, Payload);
 
          return
            AWS.Response.Build
-             (Content_Type => "text/css", UString_Message => Payload);
+             (Content_Type    => "text/css",
+              Cache_Control   => Cache_Control,
+              UString_Message => Payload);
 
       elsif Tail_Is (URI, ".png") then
          Tools.Load_File (Name, Payload);
 
          return
            AWS.Response.Build
-             (Content_Type => "image/png", UString_Message => Payload);
+             (Content_Type    => "image/png",
+              Cache_Control   => Cache_Control,
+              UString_Message => Payload);
       end if;
 
       raise Program_Error with "Correct this to a 404";
@@ -210,7 +224,8 @@ package body HostARM_Server is
 
       return
         AWS.Response.Build
-          (Content_Type => "text/css", UString_Message => Payload);
+          (Content_Type    => "text/css", Cache_Control => Cache_Control,
+           UString_Message => Payload);
    end Service_CSS;
 
    ------------------
@@ -228,7 +243,8 @@ package body HostARM_Server is
 
       return
         AWS.Response.Build
-          (Content_Type => "image/jpeg", UString_Message => Payload);
+          (Content_Type => "image/jpeg", Cache_Control => Cache_Control,
+           UString_Message => Payload);
    end Service_JPEG;
 
    -----------------
@@ -245,7 +261,8 @@ package body HostARM_Server is
 
       return
         AWS.Response.Build
-          (Content_Type => "image/png", UString_Message => Payload);
+          (Content_Type => "image/png", Cache_Control => Cache_Control,
+           UString_Message => Payload);
    end Service_PNG;
 
    -----------------
@@ -265,7 +282,8 @@ package body HostARM_Server is
 
       return
         AWS.Response.Build
-          (Content_Type => "image/gif", UString_Message => Payload);
+          (Content_Type => "image/gif", Cache_Control => Cache_Control,
+           UString_Message => Payload);
    end Service_GIF;
 
    -----------------
@@ -282,7 +300,8 @@ package body HostARM_Server is
 
       return
         AWS.Response.Build
-          (Content_Type => "image/ico", UString_Message => Payload);
+          (Content_Type => "image/ico", Cache_Control => Cache_Control,
+           UString_Message => Payload);
    end Service_ICO;
 
    ----------------------
@@ -379,7 +398,8 @@ package body HostARM_Server is
 
       Response :=
         AWS.Response.Build
-          (Content_Type => "text/html", UString_Message => Payload);
+          (Content_Type => "text/html", Cache_Control => Cache_Control,
+           UString_Message => Payload);
 
       if AWS.Status.Method (Request) = AWS.Status.POST then
          Cookie.Set (Response, State);
