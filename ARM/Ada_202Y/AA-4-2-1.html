@@ -15,6 +15,8 @@
     DT {display: compact}
     SPAN.insert6 {text-decoration: underline; color: rgb(0,51,204) }
     SPAN.delete6 {text-decoration: line-through; color: rgb(0,51,204) }
+    SPAN.insert7 {text-decoration: underline; color: rgb(153,0,0) }
+    SPAN.delete7 {text-decoration: line-through; color: rgb(153,0,0) }
     A.Bar:link {font-family: Arial, Helvetica, sans-serif; font-style: normal; text-decoration: none; color: rgb(204,204,51)}
     A.Bar:visited {font-family: Arial, Helvetica, sans-serif; font-style: normal; text-decoration: none; color: rgb(204,204,51)}
     DIV.Normal {font-family: "Times New Roman", Times, serif; line-height: 122%; margin-left: 1.8em; margin-bottom: 0.6em}
@@ -28,7 +30,7 @@
     </STYLE>
 </HEAD>
 <BODY TEXT="#000000" BGCOLOR="#FFFFF0" LINK="#000080" VLINK="#330033" ALINK="#0000FF">
-<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 4)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
+<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 5)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
 <div style="margin-top: 0.6em; margin-bottom: 0.0em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-0-4.html"><IMG SRC="index.gif" ALT="Index" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-STDS.html"><IMG SRC="lib.gif" ALT="References" BORDER=0></A>&nbsp;
@@ -49,7 +51,7 @@ to allow the use of one or more kinds of literals as values of the type.
 <div class="Normal" style="margin-bottom: 0.4em">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0249-1.TXT">AI12-0249-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0342-1.TXT">AI12-0342-1</A></I>} 
 The following type-related operational aspects (collectively known as 
-<I>user-defined literal aspects</I>)<A NAME="I2865"></A> <A NAME="I2866"></A>may 
+<I>user-defined literal aspects</I>)<A NAME="I2866"></A> <A NAME="I2867"></A>may 
 be specified for a type <I>T</I>:</div>
 <div class="paranum"><a name="p3">3/5</a></div>
 <div class="WideHanging-Term">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0249-1.TXT">AI12-0249-1</A></I>} 
@@ -59,7 +61,7 @@ Integer_Literal</div><div class="WideHanging-Body"><br clear="left">
 This aspect is specified by a <I>function_</I><SPAN Class="swiss"><A HREF="AA-4-1.html#S0091">name</A></SPAN> 
 that statically denotes a function with a result type of <I>T</I> and 
 one <B>in</B> parameter that is of type String and is not explicitly 
-aliased.<A NAME="I2867"></A><A NAME="I2868"></A></div>
+aliased.<A NAME="I2868"></A><A NAME="I2869"></A></div>
 <div class="paranum"><a name="p3.a">3.a/5</a></div>
 <div class="Annotations"><B>Aspect Description for&nbsp;</B><B>Integer_Literal: 
 </B>Defines a function to implement user-defined integer literals.</div>
@@ -74,7 +76,7 @@ that statically denotes a function with a result type of <I>T</I> and
 one <B>in</B> parameter that is of type String and is not explicitly 
 aliased, and optionally a second function [(overloading the first) ]with 
 a result type of <I>T</I> and two <B>in</B> parameters of type String 
-that are not explicitly aliased.<A NAME="I2869"></A><A NAME="I2870"></A></div>
+that are not explicitly aliased.<A NAME="I2870"></A><A NAME="I2871"></A></div>
 <div class="paranum"><a name="p4.a">4.a/5</a></div>
 <div class="Annotations"><B>Aspect Description for&nbsp;</B><B>Real_Literal: 
 </B>Defines a function or functions to implement user-defined real literals.</div>
@@ -86,7 +88,7 @@ String_Literal</div><div class="WideHanging-Body"><br clear="left">
 This aspect is specified by a <I>function_</I><SPAN Class="swiss"><A HREF="AA-4-1.html#S0091">name</A></SPAN> 
 that statically denotes a function with a result type of <I>T</I> and 
 one <B>in</B> parameter that is of type Wide_Wide_String and is not explicitly 
-aliased.<A NAME="I2871"></A><A NAME="I2872"></A></div>
+aliased.<A NAME="I2872"></A><A NAME="I2873"></A></div>
 <div class="paranum"><a name="p5.a">5.a/5</a></div>
 <div class="Annotations"><B>Aspect Description for&nbsp;</B><B>String_Literal: 
 </B>Defines a function to implement user-defined string literals.</div>
@@ -107,7 +109,7 @@ required for that aspect (see <A HREF="AA-13-1-1.html">13.1.1</A>):&nbsp;</div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0342-1.TXT">AI12-0342-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0419-1.TXT">AI12-0419-1</A></I>} 
 User-defined literal aspects are nonoverridable (see <A HREF="AA-13-1-1.html">13.1.1</A>). 
-<A NAME="I2873"></A><A NAME="I2874"></A><A NAME="I2875"></A></div>
+<A NAME="I2874"></A><A NAME="I2875"></A><A NAME="I2876"></A></div>
 <div class="paranum"><a name="p6.a">6.a/5</a></div>
 <div class="Annotations" style="margin-bottom: 0.4em"><B>Discussion: 
 </B>This means that in this example</div>
@@ -128,7 +130,12 @@ User-defined literal aspects are nonoverridable (see <A HREF="AA-13-1-1.html">13
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0342-1.TXT">AI12-0342-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0419-1.TXT">AI12-0419-1</A></I>} 
 the initial value of Pkg2.X is (1,1), not (0,0).&nbsp;</div>
-<div class="paranum"><a name="p7">7/5</a></div>
+<div class="paranum"><a name="p7">7/7</a></div>
+<div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0141-1.html">AI22-0141-1</A></I>} 
+<span class="insert7">The Integer_Literal and Real_Literal aspects are 
+unspecifiable for numeric types (see <A HREF="AA-13-1-1.html">13.1.1</A>). 
+The String_Literal aspect is unspecifiable for string types.</span></div>
+<div class="paranum"><a name="p8">8/5</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0342-1.TXT">AI12-0342-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0427-1.TXT">AI12-0427-1</A></I>} 
 When a numeric literal is interpreted as a value of a non-numeric type 
@@ -142,23 +149,23 @@ The actual parameter of this notional call is a <SPAN Class="swiss"><A HREF="AA-
 representing a sequence of characters that is the same as the sequence 
 of characters in the original numeric literal, or the sequence represented 
 by the original string literal.</div>
-<div class="paranum"><a name="p7.a">7.a/5</a></div>
+<div class="paranum"><a name="p8.a">8.a/5</a></div>
 <div class="Annotations"><B>Discussion:&nbsp;</B>This equivalence defines, 
 for example, the nominal type, the nominal subtype, and the accessibility 
 level of a user-defined literal. It also has the consequence that a user-defined 
 literal shall not be of an abstract type (because that would be equivalent 
 to a nondispatching call to an abstract function). This equivalence also 
 defines the Dynamic Semantics of evaluating a user-defined literal.</div>
-<div class="paranum"><a name="p7.b">7.b/5</a></div>
+<div class="paranum"><a name="p8.b">8.b/5</a></div>
 <div class="Annotations">The (sub)type of the actual parameter to this 
 call is determined by the profile of the appropriate aspect, and the 
 bounds of the <SPAN Class="swiss"><A HREF="AA-2-6.html#S0016">string_literal</A></SPAN> 
 are defined by the usual rules for the bounds of a <SPAN Class="swiss"><A HREF="AA-2-6.html#S0016">string_literal</A></SPAN>. 
 </div>
-<div class="paranum"><a name="p8">8/5</a></div>
-<div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0342-1.TXT">AI12-0342-1</A></I>} 
-Such a literal is said to be a <I>user-defined literal</I>.<A NAME="I2876"></A></div>
 <div class="paranum"><a name="p9">9/5</a></div>
+<div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0342-1.TXT">AI12-0342-1</A></I>} 
+Such a literal is said to be a <I>user-defined literal</I>.<A NAME="I2877"></A></div>
+<div class="paranum"><a name="p10">10/5</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0394-1.TXT">AI12-0394-1</A></I>} 
 When a named number that denotes a value of type <I>universal_integer</I> 
 is interpreted as a value of a non-numeric type <I>T</I>, it is equivalent 
@@ -166,7 +173,7 @@ to a call to the function denoted by the Integer_Literal aspect of <I>T</I>.
 The actual parameter of this notional call is a String having a textual 
 representation of a decimal integer literal optionally preceded by a 
 minus sign, representing the same value as the named number.</div>
-<div class="paranum"><a name="p10">10/5</a></div>
+<div class="paranum"><a name="p11">11/5</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0394-1.TXT">AI12-0394-1</A></I>} 
 When a named number that denotes a value of type <I>universal_real</I> 
 is interpreted as a value of a non-numeric type <I>T</I>, it is equivalent 
@@ -179,24 +186,26 @@ as the denominator, of the named number when represented as a rational
 number in lowest terms, with a positive denominator.</div>
 
 <H4 Class="centered">Legality Rules</H4>
-<div class="paranum"><a name="p11">11/5</a></div>
-<div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0249-1.TXT">AI12-0249-1</A></I>} 
+<div class="paranum"><a name="p12">12/7</a></div>
+<div class="Normal"><SPAN STYLE="font-size: 80%"><I>This paragraph was 
+deleted.</I></SPAN>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0249-1.TXT">AI12-0249-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0295-1.TXT">AI12-0295-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0325-1.TXT">AI12-0325-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0342-1.TXT">AI12-0342-1</A></I>} 
-The Integer_Literal or Real_Literal aspect shall not be specified for 
-a type <I>T</I> if the full view of <I>T</I> is a numeric type. The String_Literal 
-aspect shall not be specified for a type <I>T</I> if the full view of 
-<I>T</I> is a string type.</div>
-<div class="paranum"><a name="p12">12/5</a></div>
+{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0141-1.html">AI22-0141-1</A></I>} 
+<span class="delete7">The Integer_Literal or Real_Literal aspect shall 
+not be specified for a type <I>T</I> if the full view of <I>T</I> is 
+a numeric type. The String_Literal aspect shall not be specified for 
+a type <I>T</I> if the full view of <I>T</I> is a string type.</span></div>
+<div class="paranum"><a name="p13">13/5</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0342-1.TXT">AI12-0342-1</A></I>} 
 For a nonabstract type, the function directly specified for a user-defined 
 literal aspect shall not be abstract.</div>
-<div class="paranum"><a name="p13">13/5</a></div>
+<div class="paranum"><a name="p14">14/5</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0342-1.TXT">AI12-0342-1</A></I>} 
 For a tagged type with a partial view, a user-defined literal aspect 
 shall not be directly specified on the full type.</div>
-<div class="paranum"><a name="p14">14/6</a></div>
+<div class="paranum"><a name="p15">15/6</a></div>
 <div class="Normal"><SPAN STYLE="font-size: 80%"><I>This paragraph was 
 deleted.</I></SPAN>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0342-1.TXT">AI12-0342-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0394-1.TXT">AI12-0394-1</A></I>} 
@@ -205,7 +214,7 @@ deleted.</I></SPAN>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s
 literal aspect, then each inherited aspect shall be directly specified 
 as a nonabstract function for the type unless the inherited aspect denotes 
 a nonabstract function, or functions, and the type is a null extension.</span></div>
-<div class="paranum"><a name="p15">15/5</a></div>
+<div class="paranum"><a name="p16">16/5</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0394-1.TXT">AI12-0394-1</A></I>} 
 If a named number that denotes a value of type <I>universal_integer</I> 
 is interpreted as a value of a non-numeric type <I>T</I>, <I>T</I> shall 
@@ -214,28 +223,28 @@ of type <I>universal_real</I> is interpreted as a value of a non-numeric
 type <I>T</I>, <I>T</I> shall have a Real_Literal aspect, and the aspect 
 shall denote a function that has two <B>in</B> parameters, both of type 
 String, with result of type <I>T</I>.</div>
-<div class="paranum"><a name="p16">16/5</a></div>
+<div class="paranum"><a name="p17">17/5</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0249-1.TXT">AI12-0249-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0342-1.TXT">AI12-0342-1</A></I>} 
 In addition to the places where Legality Rules normally apply (see <A HREF="AA-12-3.html">12.3</A>), 
 these rules also apply in the private part of an instance of a generic 
-unit.<A NAME="I2877"></A>&nbsp;</div>
+unit.<A NAME="I2878"></A>&nbsp;</div>
 
 <H4 Class="centered">Bounded (Run-Time) Errors</H4>
-<div class="paranum"><a name="p17">17/5</a></div>
+<div class="paranum"><a name="p18">18/5</a></div>
 <div class="Normal">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0249-1.TXT">AI12-0249-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0325-1.TXT">AI12-0325-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0342-1.TXT">AI12-0342-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0394-1.TXT">AI12-0394-1</A></I>} 
-<A NAME="I2878"></A>It is a bounded error if the evaluation of a literal 
+<A NAME="I2879"></A>It is a bounded error if the evaluation of a literal 
 or named number that has an expected type with a specified user-defined 
 literal aspect propagates an exception. Either Program_Error or the exception 
 propagated by the evaluation is raised at the point of use of the value 
 of the literal or named number. If it is recognized prior to run time 
 that evaluation of such a literal or named number will inevitably (if 
 executed) result in such a bounded error, then this may be reported as 
-an error prior to run time.<A NAME="I2879"></A></div>
-<div class="paranum"><a name="p17.a">17.a/5</a></div>
+an error prior to run time.<A NAME="I2880"></A></div>
+<div class="paranum"><a name="p18.a">18.a/5</a></div>
 <div class="Annotations"><B>Implementation Note:&nbsp;</B>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0249-1.TXT">AI12-0249-1</A></I>} 
 As always, an implementation may apply &quot;as-if&quot; optimizations 
 (those that result in the same external effects in the absence of erroneous 
@@ -243,14 +252,14 @@ execution) to the function calls associated with user-defined literals.
 In particular, if the function associated with a user-defined literal 
 aspect has a Global aspect that indicates no references to global variables, 
 then a number of optimizations are available to the implementation:&nbsp;</div>
-<div class="paranum"><a name="p17.b">17.b/5</a></div>
+<div class="paranum"><a name="p18.b">18.b/5</a></div>
 <div class="SmallBulleted">The implementation can evaluate a user-defined 
 literal function at compile-time if it has access to the body of the 
 function (for example, if it is inlined), and that body doesn't reference 
 anything evaluated at runtime. If the compile-time evaluation results 
 in an exception, this bounded error allows the compilation unit to be 
 rejected.</div>
-<div class="paranum"><a name="p17.c">17.c/5</a></div>
+<div class="paranum"><a name="p18.c">18.c/5</a></div>
 <div class="SmallBulleted">Implementations can use existing permissions 
 (see <A HREF="AA-6-1-2.html">6.1.2</A>) to avoid evaluating the function 
 associated with a user-defined literal more than once for a particular 
@@ -258,34 +267,34 @@ literal value. This evaluation can be &quot;hoisted&quot; (done once
 per compilation unit during the elaboration of the unit) if the compiler 
 can prove that the function doesn't depend on any constants or locals 
 with a runtime value not yet elaborated.</div>
-<div class="paranum"><a name="p17.d">17.d/5</a></div>
+<div class="paranum"><a name="p18.d">18.d/5</a></div>
 <div class="SmallBulleted">If the literal value is not needed by the 
 execution of the program, the function call can be omitted even if it 
 might have side-effects (again, see <A HREF="AA-6-1-2.html">6.1.2</A>). 
 </div>
 
 <H4 Class="centered">Examples</H4>
-<div class="paranum"><a name="p18">18/5</a></div>
+<div class="paranum"><a name="p19">19/5</a></div>
 <div class="Normal" style="margin-bottom: 0.4em">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0429-1.TXT">AI12-0429-1</A></I>} 
 <I>Examples of the specification and use of user-defined literals:</I></div>
-<div class="paranum"><a name="p19">19/5</a></div>
+<div class="paranum"><a name="p20">20/5</a></div>
 <div class="Examples">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0312-1.TXT">AI12-0312-1</A></I>} 
 <B>subtype</B>&nbsp;Roman_Character&nbsp;<B>is</B>&nbsp;Wide_Wide_Character<BR>
 &nbsp;&nbsp;&nbsp;<B>with</B>&nbsp;Static_Predicate&nbsp;=&gt;<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Roman_Character&nbsp;<B>in</B>&nbsp;'I'&nbsp;|&nbsp;'V'&nbsp;|&nbsp;'X'&nbsp;|&nbsp;'L'&nbsp;|&nbsp;'C'&nbsp;|&nbsp;'D'&nbsp;|&nbsp;'M';</div>
-<div class="paranum"><a name="p20">20/5</a></div>
+<div class="paranum"><a name="p21">21/5</a></div>
 <div class="Examples">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0312-1.TXT">AI12-0312-1</A></I>} 
 Max_Roman_Number&nbsp;:&nbsp;<B>constant</B>&nbsp;:=&nbsp;3_999;&nbsp;&nbsp;--<SPAN Class="roman"><I>&nbsp;MMMCMXCIX</I></SPAN></div>
-<div class="paranum"><a name="p21">21/5</a></div>
+<div class="paranum"><a name="p22">22/5</a></div>
 <div class="Examples">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0312-1.TXT">AI12-0312-1</A></I>} 
 <B>type</B>&nbsp;Roman_Number&nbsp;<B>is</B>&nbsp;<B>range</B>&nbsp;1&nbsp;..&nbsp;Max_Roman_Number<BR>
 &nbsp;&nbsp;&nbsp;<B>with</B>&nbsp;String_Literal&nbsp;=&gt;&nbsp;To_Roman_Number;</div>
-<div class="paranum"><a name="p22">22/5</a></div>
+<div class="paranum"><a name="p23">23/5</a></div>
 <div class="Examples">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0312-1.TXT">AI12-0312-1</A></I>} 
 <B>function</B>&nbsp;To_Roman_Number&nbsp;(S&nbsp;:&nbsp;Wide_Wide_String)&nbsp;<B>return</B>&nbsp;Roman_Number<BR>
 &nbsp;&nbsp;&nbsp;<B>with</B>&nbsp;Pre&nbsp;=&gt;&nbsp;S'Length&nbsp;&gt;&nbsp;0&nbsp;<B>and&nbsp;then</B><BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<B>for&nbsp;all</B>&nbsp;Char&nbsp;<B>of</B>&nbsp;S&nbsp;=&gt;&nbsp;Char&nbsp;<B>in</B>&nbsp;Roman_Character);</div>
-<div class="paranum"><a name="p23">23/5</a></div>
+<div class="paranum"><a name="p24">24/5</a></div>
 <div class="Examples">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0312-1.TXT">AI12-0312-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0386-1.TXT">AI12-0386-1</A></I>} 
 <B>function</B>&nbsp;To_Roman_Number&nbsp;(S&nbsp;:&nbsp;Wide_Wide_String)&nbsp;<B>return</B>&nbsp;Roman_Number&nbsp;<B>is</B><BR>
@@ -299,25 +308,28 @@ Max_Roman_Number&nbsp;:&nbsp;<B>constant</B>&nbsp;:=&nbsp;3_999;&nbsp;&nbsp;--<S
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<B>if</B>&nbsp;I&nbsp;&lt;&nbsp;R'Last&nbsp;<B>and&nbsp;then</B>&nbsp;R(I)&nbsp;&lt;&nbsp;R(I&nbsp;+&nbsp;1)&nbsp;<B>then</B>&nbsp;-1&nbsp;<B>else</B>&nbsp;1)&nbsp;*&nbsp;R(I)]<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Reduce(&quot;+&quot;,&nbsp;0)<BR>
 &nbsp;&nbsp;&nbsp;);</div>
-<div class="paranum"><a name="p24">24/5</a></div>
+<div class="paranum"><a name="p25">25/5</a></div>
 <div class="Examples">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0312-1.TXT">AI12-0312-1</A></I>} 
 X&nbsp;:&nbsp;Roman_Number&nbsp;:=&nbsp;&quot;III&quot;&nbsp;*&nbsp;&quot;IV&quot;&nbsp;*&nbsp;&quot;XII&quot;;&nbsp;--<SPAN Class="roman"><I>&nbsp;144&nbsp;(that&nbsp;is,&nbsp;CXLIV)</I></SPAN></div>
 
 <H4 Class="centered">Extensions to Ada 2012</H4>
-<div class="paranum"><a name="p24.a">24.a/5</a></div>
+<div class="paranum"><a name="p25.a">25.a/5</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0249-1.TXT">AI12-0249-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0295-1.TXT">AI12-0295-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0325-1.TXT">AI12-0325-1</A></I>} 
 {<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI12s/AI12-0342-1.TXT">AI12-0342-1</A></I>} 
-<A NAME="I2880"></A>The user-defined literal aspects Integer_Literal, 
+<A NAME="I2881"></A>The user-defined literal aspects Integer_Literal, 
 Real_Literal, and String_Literal are new.&nbsp;</div>
 
 <H4 Class="centered">Wording Changes from Ada 2022</H4>
-<div class="paranum"><a name="p24.b">24.b/6</a></div>
+<div class="paranum"><a name="p25.b">25.b/6</a></div>
 <div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0003-1.html">AI22-0003-1</A></I>} 
-<span class="insert6"><B>Corrigendum:</B> Removed a vestigial Legality 
-Rule that conflicted with the blanket rules for nonoverridable aspects.</span> 
-</div>
+<span class="insert6"><B>Correction:</B> Removed a vestigial Legality 
+Rule that conflicted with the blanket rules for nonoverridable aspects.</span></div>
+<div class="paranum"><a name="p25.c">25.c/7</a></div>
+<div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0141-1.html">AI22-0141-1</A></I>} 
+<span class="insert7"><B>Correction:</B> Used the new term <I>unspecifiable</I> 
+to simplify the wording. No semantic change is intended.</span>&nbsp;</div>
 
 <HR>
 <div style="margin-top: 0.0em; margin-bottom: 0.6em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;

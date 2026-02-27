@@ -13,6 +13,8 @@
     DIV.paranum {float: left; font-family: Arial, Helvetica, sans-serif; font-size: 64%; width: 2.8em; margin-left: -0.4em; margin-right: -3.0em; margin-top: 0.2em}
     TT {font-family: "Courier New", monospace}
     DT {display: compact}
+    SPAN.insert7 {text-decoration: underline; color: rgb(153,0,0) }
+    SPAN.delete7 {text-decoration: line-through; color: rgb(153,0,0) }
     A.Bar:link {font-family: Arial, Helvetica, sans-serif; font-style: normal; text-decoration: none; color: rgb(204,204,51)}
     A.Bar:visited {font-family: Arial, Helvetica, sans-serif; font-style: normal; text-decoration: none; color: rgb(204,204,51)}
     DIV.Normal {font-family: "Times New Roman", Times, serif; line-height: 122%; margin-left: 1.8em; margin-bottom: 0.6em}
@@ -25,7 +27,7 @@
     </STYLE>
 </HEAD>
 <BODY TEXT="#000000" BGCOLOR="#FFFFF0" LINK="#000080" VLINK="#330033" ALINK="#0000FF">
-<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 4)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
+<DIV><SPAN Style="font-size:200%; color: rgb(0,51,153)"><B>Annotated</B></SPAN><SPAN Style="font-size:200%; color: rgb(0,0,102)"><B>&nbsp;Ada Reference Manual</B> (Ada 202y Draft 5)</SPAN> &mdash; <A HREF="AA-TTL.html"><B>Legal Information</B></A></DIV>
 <div style="margin-top: 0.6em; margin-bottom: 0.0em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-0-4.html"><IMG SRC="index.gif" ALT="Index" BORDER=0></A>&nbsp;
 &nbsp;<A HREF="AA-STDS.html"><IMG SRC="lib.gif" ALT="References" BORDER=0></A>&nbsp;
@@ -83,12 +85,13 @@ are provided:&nbsp;</div>
 <div class="paranum"><a name="p12">12</a></div>
 <div class="Examples"><B>procedure</B>&nbsp;Get(File&nbsp;:&nbsp;<B>in</B>&nbsp;File_Type;&nbsp;Item&nbsp;:&nbsp;<B>out</B>&nbsp;Num;&nbsp;Width&nbsp;:&nbsp;<B>in</B>&nbsp;Field&nbsp;:=&nbsp;0);<BR>
 <B>procedure</B>&nbsp;Get(Item&nbsp;:&nbsp;<B>out</B>&nbsp;Num;&nbsp;Width&nbsp;:&nbsp;<B>in</B>&nbsp;Field&nbsp;:=&nbsp;0);</div>
-<div class="paranum"><a name="p13">13</a></div>
-<div class="Indented2" style="margin-bottom: 0.4em">If the value of 
-the parameter Width is zero, skips any leading blanks, line terminators, 
-or page terminators, then reads the longest possible sequence of characters 
-matching the syntax of any of the following (see <A HREF="AA-2-4.html">2.4</A>): 
-</div>
+<div class="paranum"><a name="p13">13/7</a></div>
+<div class="Indented2" style="margin-bottom: 0.4em">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0144-1.html">AI22-0144-1</A></I>} 
+If the value of the parameter Width is zero, skips any leading blanks, 
+line terminators, or page terminators, then reads the longest possible 
+sequence of characters matching the syntax of any of the following (see 
+<A HREF="AA-2-4.html">2.4</A>)<span class="insert7">, or a prefix of 
+one of the following</span>:&nbsp;</div>
 <div class="paranum"><a name="p14">14</a></div>
 <div class="Indented3Bulleted">[+|&ndash;]<SPAN Class="swiss"><A HREF="AA-2-4.html#S0006">numeric_literal</A></SPAN></div>
 <div class="paranum"><a name="p15">15</a></div>
@@ -100,6 +103,15 @@ matching the syntax of any of the following (see <A HREF="AA-2-4.html">2.4</A>):
 <div class="paranum"><a name="p18">18</a></div>
 <div class="Indented3Bulleted">[+|&ndash;]<SPAN Class="swiss"><A HREF="AA-2-4-2.html#S0012">base</A></SPAN>#.<SPAN Class="swiss"><A HREF="AA-2-4-2.html#S0013">based_numeral</A></SPAN>#[<SPAN Class="swiss"><A HREF="AA-2-4-1.html#S0009">exponent</A></SPAN>] 
 </div>
+<div class="paranum"><a name="p18.a">18.a/7</a></div>
+<div class="Annotations"><span class="insert7"><B>Ramification:&nbsp;</B></span>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0144-1.html">AI22-0144-1</A></I>} 
+<span class="insert7">This means that you read the text so long as the 
+input might have one of the given syntaxes. For instance, if the input 
+is &quot;2#1.Z&quot;, reading stops before the 'Z' and Data_Error is 
+raised. There is no backtracking to the '#', even though the fragment 
+&quot;2#1.&quot; itself does not have one of the given syntaxes. The 
+fragment is potentially the first part of several of the syntaxes (it 
+would be fine if the Z had been a '#'), so it is all read.</span>&nbsp;</div>
 <div class="paranum"><a name="p19">19</a></div>
 <div class="Indented2">If a nonzero value of Width is supplied, then 
 exactly Width characters are input, or the characters (possibly none) 
@@ -114,6 +126,11 @@ type and Num'Signed_Zeros is True.</div>
 <div class="Indented2" style="margin-bottom: 0.9em">The exception Data_Error 
 is propagated if the sequence input does not have the required syntax 
 or if the value obtained is not of the subtype Num.</div>
+<div class="paranum"><a name="p21.a">21.a/7</a></div>
+<div class="Annotations"><span class="insert7"><B>Ramification:&nbsp;</B></span>{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0144-1.html">AI22-0144-1</A></I>} 
+<span class="insert7">When Data_Error is raised, the first character 
+remaining in the input is the first one that does not match a prefix 
+of one of the given syntaxes for a real value.</span>&nbsp;</div>
 <div class="paranum"><a name="p22">22</a></div>
 <div class="Examples"><B>procedure</B>&nbsp;Put(File&nbsp;:&nbsp;<B>in</B>&nbsp;File_Type;<BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Item&nbsp;:&nbsp;<B>in</B>&nbsp;Num;<BR>
@@ -183,7 +200,7 @@ characters output exactly fills the string, including any leading spaces.
 library package that is a nongeneric equivalent to Text_IO.Float_IO for 
 the predefined type Float:&nbsp;</div>
 <div class="paranum"><a name="p33">33</a></div>
-<div class="Examples"><B>with</B>&nbsp;Ada.Text_IO;<A NAME="I8075"></A><BR>
+<div class="Examples"><B>with</B>&nbsp;Ada.Text_IO;<A NAME="I8087"></A><BR>
 <B>package</B>&nbsp;Ada.Float_Text_IO&nbsp;<B>is</B>&nbsp;<B>new</B>&nbsp;Ada.Text_IO.Float_IO(Float);</div>
 <div class="paranum"><a name="p34">34</a></div>
 <div class="Normal">For each predefined floating point type, a nongeneric 
@@ -240,6 +257,14 @@ the same set of formats.&nbsp;</div>
 <div class="Examples">Put(X);&nbsp;&nbsp;<SPAN Class="roman"><I>--&nbsp;default&nbsp;format</I></SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN Class="roman"><I>&quot;&ndash;&#8203;1.2345670E+02&quot;</I></SPAN><BR>
 Put(X,&nbsp;Fore&nbsp;=&gt;&nbsp;5,&nbsp;Aft&nbsp;=&gt;&nbsp;3,&nbsp;Exp&nbsp;=&gt;&nbsp;2);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN Class="roman"><I>--&nbsp;&quot;bbb&ndash;&#8203;1.235E+2&quot;</I></SPAN><BR>
 Put(X,&nbsp;5,&nbsp;3,&nbsp;0);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN Class="roman"><I>--&nbsp;&quot;b&ndash;&#8203;123.457&quot;</I></SPAN></div>
+
+<H4 Class="centered">Wording Changes from Ada 2022</H4>
+<div class="paranum"><a name="p43.a">43.a/7</a></div>
+<div class="Annotations">{<I><A HREF="http://www.ada-auth.org/cgi-bin/cvsweb.cgi/AI22s/AI22-0144-1.html">AI22-0144-1</A></I>} 
+<span class="insert7"><B>Correction:</B> Clarified what characters remain 
+in input when Data_Error is raised by a Get. Since the ACATS has always 
+required this behavior, there should be little impact on implementations 
+and existing code.</span>&nbsp;</div>
 
 <HR>
 <div style="margin-top: 0.0em; margin-bottom: 0.6em"><A HREF="AA-TOC.html"><IMG SRC="cont.gif" ALT="Contents" BORDER=0></A>&nbsp;
