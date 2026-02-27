@@ -114,7 +114,7 @@ package body HostARM_Server is
 
       return
         AWS.Response.Build
-          (Content_Type => "text/html", Cache_Control => Cache_Control,
+          (Content_Type => "text/html", -- Cache_Control => Cache_Control,
            UString_Message => Payload);
    end Service_Search;
 
@@ -177,7 +177,7 @@ package body HostARM_Server is
          return
            AWS.Response.Build
              (Content_Type    => "text/javascript",
-              Cache_Control   => Cache_Control,
+--            Cache_Control   => Cache_Control,
               UString_Message => HostARM_Tipue.Get_Content (State.Manual));
 
       elsif Tail_Is (URI, ".js") then
@@ -399,7 +399,7 @@ package body HostARM_Server is
 
       Response :=
         AWS.Response.Build
-          (Content_Type => "text/html", Cache_Control => Cache_Control,
+          (Content_Type => "text/html", -- Cache_Control => Cache_Control,
            UString_Message => Payload);
 
       if AWS.Status.Method (Request) = AWS.Status.POST then
