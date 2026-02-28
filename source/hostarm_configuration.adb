@@ -85,8 +85,8 @@ package body HostARM_Configuration is
    begin
       return      Exists (Path)
          and then Exists (Path & "ARM/")
-         and then Exists (Path & "www/")
-         and then Exists (Path & "assets/");
+         and then Exists (Path & "assets/")
+         and then Exists (Path & "assets/www/");
    end Looking_Valid;
 
    -------------------
