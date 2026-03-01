@@ -29,7 +29,7 @@ alr install hostarm
 ## Invocation
 
 ```sh
-hostarm &
+nohup hostarm </dev/null >/dev/null 2>&1 &
 ```
 This will start HostARM as a daemon and the manuals are now accessible at
 [/localhost:2778/](http://localhost:2778/).
