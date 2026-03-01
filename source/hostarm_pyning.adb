@@ -298,9 +298,7 @@ package body HostARM_Pyning is
       Match : constant String := "</head>";
 
       Repl : constant String :=
-        "<link rel='icon' type='image/svg+xml' href='/assets/images/2778.svg'>" &
-        CRLF &
-        "<link rel='shortcut icon' type='image/svg+xml' href='/assets/images/2778.svg'>" &
+        "<link rel='icon' type='image/png' href='/assets/images/2778.png'>" &
         CRLF &
         "<link rel='stylesheet' href='/assets/css/arm.css'>" & CRLF &
         "<link rel='stylesheet' href='/assets/css/hostarm.css'>";
