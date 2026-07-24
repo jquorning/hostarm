@@ -1,7 +1,7 @@
-package HostARM_Server is
+package HostARM_Dispatcher is
 
    procedure Start;
    procedure Stop;
    procedure Wait;
 
-end HostARM_Server;
+end HostARM_Dispatcher;

@@ -7,7 +7,7 @@ with Resources;
 
 with Hostarm_Config;
 with HostARM_Configuration;
-with HostARM_Server;
+with HostARM_Dispatcher;
 with HostARM_Tipue;
 
 -------------
@@ -69,15 +69,15 @@ begin
    HostARM_Tipue.Build_Content (Config.ARM_2022);
    HostARM_Tipue.Build_Content (Config.AARM_202Y);
 
-   HostARM_Server.Start;
+   HostARM_Dispatcher.Start;
    Put_Line
      ("HostARM: Accessible on URL: http://localhost:" &
       Fixed.Trim (Config.Server_Port'Image, Side => Left) & "/");
 
-   HostARM_Server.Wait;
+   HostARM_Dispatcher.Wait;
    Put_Line ("HostARM: Shutting down");
 
-   HostARM_Server.Stop;
+   HostARM_Dispatcher.Stop;
 
 exception
    when Program_Error =>

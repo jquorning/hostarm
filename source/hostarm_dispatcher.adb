@@ -21,7 +21,7 @@ with HostARM_Pyning;
 with HostARM_Tipue;
 with HostARM_Tools;
 
-package body HostARM_Server is
+package body HostARM_Dispatcher is
 
    package Config renames HostARM_Configuration;
    package Cookie renames HostARM_Cookie;
@@ -470,4 +470,4 @@ package body HostARM_Server is
       AWS.Server.Wait (AWS.Server.Q_Key_Pressed);
    end Wait;
 
-end HostARM_Server;
+end HostARM_Dispatcher;
