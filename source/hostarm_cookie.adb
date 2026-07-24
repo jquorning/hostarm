@@ -1,9 +1,9 @@
 
-with AWS.Cookie;
+with HostARM_RFC3875;
 
 package body HostARM_Cookie is
 
-   use AWS.Cookie;
+   use HostARM_RFC3875;
 
    Key_Manual          : constant String := "Manual";
    Key_Pyne_Nav_Top    : constant String := "Pyne_Nav_Top";
@@ -21,20 +21,28 @@ package body HostARM_Cookie is
    is
       use Config;
    begin
-      if not Exists (Request, Key_Manual) then
-         State := Config.Default_State;
-         return;
-      end if;
-
       State :=
          (Manual =>
-            ARM_Version'Value (String'(Get (Request, Key_Manual))),
-          Pyne_Nav_Top    => Get (Request, Key_Pyne_Nav_Top),
-          Pyne_Nav_Bottom => Get (Request, Key_Pyne_Nav_Bottom),
-          Pyne_Banner     => Get (Request, Key_Pyne_Banner),
-          Pyne_Sponsor    => Get (Request, Key_Pyne_Sponsor),
-          Modernize       => Get (Request, Key_Modernize)
+            ARM_Version'Value (Cookie_Value (Key_Manual,
+                                             Required => True)),
+          Pyne_Nav_Top    =>
+            Boolean'Value (Cookie_Value (Key_Pyne_Nav_Top,
+                                         Required => True)),
+          Pyne_Nav_Bottom =>
+            Boolean'Value (Cookie_Value (Key_Pyne_Nav_Bottom,
+                                         Required => True)),
+          Pyne_Banner     =>
+            Boolean'Value (Cookie_Value (Key_Pyne_Banner,
+                                         Required => True)),
+          Pyne_Sponsor    =>
+            Boolean'Value (Cookie_Value (Key_Pyne_Sponsor,
+                                         Required => True)),
+          Modernize       =>
+            Boolean'Value (Cookie_Value (Key_Modernize,
+                                         Required => True))
          );
+   exception when others =>
+      State := Config.Default_State;
    end Get_Or_Default;
 
    ---------
@@ -46,12 +54,12 @@ package body HostARM_Cookie is
    is
       use Config;
    begin
-      Set (Response, Key_Manual,          State.Manual'Image);
-      Set (Response, Key_Pyne_Nav_Top,    State.Pyne_Nav_Top);
-      Set (Response, Key_Pyne_Nav_Bottom, State.Pyne_Nav_Bottom);
-      Set (Response, Key_Pyne_Banner,     State.Pyne_Banner);
-      Set (Response, Key_Pyne_Sponsor,    State.Pyne_Sponsor);
-      Set (Response, Key_Modernize,       State.Modernize);
+      Set_Cookie (Key_Manual,          ARM_Version'Image (State.Manual));
+      Set_Cookie (Key_Pyne_Nav_Top,    Boolean'Image (State.Pyne_Nav_Top));
+      Set_Cookie (Key_Pyne_Nav_Bottom, Boolean'Image (State.Pyne_Nav_Bottom));
+      Set_Cookie (Key_Pyne_Banner,     Boolean'Image (State.Pyne_Banner));
+      Set_Cookie (Key_Pyne_Sponsor,    Boolean'Image (State.Pyne_Sponsor));
+      Set_Cookie (Key_Modernize,       Boolean'Image (State.Modernize));
    end Set;
 
 end HostARM_Cookie;
