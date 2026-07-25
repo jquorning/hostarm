@@ -1,7 +1,5 @@
 package HostARM_Dispatcher is
 
-   procedure Start;
-   procedure Stop;
-   procedure Wait;
+   procedure Run;
 
 end HostARM_Dispatcher;

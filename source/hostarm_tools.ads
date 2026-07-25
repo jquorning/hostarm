@@ -36,4 +36,7 @@ package HostARM_Tools is
                      Match : in String)
                      return Boolean;
 
+   function To_String (Item : UString) return String
+     renames Ada.Strings.Unbounded.To_String;
+
 end HostARM_Tools;

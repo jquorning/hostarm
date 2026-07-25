@@ -1,14 +1,6 @@
 
 with Ada.Strings.Fixed;
-
-with AWS.Config.Set;
-with AWS.Messages;
-with AWS.Net;
-with AWS.Response;
-with AWS.Parameters;
-with AWS.Server;
-with AWS.Services.Dispatchers.URI;
-with AWS.Status;
+with Ada.Text_IO;
 
 with Templates_Parser;
 
@@ -18,25 +10,20 @@ with HostARM_Configuration;
 with HostARM_Cookie;
 with HostARM_Navigate;
 with HostARM_Pyning;
+with HostARM_RFC3875;
 with HostARM_Tipue;
 with HostARM_Tools;
 
 package body HostARM_Dispatcher is
 
-   package Config renames HostARM_Configuration;
-   package Cookie renames HostARM_Cookie;
-   package Tools renames HostARM_Tools;
+   package Config  renames HostARM_Configuration;
+   package Cookie  renames HostARM_Cookie;
+   package RFC3875 renames HostARM_RFC3875;
+   package Tools   renames HostARM_Tools;
 
-   Server_Name : constant String := "HostARM: Ada Reference Manual";
+   use Ada.Text_IO;
+
    Tipue_Path  : constant String := "/assets/tipuesearch";
-
-   Cache_Control : constant AWS.Messages.Cache_Option :=
-     AWS.Messages.To_Cache_Option
-       ((CKind => AWS.Messages.Response, Max_Age => 10_000, others => <>));
-
-   Server      : AWS.Server.HTTP;
-   Server_Conf : AWS.Config.Object;
-   Dispatcher  : AWS.Services.Dispatchers.URI.Handler;
 
    -----------
    -- Trans --
@@ -83,8 +70,7 @@ package body HostARM_Dispatcher is
    -- Service_Search --
    --------------------
 
-   function Service_Search
-     (Request : in AWS.Status.Data) return AWS.Response.Data
+   procedure Service_Search
    is
       use HostARM_Navigate;
 
@@ -92,7 +78,7 @@ package body HostARM_Dispatcher is
       State   : Config.State_Type;
       Payload : Tools.UString;
    begin
-      Cookie.Get_Or_Default (Request, State);
+      Cookie.Get_Or_Default (State);
 
       Payload :=
         Templates_Parser.Parse
@@ -112,26 +98,24 @@ package body HostARM_Dispatcher is
          Prev                 => Config.URI_Contents (State.Manual));
       --  Nothing to pyne but inserts navigation header
 
-      return
-        AWS.Response.Build
-          (Content_Type => "text/html", -- Cache_Control => Cache_Control,
-           UString_Message => Payload);
+      RFC3875.Put_CGI_Header;
+      Put_Line (Tools.To_String (Payload));
    end Service_Search;
 
    -----------------
    -- Service_ARM --
    -----------------
 
-   function Service_ARM (Request : in AWS.Status.Data) return AWS.Response.Data
+   procedure Service_ARM
    is
       use Tools;
 
-      URI      : constant String := Strip_Slash (AWS.Status.URI (Request));
+      URI      : constant String := Strip_Slash (RFC3875.My_URL);
       Payload  : Tools.UString;
       Nav_Info : HostARM_Navigate.Nav_Info;
       State    : Config.State_Type;
    begin
-      Cookie.Get_Or_Default (Request, State);
+      Cookie.Get_Or_Default (State);
 
       Tools.Load_File
         (Name    => Config.ARM_Base (State.Manual) & URI & ".html",
@@ -151,60 +135,47 @@ package body HostARM_Dispatcher is
       HostARM_Pyning.Remove_Head_Style_CSS (Payload);
       HostARM_Pyning.Insert_CSS_Links (Payload);
 
-      return
-        AWS.Response.Build
-          (Content_Type => "text/html", -- Cache_Control => Cache_Control,
-           UString_Message => Payload);
+      RFC3875.Put_CGI_Header;
+      Put_Line (To_String (Payload));
    end Service_ARM;
 
    -------------------
    -- Service_Tipue --
    -------------------
 
-   function Service_Tipue
-     (Request : in AWS.Status.Data) return AWS.Response.Data
+   procedure Service_Tipue
    is
       use Tools;
 
-      URI     : constant String := AWS.Status.URI (Request);
+      URI     : constant String := RFC3875.My_URL;
       Name    : constant String := Config.Tipue_Base & URI;
       State   : Config.State_Type;
       Payload : Tools.UString;
    begin
-      Cookie.Get_Or_Default (Request, State);
+      Cookie.Get_Or_Default (State);
 
       if URI = Tipue_Path & "/tipuesearch_content.js" then
-         return
-           AWS.Response.Build
-             (Content_Type    => "text/javascript",
---            Cache_Control   => Cache_Control,
-              UString_Message => HostARM_Tipue.Get_Content (State.Manual));
+         RFC3875.Put_CGI_Header ("Content-type: text/javascript");
+         Put_Line (To_String (HostARM_Tipue.Get_Content (State.Manual)));
 
       elsif Tail_Is (URI, ".js") then
          Tools.Load_File (Name, Payload);
 
-         return
-           AWS.Response.Build
-             (Content_Type    => "text/javascript",
-              Cache_Control   => Cache_Control,
-              UString_Message => Payload);
+         RFC3875.Put_CGI_Header ("Content-type: text/javascript");
+         Put_Line (To_String (Payload));
+
       elsif Tail_Is (URI, ".css") then
          Tools.Load_File (Name, Payload);
 
-         return
-           AWS.Response.Build
-             (Content_Type    => "text/css",
-              Cache_Control   => Cache_Control,
-              UString_Message => Payload);
+         RFC3875.Put_CGI_Header ("Content-type: text/css");
+         Put_Line (To_String (Payload));
 
       elsif Tail_Is (URI, ".png") then
          Tools.Load_File (Name, Payload);
 
-         return
-           AWS.Response.Build
-             (Content_Type    => "image/png",
-              Cache_Control   => Cache_Control,
-              UString_Message => Payload);
+         RFC3875.Put_CGI_Header ("Content-type: image/png");
+         Put_Line (To_String (Payload));
+
       end if;
 
       raise Program_Error with "Correct this to a 404";
@@ -215,149 +186,132 @@ package body HostARM_Dispatcher is
    -- Service_CSS --
    -----------------
 
-   function Service_CSS (Request : in AWS.Status.Data) return AWS.Response.Data
+   procedure Service_CSS
    is
-      URI     : constant String := AWS.Status.URI (Request);
+      URI     : constant String := RFC3875.My_URL;
       Name    : constant String := Config.Web_Base & URI;
       Payload : Tools.UString;
    begin
       Tools.Load_File (Name, Payload);
 
-      return
-        AWS.Response.Build
-          (Content_Type    => "text/css", Cache_Control => Cache_Control,
-           UString_Message => Payload);
+      RFC3875.Put_CGI_Header ("Content-type: text/css");
+      Put_Line (Tools.To_String (Payload));
    end Service_CSS;
 
    ------------------
    -- Service_JPEG --
    ------------------
 
-   function Service_JPEG
-     (Request : in AWS.Status.Data) return AWS.Response.Data
+   procedure Service_JPEG
    is
-      URI     : constant String := AWS.Status.URI (Request);
+      URI     : constant String := RFC3875.My_URL;
       Name    : constant String := Config.Web_Base & URI;
       Payload : Tools.UString;
    begin
       Tools.Load_File (Name, Payload);
 
-      return
-        AWS.Response.Build
-          (Content_Type => "image/jpeg", Cache_Control => Cache_Control,
-           UString_Message => Payload);
+      RFC3875.Put_CGI_Header ("Content-type: image/jpeg");
+      Put_Line (Tools.To_String (Payload));
    end Service_JPEG;
 
    -----------------
    -- Service_PNG --
    -----------------
 
-   function Service_PNG (Request : in AWS.Status.Data) return AWS.Response.Data
+   procedure Service_PNG
    is
-      URI     : constant String := AWS.Status.URI (Request);
+      URI     : constant String := RFC3875.My_URL;
       Name    : constant String := Config.Web_Base & URI;
       Payload : Tools.UString;
    begin
       Tools.Load_File (Name, Payload);
 
-      return
-        AWS.Response.Build
-          (Content_Type => "image/png", Cache_Control => Cache_Control,
-           UString_Message => Payload);
+      RFC3875.Put_CGI_Header ("Content-type: text/png");
+      Put_Line (Tools.To_String (Payload));
    end Service_PNG;
 
    -----------------
    -- Service_GIF --
    -----------------
 
-   function Service_GIF (Request : in AWS.Status.Data) return AWS.Response.Data
+   procedure Service_GIF
    is
-      URI     : constant String := AWS.Status.URI (Request);
+      URI     : constant String := RFC3875.My_URL;
       State   : Config.State_Type;
       Payload : Tools.UString;
    begin
-      Cookie.Get_Or_Default (Request, State);
+      Cookie.Get_Or_Default (State);
 
       Tools.Load_File
         (Name => Config.ARM_Base (State.Manual) & URI, Payload => Payload);
 
-      return
-        AWS.Response.Build
-          (Content_Type => "image/gif", Cache_Control => Cache_Control,
-           UString_Message => Payload);
+      RFC3875.Put_CGI_Header ("Content-type: image/gif");
+      Put_Line (Tools.To_String (Payload));
    end Service_GIF;
 
    ----------------------
    -- Service_Redirect --
    ----------------------
 
-   function Service_Redirect
-     (Request : in AWS.Status.Data) return AWS.Response.Data
+   procedure Service_Redirect
    is
       use Ada.Strings.Fixed;
 
       Match   : constant String := ".html";
-      URI     : constant String := AWS.Status.URI (Request);
+      URI     : constant String := RFC3875.My_URL;
       New_URI : constant String := Head (URI, URI'Length - Match'Length);
    begin
-      return AWS.Response.URL (Location => New_URI);
+      RFC3875.Put_CGI_Header ("Location: " & New_URI);
    end Service_Redirect;
 
    ---------------------
    -- Service_Default --
    ---------------------
 
-   function Service_Default
-     (Request : in AWS.Status.Data) return AWS.Response.Data
+   procedure Service_Default
    is
-      pragma Unreferenced (Request);
    begin
-      return AWS.Response.URL (Location => "/");
+      RFC3875.Put_CGI_Header ("Location: /");
    end Service_Default;
 
    ------------------
    -- Service_Home --
    ------------------
 
-   function Service_Home
-     (Request : in AWS.Status.Data) return AWS.Response.Data
+   procedure Service_Home
    is
-      use HostARM_Navigate;
-      use AWS.Parameters;
       use Config;
+      use HostARM_Navigate;
+      use RFC3875;
 
-      use type AWS.Status.Request_Method;
-
-      function Get_Boolean (Params : in List; Key : in String) return Boolean
+      function Get_Boolean (Key : in String) return Boolean
       is
       begin
-         return Boolean'Value (Get (Params, Key));
-      exception
-         when Constraint_Error =>
+         return Boolean'Value (Value (Key, Required => True));
+
+      exception when others =>
             return False;
       end Get_Boolean;
 
-      Params   : constant List   := AWS.Status.Parameters (Request);
       Name     : constant String := Config.Page_Base & "/home.thtml";
       State    : Config.State_Type;
       Payload  : Tools.UString;
-      Response : AWS.Response.Data;
    begin
 
-      case AWS.Status.Method (Request) is
-         when AWS.Status.GET =>
-            Cookie.Get_Or_Default (Request, State);
+      case CGI_Method is
+         when Get =>
+            Cookie.Get_Or_Default (State);
 
-         when AWS.Status.POST =>
+         when Post =>
             State :=
-              (Manual          => ARM_Version'Value (Get (Params, "manual")),
-               Pyne_Banner     => Get_Boolean (Params, "pyne_banner"),
-               Pyne_Nav_Top    => Get_Boolean (Params, "pyne_nav_top"),
-               Pyne_Nav_Bottom => Get_Boolean (Params, "pyne_nav_bottom"),
-               Pyne_Sponsor    => Get_Boolean (Params, "pyne_sponsor"),
-               Modernize       => Get_Boolean (Params, "modernize"));
+              (Manual          => ARM_Version'Value (Value ("manual")),
+               Pyne_Banner     => Get_Boolean ("pyne_banner"),
+               Pyne_Nav_Top    => Get_Boolean ("pyne_nav_top"),
+               Pyne_Nav_Bottom => Get_Boolean ("pyne_nav_bottom"),
+               Pyne_Sponsor    => Get_Boolean ("pyne_sponsor"),
+               Modernize       => Get_Boolean ("modernize"));
 
-         when others =>
+         when Unknown =>
             null;
       end case;
 
@@ -379,95 +333,70 @@ package body HostARM_Dispatcher is
          Prev                 => Config.URI_Contents (State.Manual));
       --  Nothing to pyne but inserts navigation header
 
-      Response :=
-        AWS.Response.Build
-          (Content_Type => "text/html", -- Cache_Control => Cache_Control,
-           UString_Message => Payload);
-
-      if AWS.Status.Method (Request) = AWS.Status.POST then
-         Cookie.Set (Response, State);
+      if CGI_Method = Post then
+         Cookie.Set (State);
       end if;
 
-      return Response;
+      RFC3875.Put_CGI_Header ("Content-type: text/html");
+      Put_Line (Tools.To_String (Payload));
    end Service_Home;
 
-   -------------------------
-   -- Register_Dispatcher --
-   -------------------------
+   --------------
+   -- Dispatch --
+   --------------
 
-   procedure Register_Dispatcher is
-      use AWS.Services.Dispatchers.URI;
+   procedure Dispatch is
+
+      use Ada.Strings;
+
+      function Head_Equals (Item : String; Pattern : String) return Boolean is
+      begin
+         if Item'Length < Pattern'Length then
+            return False;
+         end if;
+
+         return Item (Item'First .. Pattern'Length) = Pattern;
+      end Head_Equals;
+
+      function Tail_From (Item : String; Pattern : String) return String is
+         Pos : constant Natural :=
+           Fixed.Index (Item, Pattern, Going => Backward);
+      begin
+         if Pos = 0 then
+            return "";
+         end if;
+
+         return Item (Pos + Pattern'Length .. Item'Last);
+      end Tail_From;
+
+      URL : constant String := RFC3875.My_URL;
+      Ext : constant String := Tail_From (URL, Pattern => ".");
    begin
+      if URL = "/search"    then  Service_Search; --  Prefix => True);
+      elsif URL in "/" | "" then  Service_Home;
+      elsif URL = "/home"   then  Service_Home;
 
-      Register (Dispatcher, "/search",      Service_Search'Access,
-                Prefix => True);
-      Register (Dispatcher, "/",            Service_Home'Access);
-      Register (Dispatcher, "",             Service_Home'Access);
-      Register (Dispatcher, "/home",        Service_Home'Access);
+      elsif Ext = "jpg"     then  Service_JPEG;
+      elsif Ext = "png"     then  Service_PNG;
+      elsif Ext = "gif"     then  Service_GIF;
+      elsif Ext = "html"    then  Service_Redirect;
+      elsif Head_Equals (URL, "/assets/css") and Ext = "css" then  Service_CSS;
 
-      Register_Regexp (Dispatcher, "/.*\.jpg", Service_JPEG'Access);
-      Register_Regexp (Dispatcher, "/.*\.png", Service_PNG'Access);
-      Register_Regexp (Dispatcher, ".*\.gif", Service_GIF'Access);
-      Register_Regexp (Dispatcher, ".*\.html", Service_Redirect'Access);
-      Register_Regexp (Dispatcher, "/assets/css/.*\.css", Service_CSS'Access);
+      elsif Head_Equals (URL, "/assets/tipuesearch") then Service_Tipue;
+      elsif Head_Equals (URL, "/RM-") then Service_ARM;
+      elsif Head_Equals (URL, "/AA-") then Service_ARM;
 
-      Register_Regexp
-        (Dispatcher, "/assets/tipuesearch/.*", Service_Tipue'Access);
-      Register_Regexp (Dispatcher, "/RM-.*", Service_ARM'Access);
-      Register_Regexp (Dispatcher, "/AA-.*", Service_ARM'Access);
+      else Service_Default;
+      end if;
+   end Dispatch;
 
-      Register_Regexp (Dispatcher, ".*", Service_Default'Access);
+   ---------
+   -- Run --
+   ---------
 
-   end Register_Dispatcher;
-
-   -------------------
-   -- Config_Server --
-   -------------------
-
-   procedure Config_Server is
-      use AWS.Config;
+   procedure Run is
    begin
-      Server_Conf := Default_Config;
-      Set.Server_Name (Server_Conf, Server_Name);
-      Set.Max_Connection (Server_Conf, 8);
-      Set.Reuse_Address  (Server_Conf, True);
-      Set.Server_Port    (Server_Conf, Config.Server_Port);
-   end Config_Server;
-
-   -----------
-   -- Start --
-   -----------
-
-   procedure Start is
-   begin
-      Config_Server;
-      Register_Dispatcher;
-
-      AWS.Server.Start
-        (Web_Server => Server, Dispatcher => Dispatcher,
-         Config     => Server_Conf);
-
-   exception
-      when AWS.Net.Socket_Error =>
-         raise Program_Error with "could not start server";
-   end Start;
-
-   ----------
-   -- Stop --
-   ----------
-
-   procedure Stop is
-   begin
-      AWS.Server.Shutdown (Server);
-   end Stop;
-
-   ----------
-   -- Wait --
-   ----------
-
-   procedure Wait is
-   begin
-      AWS.Server.Wait (AWS.Server.Q_Key_Pressed);
-   end Wait;
+      Dispatch;
+   end Run;
 
 end HostARM_Dispatcher;

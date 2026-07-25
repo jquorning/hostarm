@@ -1,6 +1,6 @@
 name = "hostarm"
-description = "Local hosting of Ada Reference Manual (ARM)"
-version = "26.5.1"
+description = "CGI provider for Ada Reference Manual (ARM)"
+version = "26.5.2"
 
 long-description = """
 HostARM is a local hosting of
@@ -40,24 +40,27 @@ maintainers = ["Jesper Quorning <jesper.quorning@gmail.com>"]
 maintainers-logins = ["jquorning"]
 licenses = "MIT"
 website = "https://github.com/jquorning/hostarm"
-tags = ["arm", "aarm", "reference", "manual"]
+tags = ["arm", "aarm", "reference", "manual", "ada202y"]
 
 executables = ["hostarm"]
 
-[[depends-on]]
-gnat = "<15"
+#[[depends-on]]
+#gnat = "<15"
 
 # See https://github.com/AdaCore/aws/issues/380
 # and https://github.com/alire-project/alire/issues/1710
-[depends-on.'case(os)'.windows]
-aws = "^23.0.0"
-xmlada = "^23.0.0"
-gnatcoll = "^23.0.0"
+#[depends-on.'case(os)'.windows]
+#aws = "^23.0.0"
+#xmlada = "^23.0.0"
+#gnatcoll = "^23.0.0"
 
-[depends-on.'case(os)'.'...']
-aws = "^24.0.0"
-xmlada = "^24.0.0"
-gnatcoll = "^24.0.0"
+#[depends-on.'case(os)'.'...']
+#aws = "^24.0.0"
+#xmlada = "^24.0.0"
+#gnatcoll = "^24.0.0"
 
 [[depends-on]]
 resources = "=0.1.0"
+
+[[depends-on]]
+templates_parser = "^26.0.0"
