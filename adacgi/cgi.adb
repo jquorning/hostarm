@@ -697,7 +697,10 @@ is
    begin
       if Cookie_Data /= null then
          for I in 1 .. Cookie_Data'Last loop
-            if Cookie_Data.all (I).Key = Key then
+            if
+              Ada.Strings.Unbounded.Trim (Cookie_Data.all (I).Key,
+                                          Side => Ada.Strings.Both) = Key
+            then
                if Index = My_Index then
                   return Cookie_Data.all (I).Value;
                else

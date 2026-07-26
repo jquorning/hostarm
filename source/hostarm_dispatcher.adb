@@ -356,7 +356,7 @@ package body HostARM_Dispatcher is
       --  Nothing to pyne but inserts navigation header
 
       if CGI_Method = Post then
-         Cookie.Set (State);
+         Cookie.Set_Cookies (State);
       end if;
 
       RFC3875.Put_CGI_Header ("Content-type: text/html");

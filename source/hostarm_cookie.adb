@@ -20,44 +20,75 @@ package body HostARM_Cookie is
    is
       use Config;
    begin
-      State :=
-         (Manual =>
-            ARM_Version'Value (Cookie_Value (Key_Manual,
-                                             Required => True)),
-          Pyne_Nav_Top    =>
-            Boolean'Value (Cookie_Value (Key_Pyne_Nav_Top,
-                                         Required => True)),
-          Pyne_Nav_Bottom =>
-            Boolean'Value (Cookie_Value (Key_Pyne_Nav_Bottom,
-                                         Required => True)),
-          Pyne_Banner     =>
-            Boolean'Value (Cookie_Value (Key_Pyne_Banner,
-                                         Required => True)),
-          Pyne_Sponsor    =>
-            Boolean'Value (Cookie_Value (Key_Pyne_Sponsor,
-                                         Required => True)),
-          Modernize       =>
-            Boolean'Value (Cookie_Value (Key_Modernize,
-                                         Required => True))
-         );
+      State := (
+         Manual => ARM_Version'Value (Cookie_Value (
+            Key      => Key_Manual,
+            Required => True)),
+
+         Pyne_Nav_Top => Boolean'Value (Cookie_Value (
+            Key      => Key_Pyne_Nav_Top,
+            Required => True)),
+
+         Pyne_Nav_Bottom => Boolean'Value (Cookie_Value (
+            Key      => Key_Pyne_Nav_Bottom,
+            Required => True)),
+
+         Pyne_Banner => Boolean'Value (Cookie_Value (
+            Key      => Key_Pyne_Banner,
+            Required => True)),
+
+         Pyne_Sponsor => Boolean'Value (Cookie_Value (
+            Key      => Key_Pyne_Sponsor,
+            Required => True)),
+
+         Modernize => Boolean'Value (Cookie_Value (
+            Key      => Key_Modernize,
+            Required => True))
+      );
+
    exception when others =>
       State := Config.Default_State;
    end Get_Or_Default;
 
-   ---------
-   -- Set --
-   ---------
+   -----------------
+   -- Set_Cookies --
+   -----------------
 
-   procedure Set (State : in Config.State_Type)
+   procedure Set_Cookies (State : in Config.State_Type)
    is
       use Config;
+
+      Expires : constant String := "Fri, 05 Jun 2037 15:30:00 GMT";
    begin
-      Set_Cookie (Key_Manual,          ARM_Version'Image (State.Manual));
-      Set_Cookie (Key_Pyne_Nav_Top,    Boolean'Image (State.Pyne_Nav_Top));
-      Set_Cookie (Key_Pyne_Nav_Bottom, Boolean'Image (State.Pyne_Nav_Bottom));
-      Set_Cookie (Key_Pyne_Banner,     Boolean'Image (State.Pyne_Banner));
-      Set_Cookie (Key_Pyne_Sponsor,    Boolean'Image (State.Pyne_Sponsor));
-      Set_Cookie (Key_Modernize,       Boolean'Image (State.Modernize));
-   end Set;
+      Set_Cookie (
+         Key     => Key_Manual,
+         Value   => ARM_Version'Image (State.Manual),
+         Expires => Expires);
+
+      Set_Cookie (
+         Key     => Key_Pyne_Nav_Top,
+         Value   => Boolean'Image (State.Pyne_Nav_Top),
+         Expires => Expires);
+
+      Set_Cookie (
+         Key     => Key_Pyne_Nav_Bottom,
+         Value   => Boolean'Image (State.Pyne_Nav_Bottom),
+         Expires => Expires);
+
+      Set_Cookie (
+         Key     => Key_Pyne_Banner,
+         Value   => Boolean'Image (State.Pyne_Banner),
+         Expires => Expires);
+
+      Set_Cookie (
+         Key     => Key_Pyne_Sponsor,
+         Value   => Boolean'Image (State.Pyne_Sponsor),
+         Expires => Expires);
+
+      Set_Cookie (
+         Key     => Key_Modernize,
+         Value   => Boolean'Image (State.Modernize),
+         Expires => Expires);
+   end Set_Cookies;
 
 end HostARM_Cookie;
