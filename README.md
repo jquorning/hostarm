@@ -25,13 +25,51 @@ HostARM is distributed as an [Alire](https://alire.ada.dev) crate.
 alr install hostarm
 ```
 
-## Invocation
+## Apache configuration
 
-```sh
-nohup hostarm </dev/null >/dev/null 2>&1 &
+On Debian/Ubuntu put something like this into `/etc/apache2/sites-available/hostarm.conf`:
+
+```text
+<VirtualHost *:2778>
+    ServerName localhost
+    <Directory /var/www/html/>
+        Options +ExecCGI +FollowSymLinks -SymLinksIfOwnerMatch
+        AllowOverride None
+        Require all granted
+    </Directory>
+
+    <Files "hostarm">
+        SetHandler cgi-script
+    </Files>
+
+    RewriteEngine On
+    RewriteCond %{REQUEST_URI} !^/hostarm
+    RewriteRule ^/(.*)$ /hostarm/$1 [L]
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
 ```
-This will start HostARM as a daemon and the manuals are now accessible at
-[/localhost:2778/](http://localhost:2778/).
+
+Put the HostARM configuration on the list of enabled sites:
+`ln -s /etc/apache2/sites-available/hostarm.conf /etc/apache2/sites-enabled`
+
+Make Apache listen to port 2778:
+Add `Listen 2778` to `/etc/apache2/ports.conf`.
+
+Make HostARM availabe as CGI program:
+`ln -s /home/USER/.alire/bin/hostarm /var/www/html/`, with `USER` replaced.
+
+Reload the new Apache configuration:
+`systemclt reload apache2`
+ 
+HostARM should now be accessible at
+[/localhost:2778/](http://localhost:2778/home).
+
+
+## FAQ: Why 2778?
+2778 is decimal `16#Ada#`.
+
 
 ## Links
 
