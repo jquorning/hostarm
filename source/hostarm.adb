@@ -1,6 +1,5 @@
 
 with Ada.Command_Line;
-with Ada.Strings.Fixed;
 with Ada.Text_IO;
 
 with Resources;

@@ -66,6 +66,28 @@ package body HostARM_Dispatcher is
          Assoc ("MAN_AARM_202Y", Checked_If (State.Manual = AARM_202Y)));
    end Trans;
 
+   ----------------
+   -- Route_Path --
+   ----------------
+
+   function Route_Path return String is
+      use Ada.Strings.Fixed;
+
+      --  PATH_INFO is the part of the URL after the CGI script name
+      --  (e.g. "/RM-2012/RM-1.html" for a request to
+      --  ".../hostarm/RM-2012/RM-1.html"), which is what the routing
+      --  below expects. REQUEST_URI would still carry the script's own
+      --  path ("/hostarm") as a prefix, breaking every route match.
+      Full : constant String := RFC3875.Get_Environment ("PATH_INFO");
+      Mark : constant Natural := Index (Full, "?");
+   begin
+      if Mark = 0 then
+         return Full;
+      else
+         return Full (Full'First .. Mark - 1);
+      end if;
+   end Route_Path;
+
    --------------------
    -- Service_Search --
    --------------------
@@ -110,7 +132,7 @@ package body HostARM_Dispatcher is
    is
       use Tools;
 
-      URI      : constant String := Strip_Slash (RFC3875.My_URL);
+      URI      : constant String := Strip_Slash (Route_Path);
       Payload  : Tools.UString;
       Nav_Info : HostARM_Navigate.Nav_Info;
       State    : Config.State_Type;
@@ -147,7 +169,7 @@ package body HostARM_Dispatcher is
    is
       use Tools;
 
-      URI     : constant String := RFC3875.My_URL;
+      URI     : constant String := Route_Path;
       Name    : constant String := Config.Tipue_Base & URI;
       State   : Config.State_Type;
       Payload : Tools.UString;
@@ -188,7 +210,7 @@ package body HostARM_Dispatcher is
 
    procedure Service_CSS
    is
-      URI     : constant String := RFC3875.My_URL;
+      URI     : constant String := Route_Path;
       Name    : constant String := Config.Web_Base & URI;
       Payload : Tools.UString;
    begin
@@ -204,7 +226,7 @@ package body HostARM_Dispatcher is
 
    procedure Service_JPEG
    is
-      URI     : constant String := RFC3875.My_URL;
+      URI     : constant String := Route_Path;
       Name    : constant String := Config.Web_Base & URI;
       Payload : Tools.UString;
    begin
@@ -220,7 +242,7 @@ package body HostARM_Dispatcher is
 
    procedure Service_PNG
    is
-      URI     : constant String := RFC3875.My_URL;
+      URI     : constant String := Route_Path;
       Name    : constant String := Config.Web_Base & URI;
       Payload : Tools.UString;
    begin
@@ -236,7 +258,7 @@ package body HostARM_Dispatcher is
 
    procedure Service_GIF
    is
-      URI     : constant String := RFC3875.My_URL;
+      URI     : constant String := Route_Path;
       State   : Config.State_Type;
       Payload : Tools.UString;
    begin
@@ -258,7 +280,7 @@ package body HostARM_Dispatcher is
       use Ada.Strings.Fixed;
 
       Match   : constant String := ".html";
-      URI     : constant String := RFC3875.My_URL;
+      URI     : constant String := Route_Path;
       New_URI : constant String := Head (URI, URI'Length - Match'Length);
    begin
       RFC3875.Put_CGI_Header ("Location: " & New_URI);
@@ -349,6 +371,10 @@ package body HostARM_Dispatcher is
 
       use Ada.Strings;
 
+      -----------------
+      -- Head_Equals --
+      -----------------
+
       function Head_Equals (Item : String; Pattern : String) return Boolean is
       begin
          if Item'Length < Pattern'Length then
@@ -357,6 +383,10 @@ package body HostARM_Dispatcher is
 
          return Item (Item'First .. Pattern'Length) = Pattern;
       end Head_Equals;
+
+      ---------------
+      -- Tail_From --
+      ---------------
 
       function Tail_From (Item : String; Pattern : String) return String is
          Pos : constant Natural :=
@@ -369,7 +399,7 @@ package body HostARM_Dispatcher is
          return Item (Pos + Pattern'Length .. Item'Last);
       end Tail_From;
 
-      URL : constant String := RFC3875.My_URL;
+      URL : constant String := Route_Path;
       Ext : constant String := Tail_From (URL, Pattern => ".");
    begin
       if URL = "/search"    then  Service_Search; --  Prefix => True);

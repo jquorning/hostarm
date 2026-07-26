@@ -96,12 +96,7 @@
 
 <div class="item24">
 <h2>Feedback</h2>
-<p class="item24-p">For <a href="https://github.com/jquorning/hostarm/discussions">questions</a>,
-  <a href="https://github.com/jquorning/hostarm/issues">bug
-  reports</a>, <a href="https://github.com/jquorning/hostarm/issues">feature
-  requests</a>,
-  and <a href="https://github.com/jquorning/hostarm/discussions">user
-  stories</a>, please visit
+<p class="item24-p">For bug reports, requests, and stories, visit
   the <a href="https://github.com/jquorning/hostarm">project
   website</a>.</p>
 <p>Version: @_PROGRAM_NAME_@ (@_PROGRAM_VERSION_@)</p>
