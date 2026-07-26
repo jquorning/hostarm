@@ -3,7 +3,7 @@
 
 ![Badge](https://img.shields.io/endpoint?url=https://alire.ada.dev/badges/hostarm.json)
 
-HostARM is a local hosting of
+HostARM is a CGI program providing
 - Ada Reference Manual 2012
 - Ada Reference Manual 2022
 - Annotated Ada Reference Manual 202Y (Draft 5)
@@ -27,7 +27,7 @@ alr install hostarm
 
 ## Apache configuration
 
-On Debian/Ubuntu put something like this into `/etc/apache2/sites-available/hostarm.conf`:
+On Debian/Ubuntu put this into `/etc/apache2/sites-available/hostarm.conf`:
 
 ```text
 <VirtualHost *:2778>
@@ -51,20 +51,20 @@ On Debian/Ubuntu put something like this into `/etc/apache2/sites-available/host
 </VirtualHost>
 ```
 
-Put the HostARM configuration on the list of enabled sites:
+Put HostARM configuration on the list of enabled sites:  
 `ln -s /etc/apache2/sites-available/hostarm.conf /etc/apache2/sites-enabled`
 
-Make Apache listen to port 2778:
+Make Apache listen to port 2778:  
 Add `Listen 2778` to `/etc/apache2/ports.conf`.
 
-Make HostARM availabe as CGI program:
+Make HostARM availabe as CGI program:  
 `ln -s /home/USER/.alire/bin/hostarm /var/www/html/`, with `USER` replaced.
 
-Reload the new Apache configuration:
+Reload the new Apache configuration:  
 `systemclt reload apache2`
  
-HostARM should now be accessible at
-[/localhost:2778/](http://localhost:2778/home).
+HostARM should now be accessible at  
+[/localhost:2778/hom](http://localhost:2778/home).
 
 
 ## FAQ: Why 2778?
@@ -73,9 +73,8 @@ HostARM should now be accessible at
 
 ## Links
 
-Alire [crate](https://alire.ada.dev/crates/hostarm).
-
-[Project website](https://github.com/jquorning/hostarm).
+- Alire [crate](https://alire.ada.dev/crates/hostarm).
+- [Project website](https://github.com/jquorning/hostarm).
 
 ## Screenshot
 
