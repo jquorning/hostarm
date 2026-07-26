@@ -60,17 +60,21 @@ Put this into `/etc/apache2/sites-available/hostarm.conf`:
 </VirtualHost>
 ```
 
+Enable the required Apache modules (`mod_cgid` rather than `mod_cgi`, since
+the default `mpm_event` MPM is not compatible with `mod_cgi`):  
+`a2enmod rewrite cgid`
+
 Put HostARM configuration on the list of enabled sites:  
 `ln -s /etc/apache2/sites-available/hostarm.conf /etc/apache2/sites-enabled`
 
 Make Apache listen to port 2778:  
 Add `Listen 2778` to `/etc/apache2/ports.conf`.
 
-Make HostARM availabe as CGI program:  
+Make HostARM available as CGI program:  
 `ln -s /home/USER/.alire/bin/hostarm /var/www/html/`, with `USER` replaced.
 
 Reload the new Apache configuration:  
-`systemclt reload apache2`
+`systemctl reload apache2`
 
 
 ## Links
