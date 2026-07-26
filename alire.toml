@@ -3,7 +3,7 @@ description = "CGI provider for Ada Reference Manual (ARM)"
 version = "26.5.2"
 
 long-description = """
-HostARM is CGI program providing
+HostARM is a CGI program providing
 - Ada Reference Manual 2012
 - Ada Reference Manual 2022
 - Annotated Ada Reference Manual 202Y (Draft 5)
