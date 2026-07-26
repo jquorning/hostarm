@@ -30,7 +30,10 @@ alr install hostarm
 This applies to Debian/Ubuntu.
  
 After configuration of Apache, HostARM should be accessible at  
-[/localhost:2778/hom](http://localhost:2778/home).
+[/localhost:2778/home](http://localhost:2778/home).
+
+#### Why 2778?
+2778 is decimal `16#Ada#`.
 
 #### Configuration
 
@@ -68,9 +71,6 @@ Make HostARM availabe as CGI program:
 
 Reload the new Apache configuration:  
 `systemclt reload apache2`
-
-#### Why 2778?
-2778 is decimal `16#Ada#`.
 
 
 ## Links
